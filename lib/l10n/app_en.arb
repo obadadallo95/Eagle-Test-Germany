@@ -1,0 +1,835 @@
+{
+  "@@locale": "en",
+  "appTitle": "Eagle Test: Germany",
+  "@appTitle": {
+    "description": "The application title"
+  },
+  "startExam": "Start Exam",
+  "@startExam": {
+    "description": "Button to start the exam"
+  },
+  "quickPractice": "Quick Practice",
+  "@quickPractice": {
+    "description": "Button for quick practice mode"
+  },
+  "stats": "Statistics",
+  "@stats": {
+    "description": "Statistics section"
+  },
+  "settings": "Settings",
+  "@settings": {
+    "description": "Settings section"
+  },
+  "language": "Language",
+  "@language": {
+    "description": "Language selection"
+  },
+  "theme": "Theme",
+  "@theme": {
+    "description": "Theme selection"
+  },
+  "daysLeft": "{count} Days Left",
+  "@daysLeft": {
+    "description": "Days remaining until exam",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyGoal": "Daily Goal",
+  "@dailyGoal": {
+    "description": "Daily study goal"
+  },
+  "streak": "Day Streak",
+  "@streak": {
+    "description": "Study streak counter"
+  },
+  "reviewMistakes": "Review Mistakes",
+  "@reviewMistakes": {
+    "description": "Button to review mistakes"
+  },
+  "next": "Next",
+  "@next": {
+    "description": "Next button"
+  },
+  "confirm": "Confirm",
+  "@confirm": {
+    "description": "Confirm button"
+  },
+  "passed": "Passed!",
+  "@passed": {
+    "description": "Passed exam message"
+  },
+  "failed": "Failed",
+  "@failed": {
+    "description": "Failed exam message"
+  },
+  "selectState": "Select your State",
+  "@selectState": {
+    "description": "Select state prompt"
+  },
+  "examDate": "Exam Date",
+  "@examDate": {
+    "description": "Exam date label"
+  },
+  "save": "Save",
+  "@save": {
+    "description": "Save button"
+  },
+  "fullExam": "Full Exam",
+  "@fullExam": {
+    "description": "Full exam mode"
+  },
+  "driveMode": "Drive Mode",
+  "@driveMode": {
+    "description": "Drive mode for hands-free learning"
+  },
+  "reviewDue": "Review Due",
+  "@reviewDue": {
+    "description": "Review due questions"
+  },
+  "yourGoal": "Your Goal",
+  "@yourGoal": {
+    "description": "Daily goal label"
+  },
+  "questions": "{count} Questions",
+  "@questions": {
+    "description": "Number of questions",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "question": "{count} Question",
+  "@question": {
+    "description": "Single question",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Welcome message"
+  },
+  "selectBundesland": "Select your Bundesland",
+  "@selectBundesland": {
+    "description": "Select German state"
+  },
+  "whenIsExam": "When is your exam?",
+  "@whenIsExam": {
+    "description": "Exam date question"
+  },
+  "letsStart": "Let's Start!",
+  "@letsStart": {
+    "description": "Start button"
+  },
+  "examMode": "Exam Mode",
+  "@examMode": {
+    "description": "Exam mode title"
+  },
+  "questionLabel": "Question {current}/{total}",
+  "@questionLabel": {
+    "description": "Question counter",
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "nextQuestion": "Next Question",
+  "@nextQuestion": {
+    "description": "Next question button"
+  },
+  "finishExam": "Finish Exam",
+  "@finishExam": {
+    "description": "Finish exam button"
+  },
+  "examCompleted": "Exam Completed!",
+  "@examCompleted": {
+    "description": "Exam completion message"
+  },
+  "showArabic": "Show Arabic Translation",
+  "@showArabic": {
+    "description": "Show Arabic translation button"
+  },
+  "hideArabic": "Hide Arabic",
+  "@hideArabic": {
+    "description": "Hide Arabic translation button"
+  },
+  "noQuestions": "No questions loaded.",
+  "@noQuestions": {
+    "description": "No questions available message"
+  },
+  "glossary": "Glossary",
+  "@glossary": {
+    "description": "Glossary dictionary"
+  },
+  "general": "General",
+  "@general": {
+    "description": "General settings section"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Dark mode setting"
+  },
+  "audio": "Audio",
+  "@audio": {
+    "description": "Audio settings section"
+  },
+  "speakingSpeed": "Speaking Speed",
+  "@speakingSpeed": {
+    "description": "TTS speaking speed setting"
+  },
+  "data": "Data",
+  "@data": {
+    "description": "Data settings section"
+  },
+  "resetProgress": "Reset Progress",
+  "@resetProgress": {
+    "description": "Reset progress button"
+  },
+  "resetProgressMessage": "Are you sure you want to reset all your progress? This action cannot be undone.",
+  "@resetProgressMessage": {
+    "description": "Reset progress confirmation message"
+  },
+  "cancel": "Cancel",
+  "@cancel": {
+    "description": "Cancel button"
+  },
+  "progressReset": "Progress reset successfully",
+  "@progressReset": {
+    "description": "Progress reset success message"
+  },
+  "legal": "Legal",
+  "@legal": {
+    "description": "Legal section"
+  },
+  "privacyPolicy": "Privacy Policy",
+  "@privacyPolicy": {
+    "description": "Privacy policy title"
+  },
+  "datenschutz": "Datenschutz",
+  "@datenschutz": {
+    "description": "German for privacy"
+  },
+  "termsOfUse": "Terms of Use",
+  "@termsOfUse": {
+    "description": "Terms of use title"
+  },
+  "nutzungsbedingungen": "Nutzungsbedingungen",
+  "@nutzungsbedingungen": {
+    "description": "German for terms of use"
+  },
+  "intellectualProperty": "Intellectual Property",
+  "@intellectualProperty": {
+    "description": "Intellectual property title"
+  },
+  "geistigesEigentum": "Geistiges Eigentum",
+  "@geistigesEigentum": {
+    "description": "German for intellectual property"
+  },
+  "impressum": "Impressum",
+  "@impressum": {
+    "description": "Impressum title"
+  },
+  "legalInformation": "Legal Information",
+  "@legalInformation": {
+    "description": "Legal information label"
+  },
+  "printExam": "Print Exam",
+  "@printExam": {
+    "description": "Print exam PDF button"
+  },
+  "searchGlossary": "Search glossary...",
+  "@searchGlossary": {
+    "description": "Search glossary placeholder"
+  },
+  "chooseLanguage": "Choose your preferred language for studying",
+  "@chooseLanguage": {
+    "description": "Language selection subtitle"
+  },
+  "setupComplete": "Setup Complete!",
+  "@setupComplete": {
+    "description": "Setup completion message"
+  },
+  "tapToSelect": "Tap to select",
+  "@tapToSelect": {
+    "description": "Tap to select prompt"
+  },
+  "completeAllSteps": "Please complete all steps",
+  "@completeAllSteps": {
+    "description": "Complete all steps message"
+  },
+  "back": "Back",
+  "@back": {
+    "description": "Back button"
+  },
+  "notifications": "Notifications",
+  "dailyReminder": "Daily Reminder",
+  "dailyReminderDescription": "Get reminded to study daily",
+  "reminderTime": "Time",
+  "reminderEnabled": "Daily reminder enabled",
+  "reminderDisabled": "Daily reminder disabled",
+  "reminderTimeUpdated": "Reminder time updated",
+  "about": "About",
+  "appVersion": "Version",
+  "rateApp": "Rate App",
+  "rateAppDescription": "If you like the app, please rate it in the store",
+  "theme": "Theme",
+  "@theme": {
+    "description": "Theme setting title"
+  },
+  "themeLight": "Light",
+  "@themeLight": {
+    "description": "Light theme option"
+  },
+  "themeLightDesc": "Light mode",
+  "@themeLightDesc": {
+    "description": "Light theme description"
+  },
+  "themeDark": "Dark",
+  "@themeDark": {
+    "description": "Dark theme option"
+  },
+  "themeDarkDesc": "Dark mode",
+  "@themeDarkDesc": {
+    "description": "Dark theme description"
+  },
+  "themeSystem": "System",
+  "@themeSystem": {
+    "description": "System theme option"
+  },
+  "themeSystemDesc": "Follow system settings",
+  "@themeSystemDesc": {
+    "description": "System theme description"
+  },
+  "quitExam": "Quit Exam?",
+  "@quitExam": {
+    "description": "Quit exam confirmation title"
+  },
+  "quitExamMessage": "Your progress will be lost.",
+  "@quitExamMessage": {
+    "description": "Quit exam warning message"
+  },
+  "stay": "Stay",
+  "@stay": {
+    "description": "Stay in exam button"
+  },
+  "quit": "Quit",
+  "@quit": {
+    "description": "Quit exam button"
+  },
+  "dangerZone": "Danger Zone",
+  "@dangerZone": {
+    "description": "Danger zone section title"
+  },
+  "resetAppData": "Reset App Data",
+  "@resetAppData": {
+    "description": "Reset app data button"
+  },
+  "resetAppDataDescription": "This will delete all app data and cannot be undone",
+  "@resetAppDataDescription": {
+    "description": "Reset app data warning"
+  },
+  "factoryReset": "Factory Reset?",
+  "@factoryReset": {
+    "description": "Factory reset confirmation title"
+  },
+  "factoryResetMessage": "This will delete ALL app data including:",
+  "@factoryResetMessage": {
+    "description": "Factory reset warning message"
+  },
+  "allProgressAndAnswers": "All progress and answers",
+  "@allProgressAndAnswers": {
+    "description": "All progress and answers label"
+  },
+  "studyHistory": "Study history",
+  "@studyHistory": {
+    "description": "Study history label"
+  },
+  "streaks": "Streaks",
+  "@streaks": {
+    "description": "Streaks label"
+  },
+  "cannotBeUndone": "This action CANNOT be undone!",
+  "@cannotBeUndone": {
+    "description": "Cannot be undone warning"
+  },
+  "resetEverything": "Reset Everything",
+  "@resetEverything": {
+    "description": "Reset everything button"
+  },
+  "appDataResetSuccess": "App data reset successfully",
+  "@appDataResetSuccess": {
+    "description": "App data reset success message"
+  },
+  "errorResettingApp": "Error resetting app:",
+  "@errorResettingApp": {
+    "description": "Error resetting app message"
+  },
+  "totalLearned": "Total Learned",
+  "@totalLearned": {
+    "description": "Total learned questions label"
+  },
+  "ofQuestions": "of 310 questions",
+  "@ofQuestions": {
+    "description": "Of questions label"
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "description": "Dashboard tab label"
+  },
+  "learn": "Learn",
+  "@learn": {
+    "description": "Learn tab label"
+  },
+  "explainWithAi": "Explain with AI",
+  "upgradeToPro": "Upgrade to Pro",
+  "unlockAiTutor": "Unlock AI Tutor",
+  "upgrade": "Upgrade",
+  "upgradeToProMessage": "Upgrade to Pro to unlock AI Tutor and get personalized explanations for all questions.",
+  "aiTutorDailyLimitReached": "You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.",
+  "aiExplanation": "AI Explanation",
+  "aiThinking": "AI is thinking...",
+  "errorLoadingExplanation": "Error loading explanation",
+  "reviewAnswers": "Review Answers",
+  "@reviewAnswers": {
+    "description": "Button to review all exam answers"
+  },
+  "mistakesOnly": "Mistakes Only",
+  "@mistakesOnly": {
+    "description": "Filter toggle to show only wrong answers"
+  },
+  "aboutMultiLanguageTitle": "Multi-language Mastery",
+  "aboutMultiLanguageSubtitle": "6 Sprachen",
+  "aboutMultiLanguageDescription": "Solving the language barrier. Learn in the language you understand best.",
+  "aboutTranslationTitle": "Smart Context Translation",
+  "aboutTranslationSubtitle": "Präzise Übersetzung",
+  "aboutTranslationDescription": "Solving misunderstanding. Accurate translations of complex legal terms to ensure correct understanding.",
+  "aboutAiTutorTitle": "Eagle AI Tutor",
+  "aboutAiTutorSubtitle": "KI-Assistent",
+  "aboutAiTutorDescription": "Solving confusion. Instant explanations for every question in your native language to help you understand mistakes and correct them.",
+  "aboutPaperExamTitle": "Print & Practice Offline",
+  "aboutPaperExamSubtitle": "Real Exam Simulation",
+  "aboutPaperExamDescription": "Generate official PDF exams. Train with pen and paper like the real test.",
+  "aboutDevelopedWith": "Developed with ❤️",
+  "aboutRateUs": "Rate Us",
+  "aboutSupport": "Support",
+  "aboutWebsite": "Website",
+  "aboutLoadingVersion": "Loading...",
+  "aboutRoadmapTitle": "The Future",
+  "aboutRoadmapSubtitle": "Die Zukunft",
+  "aboutRoadmapVoiceCoach": "AI Voice Coach",
+  "aboutRoadmapVoiceCoachDesc": "Pronunciation Training",
+  "aboutRoadmapLiveBattles": "Live Battles",
+  "aboutRoadmapLiveBattlesDesc": "Multiplayer Mode",
+  "aboutRoadmapBureaucracyBot": "Bureaucracy Bot",
+  "aboutRoadmapBureaucracyBotDesc": "Form Helper",
+  "glossaryTapToFlip": "Tap to flip",
+  "glossaryPrevious": "Previous",
+  "glossaryNext": "Next",
+  "glossaryPronounce": "Pronounce",
+  "glossaryListView": "List View",
+  "glossaryFlashcards": "Flashcards",
+  "glossarySearchPlaceholder": "Search glossary...",
+  "glossaryNoTermsAvailable": "No terms available",
+  "glossaryNoTermsFound": "No terms found",
+  "glossaryDefinition": "Definition:",
+  "glossaryExample": "Example:",
+  "glossaryShowInQuestionContext": "Show in Question Context",
+  "glossaryRelatedQuestions": "Questions related to",
+  "statsOverview": "Overview",
+  "statsProgress": "Progress",
+  "statsToday": "Today",
+  "statsMastered": "Mastered",
+  "statsMinutes": "minutes",
+  "statsQuestions": "questions",
+  "statsDays": "days",
+  "statsDay": "day",
+  "statsProgressCharts": "Progress Charts",
+  "statsWeeklyStudyTime": "Weekly Study Time",
+  "statsExamScoresOverTime": "Exam Scores Over Time",
+  "statsCategoryMastery": "Category Mastery",
+  "statsSrsInsights": "SRS Insights",
+  "statsDue": "Due",
+  "statsEasy": "Easy",
+  "statsNew": "New",
+  "statsHard": "Hard",
+  "statsGood": "Good",
+  "statsExamPerformance": "Exam Performance",
+  "statsAverageScore": "Average Score",
+  "statsCompleted": "Completed",
+  "statsBestScore": "Best Score",
+  "statsPassRate": "Pass Rate",
+  "statsStudyHabits": "Study Habits",
+  "statsAvgSession": "Avg Session",
+  "statsMin": "min",
+  "statsActiveDays": "Active Days",
+  "statsSmartInsights": "Smart Insights",
+  "statsRecommendations": "Recommendations",
+  "statsRecentExams": "Recent Exams",
+  "statsRefresh": "Refresh",
+  "statsInsightDueQuestions": "You have {count} questions due for review",
+  "@statsInsightDueQuestions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsInsightFocusNew": "Focus on new questions to boost your progress",
+  "statsInsightKeepPracticing": "Keep practicing! Average score: {score}%",
+  "@statsInsightKeepPracticing": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "statsInsightExcellentStreak": "Excellent! You're maintaining a study habit ({days} days)",
+  "@statsInsightExcellentStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "statsInsightKeepStudying": "Keep studying to get smart insights",
+  "statsScore": "Score",
+  "paperExam": "Paper Exam",
+  "@paperExam": {
+    "description": "Paper exam feature title"
+  },
+  "paperExamSimulation": "Paper Exam Simulation",
+  "@paperExamSimulation": {
+    "description": "Paper exam simulation title"
+  },
+  "paperExamDescription": "Generate a realistic PDF exam for printing",
+  "@paperExamDescription": {
+    "description": "Paper exam description"
+  },
+  "paperExamConfiguration": "Configuration",
+  "@paperExamConfiguration": {
+    "description": "Configuration section title"
+  },
+  "paperExamState": "State / Bundesland",
+  "@paperExamState": {
+    "description": "State selection label"
+  },
+  "paperExamGeneral": "General (No State)",
+  "@paperExamGeneral": {
+    "description": "General state option"
+  },
+  "paperExamIncludeSolutions": "Include Answer Key",
+  "@paperExamIncludeSolutions": {
+    "description": "Include solutions switch label"
+  },
+  "paperExamIncludeSolutionsDesc": "Lösungsschlüssel beifügen",
+  "@paperExamIncludeSolutionsDesc": {
+    "description": "Include solutions description in German"
+  },
+  "paperExamShuffle": "Shuffle Questions",
+  "@paperExamShuffle": {
+    "description": "Shuffle questions switch label"
+  },
+  "paperExamShuffleDesc": "Fragen mischen",
+  "@paperExamShuffleDesc": {
+    "description": "Shuffle questions description in German"
+  },
+  "paperExamGenerate": "Generate PDF 📄",
+  "@paperExamGenerate": {
+    "description": "Generate PDF button"
+  },
+  "paperExamGenerating": "Generating...",
+  "@paperExamGenerating": {
+    "description": "Generating PDF message"
+  },
+  "paperExamPdfGenerated": "PDF Generated Successfully!",
+  "@paperExamPdfGenerated": {
+    "description": "PDF generated success message"
+  },
+  "paperExamPrint": "Print",
+  "@paperExamPrint": {
+    "description": "Print button"
+  },
+  "paperExamShare": "Share",
+  "@paperExamShare": {
+    "description": "Share button"
+  },
+  "paperExamScan": "Scan to Correct",
+  "@paperExamScan": {
+    "description": "Scan QR code button"
+  },
+  "scanExamTitle": "Scan QR Code",
+  "@scanExamTitle": {
+    "description": "Scan exam screen title"
+  },
+  "scanExamInstructions": "Position QR Code from PDF within frame",
+  "@scanExamInstructions": {
+    "description": "Scan exam instructions"
+  },
+  "scanExamProcessing": "Processing...",
+  "@scanExamProcessing": {
+    "description": "Scan exam processing message"
+  },
+  "paperCorrectionTitle": "Paper Exam Correction",
+  "@paperCorrectionTitle": {
+    "description": "Paper correction screen title"
+  },
+  "paperCorrectionInstructions": "Enter your answers from the paper",
+  "@paperCorrectionInstructions": {
+    "description": "Paper correction instructions"
+  },
+  "paperCorrectionAnswered": "answered",
+  "@paperCorrectionAnswered": {
+    "description": "Answered count label"
+  },
+  "paperCorrectionFinish": "Finish & Grade",
+  "@paperCorrectionFinish": {
+    "description": "Finish and grade button"
+  },
+  "paperCorrectionIncompleteTitle": "Incomplete Answers",
+  "@paperCorrectionIncompleteTitle": {
+    "description": "Incomplete answers dialog title"
+  },
+  "paperCorrectionIncompleteMessage": "You have not answered all questions. Continue anyway?",
+  "@paperCorrectionIncompleteMessage": {
+    "description": "Incomplete answers dialog message"
+  },
+  "paperExamWidgetDescription": "Print & Practice Offline",
+  "@paperExamWidgetDescription": {
+    "description": "Paper exam widget description"
+  },
+  "paperExamTutorialTitle": "How to Use Paper Exam",
+  "@paperExamTutorialTitle": {
+    "description": "Paper exam tutorial title"
+  },
+  "paperExamTutorialStep1Title": "Create PDF",
+  "@paperExamTutorialStep1Title": {
+    "description": "Tutorial step 1 title"
+  },
+  "paperExamTutorialStep1Desc": "Tap \"Paper Exam\", choose settings (state, shuffle, include solutions), then tap \"Generate PDF\"",
+  "@paperExamTutorialStep1Desc": {
+    "description": "Tutorial step 1 description"
+  },
+  "paperExamTutorialStep2Title": "Print PDF",
+  "@paperExamTutorialStep2Title": {
+    "description": "Tutorial step 2 title"
+  },
+  "paperExamTutorialStep2Desc": "Print the PDF on paper. There will be a QR Code at the top of the page",
+  "@paperExamTutorialStep2Desc": {
+    "description": "Tutorial step 2 description"
+  },
+  "paperExamTutorialStep3Title": "Answer on Paper",
+  "@paperExamTutorialStep3Title": {
+    "description": "Tutorial step 3 title"
+  },
+  "paperExamTutorialStep3Desc": "Answer the questions using pen and paper, just like the real exam",
+  "@paperExamTutorialStep3Desc": {
+    "description": "Tutorial step 3 description"
+  },
+  "paperExamTutorialStep4Title": "Scan QR Code",
+  "@paperExamTutorialStep4Title": {
+    "description": "Tutorial step 4 title"
+  },
+  "paperExamTutorialStep4Desc": "Open the app, go to \"Paper Exam\", tap \"Scan to Correct\", and scan the QR Code from the paper",
+  "@paperExamTutorialStep4Desc": {
+    "description": "Tutorial step 4 description"
+  },
+  "paperExamTutorialStep5Title": "Enter Answers & Get Score",
+  "@paperExamTutorialStep5Title": {
+    "description": "Tutorial step 5 title"
+  },
+  "paperExamTutorialStep5Desc": "Quickly enter your answers from the paper into the app and get your score instantly",
+  "@paperExamTutorialStep5Desc": {
+    "description": "Tutorial step 5 description"
+  },
+  "chooseTopic": "Choose Topic",
+  "@chooseTopic": {
+    "description": "Topic selection screen title"
+  },
+  "topicSystem": "Political System",
+  "@topicSystem": {
+    "description": "Political system topic title"
+  },
+  "topicRights": "Basic Rights",
+  "@topicRights": {
+    "description": "Basic rights topic title"
+  },
+  "topicHistory": "German History",
+  "@topicHistory": {
+    "description": "German history topic title"
+  },
+  "topicSociety": "Society",
+  "@topicSociety": {
+    "description": "Society topic title"
+  },
+  "topicEurope": "Germany in Europe",
+  "@topicEurope": {
+    "description": "Germany in Europe topic title"
+  },
+  "topicWelfare": "Work & Education",
+  "@topicWelfare": {
+    "description": "Work and education topic title"
+  },
+  "learned": "Learned",
+  "@learned": {
+    "description": "Number of learned questions"
+  },
+  "correct": "Correct",
+  "@correct": {
+    "description": "Number of correct answers"
+  },
+  "topicQuestions": "Topic Questions",
+  "@topicQuestions": {
+    "description": "Topic questions screen title"
+  },
+  "noQuestionsForTopic": "No questions available for this topic",
+  "@noQuestionsForTopic": {
+    "description": "Message when no questions available for topic"
+  },
+  "allTopicsReviewed": "Great job! All questions reviewed. 🎉",
+  "@allTopicsReviewed": {
+    "description": "Message when all topic questions are reviewed"
+  },
+  "topics": "Topics",
+  "@topics": {
+    "description": "Topics section title"
+  },
+  "topicStatistics": "Topic Statistics",
+  "@topicStatistics": {
+    "description": "Topic statistics section title"
+  },
+  "totalQuestions": "Total Questions",
+  "@totalQuestions": {
+    "description": "Total questions label"
+  },
+  "questionsAnswered": "Questions Answered",
+  "@questionsAnswered": {
+    "description": "Questions answered label"
+  },
+  "accuracyRate": "Accuracy Rate",
+  "@accuracyRate": {
+    "description": "Accuracy rate label"
+  },
+  "mostStudiedTopic": "Most Studied Topic",
+  "@mostStudiedTopic": {
+    "description": "Most studied topic label"
+  },
+  "leastStudiedTopic": "Least Studied Topic",
+  "@leastStudiedTopic": {
+    "description": "Least studied topic label"
+  },
+  "availableFeatures": "Available Features",
+  "@availableFeatures": {
+    "description": "Available features section title"
+  },
+  "freePlan": "Free",
+  "@freePlan": {
+    "description": "Free plan label"
+  },
+  "accessToAllQuestions": "Access to all questions",
+  "@accessToAllQuestions": {
+    "description": "Access to all questions feature"
+  },
+  "adsIfAvailable": "Ads (if available)",
+  "@adsIfAvailable": {
+    "description": "Ads if available feature"
+  },
+  "oneExamPerDay": "One exam per day",
+  "@oneExamPerDay": {
+    "description": "One exam per day feature"
+  },
+  "proSubscriptionPremium": "Pro Subscription (Premium)",
+  "@proSubscriptionPremium": {
+    "description": "Pro subscription premium label"
+  },
+  "unlimitedAiTutor": "Unlimited AI Tutor",
+  "@unlimitedAiTutor": {
+    "description": "Unlimited AI Tutor feature"
+  },
+  "pdfExamGeneration": "PDF Exam Generation",
+  "@pdfExamGeneration": {
+    "description": "PDF exam generation feature"
+  },
+  "noAds": "No Ads",
+  "@noAds": {
+    "description": "No ads feature"
+  },
+  "advancedSuccessStatistics": "Advanced Success Statistics",
+  "@advancedSuccessStatistics": {
+    "description": "Advanced success statistics feature"
+  },
+  "monthly": "Monthly",
+  "@monthly": {
+    "description": "Monthly subscription period"
+  },
+  "renewsMonthly": "Renews monthly",
+  "@renewsMonthly": {
+    "description": "Renews monthly description"
+  },
+  "threeMonths": "3 Months",
+  "yearly": "Yearly",
+  "@threeMonths": {
+    "description": "Three months subscription period"
+  },
+  "mostPopularForExams": "Most Popular for Exams",
+  "@mostPopularForExams": {
+    "description": "Most popular for exams description"
+  },
+  "lifetime": "Lifetime",
+  "@lifetime": {
+    "description": "Lifetime subscription period"
+  },
+  "oneTimePayment": "One-time payment",
+  "@oneTimePayment": {
+    "description": "One-time payment description"
+  },
+  "bestValue": "Best Value",
+  "@bestValue": {
+    "description": "Best value badge"
+  },
+  "activeSubscription": "Active Subscription",
+  "@activeSubscription": {
+    "description": "Active subscription status"
+  },
+  "upgradeForAdditionalFeatures": "Upgrade for additional features",
+  "@upgradeForAdditionalFeatures": {
+    "description": "Upgrade for additional features description"
+  },
+  "dailyChallenge": "🔥 Daily Challenge",
+  "challengeCompleted": "Challenge Completed!",
+  "challengeExcellent": "🌟 Excellent! You're a master!",
+  "challengeGreat": "🎉 Great job! Keep it up!",
+  "challengeGood": "👍 Good effort! Practice makes perfect!",
+  "challengeKeepGoing": "💪 Keep going! Every mistake is a lesson!",
+  "points": "points",
+  "accuracy": "Accuracy",
+  "time": "Time",
+  "done": "Done",
+  "exitChallenge": "Exit Challenge?",
+  "exitChallengeMessage": "Are you sure you want to exit? Your progress will be lost.",
+  "exit": "Exit",
+  "previous": "Previous",
+  "finish": "Finish",
+  "loading": "Loading...",
+  "errorLoadingQuestions": "Error loading questions",
+  "retry": "Retry",
+  "noQuestionsAvailable": "No questions available",
+  "completedToday": "Completed!",
+  "goBack": "Go Back",
+  "errorLoadingExam": "Error loading exam",
+  "topicState": "State Questions",
+  "selectStateFirst": "Please select a state first",
+  "aboutDailyChallengeTitle": "🔥 Daily Challenge",
+  "aboutDailyChallengeSubtitle": "Motivating Daily Learning",
+  "aboutDailyChallengeDescription": "Test yourself daily with 10 random questions and earn points for each correct answer. Celebrate your achievements with fun visual effects!"
+}
+

@@ -1,0 +1,13 @@
+flutter_native_splash:
+  color: "#FFFFFF"
+  image: assets/logo/app_logo.png  # استخدام الصورة الجديدة لـ Splash Screen
+  # إعدادات Android 12+ (لضمان عدم القص)
+  android_12:
+    image: assets/logo/app_logo.png  # استخدام الصورة الجديدة
+    color: "#FFFFFF"
+    image_dark: assets/logo/app_logo.png  # استخدام الصورة الجديدة
+    color_dark: "#FFFFFF"
+  # ملاحظة: يجب أن تكون الصورة مربعة (1024x1024) مع مساحة كافية حول المحتوى
+  # Android Adaptive Icon يقص 20% من كل جانب، لذا يجب وضع المحتوى في المنتصف 60%
+  fullscreen: true
+

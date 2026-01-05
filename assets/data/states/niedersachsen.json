@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20846,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Niedersachsen?",
+      "ar": "ما هي عاصمة ولاية ساكسونيا السفلى؟",
+      "en": "Which city is the capital of Lower Saxony?",
+      "tr": "Aşağı Saksonya'nın başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею Нижньої Саксонії?",
+      "ru": "Какой город является столицей Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Hamburg",
+          "ar": "هامبورغ",
+          "en": "Hamburg",
+          "tr": "Hamburg",
+          "uk": "Гамбург",
+          "ru": "Гамбург"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Hannover",
+          "ar": "هانوفر",
+          "en": "Hanover",
+          "tr": "Hannover",
+          "uk": "Ганновер",
+          "ru": "Ганновер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bremen",
+          "ar": "بريمن",
+          "en": "Bremen",
+          "tr": "Bremen",
+          "uk": "Бремен",
+          "ru": "Бремен"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Osnabrück",
+          "ar": "أوسنابروك",
+          "en": "Osnabrück",
+          "tr": "Osnabrück",
+          "uk": "Оснабрюк",
+          "ru": "Оснабрюк"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20847,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Welches Wappentier hat Niedersachsen?",
+      "ar": "ما هو الحيوان الموجود على شعار ساكسونيا السفلى؟",
+      "en": "Which heraldic animal does Lower Saxony have?",
+      "tr": "Aşağı Saksonya'nın arma hayvanı hangisidir?",
+      "uk": "Яка геральдична тварина є символом Нижньої Саксонії?",
+      "ru": "Какое геральдическое животное является символом Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Löwe",
+          "ar": "الأسد",
+          "en": "Lion",
+          "tr": "Aslan",
+          "uk": "Лев",
+          "ru": "Лев"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bär",
+          "ar": "الدب",
+          "en": "Bear",
+          "tr": "Ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Pferd",
+          "ar": "الحصان (Sachsenross)",
+          "en": "Horse",
+          "tr": "At",
+          "uk": "Кінь",
+          "ru": "Лошадь"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Adler",
+          "ar": "النسر",
+          "en": "Eagle",
+          "tr": "Kartal",
+          "uk": "Орел",
+          "ru": "Орел"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20848,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Niedersachsen?",
+      "ar": "أي ولاية اتحادية هي جارة لساكسونيا السفلى؟",
+      "en": "Which federal state is a neighbor of Lower Saxony?",
+      "tr": "Hangi eyalet Aşağı Saksonya'nın komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Нижньої Саксонії?",
+      "ru": "Какая федеральная земля является соседом Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bayern",
+          "ar": "بافاريا",
+          "en": "Bavaria",
+          "tr": "Bavyera",
+          "uk": "Баварія",
+          "ru": "Бавария"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bremen",
+          "ar": "بريمن",
+          "en": "Bremen",
+          "tr": "Bremen",
+          "uk": "Бремен",
+          "ru": "Бремен"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Berlin",
+          "ar": "برلين",
+          "en": "Berlin",
+          "tr": "Berlin",
+          "uk": "Берлін",
+          "ru": "Берлин"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Saarland",
+          "ar": "سارلاند",
+          "en": "Saarland",
+          "tr": "Saarland",
+          "uk": "Саар",
+          "ru": "Саар"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20849,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Wie heißt das Parlament von Niedersachsen?",
+      "ar": "ما هو اسم برلمان ساكسونيا السفلى؟",
+      "en": "What is the name of the parliament of Lower Saxony?",
+      "tr": "Aşağı Saksonya parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Нижньої Саксонії?",
+      "ru": "Как называется парламент Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "مجلس المواطنين",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Senat",
+          "ar": "مجلس الشيوخ",
+          "en": "Senate",
+          "tr": "Senato",
+          "uk": "Сенат",
+          "ru": "Сенат"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20850,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Ab welchem Alter darf man in Niedersachsen bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في ساكسونيا السفلى؟",
+      "en": "From what age are people allowed to vote in state elections in Lower Saxony?",
+      "tr": "Aşağı Saksonya'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Нижній Саксонії?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20851,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Niedersachsen?",
+      "ar": "ما هي ألوان علم ولاية ساكسونيا السفلى؟",
+      "en": "What are the colors of the state flag of Lower Saxony?",
+      "tr": "Aşağı Saksonya eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Нижня Саксонія?",
+      "ru": "Какого цвета флаг земли Нижняя Саксония?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Rot-Gold (mit Wappen)",
+          "ar": "أسود-أحمر-ذهبي (مع الشعار)",
+          "en": "Black-red-gold (with coat of arms)",
+          "tr": "Siyah-kırmızı-altın (armalı)",
+          "uk": "Чорно-червоно-золотий (з гербом)",
+          "ru": "Черно-красно-золотой (с гербом)"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Blau-Weiß",
+          "ar": "أزرق-أبيض",
+          "en": "Blue-white",
+          "tr": "Mavi-beyaz",
+          "uk": "Синьо-білий",
+          "ru": "Сине-белый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Weiß-Rot",
+          "ar": "أبيض-أحمر",
+          "en": "White-red",
+          "tr": "Beyaz-kırmızı",
+          "uk": "Біло-червоний",
+          "ru": "Бело-красный"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20852,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Niedersachsen?",
+      "ar": "ماذا يسمى رئيس الحكومة في ساكسونيا السفلى؟",
+      "en": "What is the head of government in Lower Saxony called?",
+      "tr": "Aşağı Saksonya'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Нижній Саксонії?",
+      "ru": "Как называют главу правительства в Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20853,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Niedersachsen gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في ساكسونيا السفلى؟",
+      "en": "For how many years is the state parliament in Lower Saxony elected?",
+      "tr": "Aşağı Saksonya Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Нижній Саксонії?",
+      "ru": "На сколько лет избирается ландтаг в Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20854,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Niedersachsen (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء ساكسونيا السفلى (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Lower Saxony (as of 2024)?",
+      "tr": "Aşağı Saksonya Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як звати прем'єр-міністра Нижньої Саксонії (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Нижней Саксонии (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Stephan Weil",
+          "ar": "شتيفان فايل",
+          "en": "Stephan Weil",
+          "tr": "Stephan Weil",
+          "uk": "Штефан Вайль",
+          "ru": "Штефан Вайль"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Daniel Günther",
+          "ar": "دانيال غونتر",
+          "en": "Daniel Günther",
+          "tr": "Daniel Günther",
+          "uk": "Даніель Гюнтер",
+          "ru": "Даниэль Гюнтер"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20855,
+    "category_id": "state",
+    "state_code": "NI",
+    "question": {
+      "de": "Welches ist ein Landkreis in Niedersachsen?",
+      "ar": "ما هو الاسم الذي يمثل دائرة ريفية (Landkreis) في ساكسونيا السفلى؟",
+      "en": "Which is a rural district in Lower Saxony?",
+      "tr": "Aşağı Saksonya'da hangisi bir kırsal ilçedir?",
+      "uk": "Який район є сільським районом у Нижній Саксонії?",
+      "ru": "Какой район является сельским районом в Нижней Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Emsland",
+          "ar": "إمسلاند",
+          "en": "Emsland",
+          "tr": "Emsland",
+          "uk": "Емсланд",
+          "ru": "Эмсланд"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Prignitz",
+          "ar": "بريغنيتس",
+          "en": "Prignitz",
+          "tr": "Prignitz",
+          "uk": "Прігніц",
+          "ru": "Пригниц"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Rhein-Sieg-Kreis",
+          "ar": "راين-زيغ-كرايس",
+          "en": "Rhein-Sieg-Kreis",
+          "tr": "Rhein-Sieg-Kreis",
+          "uk": "Райн-Зіг-Крайс",
+          "ru": "Рейн-Зиг-Крайс"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Vogtlandkreis",
+          "ar": "فوكتلاند كرايس",
+          "en": "Vogtlandkreis",
+          "tr": "Vogtlandkreis",
+          "uk": "Фогтландкрайс",
+          "ru": "Фогтландкрайс"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  }
+]

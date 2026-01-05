@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20801,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Mecklenburg-Vorpommern?",
+      "ar": "ما هي ألوان علم ولاية مكلنبورغ-فوربومرن؟",
+      "en": "What are the colors of the state flag of Mecklenburg-Western Pomerania?",
+      "tr": "Mecklenburg-Batı Pomeranya eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Мекленбург-Передня Померанія?",
+      "ru": "Какого цвета флаг земли Мекленбург-Передняя Померания?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Blau-Weiß-Rot",
+          "ar": "أزرق-أبيض-أحمر",
+          "en": "Blue-white-red",
+          "tr": "Mavi-beyaz-kırmızı",
+          "uk": "Синьо-біло-червоний",
+          "ru": "Сине-бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Blau-Weiß-Gelb-Weiß-Rot",
+          "ar": "أزرق-أبيض-أصفر-أبيض-أحمر",
+          "en": "Blue-white-yellow-white-red",
+          "tr": "Mavi-beyaz-sarı-beyaz-kırmızı",
+          "uk": "Синьо-біло-жовто-біло-червоний",
+          "ru": "Сине-бело-желто-бело-красный"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Schwarz-Rot-Gold",
+          "ar": "أسود-أحمر-ذهبي",
+          "en": "Black-red-gold",
+          "tr": "Siyah-kırmızı-altın",
+          "uk": "Чорно-червоно-золотий",
+          "ru": "Черно-красно-золотой"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Grün-Weiß",
+          "ar": "أخضر-أبيض",
+          "en": "Green-white",
+          "tr": "Yeşil-beyaz",
+          "uk": "Зелено-білий",
+          "ru": "Зелено-белый"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20802,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Was zeigen die Wappen von Mecklenburg-Vorpommern?",
+      "ar": "ماذا تظهر شعارات مكلنبورغ-فوربومرن؟",
+      "en": "What do the coats of arms of Mecklenburg-Western Pomerania show?",
+      "tr": "Mecklenburg-Batı Pomeranya armaları neyi gösterir?",
+      "uk": "Що зображено на гербах Мекленбурга-Передньої Померанії?",
+      "ru": "Что изображено на гербах Мекленбурга-Передней Померании?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bär und Löwe",
+          "ar": "دب وأسد",
+          "en": "Bear and lion",
+          "tr": "Ayı ve aslan",
+          "uk": "Ведмідь і лев",
+          "ru": "Медведь и лев"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Stierkopf und Greif",
+          "ar": "رأس ثور وعنقاء (غريفين)",
+          "en": "Bull's head and griffin",
+          "tr": "Boğa başı ve griffin",
+          "uk": "Голова бика і грифон",
+          "ru": "Голова быка и грифон"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Adler und Pferd",
+          "ar": "نسر وحصان",
+          "en": "Eagle and horse",
+          "tr": "Kartal ve at",
+          "uk": "Орел і кінь",
+          "ru": "Орел и лошадь"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schlüssel und Tor",
+          "ar": "مفتاح وبوابة",
+          "en": "Key and gate",
+          "tr": "Anahtar ve kapı",
+          "uk": "Ключ і ворота",
+          "ru": "Ключ и ворота"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20803,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Mecklenburg-Vorpommern?",
+      "ar": "أي ولاية اتحادية هي جارة لمكلنبورغ-فوربومرن؟",
+      "en": "Which federal state is a neighbor of Mecklenburg-Western Pomerania?",
+      "tr": "Hangi eyalet Mecklenburg-Batı Pomeranya'nın komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Мекленбурга-Передньої Померанії?",
+      "ru": "Какая федеральная земля является соседом Мекленбурга-Передней Померании?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Sachsen",
+          "ar": "ساكسونيا",
+          "en": "Saxony",
+          "tr": "Saksonya",
+          "uk": "Саксонія",
+          "ru": "Саксония"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bayern",
+          "ar": "بافاريا",
+          "en": "Bavaria",
+          "tr": "Bavyera",
+          "uk": "Баварія",
+          "ru": "Бавария"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Hessen",
+          "ar": "هيسن",
+          "en": "Hesse",
+          "tr": "Hessen",
+          "uk": "Гессен",
+          "ru": "Гессен"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20804,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Wie heißt die Landeshauptstadt von Mecklenburg-Vorpommern?",
+      "ar": "ما هو اسم عاصمة ولاية مكلنبورغ-فوربومرن؟",
+      "en": "What is the name of the capital of Mecklenburg-Western Pomerania?",
+      "tr": "Mecklenburg-Batı Pomeranya eyaletinin başkenti hangisidir?",
+      "uk": "Як називається столиця землі Мекленбург-Передня Померанія?",
+      "ru": "Как называется столица земли Мекленбург-Передняя Померания?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Rostock",
+          "ar": "روستوك",
+          "en": "Rostock",
+          "tr": "Rostock",
+          "uk": "Росток",
+          "ru": "Росток"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwerin",
+          "ar": "شفيرين",
+          "en": "Schwerin",
+          "tr": "Schwerin",
+          "uk": "Шверін",
+          "ru": "Шверин"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Stralsund",
+          "ar": "شترالزوند",
+          "en": "Stralsund",
+          "tr": "Stralsund",
+          "uk": "Штральзунд",
+          "ru": "Штральзунд"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Greifswald",
+          "ar": "غرايفسفالد",
+          "en": "Greifswald",
+          "tr": "Greifswald",
+          "uk": "Грайфсвальд",
+          "ru": "Грайфсвальд"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20805,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Wie heißt das Parlament von Mecklenburg-Vorpommern?",
+      "ar": "ما هو اسم برلمان مكلنبورغ-فوربومرن؟",
+      "en": "What is the name of the parliament of Mecklenburg-Western Pomerania?",
+      "tr": "Mecklenburg-Batı Pomeranya parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Мекленбурга-Передньої Померанії?",
+      "ru": "Как называется парламент Мекленбурга-Передней Померании?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "مجلس المواطنين",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20806,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Mecklenburg-Vorpommern?",
+      "ar": "ماذا يسمى رئيس الحكومة في مكلنبورغ-فوربومرن؟",
+      "en": "What is the head of government in Mecklenburg-Western Pomerania called?",
+      "tr": "Mecklenburg-Batı Pomeranya'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Мекленбурзі-Передній Померанії?",
+      "ru": "Как называют главу правительства в Мекленбурге-Передней Померании?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20807,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Mecklenburg-Vorpommern gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في مكلنبورغ-فوربومرن؟",
+      "en": "For how many years is the state parliament in Mecklenburg-Western Pomerania elected?",
+      "tr": "Mecklenburg-Batı Pomeranya Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Мекленбурзі-Передній Померанії?",
+      "ru": "На сколько лет избирается ландтаг в Мекленбурге-Передней Померании?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20808,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Ab welchem Alter darf man in Mecklenburg-Vorpommern bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في مكلنبورغ-فوربومرن؟",
+      "en": "From what age are people allowed to vote in state elections in Mecklenburg-Western Pomerania?",
+      "tr": "Mecklenburg-Batı Pomeranya'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Мекленбурзі-Передній Померанії?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Мекленбурга-Передней Померании?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20809,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Mecklenburg-Vorpommern (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء مكلنبورغ-فوربومرن (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Mecklenburg-Western Pomerania (as of 2024)?",
+      "tr": "Mecklenburg-Batı Pomeranya Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як звати прем'єр-міністра Мекленбурга-Передньої Померанії (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Мекленбурга-Передней Померании (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Manuela Schwesig",
+          "ar": "مانويلا شفيسيغ",
+          "en": "Manuela Schwesig",
+          "tr": "Manuela Schwesig",
+          "uk": "Мануела Швезіг",
+          "ru": "Мануэла Швезиг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Dietmar Woidke",
+          "ar": "ديتمار فويدكه",
+          "en": "Dietmar Woidke",
+          "tr": "Dietmar Woidke",
+          "uk": "Дітмар Войдке",
+          "ru": "Дитмар Войдке"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bodo Ramelow",
+          "ar": "بودو راميلوف",
+          "en": "Bodo Ramelow",
+          "tr": "Bodo Ramelow",
+          "uk": "Бодо Рамелов",
+          "ru": "Бодо Рамелов"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Daniel Günther",
+          "ar": "دانيال غونتر",
+          "en": "Daniel Günther",
+          "tr": "Daniel Günther",
+          "uk": "Даніель Гюнтер",
+          "ru": "Даниэль Гюнтер"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20810,
+    "category_id": "state",
+    "state_code": "MV",
+    "question": {
+      "de": "Mecklenburg-Vorpommern ist aufgeteilt in ...",
+      "ar": "تنقسم مكلنبورغ-فوربومرن إلى ...",
+      "en": "Mecklenburg-Western Pomerania is divided into ...",
+      "tr": "Mecklenburg-Batı Pomeranya şunlara ayrılmıştır ...",
+      "uk": "Мекленбург-Передня Померанія поділяється на ...",
+      "ru": "Мекленбург-Передняя Померания разделена на ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Regierungsbezirke",
+          "ar": "مناطق إدارية حكومية",
+          "en": "Government districts",
+          "tr": "Hükümet bölgeleri",
+          "uk": "Урядові округи",
+          "ru": "Правительственные округа"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Landkreise und kreisfreie Städte",
+          "ar": "دوائر ريفية ومدن مستقلة",
+          "en": "Rural districts and independent cities",
+          "tr": "Kırsal ilçeler ve bağımsız şehirler",
+          "uk": "Сільські райони та незалежні міста",
+          "ru": "Сельские районы и независимые города"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Kantone",
+          "ar": "كانتونات",
+          "en": "Cantons",
+          "tr": "Kantonlar",
+          "uk": "Кантони",
+          "ru": "Кантоны"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Provinzen",
+          "ar": "مقاطعات",
+          "en": "Provinces",
+          "tr": "İller",
+          "uk": "Провінції",
+          "ru": "Провинции"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  }
+]

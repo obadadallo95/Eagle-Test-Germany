@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20860,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Nordrhein-Westfalen?",
+      "ar": "ما هي عاصمة ولاية شمال الراين-وستفاليا؟",
+      "en": "Which city is the capital of North Rhine-Westphalia?",
+      "tr": "Kuzey Ren-Vestfalya'nın başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею землі Північний Рейн-Вестфалія?",
+      "ru": "Какой город является столицей земли Северный Рейн-Вестфалия?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Köln",
+          "ar": "كولونيا",
+          "en": "Cologne",
+          "tr": "Köln",
+          "uk": "Кельн",
+          "ru": "Кёльн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Düsseldorf",
+          "ar": "دوسلدورف",
+          "en": "Dusseldorf",
+          "tr": "Düsseldorf",
+          "uk": "Дюссельдорф",
+          "ru": "Дюссельдорф"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bonn",
+          "ar": "بون",
+          "en": "Bonn",
+          "tr": "Bonn",
+          "uk": "Бонн",
+          "ru": "Бонн"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Dortmund",
+          "ar": "دورتموند",
+          "en": "Dortmund",
+          "tr": "Dortmund",
+          "uk": "Дортмунд",
+          "ru": "Дортмунд"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20861,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Nordrhein-Westfalen?",
+      "ar": "ما هي ألوان علم ولاية شمال الراين-وستفاليا؟",
+      "en": "What are the colors of the state flag of North Rhine-Westphalia?",
+      "tr": "Kuzey Ren-Vestfalya eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Північний Рейн-Вестфалія?",
+      "ru": "Какого цвета флаг земли Северный Рейн-Вестфалия?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Rot-Gold",
+          "ar": "أسود-أحمر-ذهبي",
+          "en": "Black-red-gold",
+          "tr": "Siyah-kırmızı-altın",
+          "uk": "Чорно-червоно-золотий",
+          "ru": "Черно-красно-золотой"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Blau-Weiß-Rot",
+          "ar": "أزرق-أبيض-أحمر",
+          "en": "Blue-white-red",
+          "tr": "Mavi-beyaz-kırmızı",
+          "uk": "Синьо-біло-червоний",
+          "ru": "Сине-бело-красный"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20862,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Was zeigt das Wappen von Nordrhein-Westfalen?",
+      "ar": "ماذا يظهر شعار شمال الراين-وستفاليا؟",
+      "en": "What does the coat of arms of North Rhine-Westphalia show?",
+      "tr": "Kuzey Ren-Vestfalya arması neyi gösterir?",
+      "uk": "Що зображено на гербі Північного Рейну-Вестфалії?",
+      "ru": "Что изображено на гербе Северного Рейна-Вестфалии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Einen Bären, einen Adler und ein Kreuz",
+          "ar": "دباً ونسراً وصليباً",
+          "en": "A bear, an eagle and a cross",
+          "tr": "Bir ayı, bir kartal ve bir haç",
+          "uk": "Ведмедя, орла і хрест",
+          "ru": "Медведя, орла и крест"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Einen Fluss, ein Pferd und eine Rose",
+          "ar": "نهراً (الراين) وحصاناً ووردة",
+          "en": "A river, a horse and a rose",
+          "tr": "Bir nehir, bir at ve bir gül",
+          "uk": "Річку, коня і троянду",
+          "ru": "Реку, лошадь и розу"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Einen Löwen und einen Schlüssel",
+          "ar": "أسداً ومفتاحاً",
+          "en": "A lion and a key",
+          "tr": "Bir aslan ve bir anahtar",
+          "uk": "Лева і ключ",
+          "ru": "Льва и ключ"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Einen Adler und Weinblätter",
+          "ar": "نسراً وأوراق عنب",
+          "en": "An eagle and vine leaves",
+          "tr": "Bir kartal ve asma yaprakları",
+          "uk": "Орла і виноградне листя",
+          "ru": "Орла и виноградные листья"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20863,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Welches Bundesland grenzt an Nordrhein-Westfalen?",
+      "ar": "أي ولاية اتحادية تجاور شمال الراين-وستفاليا؟",
+      "en": "Which federal state borders North Rhine-Westphalia?",
+      "tr": "Hangi eyalet Kuzey Ren-Vestfalya'ya komşudur?",
+      "uk": "Яка федеральна земля межує з Північним Рейном-Вестфалією?",
+      "ru": "Какая федеральная земля граничит с Северным Рейном-Вестфалией?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Hessen",
+          "ar": "هيسن",
+          "en": "Hesse",
+          "tr": "Hessen",
+          "uk": "Гессен",
+          "ru": "Гессен"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bayern",
+          "ar": "بافاريا",
+          "en": "Bavaria",
+          "tr": "Bavyera",
+          "uk": "Баварія",
+          "ru": "Бавария"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Schleswig-Holstein",
+          "ar": "شليسفيغ هولشتاين",
+          "en": "Schleswig-Holstein",
+          "tr": "Schleswig-Holstein",
+          "uk": "Шлезвіг-Гольштейн",
+          "ru": "Шлезвиг-Гольштейн"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20864,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Wie heißt das Parlament von Nordrhein-Westfalen?",
+      "ar": "ما هو اسم برلمان شمال الراين-وستفاليا؟",
+      "en": "What is the name of the parliament of North Rhine-Westphalia?",
+      "tr": "Kuzey Ren-Vestfalya parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Північного Рейну-Вестфалії?",
+      "ru": "Как называется парламент Северного Рейна-Вестфалии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20865,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "In wie viele Regierungsbezirke ist Nordrhein-Westfalen eingeteilt?",
+      "ar": "إلى كم منطقة إدارية (Regierungsbezirke) تنقسم شمال الراين-وستفاليا؟",
+      "en": "How many administrative districts (Regierungsbezirke) is North Rhine-Westphalia divided into?",
+      "tr": "Kuzey Ren-Vestfalya kaç idari bölgeye (Regierungsbezirke) ayrılmıştır?",
+      "uk": "На скільки адміністративних округів (Regierungsbezirke) поділена Північний Рейн-Вестфалія?",
+      "ru": "На сколько административных округов (Regierungsbezirke) разделен Северный Рейн-Вестфалия?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20866,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Nordrhein-Westfalen?",
+      "ar": "ماذا يسمى رئيس الحكومة في شمال الراين-وستفاليا؟",
+      "en": "What is the head of government in North Rhine-Westphalia called?",
+      "tr": "Kuzey Ren-Vestfalya'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Північному Рейні-Вестфалії?",
+      "ru": "Как называют главу правительства в Северном Рейне-Вестфалии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20867,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Ab welchem Alter darf man in Nordrhein-Westfalen bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في شمال الراين-وستفاليا؟ (ملاحظة: التغيير إلى 16 سنة سيكون ساريًا في 2027، الجواب الحالي في الامتحان هو 18)",
+      "en": "From what age are people allowed to vote in state elections in North Rhine-Westphalia?",
+      "tr": "Kuzey Ren-Vestfalya'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Північному Рейні-Вестфалії?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Северного Рейна-Вестфалии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20868,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Nordrhein-Westfalen gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في شمال الراين-وستفاليا؟",
+      "en": "For how many years is the state parliament in North Rhine-Westphalia elected?",
+      "tr": "Kuzey Ren-Vestfalya Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Північному Рейні-Вестфалії?",
+      "ru": "На сколько лет избирается ландтаг в Северном Рейне-Вестфалии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20869,
+    "category_id": "state",
+    "state_code": "NW",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Nordrhein-Westfalen (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء شمال الراين-وستفاليا (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of North Rhine-Westphalia (as of 2024)?",
+      "tr": "Kuzey Ren-Vestfalya Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як звати прем'єр-міністра Північного Рейну-Вестфалії (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Северного Рейна-Вестфалии (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Hendrik Wüst",
+          "ar": "هندريك فوست",
+          "en": "Hendrik Wüst",
+          "tr": "Hendrik Wüst",
+          "uk": "Гендрік Вюст",
+          "ru": "Хендрик Вюст"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Daniel Günther",
+          "ar": "دانيال غونتر",
+          "en": "Daniel Günther",
+          "tr": "Daniel Günther",
+          "uk": "Даніель Гюнтер",
+          "ru": "Даниэль Гюнтер"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  }
+]

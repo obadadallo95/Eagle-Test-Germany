@@ -1,0 +1,662 @@
+[
+  {
+    "id": 20001,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Stadt ist die Hauptstadt von Baden-Württemberg?",
+      "ar": "ما هي عاصمة ولاية بادن-فورتمبيرغ؟",
+      "en": "Which city is the capital of Baden-Württemberg?",
+      "tr": "Baden-Württemberg'in başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею Баден-Вюртембергу?",
+      "ru": "Какой город является столицей Баден-Вюртемберга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Stuttgart",
+          "ar": "شتوتغارت",
+          "en": "Stuttgart",
+          "tr": "Stuttgart",
+          "uk": "Штутгарт",
+          "ru": "Штутгарт"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Mannheim",
+          "ar": "مانهايم",
+          "en": "Mannheim",
+          "tr": "Mannheim",
+          "uk": "Мангайм",
+          "ru": "Маннгейм"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Freiburg",
+          "ar": "فرايبورغ",
+          "en": "Freiburg",
+          "tr": "Freiburg",
+          "uk": "Фрайбург",
+          "ru": "Фрайбург"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Karlsruhe",
+          "ar": "كارلسروه",
+          "en": "Karlsruhe",
+          "tr": "Karlsruhe",
+          "uk": "Карлсруе",
+          "ru": "Карлсруэ"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20002,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welcher Fluss fließt durch Baden-Württemberg und ist einer der längsten Flüsse Deutschlands?",
+      "ar": "أي نهر يتدفق عبر بادن-فورتمبيرغ وهو أحد أطول الأنهار في ألمانيا؟",
+      "en": "Which river flows through Baden-Württemberg and is one of the longest rivers in Germany?",
+      "tr": "Baden-Württemberg'den geçen ve Almanya'nın en uzun nehirlerinden biri olan nehir hangisidir?",
+      "uk": "Яка річка протікає через Баден-Вюртемберг і є однією з найдовших річок Німеччини?",
+      "ru": "Какая река протекает через Баден-Вюртемберг и является одной из самых длинных рек Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Rhein",
+          "ar": "الراين",
+          "en": "Rhine",
+          "tr": "Ren",
+          "uk": "Рейн",
+          "ru": "Рейн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Donau",
+          "ar": "الدانوب",
+          "en": "Danube",
+          "tr": "Tuna",
+          "uk": "Дунай",
+          "ru": "Дунай"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Neckar",
+          "ar": "النيكار",
+          "en": "Neckar",
+          "tr": "Neckar",
+          "uk": "Неккар",
+          "ru": "Неккар"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Elbe",
+          "ar": "إلبه",
+          "en": "Elbe",
+          "tr": "Elbe",
+          "uk": "Ельба",
+          "ru": "Эльба"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20003,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "In welchem Jahr wurde Baden-Württemberg als Bundesland gegründet?",
+      "ar": "في أي عام تم تأسيس بادن-فورتمبيرغ كولاية اتحادية؟",
+      "en": "In which year was Baden-Württemberg founded as a federal state?",
+      "tr": "Baden-Württemberg hangi yılda bir eyalet olarak kuruldu?",
+      "uk": "У якому році Баден-Вюртемберг був заснований як федеральна земля?",
+      "ru": "В каком году Баден-Вюртемберг был основан как федеральная земля?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "1945",
+          "ar": "1945",
+          "en": "1945",
+          "tr": "1945",
+          "uk": "1945",
+          "ru": "1945"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "1952",
+          "ar": "1952",
+          "en": "1952",
+          "tr": "1952",
+          "uk": "1952",
+          "ru": "1952"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "1960",
+          "ar": "1960",
+          "en": "1960",
+          "tr": "1960",
+          "uk": "1960",
+          "ru": "1960"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "1949",
+          "ar": "1949",
+          "en": "1949",
+          "tr": "1949",
+          "uk": "1949",
+          "ru": "1949"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20004,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Automarke hat ihren Hauptsitz in Baden-Württemberg?",
+      "ar": "أي علامة سيارات لديها مقرها الرئيسي في بادن-فورتمبيرغ؟",
+      "en": "Which car brand has its headquarters in Baden-Württemberg?",
+      "tr": "Hangi otomobil markasının merkezi Baden-Württemberg'de?",
+      "uk": "Яка марка автомобілів має свою штаб-квартиру в Баден-Вюртемберзі?",
+      "ru": "Какой автомобильный бренд имеет свою штаб-квартиру в Баден-Вюртемберге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "BMW",
+          "ar": "بي إم دبليو",
+          "en": "BMW",
+          "tr": "BMW",
+          "uk": "BMW",
+          "ru": "BMW"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Opel",
+          "ar": "أوبل",
+          "en": "Opel",
+          "tr": "Opel",
+          "uk": "Opel",
+          "ru": "Opel"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Porsche",
+          "ar": "بورش",
+          "en": "Porsche",
+          "tr": "Porsche",
+          "uk": "Porsche",
+          "ru": "Porsche"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Volkswagen",
+          "ar": "فولكس فاجن",
+          "en": "Volkswagen",
+          "tr": "Volkswagen",
+          "uk": "Volkswagen",
+          "ru": "Volkswagen"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20005,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Stadt in Baden-Württemberg ist für ihre Universität und das Schloss bekannt?",
+      "ar": "أي مدينة في بادن-فورتمبيرغ معروفة بجامعتها والقصر؟",
+      "en": "Which city in Baden-Württemberg is known for its university and castle?",
+      "tr": "Baden-Württemberg'de hangi şehir üniversitesi ve şatosu ile ünlüdür?",
+      "uk": "Яке місто в Баден-Вюртемберзі відоме своїм університетом і замком?",
+      "ru": "Какой город в Баден-Вюртемберге известен своим университетом и замком?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Heidelberg",
+          "ar": "هايدلبرغ",
+          "en": "Heidelberg",
+          "tr": "Heidelberg",
+          "uk": "Гайдельберг",
+          "ru": "Гейдельберг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Tübingen",
+          "ar": "تيوبنغن",
+          "en": "Tübingen",
+          "tr": "Tübingen",
+          "uk": "Тюбінген",
+          "ru": "Тюбинген"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Ulm",
+          "ar": "أولم",
+          "en": "Ulm",
+          "tr": "Ulm",
+          "uk": "Ульм",
+          "ru": "Ульм"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Konstanz",
+          "ar": "كونستانتس",
+          "en": "Konstanz",
+          "tr": "Konstanz",
+          "uk": "Констанц",
+          "ru": "Констанц"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20006,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welches Gebirge liegt teilweise in Baden-Württemberg?",
+      "ar": "أي سلسلة جبلية تقع جزئياً في بادن-فورتمبيرغ؟",
+      "en": "Which mountain range is partly located in Baden-Württemberg?",
+      "tr": "Hangi dağ sırası kısmen Baden-Württemberg'de yer alır?",
+      "uk": "Який гірський хребет частково розташований у Баден-Вюртемберзі?",
+      "ru": "Какой горный хребет частично расположен в Баден-Вюртемберге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Alpen",
+          "ar": "الألب",
+          "en": "Alps",
+          "tr": "Alpler",
+          "uk": "Альпи",
+          "ru": "Альпы"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarzwald",
+          "ar": "الغابة السوداء",
+          "en": "Black Forest",
+          "tr": "Kara Orman",
+          "uk": "Шварцвальд",
+          "ru": "Шварцвальд"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Harz",
+          "ar": "هارتس",
+          "en": "Harz",
+          "tr": "Harz",
+          "uk": "Гарц",
+          "ru": "Гарц"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Erzgebirge",
+          "ar": "إرتسغيبيرغه",
+          "en": "Ore Mountains",
+          "tr": "Erzgebirge",
+          "uk": "Рудні Гори",
+          "ru": "Рудные Горы"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20007,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Stadt am Bodensee liegt in Baden-Württemberg?",
+      "ar": "أي مدينة على بحيرة كونستانس تقع في بادن-فورتمبيرغ؟",
+      "en": "Which city on Lake Constance is located in Baden-Württemberg?",
+      "tr": "Konstanz Gölü'nde hangi şehir Baden-Württemberg'de yer alır?",
+      "uk": "Яке місто на Боденському озері розташоване в Баден-Вюртемберзі?",
+      "ru": "Какой город на Боденском озере расположен в Баден-Вюртемберге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Lindau",
+          "ar": "لينداو",
+          "en": "Lindau",
+          "tr": "Lindau",
+          "uk": "Ліндау",
+          "ru": "Линдау"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Konstanz",
+          "ar": "كونستانتس",
+          "en": "Konstanz",
+          "tr": "Konstanz",
+          "uk": "Констанц",
+          "ru": "Констанц"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Friedrichshafen",
+          "ar": "فريدريشسهافن",
+          "en": "Friedrichshafen",
+          "tr": "Friedrichshafen",
+          "uk": "Фрідріхсгафен",
+          "ru": "Фридрихсхафен"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Ravensburg",
+          "ar": "رافينسبورغ",
+          "en": "Ravensburg",
+          "tr": "Ravensburg",
+          "uk": "Равенсбург",
+          "ru": "Равенсбург"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20008,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Baden-Württemberg (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء بادن-فورتمبيرغ (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Baden-Württemberg (as of 2024)?",
+      "tr": "Baden-Württemberg Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як називається прем'єр-міністр Баден-Вюртембергу (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Баден-Вюртемберга (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Armin Laschet",
+          "ar": "أرمين لاشيت",
+          "en": "Armin Laschet",
+          "tr": "Armin Laschet",
+          "uk": "Армін Лашет",
+          "ru": "Армин Лашет"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Daniel Günther",
+          "ar": "دانيال غونتر",
+          "en": "Daniel Günther",
+          "tr": "Daniel Günther",
+          "uk": "Даніель Гюнтер",
+          "ru": "Даниэль Гюнтер"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20009,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Stadt in Baden-Württemberg ist für ihre Uhrenindustrie bekannt?",
+      "ar": "أي مدينة في بادن-فورتمبيرغ معروفة بصناعة الساعات؟",
+      "en": "Which city in Baden-Württemberg is known for its watch industry?",
+      "tr": "Baden-Württemberg'de hangi şehir saat endüstrisi ile ünlüdür?",
+      "uk": "Яке місто в Баден-Вюртемберзі відоме своєю годинниковою промисловістю?",
+      "ru": "Какой город в Баден-Вюртемберге известен своей часовой промышленностью?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Pforzheim",
+          "ar": "فورتسهايم",
+          "en": "Pforzheim",
+          "tr": "Pforzheim",
+          "uk": "Пфорцгайм",
+          "ru": "Пфорцхайм"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schramberg",
+          "ar": "شرامبيرغ",
+          "en": "Schramberg",
+          "tr": "Schramberg",
+          "uk": "Шрамберг",
+          "ru": "Шрамберг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Schwenningen",
+          "ar": "شفينينغن",
+          "en": "Schwenningen",
+          "tr": "Schwenningen",
+          "uk": "Швеннінген",
+          "ru": "Швеннинген"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Villingen",
+          "ar": "فيلينغن",
+          "en": "Villingen",
+          "tr": "Villingen",
+          "uk": "Віллінген",
+          "ru": "Филлинген"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20010,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Universität in Baden-Württemberg ist eine der ältesten Universitäten Deutschlands?",
+      "ar": "أي جامعة في بادن-فورتمبيرغ هي واحدة من أقدم الجامعات في ألمانيا؟",
+      "en": "Which university in Baden-Württemberg is one of the oldest universities in Germany?",
+      "tr": "Baden-Württemberg'de hangi üniversite Almanya'nın en eski üniversitelerinden biridir?",
+      "uk": "Який університет у Баден-Вюртемберзі є одним з найстаріших університетів Німеччини?",
+      "ru": "Какой университет в Баден-Вюртемберге является одним из старейших университетов Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Universität Heidelberg",
+          "ar": "جامعة هايدلبرغ",
+          "en": "Heidelberg University",
+          "tr": "Heidelberg Üniversitesi",
+          "uk": "Гайдельберзький університет",
+          "ru": "Гейдельбергский университет"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Universität Tübingen",
+          "ar": "جامعة تيوبنغن",
+          "en": "University of Tübingen",
+          "tr": "Tübingen Üniversitesi",
+          "uk": "Тюбінгенський університет",
+          "ru": "Тюбингенский университет"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Universität Freiburg",
+          "ar": "جامعة فرايبورغ",
+          "en": "University of Freiburg",
+          "tr": "Freiburg Üniversitesi",
+          "uk": "Фрайбурзький університет",
+          "ru": "Фрайбургский университет"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Universität Stuttgart",
+          "ar": "جامعة شتوتغارت",
+          "en": "University of Stuttgart",
+          "tr": "Stuttgart Üniversitesi",
+          "uk": "Штутгартський університет",
+          "ru": "Штутгартский университет"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20011,
+    "category_id": "state",
+    "state_code": "BW",
+    "question": {
+      "de": "Welche Region in Baden-Württemberg ist für ihren Weinbau bekannt?",
+      "ar": "أي منطقة في بادن-فورتمبيرغ معروفة بزراعة الكروم؟",
+      "en": "Which region in Baden-Württemberg is known for its viticulture?",
+      "tr": "Baden-Württemberg'de hangi bölge bağcılığı ile ünlüdür?",
+      "uk": "Який регіон у Баден-Вюртемберзі відомий своїм виноградарством?",
+      "ru": "Какой регион в Баден-Вюртемберге известен своим виноградарством?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bodensee",
+          "ar": "بحيرة كونستانس",
+          "en": "Lake Constance",
+          "tr": "Konstanz Gölü",
+          "uk": "Боденське озеро",
+          "ru": "Боденское озеро"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kaiserstuhl",
+          "ar": "كايزرشتول",
+          "en": "Kaiserstuhl",
+          "tr": "Kaiserstuhl",
+          "uk": "Кайзерштуль",
+          "ru": "Кайзерштуль"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Schwarzwald",
+          "ar": "الغابة السوداء",
+          "en": "Black Forest",
+          "tr": "Kara Orman",
+          "uk": "Шварцвальд",
+          "ru": "Шварцвальд"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schwäbische Alb",
+          "ar": "الألب الشفابية",
+          "en": "Swabian Jura",
+          "tr": "Svabya Jura",
+          "uk": "Швабська Юра",
+          "ru": "Швабский Альб"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  }
+]

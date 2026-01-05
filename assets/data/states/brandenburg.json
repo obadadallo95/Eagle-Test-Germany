@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20401,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Brandenburg?",
+      "ar": "ما هي ألوان علم ولاية براندنبورغ؟",
+      "en": "What are the colors of the state flag of Brandenburg?",
+      "tr": "Brandenburg eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Бранденбург?",
+      "ru": "Какого цвета флаг земли Бранденбург?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Blau-Weiß",
+          "ar": "أزرق-أبيض",
+          "en": "Blue-white",
+          "tr": "Mavi-beyaz",
+          "uk": "Синьо-білий",
+          "ru": "Сине-белый"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Rot-Weiß",
+          "ar": "أحمر-أبيض",
+          "en": "Red-white",
+          "tr": "Kırmızı-beyaz",
+          "uk": "Червоно-білий",
+          "ru": "Красно-белый"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Grün-Weiß",
+          "ar": "أخضر-أبيض",
+          "en": "Green-white",
+          "tr": "Yeşil-beyaz",
+          "uk": "Зелено-білий",
+          "ru": "Зелено-белый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20402,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Welches Wappentier hat Brandenburg?",
+      "ar": "ما هو الحيوان الموجود على شعار براندنبورغ؟",
+      "en": "Which heraldic animal does Brandenburg have?",
+      "tr": "Brandenburg'un arma hayvanı hangisidir?",
+      "uk": "Яка геральдична тварина є символом Бранденбургу?",
+      "ru": "Какое геральдическое животное является символом Бранденбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bär",
+          "ar": "الدب",
+          "en": "Bear",
+          "tr": "Ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Löwe",
+          "ar": "الأسد",
+          "en": "Lion",
+          "tr": "Aslan",
+          "uk": "Лев",
+          "ru": "Лев"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Roter Adler",
+          "ar": "النسر الأحمر",
+          "en": "Red Eagle",
+          "tr": "Kırmızı Kartal",
+          "uk": "Червоний орел",
+          "ru": "Красный орел"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Weißes Pferd",
+          "ar": "حصان أبيض",
+          "en": "White Horse",
+          "tr": "Beyaz At",
+          "uk": "Білий кінь",
+          "ru": "Белая лошадь"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20403,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Brandenburg?",
+      "ar": "أي ولاية اتحادية هي جارة لبراندنبورغ؟",
+      "en": "Which federal state is a neighbor of Brandenburg?",
+      "tr": "Hangi eyalet Brandenburg'un komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Бранденбургу?",
+      "ru": "Какая федеральная земля является соседом Бранденбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Sachsen",
+          "ar": "ساكسونيا",
+          "en": "Saxony",
+          "tr": "Saksonya",
+          "uk": "Саксонія",
+          "ru": "Саксония"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Thüringen",
+          "ar": "تورينغن",
+          "en": "Thuringia",
+          "tr": "Türingiya",
+          "uk": "Тюрингія",
+          "ru": "Тюрингия"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bayern",
+          "ar": "بافاريا",
+          "en": "Bavaria",
+          "tr": "Bavyera",
+          "uk": "Баварія",
+          "ru": "Бавария"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Hessen",
+          "ar": "هيسن",
+          "en": "Hesse",
+          "tr": "Hessen",
+          "uk": "Гессен",
+          "ru": "Гессен"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20404,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Wie heißt die Landeshauptstadt von Brandenburg?",
+      "ar": "ما هو اسم عاصمة ولاية براندنبورغ؟",
+      "en": "What is the name of the capital of Brandenburg?",
+      "tr": "Brandenburg eyaletinin başkenti hangisidir?",
+      "uk": "Як називається столиця землі Бранденбург?",
+      "ru": "Как называется столица земли Бранденбург?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Cottbus",
+          "ar": "كوتبوس",
+          "en": "Cottbus",
+          "tr": "Cottbus",
+          "uk": "Котбус",
+          "ru": "Котбус"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Frankfurt (Oder)",
+          "ar": "فرانكفورت (أودر)",
+          "en": "Frankfurt (Oder)",
+          "tr": "Frankfurt (Oder)",
+          "uk": "Франкфурт-на-Одері",
+          "ru": "Франкфурт-на-Одере"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Berlin",
+          "ar": "برلين",
+          "en": "Berlin",
+          "tr": "Berlin",
+          "uk": "Берлін",
+          "ru": "Берлин"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Potsdam",
+          "ar": "بوتسدام",
+          "en": "Potsdam",
+          "tr": "Potsdam",
+          "uk": "Потсдам",
+          "ru": "Потсдам"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20405,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Ab welchem Alter darf man in Brandenburg bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات برلمان الولاية في براندنبورغ؟",
+      "en": "From what age are people allowed to vote in state parliament elections in Brandenburg?",
+      "tr": "Brandenburg'da eyalet parlamentosu seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Бранденбурзі?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг в Бранденбурге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20406,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Wie heißt das Parlament von Brandenburg?",
+      "ar": "ما هو اسم برلمان براندنبورغ؟",
+      "en": "What is the name of the parliament of Brandenburg?",
+      "tr": "Brandenburg parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Бранденбургу?",
+      "ru": "Как называется парламент Бранденбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "مجلس المواطنين",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Громадянство",
+          "ru": "Гражданское собрание"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20407,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Brandenburg?",
+      "ar": "ماذا يسمى رئيس الحكومة في براندنبورغ؟",
+      "en": "What is the head of government in Brandenburg called?",
+      "tr": "Brandenburg'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Бранденбурзі?",
+      "ru": "Как называют главу правительства в Бранденбурге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20408,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Brandenburg gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في براندنبورغ؟",
+      "en": "For how many years is the state parliament in Brandenburg elected?",
+      "tr": "Brandenburg Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Бранденбурзі?",
+      "ru": "На сколько лет избирается ландтаг в Бранденбурге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20409,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Brandenburg (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء براندنبورغ (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Brandenburg (as of 2024)?",
+      "tr": "Brandenburg Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як звати прем'єр-міністра Бранденбургу (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Бранденбурга (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Dietmar Woidke",
+          "ar": "ديتمار فويدكه",
+          "en": "Dietmar Woidke",
+          "tr": "Dietmar Woidke",
+          "uk": "Дітмар Войдке",
+          "ru": "Дитмар Войдке"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bodo Ramelow",
+          "ar": "بودو راميلوف",
+          "en": "Bodo Ramelow",
+          "tr": "Bodo Ramelow",
+          "uk": "Бодо Рамелов",
+          "ru": "Бодо Рамелов"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Manuela Schwesig",
+          "ar": "مانويلا شفيزيغ",
+          "en": "Manuela Schwesig",
+          "tr": "Manuela Schwesig",
+          "uk": "Мануела Швезіг",
+          "ru": "Мануэла Шлезвиг"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20410,
+    "category_id": "state",
+    "state_code": "BB",
+    "question": {
+      "de": "Brandenburg ist unterteilt in ...",
+      "ar": "تنقسم براندنبورغ إلى ...",
+      "en": "Brandenburg is divided into ...",
+      "tr": "Brandenburg şunlara ayrılmıştır ...",
+      "uk": "Бранденбург поділяється на ...",
+      "ru": "Бранденбург разделен на ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Regierungsbezirke",
+          "ar": "مناطق إدارية حكومية",
+          "en": "Government districts",
+          "tr": "Hükümet bölgeleri",
+          "uk": "Урядові округи",
+          "ru": "Правительственные округа"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kantone",
+          "ar": "كانتونات",
+          "en": "Cantons",
+          "tr": "Kantonlar",
+          "uk": "Кантони",
+          "ru": "Кантоны"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "14 Landkreise und 4 kreisfreie Städte",
+          "ar": "14 دائرة ريفية و 4 مدن مستقلة",
+          "en": "14 rural districts and 4 independent cities",
+          "tr": "14 kırsal ilçe ve 4 bağımsız şehir",
+          "uk": "14 сільських районів і 4 незалежних міста",
+          "ru": "14 сельских районов и 4 независимых города"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Provinzen",
+          "ar": "مقاطعات",
+          "en": "Provinces",
+          "tr": "İller",
+          "uk": "Провінції",
+          "ru": "Провинции"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  }
+]

@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20037,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Sachsen-Anhalt?",
+      "ar": "ما هي عاصمة ولاية ساكسونيا-أنهالت؟",
+      "en": "Which city is the capital of Saxony-Anhalt?",
+      "tr": "Saksonya-Anhalt'ın başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею землі Саксонія-Ангальт?",
+      "ru": "Какой город является столицей земли Саксония-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Halle (Saale)",
+          "ar": "هاله (زاله)",
+          "en": "Halle (Saale)",
+          "tr": "Halle (Saale)",
+          "uk": "Галле (Заале)",
+          "ru": "Галле (Заале)"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Magdeburg",
+          "ar": "ماغديبورغ",
+          "en": "Magdeburg",
+          "tr": "Magdeburg",
+          "uk": "Магдебург",
+          "ru": "Магдебург"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Dessau-Roßlau",
+          "ar": "ديساو-روسلاو",
+          "en": "Dessau-Roßlau",
+          "tr": "Dessau-Roßlau",
+          "uk": "Дессау-Росслау",
+          "ru": "Дессау-Рослай"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Wittenberg",
+          "ar": "فيتنبرغ",
+          "en": "Wittenberg",
+          "tr": "Wittenberg",
+          "uk": "Віттенберг",
+          "ru": "Виттенберг"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20038,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Sachsen-Anhalt?",
+      "ar": "ما هي ألوان علم ولاية ساكسونيا-أنهالت؟",
+      "en": "What are the colors of the state flag of Saxony-Anhalt?",
+      "tr": "Saksonya-Anhalt eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Саксонія-Ангальт?",
+      "ru": "Какого цвета флаг земли Саксония-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Schwarz-Rot-Gold",
+          "ar": "أسود-أحمر-ذهبي",
+          "en": "Black-red-gold",
+          "tr": "Siyah-kırmızı-altın",
+          "uk": "Чорно-червоно-золотий",
+          "ru": "Черно-красно-золотой"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Gelb-Schwarz",
+          "ar": "أصفر-أسود",
+          "en": "Yellow-black",
+          "tr": "Sarı-siyah",
+          "uk": "Жовто-чорний",
+          "ru": "Желто-черный"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Weiß-Grün",
+          "ar": "أبيض-أخضر",
+          "en": "White-green",
+          "tr": "Beyaz-yeşil",
+          "uk": "Біло-зелений",
+          "ru": "Бело-зеленый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Rot-Weiß",
+          "ar": "أحمر-أبيض",
+          "en": "Red-white",
+          "tr": "Kırmızı-beyaz",
+          "uk": "Червоно-білий",
+          "ru": "Красно-белый"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20039,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Was zeigt das Wappen von Sachsen-Anhalt?",
+      "ar": "ماذا يظهر شعار ساكسونيا-أنهالت؟",
+      "en": "What does the coat of arms of Saxony-Anhalt show?",
+      "tr": "Saksonya-Anhalt arması neyi gösterir?",
+      "uk": "Що зображено на гербі Саксонії-Ангальт?",
+      "ru": "Что изображено на гербе Саксонии-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Einen Bären auf einer roten Mauer und einen Adler",
+          "ar": "دباً على سور أحمر ونسراً",
+          "en": "A bear on a red wall and an eagle",
+          "tr": "Kırmızı bir duvarda bir ayı ve bir kartal",
+          "uk": "Ведмедя на червоній стіні та орла",
+          "ru": "Медведя на красной стене и орла"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Einen Löwen und ein Pferd",
+          "ar": "أسداً وحصاناً",
+          "en": "A lion and a horse",
+          "tr": "Bir aslan ve bir at",
+          "uk": "Лева і коня",
+          "ru": "Льва и лошадь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Einen Schlüssel und ein Tor",
+          "ar": "مفتاحاً وبوابة",
+          "en": "A key and a gate",
+          "tr": "Bir anahtar ve bir kapı",
+          "uk": "Ключ і ворота",
+          "ru": "Ключ и ворота"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Einen Fluss und Berge",
+          "ar": "نهراً وجبالاً",
+          "en": "A river and mountains",
+          "tr": "Bir nehir ve dağlar",
+          "uk": "Річку і гори",
+          "ru": "Реку и горы"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20040,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Sachsen-Anhalt?",
+      "ar": "أي ولاية اتحادية هي جارة لساكسونيا-أنهالت؟",
+      "en": "Which federal state is a neighbor of Saxony-Anhalt?",
+      "tr": "Hangi eyalet Saksonya-Anhalt'ın komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Саксонії-Ангальт?",
+      "ru": "Какая федеральная земля является соседом Саксонии-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Niedersachsen",
+          "ar": "ساكسونيا السفلى",
+          "en": "Lower Saxony",
+          "tr": "Aşağı Saksonya",
+          "uk": "Нижня Саксонія",
+          "ru": "Нижняя Саксония"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bayern",
+          "ar": "بافاريا",
+          "en": "Bavaria",
+          "tr": "Bavyera",
+          "uk": "Баварія",
+          "ru": "Бавария"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Baden-Württemberg",
+          "ar": "بادن-فورتمبيرغ",
+          "en": "Baden-Württemberg",
+          "tr": "Baden-Württemberg",
+          "uk": "Баден-Вюртемберг",
+          "ru": "Баден-Вюртемберг"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schleswig-Holstein",
+          "ar": "شليسفيغ هولشتاين",
+          "en": "Schleswig-Holstein",
+          "tr": "Schleswig-Holstein",
+          "uk": "Шлезвіг-Гольштейн",
+          "ru": "Шлезвиг-Гольштейн"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20041,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Wie heißt das Parlament von Sachsen-Anhalt?",
+      "ar": "ما هو اسم برلمان ساكسونيا-أنهالت؟",
+      "en": "What is the name of the parliament of Saxony-Anhalt?",
+      "tr": "Saksonya-Anhalt parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Саксонії-Ангальт?",
+      "ru": "Как называется парламент Саксонии-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20042,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Sachsen-Anhalt?",
+      "ar": "ماذا يسمى رئيس الحكومة في ساكسونيا-أنهالت؟",
+      "en": "What is the head of government in Saxony-Anhalt called?",
+      "tr": "Saksonya-Anhalt'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Саксонії-Ангальт?",
+      "ru": "Как называют главу правительства в Саксонии-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident",
+          "ar": "الرئيس",
+          "en": "President",
+          "tr": "Başkan",
+          "uk": "Президент",
+          "ru": "Президент"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20043,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Ab welchem Alter darf man in Sachsen-Anhalt bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في ساكسونيا-أنهالت؟",
+      "en": "From what age are people allowed to vote in state elections in Saxony-Anhalt?",
+      "tr": "Saksonya-Anhalt'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Саксонії-Ангальт?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Саксонии-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20044,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Sachsen-Anhalt gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في ساكسونيا-أنهالت؟",
+      "en": "For how many years is the state parliament in Saxony-Anhalt elected?",
+      "tr": "Saksonya-Anhalt Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Саксонії-Ангальт?",
+      "ru": "На сколько лет избирается ландтаг в Саксонии-Анхальт?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20045,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Sachsen-Anhalt (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء ساكسونيا-أنهالت (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Saxony-Anhalt (as of 2024)?",
+      "tr": "Saksonya-Anhalt Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як називається прем'єр-міністр Саксонії-Ангальту (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Саксонии-Анхальта (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bodo Ramelow",
+          "ar": "بودو راميلوف",
+          "en": "Bodo Ramelow",
+          "tr": "Bodo Ramelow",
+          "uk": "Бодо Рамелов",
+          "ru": "Бодо Рамелов"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Dietmar Woidke",
+          "ar": "ديتمار فويدكه",
+          "en": "Dietmar Woidke",
+          "tr": "Dietmar Woidke",
+          "uk": "Дітмар Войдке",
+          "ru": "Дитмар Войдке"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Michael Kretschmer",
+          "ar": "ميشائيل كريتشمر",
+          "en": "Michael Kretschmer",
+          "tr": "Michael Kretschmer",
+          "uk": "Міхаель Кречмер",
+          "ru": "Михаэль Кречмер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Reiner Haseloff",
+          "ar": "راينر هازيلوف",
+          "en": "Reiner Haseloff",
+          "tr": "Reiner Haseloff",
+          "uk": "Райнер Газелофф",
+          "ru": "Райнер Хазелофф"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20046,
+    "category_id": "state",
+    "state_code": "ST",
+    "question": {
+      "de": "Sachsen-Anhalt ist ein ...",
+      "ar": "ساكسونيا-أنهالت هي ...",
+      "en": "Saxony-Anhalt is a ...",
+      "tr": "Saksonya-Anhalt bir ...",
+      "uk": "Саксонія-Ангальт - це ...",
+      "ru": "Саксония-Анхальт - это ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundesland",
+          "ar": "ولاية اتحادية",
+          "en": "Federal state",
+          "tr": "Eyalet",
+          "uk": "Федеральна земля",
+          "ru": "Федеральная земля"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Stadtstaat",
+          "ar": "ولاية مدنية",
+          "en": "City-state",
+          "tr": "Şehir eyaleti",
+          "uk": "Місто-держава",
+          "ru": "Город-государство"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Königreich",
+          "ar": "مملكة",
+          "en": "Kingdom",
+          "tr": "Krallık",
+          "uk": "Королівство",
+          "ru": "Королевство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Bezirk",
+          "ar": "مقاطعة",
+          "en": "District",
+          "tr": "İlçe",
+          "uk": "Округ",
+          "ru": "Округ"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  }
+]

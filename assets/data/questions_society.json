@@ -1,0 +1,242 @@
+[
+  {
+    "id": 20,
+    "category_id": "general",
+    "question": {
+      "de": "Eine Partei in Deutschland verfolgt das Ziel, eine Diktatur zu errichten. Sie ist dann ...",
+      "ar": "حزب في ألمانيا يهدف إلى إقامة دكتاتورية. هذا الحزب يكون إذن ...",
+      "en": "A party in Germany pursues the goal of establishing a dictatorship. It is then ...",
+      "tr": "Almanya'da bir parti diktatörlük kurmayı hedefliyor. O zaman bu parti ...",
+      "uk": "Партія в Німеччині має на меті встановити диктатуру. Тоді вона ...",
+      "ru": "Партия в Германии преследует цель установления диктатуры. Тогда она ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "tolerant",
+          "ar": "متسامح",
+          "en": "tolerant",
+          "tr": "hoşgörülü",
+          "uk": "толерантна",
+          "ru": "толерантна"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "verfassungswidrig",
+          "ar": "غير دستوري (مخالف للدستور)",
+          "en": "unconstitutional",
+          "tr": "anayasaya aykırı",
+          "uk": "антиконституційна",
+          "ru": "антиконституционна"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "rechtsstaatlich orientiert",
+          "ar": "موجّه نحو دولة القانون",
+          "en": "oriented towards the rule of law",
+          "tr": "hukuk devleti odaklı",
+          "uk": "орієнтована на правову державу",
+          "ru": "ориентирована на правовое государство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "sozial engagiert",
+          "ar": "ناشط اجتماعياً",
+          "en": "socially committed",
+          "tr": "sosyal açıdan aktif",
+          "uk": "соціально активна",
+          "ru": "социально активна"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "society"
+  },
+  {
+    "id": 27,
+    "category_id": "general",
+    "question": {
+      "de": "Welche Institution gibt es in Deutschland, die Erwachsenenbildung anbietet?",
+      "ar": "ما هي المؤسسة الموجودة في ألمانيا التي تقدم تعليماً للكبار؟",
+      "en": "Which institution exists in Germany that offers adult education?",
+      "tr": "Almanya'da yetişkin eğitimi veren hangi kurum vardır?",
+      "uk": "Яка установа в Німеччині пропонує освіту для дорослих?",
+      "ru": "Какое учреждение в Германии предлагает образование для взрослых?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Volkshochschule",
+          "ar": "مدرسة الشعب العليا (فولكس هوخ شوله)",
+          "en": "Adult education center (Volkshochschule)",
+          "tr": "Halk Eğitim Merkezi",
+          "uk": "Народний університет (Volkshochschule)",
+          "ru": "Народный университет (Volkshochschule)"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundestagsfraktion",
+          "ar": "كتلة برلمانية في البوندستاغ",
+          "en": "Parliamentary group in the Bundestag",
+          "tr": "Federal Meclis Grubu",
+          "uk": "Парламентська фракція",
+          "ru": "Парламентская фракция"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerinitiative",
+          "ar": "مبادرة مواطنين",
+          "en": "Citizens' initiative",
+          "tr": "Vatandaş inisiyatifi",
+          "uk": "Громадянська ініціатива",
+          "ru": "Гражданская инициатива"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Presseclub",
+          "ar": "نادي الصحافة",
+          "en": "Press club",
+          "tr": "Basın Kulübü",
+          "uk": "Прес-клуб",
+          "ru": "Пресс-клуб"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "society"
+  },
+  {
+    "id": 255,
+    "category_id": "general",
+    "question": {
+      "de": "Wer entscheidet in Deutschland bei Ehekrisen, bei wem die Kinder bleiben?",
+      "ar": "من يقرر في ألمانيا في حال الخلافات الزوجية (الطلاق) مع من يبقى الأطفال؟",
+      "en": "Who decides in Germany in marital crises who the children stay with?",
+      "tr": "Almanya'da evlilik krizlerinde çocukların kiminle kalacağına kim karar verir?",
+      "uk": "Хто вирішує в Німеччині під час сімейних криз, з ким залишаться діти?",
+      "ru": "Кто решает в Германии во время семейных кризисов, с кем останутся дети?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Der Staatsanwalt",
+          "ar": "المدعي العام",
+          "en": "The public prosecutor",
+          "tr": "Savcı",
+          "uk": "Прокурор",
+          "ru": "Прокурор"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Das Familiengericht",
+          "ar": "محكمة الأسرة",
+          "en": "The family court",
+          "tr": "Aile Mahkemesi",
+          "uk": "Сімейний суд",
+          "ru": "Семейный суд"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Das Ordnungsamt",
+          "ar": "مكتب النظام العام",
+          "en": "The regulatory office",
+          "tr": "Düzenleme Dairesi",
+          "uk": "Служба правопорядку",
+          "ru": "Служба правопорядка"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Die Polizei",
+          "ar": "الشرطة",
+          "en": "The police",
+          "tr": "Polis",
+          "uk": "Поліція",
+          "ru": "Полиция"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "society"
+  },
+  {
+    "id": 297,
+    "category_id": "general",
+    "question": {
+      "de": "Aus welchem Land kamen die ersten Gastarbeiter / Gastarbeiterinnen in die Bundesrepublik Deutschland?",
+      "ar": "من أي بلد جاء أول العمال الضيوف (Gastarbeiter) إلى جمهورية ألمانيا الاتحادية؟",
+      "en": "From which country did the first guest workers come to the Federal Republic of Germany?",
+      "tr": "Federal Almanya Cumhuriyeti'ne ilk misafir işçiler hangi ülkeden geldi?",
+      "uk": "З якої країни до ФРН приїхали перші гастарбайтери?",
+      "ru": "Из какой страны прибыли первые гастарбайтеры в ФРГ?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Spanien",
+          "ar": "إسبانيا",
+          "en": "Spain",
+          "tr": "İspanya",
+          "uk": "Іспанія",
+          "ru": "Испания"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Italien",
+          "ar": "إيطاليا",
+          "en": "Italy",
+          "tr": "İtalya",
+          "uk": "Італія",
+          "ru": "Италия"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Portugal",
+          "ar": "البرتغال",
+          "en": "Portugal",
+          "tr": "Portekiz",
+          "uk": "Португалія",
+          "ru": "Португалия"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Türkei",
+          "ar": "تركيا",
+          "en": "Turkey",
+          "tr": "Türkiye",
+          "uk": "Туреччина",
+          "ru": "Турция"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "society"
+  }
+]

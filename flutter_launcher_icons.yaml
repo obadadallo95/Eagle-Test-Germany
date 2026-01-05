@@ -1,0 +1,23 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+  remove_alpha_ios: true
+  image_path: "assets/logo/app_logo.png"  # استخدام الصورة الجديدة للأيقونة
+  # إعدادات Adaptive Icon لـ Android (لضمان عدم القص)
+  # ملاحظة: يجب أن تكون الصورة مربعة (1024x1024) مع مساحة كافية حول المحتوى
+  adaptive_icon_background: "#FFFFFF"
+  adaptive_icon_foreground: "assets/logo/app_logo.png"  # استخدام الصورة الجديدة
+  min_sdk_android: 21
+  web:
+    generate: true
+    image_path: "assets/logo/app_logo.png"  # استخدام الصورة الجديدة
+    background_color: "#ffffff"
+    theme_color: "#000000"
+  windows:
+    generate: true
+    image_path: "assets/logo/app_logo.png"  # استخدام الصورة الجديدة
+    icon_size: 256  # زيادة الحجم لتحسين الجودة
+  macos:
+    generate: true
+    image_path: "assets/logo/app_logo.png"  # استخدام الصورة الجديدة
+

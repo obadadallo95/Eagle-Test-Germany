@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20025,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Schleswig-Holstein?",
+      "ar": "ما هي عاصمة ولاية شليسفيغ-هولشتاين؟",
+      "en": "Which city is the capital of Schleswig-Holstein?",
+      "tr": "Schleswig-Holstein'ın başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею землі Шлезвіг-Гольштейн?",
+      "ru": "Какой город является столицей земли Шлезвиг-Гольштейн?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Lübeck",
+          "ar": "لوبيك",
+          "en": "Lübeck",
+          "tr": "Lübeck",
+          "uk": "Любек",
+          "ru": "Любек"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Flensburg",
+          "ar": "فلنسبورغ",
+          "en": "Flensburg",
+          "tr": "Flensburg",
+          "uk": "Фленсбург",
+          "ru": "Фленсбург"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Kiel",
+          "ar": "كيل",
+          "en": "Kiel",
+          "tr": "Kiel",
+          "uk": "Кіль",
+          "ru": "Киль"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Neumünster",
+          "ar": "نويمونستر",
+          "en": "Neumünster",
+          "tr": "Neumünster",
+          "uk": "Ноймюнстер",
+          "ru": "Ноймюнстер"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20026,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Schleswig-Holstein?",
+      "ar": "ما هي ألوان علم ولاية شليسفيغ-هولشتاين؟",
+      "en": "What are the colors of the state flag of Schleswig-Holstein?",
+      "tr": "Schleswig-Holstein eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Шлезвіг-Гольштейн?",
+      "ru": "Какого цвета флаг земли Шлезвиг-Гольштейн?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Blau-Weiß-Rot",
+          "ar": "أزرق-أبيض-أحمر",
+          "en": "Blue-white-red",
+          "tr": "Mavi-beyaz-kırmızı",
+          "uk": "Синьо-біло-червоний",
+          "ru": "Сине-бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Rot-Gold",
+          "ar": "أسود-أحمر-ذهبي",
+          "en": "Black-red-gold",
+          "tr": "Siyah-kırmızı-altın",
+          "uk": "Чорно-червоно-золотий",
+          "ru": "Черно-красно-золотой"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Blau-Gelb",
+          "ar": "أزرق-أصفر",
+          "en": "Blue-yellow",
+          "tr": "Mavi-sarı",
+          "uk": "Синьо-жовтий",
+          "ru": "Сине-желтый"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20027,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Was zeigt das Wappen von Schleswig-Holstein?",
+      "ar": "ماذا يظهر شعار شليسفيغ-هولشتاين؟",
+      "en": "What does the coat of arms of Schleswig-Holstein show?",
+      "tr": "Schleswig-Holstein arması neyi gösterir?",
+      "uk": "Що зображено на гербі Шлезвіг-Гольштейну?",
+      "ru": "Что изображено на гербе Шлезвиг-Гольштейна?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Einen Bären und einen Schlüssel",
+          "ar": "دباً ومفتاحاً",
+          "en": "A bear and a key",
+          "tr": "Bir ayı ve bir anahtar",
+          "uk": "Ведмедя і ключ",
+          "ru": "Медведя и ключ"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Zwei Löwen und ein Nesselblatt",
+          "ar": "أسدين وورقة نبات القراص",
+          "en": "Two lions and a nettle leaf",
+          "tr": "İki aslan ve bir ısırgan otu yaprağı",
+          "uk": "Двох левів і кропив'яний лист",
+          "ru": "Двух львов и крапивный лист"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Einen Adler und ein Pferd",
+          "ar": "نسراً وحصاناً",
+          "en": "An eagle and a horse",
+          "tr": "Bir kartal ve bir at",
+          "uk": "Орла і коня",
+          "ru": "Орла и лошадь"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Ein Schiff und einen Leuchtturm",
+          "ar": "سفينة ومنارة",
+          "en": "A ship and a lighthouse",
+          "tr": "Bir gemi ve bir deniz feneri",
+          "uk": "Корабель і маяк",
+          "ru": "Корабль и маяк"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20028,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Schleswig-Holstein?",
+      "ar": "أي ولاية اتحادية هي جارة لشليسفيغ-هولشتاين؟",
+      "en": "Which federal state is a neighbor of Schleswig-Holstein?",
+      "tr": "Hangi eyalet Schleswig-Holstein'ın komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Шлезвіг-Гольштейну?",
+      "ru": "Какая федеральная земля является соседом Шлезвиг-Гольштейна?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Niedersachsen",
+          "ar": "ساكسونيا السفلى",
+          "en": "Lower Saxony",
+          "tr": "Aşağı Saksonya",
+          "uk": "Нижня Саксонія",
+          "ru": "Нижняя Саксония"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Nordrhein-Westfalen",
+          "ar": "شمال الراين-وستفاليا",
+          "en": "North Rhine-Westphalia",
+          "tr": "Kuzey Ren-Vestfalya",
+          "uk": "Північний Рейн-Вестфалія",
+          "ru": "Северный Рейн-Вестфалия"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Hessen",
+          "ar": "هيسن",
+          "en": "Hesse",
+          "tr": "Hessen",
+          "uk": "Гессен",
+          "ru": "Гессен"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20029,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Welches Land ist ein Nachbarland von Schleswig-Holstein?",
+      "ar": "أي دولة هي جارة لشليسفيغ-هولشتاين؟",
+      "en": "Which country is a neighbor of Schleswig-Holstein?",
+      "tr": "Hangi ülke Schleswig-Holstein'ın komşusudur?",
+      "uk": "Яка країна є сусідом Шлезвіг-Гольштейну?",
+      "ru": "Какая страна является соседом Шлезвиг-Гольштейна?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Polen",
+          "ar": "بولندا",
+          "en": "Poland",
+          "tr": "Polonya",
+          "uk": "Польща",
+          "ru": "Польша"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Niederlande",
+          "ar": "هولندا",
+          "en": "Netherlands",
+          "tr": "Hollanda",
+          "uk": "Нідерланди",
+          "ru": "Нидерланды"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Dänemark",
+          "ar": "الدانمارك",
+          "en": "Denmark",
+          "tr": "Danimarka",
+          "uk": "Данія",
+          "ru": "Дания"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Frankreich",
+          "ar": "فرنسا",
+          "en": "France",
+          "tr": "Fransa",
+          "uk": "Франція",
+          "ru": "Франция"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20030,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Wie heißt das Parlament von Schleswig-Holstein?",
+      "ar": "ما هو اسم برلمان شليسفيغ-هولشتاين؟",
+      "en": "What is the name of the parliament of Schleswig-Holstein?",
+      "tr": "Schleswig-Holstein parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Шлезвіг-Гольштейну?",
+      "ru": "Как называется парламент Шлезвиг-Гольштейна?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Senat",
+          "ar": "مجلس الشيوخ",
+          "en": "Senate",
+          "tr": "Senato",
+          "uk": "Сенат",
+          "ru": "Сенат"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20031,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Schleswig-Holstein?",
+      "ar": "ماذا يسمى رئيس الحكومة في شليسفيغ-هولشتاين؟",
+      "en": "What is the head of government in Schleswig-Holstein called?",
+      "tr": "Schleswig-Holstein'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Шлезвіг-Гольштейні?",
+      "ru": "Как называют главу правительства в Шлезвиг-Гольштейне?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident",
+          "ar": "الرئيس",
+          "en": "President",
+          "tr": "Başkan",
+          "uk": "Президент",
+          "ru": "Президент"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20032,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Ab welchem Alter darf man in Schleswig-Holstein bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في شليسفيغ-هولشتاين؟",
+      "en": "From what age are people allowed to vote in state elections in Schleswig-Holstein?",
+      "tr": "Schleswig-Holstein'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Шлезвіг-Гольштейні?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Шлезвиг-Гольштейна?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20033,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Schleswig-Holstein gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في شليسفيغ-هولشتاين؟",
+      "en": "For how many years is the state parliament in Schleswig-Holstein elected?",
+      "tr": "Schleswig-Holstein Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Шлезвіг-Гольштейні?",
+      "ru": "На сколько лет избирается ландтаг в Шлезвиг-Гольштейне?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20034,
+    "category_id": "state",
+    "state_code": "SH",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Schleswig-Holstein (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء شليسفيغ-هولشتاين (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Schleswig-Holstein (as of 2024)?",
+      "tr": "Schleswig-Holstein Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як називається прем'єр-міністр Шлезвігу-Гольштейну (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Шлезвиг-Гольштейна (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Daniel Günther",
+          "ar": "دانيال غونتر",
+          "en": "Daniel Günther",
+          "tr": "Daniel Günther",
+          "uk": "Даніель Гюнтер",
+          "ru": "Даниэль Гюнтер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Stephan Weil",
+          "ar": "شتيفان فايل",
+          "en": "Stephan Weil",
+          "tr": "Stephan Weil",
+          "uk": "Штефан Вайль",
+          "ru": "Штефан Вайль"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  }
+]

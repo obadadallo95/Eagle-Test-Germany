@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20061,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Thüringen?",
+      "ar": "ما هي عاصمة ولاية تورينغن؟",
+      "en": "Which city is the capital of Thuringia?",
+      "tr": "Thüringen'in başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею Тюрінгії?",
+      "ru": "Какой город является столицей Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Gera",
+          "ar": "غيرا",
+          "en": "Gera",
+          "tr": "Gera",
+          "uk": "Гера",
+          "ru": "Гера"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Jena",
+          "ar": "يينا",
+          "en": "Jena",
+          "tr": "Jena",
+          "uk": "Єна",
+          "ru": "Йена"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Erfurt",
+          "ar": "إرفورت",
+          "en": "Erfurt",
+          "tr": "Erfurt",
+          "uk": "Ерфурт",
+          "ru": "Эрфурт"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Weimar",
+          "ar": "فايمار",
+          "en": "Weimar",
+          "tr": "Weimar",
+          "uk": "Веймар",
+          "ru": "Веймар"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20062,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Thüringen?",
+      "ar": "ما هي ألوان علم ولاية تورينغن؟",
+      "en": "What are the colors of the state flag of Thuringia?",
+      "tr": "Thüringen eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Тюрінгія?",
+      "ru": "Какого цвета флаг земли Тюрингия?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Weiß-Rot",
+          "ar": "أبيض-أحمر",
+          "en": "White-red",
+          "tr": "Beyaz-kırmızı",
+          "uk": "Біло-червоний",
+          "ru": "Бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Grün-Weiß",
+          "ar": "أخضر-أبيض",
+          "en": "Green-white",
+          "tr": "Yeşil-beyaz",
+          "uk": "Зелено-білий",
+          "ru": "Зелено-белый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Blau-Weiß",
+          "ar": "أزرق-أبيض",
+          "en": "Blue-white",
+          "tr": "Mavi-beyaz",
+          "uk": "Синьо-білий",
+          "ru": "Сине-белый"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20063,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Was zeigt das Wappen von Thüringen?",
+      "ar": "ماذا يظهر شعار تورينغن؟",
+      "en": "What does the coat of arms of Thuringia show?",
+      "tr": "Thüringen arması neyi gösterir?",
+      "uk": "Що зображено на гербі Тюрінгії?",
+      "ru": "Что изображено на гербе Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Einen Bären auf einer Mauer",
+          "ar": "دباً على سور",
+          "en": "A bear on a wall",
+          "tr": "Duvarın üzerinde bir ayı",
+          "uk": "Ведмедя на стіні",
+          "ru": "Медведя на стене"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Einen Löwen, umgeben von Sternen",
+          "ar": "أسداً محاطاً بالنجوم",
+          "en": "A lion surrounded by stars",
+          "tr": "Yıldızlarla çevrili bir aslan",
+          "uk": "Лева, оточеного зірками",
+          "ru": "Льва, окруженного звездами"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Ein Pferd und eine Rose",
+          "ar": "حصاناً ووردة",
+          "en": "A horse and a rose",
+          "tr": "Bir at ve bir gül",
+          "uk": "Коня і троянду",
+          "ru": "Лошадь и розу"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Einen Adler und einen Schlüssel",
+          "ar": "نسراً ومفتاحاً",
+          "en": "An eagle and a key",
+          "tr": "Bir kartal ve bir anahtar",
+          "uk": "Орла і ключ",
+          "ru": "Орла и ключ"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20064,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Thüringen?",
+      "ar": "أي ولاية اتحادية هي جارة لتورينغن؟",
+      "en": "Which federal state is a neighbor of Thuringia?",
+      "tr": "Hangi eyalet Thüringen'in komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Тюрінгії?",
+      "ru": "Какая федеральная земля является соседом Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Sachsen",
+          "ar": "ساكسونيا",
+          "en": "Saxony",
+          "tr": "Saksonya",
+          "uk": "Саксонія",
+          "ru": "Саксония"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Nordrhein-Westfalen",
+          "ar": "شمال الراين-وستفاليا",
+          "en": "North Rhine-Westphalia",
+          "tr": "Kuzey Ren-Vestfalya",
+          "uk": "Північний Рейн-Вестфалія",
+          "ru": "Северный Рейн-Вестфалия"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Mecklenburg-Vorpommern",
+          "ar": "مكلنبورغ-فوربومرن",
+          "en": "Mecklenburg-Western Pomerania",
+          "tr": "Mecklenburg-Vorpommern",
+          "uk": "Мекленбург-Передня Померанія",
+          "ru": "Мекленбург-Передняя Померания"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20065,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Wie heißt das Parlament von Thüringen?",
+      "ar": "ما هو اسم برلمان تورينغن؟",
+      "en": "What is the name of the parliament of Thuringia?",
+      "tr": "Thüringen parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Тюрінгії?",
+      "ru": "Как называется парламент Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20066,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Thüringen?",
+      "ar": "ماذا يسمى رئيس الحكومة في تورينغن؟",
+      "en": "What is the head of government in Thuringia called?",
+      "tr": "Thüringen'deki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Тюрінгії?",
+      "ru": "Как называют главу правительства в Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident",
+          "ar": "الرئيس",
+          "en": "President",
+          "tr": "Başkan",
+          "uk": "Президент",
+          "ru": "Президент"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20067,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Ab welchem Alter darf man in Thüringen bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في تورينغن؟",
+      "en": "From what age are people allowed to vote in state elections in Thuringia?",
+      "tr": "Thüringen'deki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Тюрінгії?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20068,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Thüringen gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في تورينغن؟",
+      "en": "For how many years is the state parliament in Thuringia elected?",
+      "tr": "Thüringen Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Тюрінгії?",
+      "ru": "На сколько лет избирается ландтаг в Тюрингии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20069,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Thüringen (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء تورينغن (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Thuringia (as of 2024)?",
+      "tr": "Thüringen Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як називається прем'єр-міністр Тюрінгії (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Тюрингии (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bodo Ramelow",
+          "ar": "بودو راميلوف",
+          "en": "Bodo Ramelow",
+          "tr": "Bodo Ramelow",
+          "uk": "Бодо Рамелов",
+          "ru": "Бодо Рамелов"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Daniel Günther",
+          "ar": "دانيال غونتر",
+          "en": "Daniel Günther",
+          "tr": "Daniel Günther",
+          "uk": "Даніель Гюнтер",
+          "ru": "Даниэль Гюнтер"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20070,
+    "category_id": "state",
+    "state_code": "TH",
+    "question": {
+      "de": "Thüringen ist ein ...",
+      "ar": "تورينغن هي ...",
+      "en": "Thuringia is a ...",
+      "tr": "Thüringen bir ...",
+      "uk": "Тюрінгія - це ...",
+      "ru": "Тюрингия - это ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Stadtstaat",
+          "ar": "ولاية مدنية",
+          "en": "City-state",
+          "tr": "Şehir eyaleti",
+          "uk": "Місто-держава",
+          "ru": "Город-государство"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundesland",
+          "ar": "ولاية اتحادية (فريشتات)",
+          "en": "Federal state (Freistaat)",
+          "tr": "Eyalet (Serbest Eyalet)",
+          "uk": "Федеральна земля (Вільна держава)",
+          "ru": "Федеральная земля (Свободное государство)"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Königreich",
+          "ar": "مملكة",
+          "en": "Kingdom",
+          "tr": "Krallık",
+          "uk": "Королівство",
+          "ru": "Королевство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Bezirk",
+          "ar": "مقاطعة",
+          "en": "District",
+          "tr": "İlçe",
+          "uk": "Округ",
+          "ru": "Округ"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  }
+]

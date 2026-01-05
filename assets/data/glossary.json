@@ -1,0 +1,410 @@
+[
+  {
+    "id": 15,
+    "term": "Abgeordnete",
+    "category": "System",
+    "definition": {
+      "de": "Gewählte Vertreter des Volkes im Parlament.",
+      "ar": "ممثلون منتخبون عن الشعب في البرلمان (نواب).",
+      "en": "Elected representatives of the people in parliament.",
+      "tr": "Parlamentodaki halkın seçilmiş temsilcileri.",
+      "uk": "Обрані представники народу в парламенті.",
+      "ru": "Избранные представители народа в парламенте."
+    },
+    "example": {
+      "de": "Wer wählt in Deutschland die Abgeordneten zum Bundestag?",
+      "ar": "من ينتخب نواب البوندستاغ في ألمانيا؟",
+      "en": "Who elects the members of the Bundestag in Germany?",
+      "tr": "Almanya'da Federal Meclis üyelerini kim seçiyor?",
+      "uk": "Хто обирає депутатів Бундестагу в Німеччині?",
+      "ru": "Кто выбирает членов Бундестага в Германии?"
+    },
+    "related_question_id": 43,
+    "keywords": ["Bundestag", "Wahl", "Parlament"],
+    "related_question_ids": [43, 89, 98]
+  },
+  {
+    "id": 33,
+    "term": "Zusammenleben",
+    "category": "Rights",
+    "definition": {
+      "de": "Formen des gemeinsamen Lebens (Ehe, Partnerschaft).",
+      "ar": "أشكال العيش المشترك (الزواج، الشراكة).",
+      "en": "Forms of living together (marriage, partnership).",
+      "tr": "Birlikte yaşam biçimleri (evlilik, ortaklık).",
+      "uk": "Форми спільного життя (шлюб, партнерство).",
+      "ru": "Формы совместной жизни (брак, партнерство)."
+    },
+    "example": {
+      "de": "Was versteht man unter eingetragene Lebenspartnerschaft?",
+      "ar": "ماذا يُقصد بشراكة الحياة المسجلة؟",
+      "en": "What is meant by registered civil partnership?",
+      "tr": "Kayıtlı hayat ortaklığı ne anlama gelir?",
+      "uk": "Що розуміється під зареєстрованим партнерством?",
+      "ru": "Что понимается под зарегистрированным партнерством?"
+    },
+    "related_question_id": 250,
+    "keywords": ["Ehe", "Familie", "Partnerschaft"],
+    "related_question_ids": [250, 252]
+  },
+  {
+    "id": 50,
+    "term": "Gewaltenteilung",
+    "category": "System",
+    "definition": {
+      "de": "Aufteilung der Staatsmacht in Legislative, Exekutive und Judikative.",
+      "ar": "تقسيم سلطة الدولة إلى تشريعية وتنفيذية وقضائية (فصل السلطات).",
+      "en": "Division of state power into legislative, executive, and judicial branches.",
+      "tr": "Devlet gücünün yasama, yürütme ve yargı olarak ayrılması.",
+      "uk": "Поділ державної влади на законодавчу, виконавчу та судову.",
+      "ru": "Разделение государственной власти на законодательную, исполнительную и судебную."
+    },
+    "example": {
+      "de": "Was versteht man unter Gewaltenteilung?",
+      "ar": "ماذا يُقصد بفصل السلطات؟",
+      "en": "What is meant by separation of powers?",
+      "tr": "Kuvvetler ayrılığı ne anlama gelir?",
+      "uk": "Що розуміється під поділом влади?",
+      "ru": "Что понимается под разделением властей?"
+    },
+    "related_question_id": 25,
+    "keywords": ["Legislative", "Exekutive", "Judikative"],
+    "related_question_ids": [25, 27, 206]
+  },
+  {
+    "id": 51,
+    "term": "Opposition",
+    "category": "System",
+    "definition": {
+      "de": "Die Parteien im Parlament, die nicht an der Regierung beteiligt sind.",
+      "ar": "الأحزاب الموجودة في البرلمان التي لا تشارك في الحكومة (المعارضة).",
+      "en": "The parties in parliament that are not part of the government.",
+      "tr": "Parlamentoda hükümette yer almayan partiler.",
+      "uk": "Партії в парламенті, які не входять до складу уряду.",
+      "ru": "Партии в парламенте, не входящие в правительство."
+    },
+    "example": {
+      "de": "Was ist die Aufgabe der Opposition?",
+      "ar": "ما هي وظيفة المعارضة؟ (مراقبة الحكومة)",
+      "en": "What is the task of the opposition?",
+      "tr": "Muhalefetin görevi nedir?",
+      "uk": "Яке завдання опозиції?",
+      "ru": "Какова задача оппозиции?"
+    },
+    "related_question_id": 34,
+    "keywords": ["Kontrolle", "Regierung", "Parlament"],
+    "related_question_ids": [34, 37]
+  },
+  {
+    "id": 52,
+    "term": "Koalition",
+    "category": "System",
+    "definition": {
+      "de": "Zusammenschluss von zwei oder mehr Parteien zur Regierungsbildung.",
+      "ar": "اتحاد حزبين أو أكثر لتشكيل الحكومة (الائتلاف).",
+      "en": "Alliance of two or more parties to form a government.",
+      "tr": "Hükümet kurmak için iki veya daha fazla partinin birleşmesi.",
+      "uk": "Об'єднання двох і більше партій для формування уряду.",
+      "ru": "Объединение двух или более партий для формирования правительства."
+    },
+    "example": {
+      "de": "Was versteht man unter einer Koalition?",
+      "ar": "ماذا يُقصد بالائتلاف؟",
+      "en": "What is meant by a coalition?",
+      "tr": "Koalisyon ne anlama gelir?",
+      "uk": "Що розуміється під коаліцією?",
+      "ru": "Что понимается под коалицией?"
+    },
+    "related_question_id": 32,
+    "keywords": ["Regierungsbildung", "Zusammenarbeit"],
+    "related_question_ids": [32]
+  },
+  {
+    "id": 53,
+    "term": "Volkssouveränität",
+    "category": "System",
+    "definition": {
+      "de": "Grundsatz: Alle Staatsgewalt geht vom Volke aus.",
+      "ar": "مبدأ أساسي: كل سلطة الدولة تنبع من الشعب (سيادة الشعب).",
+      "en": "Principle: All state authority emanates from the people.",
+      "tr": "İlke: Tüm devlet yetkisi halktan kaynaklanır.",
+      "uk": "Принцип: Уся державна влада походить від народу.",
+      "ru": "Принцип: Вся государственная власть исходит от народа."
+    },
+    "example": {
+      "de": "Alle Staatsgewalt geht vom Volke aus. Das bedeutet...",
+      "ar": "كل سلطة الدولة تنبع من الشعب. هذا يعني...",
+      "en": "All state authority emanates from the people. This means...",
+      "tr": "Tüm devlet yetkisi halktan kaynaklanır. Bu şu anlama gelir...",
+      "uk": "Уся державна влада походить від народу. Це означає...",
+      "ru": "Вся государственная власть исходит от народа. Это означает..."
+    },
+    "related_question_id": 12,
+    "keywords": ["Macht", "Volk", "Wahlen"],
+    "related_question_ids": [12, 13]
+  },
+  {
+    "id": 54,
+    "term": "Fünf-Prozent-Hürde",
+    "category": "System",
+    "definition": {
+      "de": "Eine Partei muss mindestens 5% der Stimmen bekommen, um in den Bundestag zu kommen.",
+      "ar": "يجب أن يحصل الحزب على 5% على الأقل من الأصوات لدخول البوندستاغ (عتبة الـ 5%).",
+      "en": "A party must receive at least 5% of the votes to enter the Bundestag.",
+      "tr": "Bir partinin Federal Meclis'e girebilmesi için oyların en az %5'ini alması gerekir.",
+      "uk": "Партія повинна набрати щонайменше 5% голосів, щоб пройти до Бундестагу.",
+      "ru": "Партия должна набрать не менее 5% голосов, чтобы пройти в Бундестаг."
+    },
+    "example": {
+      "de": "Was ist die Fünf-Prozent-Hürde?",
+      "ar": "ما هي عتبة الخمسة بالمائة؟",
+      "en": "What is the five percent threshold?",
+      "tr": "Yüzde beş barajı nedir?",
+      "uk": "Що таке п'ятивідсотковий бар'єр?",
+      "ru": "Что такое пятипроцентный барьер?"
+    },
+    "related_question_id": 42,
+    "keywords": ["Mindestanteil", "Stimmen", "Parlament"],
+    "related_question_ids": [42]
+  },
+  {
+    "id": 55,
+    "term": "Fraktion",
+    "category": "System",
+    "definition": {
+      "de": "Zusammenschluss von Abgeordneten derselben Partei im Parlament.",
+      "ar": "تجمع لنواب من نفس الحزب داخل البرلمان (الكتلة البرلمانية).",
+      "en": "Group of members of parliament from the same party.",
+      "tr": "Parlamentodaki aynı partiden milletvekillerinin birleşimi.",
+      "uk": "Об'єднання депутатів однієї партії в парламенті.",
+      "ru": "Объединение депутатов одной партии в парламенте."
+    },
+    "example": {
+      "de": "Was ist eine Fraktion im Bundestag?",
+      "ar": "ما هي الكتلة البرلمانية في البوندستاغ؟",
+      "en": "What is a parliamentary group in the Bundestag?",
+      "tr": "Federal Meclis'teki grup nedir?",
+      "uk": "Що таке фракція в Бундестазі?",
+      "ru": "Что такое фракция в Бундестаге?"
+    },
+    "related_question_id": 35,
+    "keywords": ["Abgeordnete", "Partei", "Gruppe"],
+    "related_question_ids": [35]
+  },
+  {
+    "id": 56,
+    "term": "Verfassungswidrig",
+    "category": "Society",
+    "definition": {
+      "de": "Gegen das Grundgesetz (die Verfassung) verstoßend.",
+      "ar": "مخالف للدستور (القانون الأساسي).",
+      "en": "Violating the Basic Law (Constitution).",
+      "tr": "Anayasaya (Temel Yasa) aykırı.",
+      "uk": "Такий, що суперечить Основному закону (Конституції).",
+      "ru": "Противоречащий Основному закону (Конституции)."
+    },
+    "example": {
+      "de": "Eine Partei will eine Diktatur errichten. Sie ist dann...",
+      "ar": "حزب يريد إقامة ديكتاتورية. إنه إذن...",
+      "en": "A party wants to establish a dictatorship. It is then...",
+      "tr": "Bir parti diktatörlük kurmak istiyor. O zaman...",
+      "uk": "Партія хоче встановити диктатуру. Тоді вона...",
+      "ru": "Партия хочет установить диктатуру. Тогда она..."
+    },
+    "related_question_id": 20,
+    "keywords": ["Verbot", "Gesetz", "Grundgesetz"],
+    "related_question_ids": [20, 22]
+  },
+  {
+    "id": 57,
+    "term": "Gleichberechtigung",
+    "category": "Rights",
+    "definition": {
+      "de": "Frauen und Männer haben die gleichen Rechte.",
+      "ar": "يتمتع النساء والرجال بنفس الحقوق (المساواة في الحقوق).",
+      "en": "Women and men have the same rights.",
+      "tr": "Kadınlar ve erkekler eşit haklara sahiptir.",
+      "uk": "Жінки і чоловіки мають рівні права.",
+      "ru": "Женщины и мужчины имеют равные права."
+    },
+    "example": {
+      "de": "Männer und Frauen sind gleichberechtigt. Was bedeutet das?",
+      "ar": "الرجال والنساء متساوون في الحقوق. ماذا يعني ذلك؟",
+      "en": "Men and women have equal rights. What does that mean?",
+      "tr": "Erkekler ve kadınlar eşit haklara sahiptir. Bu ne anlama gelir?",
+      "uk": "Чоловіки і жінки мають рівні права. Що це означає?",
+      "ru": "Мужчины и женщины имеют равные права. Что это значит?"
+    },
+    "related_question_id": 62,
+    "keywords": ["Mann", "Frau", "Rechte"],
+    "related_question_ids": [62, 58]
+  },
+  {
+    "id": 58,
+    "term": "Meinungsfreiheit",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, seine Meinung frei zu sagen (auch Kritik an der Regierung).",
+      "ar": "الحق في التعبير عن الرأي بحرية (بما في ذلك انتقاد الحكومة).",
+      "en": "The right to express one's opinion freely.",
+      "tr": "Fikrini özgürce ifade etme hakkı.",
+      "uk": "Право вільно висловлювати свою думку.",
+      "ru": "Право свободно выражать свое мнение."
+    },
+    "example": {
+      "de": "In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil...",
+      "ar": "في ألمانيا يُسمح للناس بقول شيء ضد الحكومة علانية، لأن...",
+      "en": "In Germany, people are allowed to openly say something against the government because...",
+      "tr": "Almanya'da insanların hükümete karşı açıkça bir şeyler söylemelerine izin veriliyor çünkü...",
+      "uk": "У Німеччині людям дозволено відкрито говорити щось проти уряду, тому що...",
+      "ru": "В Германии людям разрешено открыто говорить что-то против правительства, потому что..."
+    },
+    "related_question_id": 1,
+    "keywords": ["Kritik", "Presse", "Grundrecht"],
+    "related_question_ids": [1, 10]
+  },
+  {
+    "id": 59,
+    "term": "Sozialversicherung",
+    "category": "Welfare",
+    "definition": {
+      "de": "Pflichtversicherung für Arbeitnehmer (Kranken-, Renten-, Arbeitslosen-, Pflegeversicherung).",
+      "ar": "تأمين إلزامي للموظفين (تأمين صحي، تقاعد، بطالة، رعاية).",
+      "en": "Compulsory insurance for employees (health, pension, unemployment, nursing).",
+      "tr": "Çalışanlar için zorunlu sigorta.",
+      "uk": "Обов'язкове страхування для працівників.",
+      "ru": "Обязательное страхование для работников."
+    },
+    "example": {
+      "de": "Wer bezahlt in Deutschland die Sozialversicherungen?",
+      "ar": "من يدفع التأمينات الاجتماعية في ألمانيا؟",
+      "en": "Who pays social security contributions in Germany?",
+      "tr": "Almanya'da sosyal güvenlik primlerini kim ödüyor?",
+      "uk": "Хто платить внески на соціальне страхування в Німеччині?",
+      "ru": "Кто платит взносы на социальное страхование в Германии?"
+    },
+    "related_question_id": 77,
+    "keywords": ["Arbeitnehmer", "Abgaben", "Schutz"],
+    "related_question_ids": [77, 73]
+  },
+  {
+    "id": 60,
+    "term": "Richtlinienkompetenz",
+    "category": "System",
+    "definition": {
+      "de": "Das Recht des Bundeskanzlers, die Grundlinien der Regierungspolitik zu bestimmen.",
+      "ar": "حق المستشار الاتحادي في تحديد الخطوط العريضة لسياسة الحكومة.",
+      "en": "The Chancellor's right to determine the guidelines of government policy.",
+      "tr": "Şansölye'nin hükümet politikasının ana hatlarını belirleme yetkisi.",
+      "uk": "Право канцлера визначати основні напрямки урядової політики.",
+      "ru": "Право канцлера определять основные направления правительственной политики."
+    },
+    "example": {
+      "de": "Wer bestimmt die Schulpolitik? (Länder). Wer bestimmt die Richtlinien der Regierungspolitik? (Kanzler)",
+      "ar": "من يحدد السياسة التعليمية؟ (الولايات). من يحدد الخطوط العريضة لسياسة الحكومة؟ (المستشار)",
+      "en": "Who determines school policy? (States). Who determines the guidelines of government policy? (Chancellor)",
+      "tr": "Okul politikasını kim belirler? (Eyaletler). Hükümet politikasının ana hatlarını kim belirler? (Şansölye)",
+      "uk": "Хто визначає шкільну політику? (Землі). Хто визначає основні напрямки урядової політики? (Канцлер)",
+      "ru": "Кто определяет школьную политику? (Земли). Кто определяет основные направления правительственной политики? (Канцлер)"
+    },
+    "related_question_id": 123,
+    "keywords": ["Kanzler", "Politik", "Bestimmen"],
+    "related_question_ids": [123]
+  },
+  {
+    "id": 61,
+    "term": "Misstrauensvotum",
+    "category": "System",
+    "definition": {
+      "de": "Das Parlament kann dem Bundeskanzler das Vertrauen entziehen und ihn abwählen.",
+      "ar": "يمكن للبرلمان سحب الثقة من المستشار وعزله (تصويت حجب الثقة).",
+      "en": "Parliament can withdraw confidence from the Chancellor and vote him out.",
+      "tr": "Parlamento Şansölye'ye güvensizlik oyu verip onu görevden alabilir.",
+      "uk": "Парламент може висловити недовіру канцлеру і усунути його з посади.",
+      "ru": "Парламент может выразить недоверие канцлеру и сместить его."
+    },
+    "example": {
+      "de": "Wie kann der Bundestag einen Bundeskanzler abwählen?",
+      "ar": "كيف يمكن للبوندستاغ عزل المستشار؟",
+      "en": "How can the Bundestag remove a Chancellor?",
+      "tr": "Federal Meclis bir Şansölyeyi nasıl görevden alabilir?",
+      "uk": "Як Бундестаг може усунути канцлера?",
+      "ru": "Как Бундестаг может сместить канцлера?"
+    },
+    "related_question_id": 33,
+    "keywords": ["Abwahl", "Kanzler", "Vertrauen"],
+    "related_question_ids": [33]
+  },
+  {
+    "id": 62,
+    "term": "Souveränität",
+    "category": "History",
+    "definition": {
+      "de": "Die Unabhängigkeit und Selbstbestimmung eines Staates.",
+      "ar": "استقلال الدولة وحقها في تقرير المصير (السيادة).",
+      "en": "The independence and self-determination of a state.",
+      "tr": "Bir devletin bağımsızlığı ve kendi kaderini tayin etmesi.",
+      "uk": "Незалежність і самовизначення держави.",
+      "ru": "Независимость и самоопределение государства."
+    },
+    "example": {
+      "de": "Wann erhielt die Bundesrepublik Deutschland ihre volle Souveränität zurück?",
+      "ar": "متى استعادت جمهورية ألمانيا الاتحادية سيادتها الكاملة؟",
+      "en": "When did the Federal Republic of Germany regain its full sovereignty?",
+      "tr": "Federal Almanya Cumhuriyeti tam egemenliğini ne zaman geri kazandı?",
+      "uk": "Коли Федеративна Республіка Німеччина повернула свій повний суверенітет?",
+      "ru": "Когда Федеративная Республика Германия вернула свой полный суверенитет?"
+    },
+    "related_question_id": 172,
+    "keywords": ["Unabhängigkeit", "2-plus-4-Vertrag", "1990"],
+    "related_question_ids": [172]
+  },
+  {
+    "id": 63,
+    "term": "Föderalismus",
+    "category": "System",
+    "definition": {
+      "de": "Organisationsprinzip: Der Staat besteht aus mehreren teilsouveränen Bundesländern.",
+      "ar": "مبدأ تنظيمي: تتكون الدولة من عدة ولايات تتمتع ببعض السيادة (النظام الاتحادي).",
+      "en": "Organizational principle: The state consists of several partly sovereign federal states.",
+      "tr": "Organizasyon ilkesi: Devlet, kısmen egemen birkaç federal eyaletten oluşur.",
+      "uk": "Принцип організації: держава складається з кількох частково суверенних федеральних земель.",
+      "ru": "Принцип организации: государство состоит из нескольких частично суверенных федеральных земель."
+    },
+    "example": {
+      "de": "Was ist in Deutschland mit dem Begriff „Föderalismus“ gemeint?",
+      "ar": "ماذا يُقصد بمصطلح \"الفيدرالية\" في ألمانيا؟",
+      "en": "What is meant by the term \"federalism\" in Germany?",
+      "tr": "Almanya'da \"federalizm\" terimi ne anlama gelir?",
+      "uk": "Що мається на увазі під терміном «федералізм» у Німеччині?",
+      "ru": "Что понимается под термином «федерализм» в Германии?"
+    },
+    "related_question_id": 14,
+    "keywords": ["Bundesländer", "Bund", "Aufteilung"],
+    "related_question_ids": [14]
+  },
+  {
+    "id": 64,
+    "term": "Rechtsstaat",
+    "category": "System",
+    "definition": {
+      "de": "Ein Staat, in dem Regierung und Verwaltung an die Gesetze gebunden sind.",
+      "ar": "دولة تلتزم فيها الحكومة والإدارة بالقوانين (دولة القانون).",
+      "en": "A state in which the government and administration are bound by laws.",
+      "tr": "Hükümetin ve idarenin yasalara bağlı olduğu devlet.",
+      "uk": "Держава, в якій уряд і адміністрація підпорядковані законам.",
+      "ru": "Государство, в котором правительство и администрация подчинены законам."
+    },
+    "example": {
+      "de": "Was bedeutet „Rechtsstaat“?",
+      "ar": "ماذا يعني \"دولة القانون\"؟",
+      "en": "What does \"rule of law\" mean?",
+      "tr": "\"Hukuk devleti\" ne anlama gelir?",
+      "uk": "Що означає «правова держава»?",
+      "ru": "Что означает «правовое государство»?"
+    },
+    "related_question_id": 55,
+    "keywords": ["Gesetze", "Gerichte", "Unabhängigkeit"],
+    "related_question_ids": [55]
+  }
+]

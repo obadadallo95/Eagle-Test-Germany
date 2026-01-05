@@ -1,0 +1,602 @@
+[
+  {
+    "id": 11701,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Sachsen?",
+      "ar": "ما هي عاصمة ولاية ساكسونيا؟",
+      "en": "Which city is the capital of Saxony?",
+      "tr": "Saksonya'nın başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею Саксонії?",
+      "ru": "Какой город является столицей Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Leipzig",
+          "ar": "لايبزيغ",
+          "en": "Leipzig",
+          "tr": "Leipzig",
+          "uk": "Лейпциг",
+          "ru": "Лейпциг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Chemnitz",
+          "ar": "كيمنتس",
+          "en": "Chemnitz",
+          "tr": "Chemnitz",
+          "uk": "Хемніц",
+          "ru": "Хемниц"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Dresden",
+          "ar": "درسدن",
+          "en": "Dresden",
+          "tr": "Dresden",
+          "uk": "Дрезден",
+          "ru": "Дрезден"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Zwickau",
+          "ar": "تسفيكاو",
+          "en": "Zwickau",
+          "tr": "Zwickau",
+          "uk": "Цвікау",
+          "ru": "Цвиккау"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 11702,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Sachsen?",
+      "ar": "ما هي ألوان علم ولاية ساكسونيا؟",
+      "en": "What are the colors of the state flag of Saxony?",
+      "tr": "Saksonya eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Саксонія?",
+      "ru": "Какого цвета флаг земли Саксония?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Weiß-Grün",
+          "ar": "أبيض-أخضر",
+          "en": "White-green",
+          "tr": "Beyaz-yeşil",
+          "uk": "Біло-зелений",
+          "ru": "Бело-зеленый"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Rot-Gold",
+          "ar": "أسود-أحمر-ذهبي",
+          "en": "Black-red-gold",
+          "tr": "Siyah-kırmızı-altın",
+          "uk": "Чорно-червоно-золотий",
+          "ru": "Черно-красно-золотой"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Blau-Weiß",
+          "ar": "أزرق-أبيض",
+          "en": "Blue-white",
+          "tr": "Mavi-beyaz",
+          "uk": "Синьо-білий",
+          "ru": "Сине-белый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 11703,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Welches Wappentier befindet sich im Wappen von Sachsen?",
+      "ar": "أي عنصر يوجد في شعار ساكسونيا؟ (الشعار الرسمي هو درع مخطط مع إكليل، لا يحتوي على حيوان، لكن السؤال الشائع يسأل عن وصف الشعار أو الأسد في شعارات تاريخية، في الامتحان الرسمي السؤال هو: ماذا يظهر الشعار؟)",
+      "en": "What does the coat of arms of Saxony show?",
+      "tr": "Saksonya arması neyi gösterir?",
+      "uk": "Що зображено на гербі Саксонії?",
+      "ru": "Что изображено на гербе Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Einen Adler",
+          "ar": "نسراً",
+          "en": "An eagle",
+          "tr": "Bir kartal",
+          "uk": "Орел",
+          "ru": "Орел"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Einen Bären",
+          "ar": "دباً",
+          "en": "A bear",
+          "tr": "Bir ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Einen Schild mit Balken und einer Raute (Rauten-Kranz)",
+          "ar": "درعاً بخطوط وإكليل من المعين (إكليل السذاب)",
+          "en": "A shield with bars and a crancelin",
+          "tr": "Çubuklu ve çelenkli bir kalkan",
+          "uk": "Щит із смугами та рутовим вінком",
+          "ru": "Щит с полосами и рутовым венком"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Ein Pferd",
+          "ar": "حصاناً",
+          "en": "A horse",
+          "tr": "Bir at",
+          "uk": "Кінь",
+          "ru": "Лошадь"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 11704,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Sachsen?",
+      "ar": "أي ولاية اتحادية هي جارة لساكسونيا؟",
+      "en": "Which federal state is a neighbor of Saxony?",
+      "tr": "Hangi eyalet Saksonya'nın komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Саксонії?",
+      "ru": "Какая федеральная земля является соседом Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Hessen",
+          "ar": "هيسن",
+          "en": "Hesse",
+          "tr": "Hessen",
+          "uk": "Гессен",
+          "ru": "Гессен"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Thüringen",
+          "ar": "تورينغن",
+          "en": "Thuringia",
+          "tr": "Thüringen",
+          "uk": "Тюрингія",
+          "ru": "Тюрингия"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Niedersachsen",
+          "ar": "ساكسونيا السفلى",
+          "en": "Lower Saxony",
+          "tr": "Aşağı Saksonya",
+          "uk": "Нижня Саксонія",
+          "ru": "Нижняя Саксония"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Mecklenburg-Vorpommern",
+          "ar": "مكلنبورغ-فوربومرن",
+          "en": "Mecklenburg-Western Pomerania",
+          "tr": "Mecklenburg-Vorpommern",
+          "uk": "Мекленбург-Передня Померанія",
+          "ru": "Мекленбург-Передняя Померания"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 11705,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Welches Land grenzt an Sachsen?",
+      "ar": "أي دولة تحد ساكسونيا؟",
+      "en": "Which country borders Saxony?",
+      "tr": "Saksonya ile hangi ülke sınır komşusudur?",
+      "uk": "Яка країна межує з Саксонією?",
+      "ru": "Какая страна граничит с Саксонией?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Frankreich",
+          "ar": "فرنسا",
+          "en": "France",
+          "tr": "Fransa",
+          "uk": "Франція",
+          "ru": "Франция"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Dänemark",
+          "ar": "الدانمارك",
+          "en": "Denmark",
+          "tr": "Danimarka",
+          "uk": "Данія",
+          "ru": "Дания"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Polen",
+          "ar": "بولندا",
+          "en": "Poland",
+          "tr": "Polonya",
+          "uk": "Польща",
+          "ru": "Польша"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schweiz",
+          "ar": "سويسرا",
+          "en": "Switzerland",
+          "tr": "İsviçre",
+          "uk": "Швейцарія",
+          "ru": "Швейцария"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 11706,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Wie heißt das Parlament von Sachsen?",
+      "ar": "ما هو اسم برلمان ساكسونيا؟",
+      "en": "What is the name of the parliament of Saxony?",
+      "tr": "Saksonya parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Саксонії?",
+      "ru": "Как называется парламент Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Senat",
+          "ar": "مجلس الشيوخ",
+          "en": "Senate",
+          "tr": "Senato",
+          "uk": "Сенат",
+          "ru": "Сенат"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 11707,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Sachsen?",
+      "ar": "ماذا يسمى رئيس الحكومة في ساكسونيا؟",
+      "en": "What is the head of government in Saxony called?",
+      "tr": "Saksonya'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Саксонії?",
+      "ru": "Как называют главу правительства в Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident",
+          "ar": "الرئيس",
+          "en": "President",
+          "tr": "Başkan",
+          "uk": "Президент",
+          "ru": "Президент"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 11708,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Ab welchem Alter darf man in Sachsen bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في ساكسونيا؟",
+      "en": "From what age are people allowed to vote in state elections in Saxony?",
+      "tr": "Saksonya'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Саксонії?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 11709,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Sachsen gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في ساكسونيا؟",
+      "en": "For how many years is the state parliament in Saxony elected?",
+      "tr": "Saksonya Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Саксонії?",
+      "ru": "На сколько лет избирается ландтаг в Саксонии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 11710,
+    "category_id": "state",
+    "state_code": "SN",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Sachsen (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء ساكسونيا (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Saxony (as of 2024)?",
+      "tr": "Saksonya Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як називається прем'єр-міністр Саксонії (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Саксонии (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bodo Ramelow",
+          "ar": "بودو راميلوف",
+          "en": "Bodo Ramelow",
+          "tr": "Bodo Ramelow",
+          "uk": "Бодо Рамелов",
+          "ru": "Бодо Рамелов"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Reiner Haseloff",
+          "ar": "راينر هازيلوف",
+          "en": "Reiner Haseloff",
+          "tr": "Reiner Haseloff",
+          "uk": "Райнер Газелофф",
+          "ru": "Райнер Хазелофф"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Dietmar Woidke",
+          "ar": "ديتمار فويدكه",
+          "en": "Dietmar Woidke",
+          "tr": "Dietmar Woidke",
+          "uk": "Дітмар Войдке",
+          "ru": "Дитмар Войдке"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Michael Kretschmer",
+          "ar": "ميشائيل كريتشمر",
+          "en": "Michael Kretschmer",
+          "tr": "Michael Kretschmer",
+          "uk": "Міхаель Кречмер",
+          "ru": "Михаэль Кречмер"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  }
+]

@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20650,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Hamburg ist ein ...",
+      "ar": "هامبورغ هي ...",
+      "en": "Hamburg is a ...",
+      "tr": "Hamburg bir ...",
+      "uk": "Гамбург - це ...",
+      "ru": "Гамбург - это ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Landkreis",
+          "ar": "دائرة ريفية",
+          "en": "rural district",
+          "tr": "ilçe",
+          "uk": "район",
+          "ru": "район"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Stadtstaat",
+          "ar": "ولاية مدنية (مدينة-دولة)",
+          "en": "city-state",
+          "tr": "şehir eyaleti",
+          "uk": "місто-держава",
+          "ru": "город-государство"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Königreich",
+          "ar": "مملكة",
+          "en": "kingdom",
+          "tr": "krallık",
+          "uk": "королівство",
+          "ru": "королевство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Regierungsbezirk",
+          "ar": "منطقة إدارية",
+          "en": "administrative district",
+          "tr": "idari bölge",
+          "uk": "адміністративний округ",
+          "ru": "административный округ"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20651,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Hamburg?",
+      "ar": "ما هي ألوان علم ولاية هامبورغ؟",
+      "en": "What are the colors of the state flag of Hamburg?",
+      "tr": "Hamburg eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Гамбург?",
+      "ru": "Какого цвета флаг земли Гамбург?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Blau-Weiß-Rot",
+          "ar": "أزرق-أبيض-أحمر",
+          "en": "Blue-white-red",
+          "tr": "Mavi-beyaz-kırmızı",
+          "uk": "Синьо-біло-червоний",
+          "ru": "Сине-бело-красный"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Weiß-Rot",
+          "ar": "أبيض-أحمر",
+          "en": "White-red",
+          "tr": "Beyaz-kırmızı",
+          "uk": "Біло-червоний",
+          "ru": "Бело-красный"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20652,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Was sieht man auf dem Wappen von Hamburg?",
+      "ar": "ماذا ترى على شعار هامبورغ؟",
+      "en": "What do you see on the coat of arms of Hamburg?",
+      "tr": "Hamburg armasında ne görülür?",
+      "uk": "Що зображено на гербі Гамбурга?",
+      "ru": "Что изображено на гербе Гамбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Einen Löwen",
+          "ar": "أسداً",
+          "en": "A lion",
+          "tr": "Bir aslan",
+          "uk": "Лев",
+          "ru": "Лев"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Einen Bären",
+          "ar": "دباً",
+          "en": "A bear",
+          "tr": "Bir ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Eine Burg",
+          "ar": "قلعة",
+          "en": "A castle",
+          "tr": "Bir kale",
+          "uk": "Замок",
+          "ru": "Замок"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Einen Adler",
+          "ar": "نسراً",
+          "en": "An eagle",
+          "tr": "Bir kartal",
+          "uk": "Орел",
+          "ru": "Орел"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20653,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Wie heißt das Landesparlament von Hamburg?",
+      "ar": "ما هو اسم برلمان ولاية هامبورغ؟",
+      "en": "What is the name of the state parliament of Hamburg?",
+      "tr": "Hamburg eyalet parlamentosunun adı nedir?",
+      "uk": "Як називається земельний парламент Гамбурга?",
+      "ru": "Как называется земельный парламент Гамбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت (مجلس المواطنين)",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт (Гражданское собрание)"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Senat",
+          "ar": "مجلس الشيوخ (Senat)",
+          "en": "Senate",
+          "tr": "Senato",
+          "uk": "Сенат",
+          "ru": "Сенат"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20654,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Wie heißt die Landesregierung von Hamburg?",
+      "ar": "ما هو اسم حكومة ولاية هامبورغ؟",
+      "en": "What is the name of the state government of Hamburg?",
+      "tr": "Hamburg eyalet hükümetinin adı nedir?",
+      "uk": "Як називається земельний уряд Гамбурга?",
+      "ru": "Как называется земельное правительство Гамбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Senat",
+          "ar": "مجلس الشيوخ (Senat)",
+          "en": "Senate",
+          "tr": "Senato",
+          "uk": "Сенат",
+          "ru": "Сенат"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ministerrat",
+          "ar": "مجلس الوزراء",
+          "en": "Council of Ministers",
+          "tr": "Bakanlar Kurulu",
+          "uk": "Рада міністрів",
+          "ru": "Совет министров"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Landesregierung",
+          "ar": "حكومة الولاية",
+          "en": "State Government",
+          "tr": "Eyalet Hükümeti",
+          "uk": "Земельний уряд",
+          "ru": "Земельное правительство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Magistrat",
+          "ar": "السلطة القضائية (Magistrat)",
+          "en": "Magistrate",
+          "tr": "Sulh Ceza Hakimliği",
+          "uk": "Магістрат",
+          "ru": "Магистрат"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20655,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Hamburg?",
+      "ar": "ماذا يسمى رئيس الحكومة في هامبورغ؟",
+      "en": "What is the head of government in Hamburg called?",
+      "tr": "Hamburg'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Гамбурзі?",
+      "ru": "Как называют главу правительства в Гамбурге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20656,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Welches Bundesland ist ein Nachbarland von Hamburg?",
+      "ar": "أي ولاية اتحادية هي جارة لهامبورغ؟",
+      "en": "Which federal state is a neighbor of Hamburg?",
+      "tr": "Hangi eyalet Hamburg'un komşusudur?",
+      "uk": "Яка федеральна земля є сусідом Гамбурга?",
+      "ru": "Какая федеральная земля является соседом Гамбурга?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Mecklenburg-Vorpommern",
+          "ar": "مكلنبورغ-فوربومرن",
+          "en": "Mecklenburg-Western Pomerania",
+          "tr": "Mecklenburg-Vorpommern",
+          "uk": "Мекленбург-Передня Померанія",
+          "ru": "Мекленбург-Передняя Померания"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Niedersachsen",
+          "ar": "ساكسونيا السفلى",
+          "en": "Lower Saxony",
+          "tr": "Aşağı Saksonya",
+          "uk": "Нижня Саксонія",
+          "ru": "Нижняя Саксония"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Nordrhein-Westfalen",
+          "ar": "شمال الراين-وستفاليا",
+          "en": "North Rhine-Westphalia",
+          "tr": "Kuzey Ren-Vestfalya",
+          "uk": "Північний Рейн-Вестфалія",
+          "ru": "Северный Рейн-Вестфалия"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20657,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Wie oft wird die Bürgerschaft in Hamburg gewählt?",
+      "ar": "كم مرة (كل كم سنة) يتم انتخاب البرلمان في هامبورغ؟",
+      "en": "How often is the Bürgerschaft in Hamburg elected?",
+      "tr": "Hamburg'da Bürgerschaft ne sıklıkla seçilir?",
+      "uk": "Як часто обирається Бюргершафт у Гамбурзі?",
+      "ru": "Как часто избирается Бюргершафт в Гамбурге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Alle 4 Jahre",
+          "ar": "كل 4 سنوات",
+          "en": "Every 4 years",
+          "tr": "Her 4 yılda bir",
+          "uk": "Кожні 4 роки",
+          "ru": "Каждые 4 года"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Alle 6 Jahre",
+          "ar": "كل 6 سنوات",
+          "en": "Every 6 years",
+          "tr": "Her 6 yılda bir",
+          "uk": "Кожні 6 років",
+          "ru": "Каждые 6 лет"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Alle 5 Jahre",
+          "ar": "كل 5 سنوات",
+          "en": "Every 5 years",
+          "tr": "Her 5 yılda bir",
+          "uk": "Кожні 5 років",
+          "ru": "Каждые 5 лет"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Alle 3 Jahre",
+          "ar": "كل 3 سنوات",
+          "en": "Every 3 years",
+          "tr": "Her 3 yılda bir",
+          "uk": "Кожні 3 роки",
+          "ru": "Каждые 3 года"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20658,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Ab welchem Alter darf man in Hamburg bei der Wahl zur Bürgerschaft wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات البرلمان في هامبورغ؟",
+      "en": "From what age are people allowed to vote in the Bürgerschaft election in Hamburg?",
+      "tr": "Hamburg'da Bürgerschaft seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до Бюргершафту в Гамбурзі?",
+      "ru": "С какого возраста разрешено голосовать на выборах в Бюргершафт в Гамбурге?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20659,
+    "category_id": "state",
+    "state_code": "HH",
+    "question": {
+      "de": "Die Senatoren in Hamburg sind vergleichbar mit ...",
+      "ar": "أعضاء مجلس الشيوخ (Senatoren) في هامبورغ يماثلون ...",
+      "en": "The Senators in Hamburg are comparable to ...",
+      "tr": "Hamburg'daki senatörler şunlarla karşılaştırılabilir ...",
+      "uk": "Сенатори в Гамбурзі порівнянні з ...",
+      "ru": "Сенаторы в Гамбурге сопоставимы с ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministern",
+          "ar": "الوزراء",
+          "en": "Ministers",
+          "tr": "Bakanlar",
+          "uk": "Міністрами",
+          "ru": "Министрами"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bürgermeistern",
+          "ar": "رؤساء البلديات",
+          "en": "Mayors",
+          "tr": "Belediye Başkanları",
+          "uk": "Мерами",
+          "ru": "Бургомистрами"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Abgeordneten",
+          "ar": "النواب",
+          "en": "Members of Parliament",
+          "tr": "Milletvekilleri",
+          "uk": "Депутатами",
+          "ru": "Депутатами"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Richtern",
+          "ar": "القضاة",
+          "en": "Judges",
+          "tr": "Yargıçlar",
+          "uk": "Суддями",
+          "ru": "Судьями"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  }
+]

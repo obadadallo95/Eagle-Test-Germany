@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20430,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Bayern?",
+      "ar": "ما هي عاصمة ولاية بافاريا؟",
+      "en": "Which city is the capital of Bavaria?",
+      "tr": "Bavyera'nın başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею Баварії?",
+      "ru": "Какой город является столицей Баварии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Nürnberg",
+          "ar": "نورمبرغ",
+          "en": "Nuremberg",
+          "tr": "Nürnberg",
+          "uk": "Нюрнберг",
+          "ru": "Нюрнберг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "München",
+          "ar": "ميونيخ",
+          "en": "Munich",
+          "tr": "Münih",
+          "uk": "Мюнхен",
+          "ru": "Мюнхен"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Augsburg",
+          "ar": "آوغسبورغ",
+          "en": "Augsburg",
+          "tr": "Augsburg",
+          "uk": "Аугсбург",
+          "ru": "Аугсбург"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Regensburg",
+          "ar": "ريغنسبورغ",
+          "en": "Regensburg",
+          "tr": "Regensburg",
+          "uk": "Регенсбург",
+          "ru": "Регенсбург"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20431,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Bayern?",
+      "ar": "ما هي ألوان علم ولاية بافاريا؟",
+      "en": "What are the colors of the state flag of Bavaria?",
+      "tr": "Bavyera eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Баварія?",
+      "ru": "Какого цвета флаг земли Бавария?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Rot-Gold",
+          "ar": "أسود-أحمر-ذهبي",
+          "en": "Black-red-gold",
+          "tr": "Siyah-kırmızı-altın",
+          "uk": "Чорно-червоно-золотий",
+          "ru": "Черно-красно-золотой"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Weiß-Blau",
+          "ar": "أبيض-أزرق",
+          "en": "White-blue",
+          "tr": "Beyaz-mavi",
+          "uk": "Біло-блакитний",
+          "ru": "Бело-голубой"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20432,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Bayern?",
+      "ar": "ماذا يسمى رئيس الحكومة في بافاريا؟",
+      "en": "What is the head of government in Bavaria called?",
+      "tr": "Bavyera'daki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Баварії?",
+      "ru": "Как называют главу правительства в Баварии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20433,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Wie heißt das Parlament von Bayern?",
+      "ar": "ما هو اسم برلمان بافاريا؟",
+      "en": "What is the name of the parliament of Bavaria?",
+      "tr": "Bavyera parlamentosunun adı nedir?",
+      "uk": "Як називається парламент Баварії?",
+      "ru": "Как называется парламент Баварии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "بوندستاغ (البرلمان الاتحادي)",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundesrat",
+          "ar": "بوندسرات (المجلس الاتحادي)",
+          "en": "Bundesrat",
+          "tr": "Federal Konsey",
+          "uk": "Бундесрат",
+          "ru": "Бундесрат"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Stadtverordnetenversammlung",
+          "ar": "مجلس نواب المدينة",
+          "en": "City Council",
+          "tr": "Şehir Meclisi",
+          "uk": "Міські збори депутатів",
+          "ru": "Городское собрание депутатов"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ (برلمان الولاية)",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20434,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Bayern (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء بافاريا (حتى عام 2024)؟",
+      "en": "What is the name of the Minister-President of Bavaria (as of 2024)?",
+      "tr": "Bavyera Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як звати прем'єр-міністра Баварії (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Баварии (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Stephan Weil",
+          "ar": "شتيفان فايل",
+          "en": "Stephan Weil",
+          "tr": "Stephan Weil",
+          "uk": "Штефан Вайль",
+          "ru": "Штефан Вайль"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Bodo Ramelow",
+          "ar": "بودو راميلوف",
+          "en": "Bodo Ramelow",
+          "tr": "Bodo Ramelow",
+          "uk": "Бодо Рамелов",
+          "ru": "Бодо Рамелов"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20435,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Welches Bundesland grenzt an Bayern?",
+      "ar": "أي ولاية اتحادية تجاور بافاريا؟",
+      "en": "Which federal state borders Bavaria?",
+      "tr": "Hangi eyalet Bavyera'ya komşudur?",
+      "uk": "Яка федеральна земля межує з Баварією?",
+      "ru": "Какая федеральная земля граничит с Баварией?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Nordrhein-Westfalen",
+          "ar": "شمال الراين-وستفاليا",
+          "en": "North Rhine-Westphalia",
+          "tr": "Kuzey Ren-Vestfalya",
+          "uk": "Північний Рейн-Вестфалія",
+          "ru": "Северный Рейн-Вестфалия"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Baden-Württemberg",
+          "ar": "بادن-فورتمبيرغ",
+          "en": "Baden-Württemberg",
+          "tr": "Baden-Württemberg",
+          "uk": "Баден-Вюртемберг",
+          "ru": "Баден-Вюртемберг"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Schleswig-Holstein",
+          "ar": "شليسفيغ هولشتاين",
+          "en": "Schleswig-Holstein",
+          "tr": "Schleswig-Holstein",
+          "uk": "Шлезвіг-Гольштейн",
+          "ru": "Шлезвиг-Гольштейн"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20436,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Bayern gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في بافاريا؟",
+      "en": "For how many years is the state parliament in Bavaria elected?",
+      "tr": "Bavyera Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Баварії?",
+      "ru": "На сколько лет избирается ландтаг в Баварии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20437,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Ab welchem Alter darf man in Bayern bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في بافاريا؟",
+      "en": "From what age are people allowed to vote in state elections in Bavaria?",
+      "tr": "Bavyera'daki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Баварії?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Баварии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20438,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "Welchen Minister / welche Ministerin hat Bayern nicht?",
+      "ar": "أي وزير / وزيرة لا يوجد في حكومة بافاريا؟",
+      "en": "Which minister does Bavaria not have?",
+      "tr": "Bavyera'da hangi bakan yoktur?",
+      "uk": "Якого міністра немає в Баварії?",
+      "ru": "Какого министра нет в Баварии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Justizminister / Justizministerin",
+          "ar": "وزير العدل",
+          "en": "Minister of Justice",
+          "tr": "Adalet Bakanı",
+          "uk": "Міністр юстиції",
+          "ru": "Министр юстиции"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Finanzminister / Finanzministerin",
+          "ar": "وزير المالية",
+          "en": "Minister of Finance",
+          "tr": "Maliye Bakanı",
+          "uk": "Міністр фінансів",
+          "ru": "Министр финансов"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Außenminister / Außenministerin",
+          "ar": "وزير الخارجية",
+          "en": "Foreign Minister",
+          "tr": "Dışişleri Bakanı",
+          "uk": "Міністр закордонних справ",
+          "ru": "Министр иностранных дел"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Innenminister / Innenministerin",
+          "ar": "وزير الداخلية",
+          "en": "Minister of the Interior",
+          "tr": "İçişleri Bakanı",
+          "uk": "Міністр внутрішніх справ",
+          "ru": "Министр внутренних дел"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20439,
+    "category_id": "state",
+    "state_code": "BY",
+    "question": {
+      "de": "In wie viele Regierungsbezirke ist Bayern eingeteilt?",
+      "ar": "إلى كم منطقة إدارية (Regierungsbezirke) تنقسم بافاريا؟",
+      "en": "How many administrative districts (Regierungsbezirke) is Bavaria divided into?",
+      "tr": "Bavyera kaç idari bölgeye (Regierungsbezirke) ayrılmıştır?",
+      "uk": "На скільки адміністративних округів (Regierungsbezirke) поділена Баварія?",
+      "ru": "На сколько административных округов (Regierungsbezirke) разделена Бавария?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "7",
+          "ar": "7",
+          "en": "7",
+          "tr": "7",
+          "uk": "7",
+          "ru": "7"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  }
+]

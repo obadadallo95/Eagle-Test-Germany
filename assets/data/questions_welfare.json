@@ -1,0 +1,182 @@
+[
+  {
+    "id": 2,
+    "category_id": "general",
+    "question": {
+      "de": "In Deutschland können Eltern bis zum 14. Lebensjahr ihres Kindes entscheiden, ob es in der Schule am ...",
+      "ar": "في ألمانيا يمكن للوالدين أن يقرروا حتى يبلغ طفلهم سن 14 عاماً، ما إذا كان سيشارك في المدرسة في ...",
+      "en": "In Germany, parents can decide until their child is 14 years old whether he or she participates in school in...",
+      "tr": "Almanya'da ebeveynler, çocukları 14 yaşına gelene kadar okulda şuna katılıp katılmayacağına karar verebilirler...",
+      "uk": "У Німеччині батьки можуть вирішувати до 14 років своєї дитини, чи буде вона брати участь у школі в...",
+      "ru": "В Германии родители могут решать до 14-летнего возраста своего ребенка, будет ли он участвовать в школе в..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Geschichtsunterricht teilnimmt.",
+          "ar": "درس التاريخ.",
+          "en": "history lessons.",
+          "tr": "tarih dersleri.",
+          "uk": "уроках історії.",
+          "ru": "уроках истории."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Religionsunterricht teilnimmt.",
+          "ar": "درس الدين (التعليم الديني).",
+          "en": "religious education.",
+          "tr": "din dersleri.",
+          "uk": "уроках релігії.",
+          "ru": "уроках религии."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Politikunterricht teilnimmt.",
+          "ar": "درس السياسة.",
+          "en": "politics lessons.",
+          "tr": "siyaset dersleri.",
+          "uk": "уроках політики.",
+          "ru": "уроках политики."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Sprachunterricht teilnimmt.",
+          "ar": "درس اللغة.",
+          "en": "language lessons.",
+          "tr": "dil dersleri.",
+          "uk": "мовних уроках.",
+          "ru": "языковых уроках."
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "welfare"
+  },
+  {
+    "id": 73,
+    "category_id": "general",
+    "question": {
+      "de": "Was müssen Sie in Deutschland automatisch von Ihrem Gehalt abgeben, wenn Sie fest angestellt sind?",
+      "ar": "ما الذي يجب عليك خصمه تلقائياً من راتبك في ألمانيا إذا كنت موظفاً دائماً؟",
+      "en": "What must be automatically deducted from your salary in Germany if you are permanently employed?",
+      "tr": "Almanya'da kadrolu çalışansanız maaşınızdan otomatik olarak ne kesilmelidir?",
+      "uk": "Що ви повинні автоматично відраховувати зі своєї зарплати в Німеччині, якщо ви постійно працюєте?",
+      "ru": "Что вы должны автоматически отчислять из своей зарплаты в Германии, если вы постоянно работаете?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Sozialversicherung",
+          "ar": "التأمين الاجتماعي",
+          "en": "Social security",
+          "tr": "Sosyal güvenlik",
+          "uk": "Соціальне страхування",
+          "ru": "Социальное страхование"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Sozialhilfe",
+          "ar": "المساعدة الاجتماعية (السوسيال)",
+          "en": "Social assistance",
+          "tr": "Sosyal yardım",
+          "uk": "Соціальна допомога",
+          "ru": "Социальная помощь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Kindergeld",
+          "ar": "إعانة الأطفال",
+          "en": "Child benefit",
+          "tr": "Çocuk parası",
+          "uk": "Допомога на дітей",
+          "ru": "Детское пособие"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Wohngeld",
+          "ar": "إعانة السكن",
+          "en": "Housing benefit",
+          "tr": "Konut yardımı",
+          "uk": "Житлова субсидія",
+          "ru": "Жилищное пособие"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "welfare"
+  },
+  {
+    "id": 250,
+    "category_id": "general",
+    "question": {
+      "de": "Was versteht man unter dem Begriff „eingetragene Lebenspartnerschaft“?",
+      "ar": "ماذا يُقصد بمصطلح \"شراكة الحياة المسجلة\"؟",
+      "en": "What is meant by the term \"registered life partnership\"?",
+      "tr": "\"Kayıtlı hayat arkadaşlığı\" terimi ne anlama gelir?",
+      "uk": "Що розуміють під терміном «зареєстроване громадянське партнерство»?",
+      "ru": "Что понимается под термином «зарегистрированное гражданское партнерство»?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Zusammenleben von zwei Menschen gleichen Geschlechts",
+          "ar": "العيش المشترك بين شخصين من نفس الجنس (المثليين)",
+          "en": "Cohabitation of two people of the same sex",
+          "tr": "Aynı cinsiyetten iki kişinin birlikte yaşaması",
+          "uk": "Спільне проживання двох людей однієї статі",
+          "ru": "Совместное проживание двух людей одного пола"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Zusammenleben von zwei Menschen verschiedenen Geschlechts",
+          "ar": "العيش المشترك بين شخصين من جنسين مختلفين",
+          "en": "Cohabitation of two people of different sexes",
+          "tr": "Farklı cinsiyetten iki kişinin birlikte yaşaması",
+          "uk": "Спільне проживання двох людей різної статі",
+          "ru": "Совместное проживание двух людей разного пола"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Eine Ehe ohne Kinder",
+          "ar": "زواج بدون أطفال",
+          "en": "A marriage without children",
+          "tr": "Çocuksuz bir evlilik",
+          "uk": "Шлюб без дітей",
+          "ru": "Брак без детей"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Eine Wohngemeinschaft von Studenten",
+          "ar": "سكن مشترك للطلاب",
+          "en": "A shared apartment for students",
+          "tr": "Öğrenciler için bir ev paylaşımı",
+          "uk": "Спільна квартира студентів",
+          "ru": "Совместное проживание студентов"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "welfare"
+  }
+]

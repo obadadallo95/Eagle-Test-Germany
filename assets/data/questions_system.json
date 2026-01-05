@@ -1,0 +1,422 @@
+[
+  {
+    "id": 5,
+    "category_id": "general",
+    "question": {
+      "de": "Wahlen in Deutschland sind frei. Was bedeutet das?",
+      "ar": "الانتخابات في ألمانيا حرة. ماذا يعني ذلك؟",
+      "en": "Elections in Germany are free. What does that mean?",
+      "tr": "Almanya'da seçimler özgürdür. Bu ne anlama gelir?",
+      "uk": "Вибори в Німеччині вільні. Що це означає?",
+      "ru": "Выборы в Германии свободные. Что это значит?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Der Wähler darf bei der Wahl weder beeinflusst noch zu einer bestimmten Stimmabgabe gezwungen werden.",
+          "ar": "لا يجوز التأثير على الناخب أو إجباره على التصويت لصالح جهة معينة.",
+          "en": "The voter may neither be influenced nor forced to vote for a specific candidate.",
+          "tr": "Seçmen ne etki altında bırakılabilir ne de belirli bir adaya oy vermeye zorlanabilir.",
+          "uk": "Виборця не можна ні впливати, ні змушувати голосувати за певного кандидата.",
+          "ru": "Избирателя нельзя ни подвергать влиянию, ни принуждать голосовать за определенного кандидата."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Alle wahlberechtigten Personen müssen wählen.",
+          "ar": "يجب على جميع الأشخاص الذين يحق لهم التصويت أن يصوتوا.",
+          "en": "All eligible persons must vote.",
+          "tr": "Oy kullanma hakkına sahip herkes oy kullanmalıdır.",
+          "uk": "Усі особи, які мають право голосу, повинні голосувати.",
+          "ru": "Все лица, имеющие право голоса, должны голосовать."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Man darf Geld annehmen, wenn man dafür einen bestimmten Kandidaten wählt.",
+          "ar": "يُسمح بقبول المال مقابل التصويت لمرشح معين.",
+          "en": "You may accept money if you vote for a specific candidate.",
+          "tr": "Belirli bir adaya oy verirseniz para kabul edebilirsiniz.",
+          "uk": "Ви можете прийняти гроші, якщо проголосуєте за певного кандидата.",
+          "ru": "Вы можете принять деньги, если проголосуете за определенного кандидата."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Nur Personen, die noch nie im Gefängnis waren, dürfen wählen.",
+          "ar": "فقط الأشخاص الذين لم يدخلوا السجن من قبل يحق لهم التصويت.",
+          "en": "Only people who have never been to prison are allowed to vote.",
+          "tr": "Sadece daha önce hiç hapse girmemiş kişiler oy kullanabilir.",
+          "uk": "Голосувати можуть лише ті, хто ніколи не був у в'язниці.",
+          "ru": "Голосовать могут только те, кто никогда не был в тюрьме."
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  },
+  {
+    "id": 11,
+    "category_id": "general",
+    "question": {
+      "de": "Wie heißt die Verfassung der Bundesrepublik Deutschland?",
+      "ar": "ما هو اسم دستور جمهورية ألمانيا الاتحادية؟",
+      "en": "What is the constitution of the Federal Republic of Germany called?",
+      "tr": "Federal Almanya Cumhuriyeti anayasasının adı nedir?",
+      "uk": "Як називається конституція Федеративної Республіки Німеччина?",
+      "ru": "Как называется конституция Федеративной Республики Германия?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Grundgesetz",
+          "ar": "القانون الأساسي",
+          "en": "Basic Law",
+          "tr": "Temel Yasa (Anayasa)",
+          "uk": "Основний закон",
+          "ru": "Основной закон"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundesverfassung",
+          "ar": "الدستور الاتحادي",
+          "en": "Federal Constitution",
+          "tr": "Federal Anayasa",
+          "uk": "Федеральна конституція",
+          "ru": "Федеральная конституция"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Gesetzbuch",
+          "ar": "مدونة القانون",
+          "en": "Code of Law",
+          "tr": "Kanun Kitabı",
+          "uk": "Кодекс законів",
+          "ru": "Кодекс законов"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Verfassungsvertrag",
+          "ar": "معاهدة الدستور",
+          "en": "Constitutional Treaty",
+          "tr": "Anayasa Antlaşması",
+          "uk": "Конституційний договір",
+          "ru": "Конституционный договор"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  },
+  {
+    "id": 14,
+    "category_id": "general",
+    "question": {
+      "de": "Was ist in Deutschland mit dem Begriff „Föderalismus“ gemeint?",
+      "ar": "ماذا يُقصد بمصطلح \"الفيدرالية\" في ألمانيا؟",
+      "en": "What is meant by the term \"federalism\" in Germany?",
+      "tr": "Almanya'da \"federalizm\" terimi ne anlama gelir?",
+      "uk": "Що мається на увазі під терміном «федералізм» у Німеччині?",
+      "ru": "Что понимается под термином «федерализм» в Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ein Zusammenschluss von Bundesländern zu einem Gesamtstaat.",
+          "ar": "اتحاد ولايات لتشكيل دولة كاملة (اتحادية).",
+          "en": "A union of federal states to form a single state.",
+          "tr": "Federal eyaletlerin birleşerek tek bir devlet oluşturması.",
+          "uk": "Об'єднання федеральних земель в єдину державу.",
+          "ru": "Объединение федеральных земель в единое государство."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Die Organisation der Polizei.",
+          "ar": "تنظيم الشرطة.",
+          "en": "The organization of the police.",
+          "tr": "Polis teşkilatı.",
+          "uk": "Організація поліції.",
+          "ru": "Организация полиции."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Die Macht der Bundeskanzlerin / des Bundeskanzlers.",
+          "ar": "سلطة المستشارة / المستشار الاتحادي.",
+          "en": "The power of the Federal Chancellor.",
+          "tr": "Federal Şansölye'nin gücü.",
+          "uk": "Влада Федерального канцлера.",
+          "ru": "Власть Федерального канцлера."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Die Zusammenarbeit der Parteien.",
+          "ar": "التعاون بين الأحزاب.",
+          "en": "The cooperation of the parties.",
+          "tr": "Partilerin işbirliği.",
+          "uk": "Співпраця партій.",
+          "ru": "Сотрудничество партий."
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  },
+  {
+    "id": 26,
+    "category_id": "general",
+    "question": {
+      "de": "Wer bestimmt in Deutschland die Schulpolitik?",
+      "ar": "من يحدد السياسة المدرسية (التعليمية) في ألمانيا؟",
+      "en": "Who determines school policy in Germany?",
+      "tr": "Almanya'da okul politikasını kim belirler?",
+      "uk": "Хто визначає шкільну політику в Німеччині?",
+      "ru": "Кто определяет школьную политику в Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "die Bundesländer",
+          "ar": "الولايات الاتحادية",
+          "en": "the federal states",
+          "tr": "Eyaletler",
+          "uk": "Федеральні землі",
+          "ru": "Федеральные земли"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "der Bundespräsident / die Bundespräsidentin",
+          "ar": "الرئيس الاتحادي",
+          "en": "the Federal President",
+          "tr": "Federal Cumhurbaşkanı",
+          "uk": "Федеральний президент",
+          "ru": "Федеральный президент"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "das Familienministerium",
+          "ar": "وزارة الأسرة",
+          "en": "the Ministry of Family Affairs",
+          "tr": "Aile Bakanlığı",
+          "uk": "Міністерство у справах сім'ї",
+          "ru": "Министерство по делам семьи"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "der Bundestag",
+          "ar": "البرلمان الاتحادي (البوندستاغ)",
+          "en": "the Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  },
+  {
+    "id": 43,
+    "category_id": "general",
+    "question": {
+      "de": "Wer wird bei der Bundestagswahl in Deutschland gewählt?",
+      "ar": "من يتم انتخابه في انتخابات البوندستاغ في ألمانيا؟",
+      "en": "Who is elected in the Bundestag election in Germany?",
+      "tr": "Almanya'da Federal Meclis seçimlerinde kim seçilir?",
+      "uk": "Кого обирають на виборах до Бундестагу в Німеччині?",
+      "ru": "Кого избирают на выборах в Бундестаг в Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Die Abgeordneten des Bundestages",
+          "ar": "نواب البرلمان الاتحادي (البوندستاغ)",
+          "en": "The members of the Bundestag",
+          "tr": "Federal Meclis üyeleri",
+          "uk": "Депутати Бундестагу",
+          "ru": "Депутаты Бундестага"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Der Bundeskanzler / Die Bundeskanzlerin",
+          "ar": "المستشار الاتحادي",
+          "en": "The Federal Chancellor",
+          "tr": "Federal Şansölye",
+          "uk": "Федеральний канцлер",
+          "ru": "Федеральный канцлер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Die Bundesversammlung",
+          "ar": "الجمعية الاتحادية",
+          "en": "The Federal Convention",
+          "tr": "Federal Meclis (Cumhurbaşkanı'nı seçen)",
+          "uk": "Федеральні збори",
+          "ru": "Федеральное собрание"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Der Bundespräsident / Die Bundespräsidentin",
+          "ar": "الرئيس الاتحادي",
+          "en": "The Federal President",
+          "tr": "Federal Cumhurbaşkanı",
+          "uk": "Федеральний президент",
+          "ru": "Федеральный президент"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  },
+  {
+    "id": 55,
+    "category_id": "general",
+    "question": {
+      "de": "Was bedeutet „Rechtsstaat“?",
+      "ar": "ماذا يعني \"دولة القانون\"؟",
+      "en": "What does \"rule of law\" mean?",
+      "tr": "\"Hukuk devleti\" ne anlama gelir?",
+      "uk": "Що означає «правова держава»?",
+      "ru": "Что означает «правовое государство»?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Der Staat und die Regierung müssen sich an die Gesetze halten.",
+          "ar": "يجب على الدولة والحكومة الالتزام بالقوانين.",
+          "en": "The state and the government must abide by the laws.",
+          "tr": "Devlet ve hükümet yasalara uymak zorundadır.",
+          "uk": "Держава і уряд повинні дотримуватися законів.",
+          "ru": "Государство и правительство должны соблюдать законы."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Es gibt nur rechte Parteien.",
+          "ar": "توجد فقط أحزاب يمينية.",
+          "en": "There are only right-wing parties.",
+          "tr": "Sadece sağcı partiler var.",
+          "uk": "Є тільки праві партії.",
+          "ru": "Есть только правые партии."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Die Bürger entscheiden über Gesetze direkt.",
+          "ar": "المواطنون يقررون القوانين مباشرة.",
+          "en": "Citizens decide on laws directly.",
+          "tr": "Vatandaşlar yasalara doğrudan karar verir.",
+          "uk": "Громадяни вирішують закони безпосередньо.",
+          "ru": "Граждане принимают законы напрямую."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Der Staat darf Gesetze nicht ändern.",
+          "ar": "لا يُسمح للدولة بتغيير القوانين.",
+          "en": "The state may not change laws.",
+          "tr": "Devlet yasaları değiştiremez.",
+          "uk": "Держава не може змінювати закони.",
+          "ru": "Государство не может менять законы."
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  },
+  {
+    "id": 99,
+    "category_id": "general",
+    "question": {
+      "de": "Wer entscheidet, ob ein Kind in Deutschland in den Kindergarten geht?",
+      "ar": "من يقرر ما إذا كان الطفل يذهب إلى الروضة في ألمانيا؟",
+      "en": "Who decides whether a child goes to kindergarten in Germany?",
+      "tr": "Almanya'da bir çocuğun anaokuluna gidip gitmeyeceğine kim karar verir?",
+      "uk": "Хто вирішує, чи піде дитина в дитячий садок у Німеччині?",
+      "ru": "Кто решает, пойдет ли ребенок в детский сад в Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "die Eltern / die Erziehungsberechtigten",
+          "ar": "الوالدان / أولياء الأمور",
+          "en": "the parents / guardians",
+          "tr": "ebeveynler / veliler",
+          "uk": "батьки / опікуни",
+          "ru": "родители / опекуны"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "der Staat",
+          "ar": "الدولة",
+          "en": "the state",
+          "tr": "Devlet",
+          "uk": "держава",
+          "ru": "государство"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "die Schulen",
+          "ar": "المدارس",
+          "en": "the schools",
+          "tr": "okullar",
+          "uk": "школи",
+          "ru": "школы"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "die Bundesländer",
+          "ar": "الولايات الاتحادية",
+          "en": "the federal states",
+          "tr": "federal eyaletler",
+          "uk": "федеральні землі",
+          "ru": "федеральные земли"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "system"
+  }
+]

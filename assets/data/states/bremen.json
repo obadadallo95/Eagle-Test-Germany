@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20621,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Welches Bundesland ist das einzige Nachbarland von Bremen?",
+      "ar": "ما هي الولاية الاتحادية الوحيدة المجاورة لبريمن؟",
+      "en": "Which federal state is the only neighbor of Bremen?",
+      "tr": "Bremen'in tek komşusu olan eyalet hangisidir?",
+      "uk": "Яка федеральна земля є єдиним сусідом Бремена?",
+      "ru": "Какая федеральная земля является единственным соседом Бремена?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Hamburg",
+          "ar": "هامبورغ",
+          "en": "Hamburg",
+          "tr": "Hamburg",
+          "uk": "Гамбург",
+          "ru": "Гамбург"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schleswig-Holstein",
+          "ar": "شليسفيغ هولشتاين",
+          "en": "Schleswig-Holstein",
+          "tr": "Schleswig-Holstein",
+          "uk": "Шлезвіг-Гольштейн",
+          "ru": "Шлезвиг-Гольштейн"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Niedersachsen",
+          "ar": "ساكسونيا السفلى",
+          "en": "Lower Saxony",
+          "tr": "Aşağı Saksonya",
+          "uk": "Нижня Саксонія",
+          "ru": "Нижняя Саксония"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Mecklenburg-Vorpommern",
+          "ar": "مكلنبورغ-فوربومرن",
+          "en": "Mecklenburg-Western Pomerania",
+          "tr": "Mecklenburg-Vorpommern",
+          "uk": "Мекленбург-Передня Померанія",
+          "ru": "Мекленбург-Передняя Померания"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20622,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Das Bundesland Bremen besteht aus ...",
+      "ar": "تتكون ولاية بريمن من ...",
+      "en": "The state of Bremen consists of ...",
+      "tr": "Bremen eyaleti şunlardan oluşur ...",
+      "uk": "Земля Бремен складається з ...",
+      "ru": "Земля Бремен состоит из ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "vier Städten",
+          "ar": "أربع مدن",
+          "en": "four cities",
+          "tr": "dört şehir",
+          "uk": "чотирьох міст",
+          "ru": "четырех городов"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "zwei Städten",
+          "ar": "مدينتين (بريمن وبريمرهافن)",
+          "en": "two cities",
+          "tr": "iki şehir",
+          "uk": "двох міст",
+          "ru": "двух городов"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "einer Stadt und einem Landkreis",
+          "ar": "مدينة واحدة ودائرة ريفية واحدة",
+          "en": "one city and one rural district",
+          "tr": "bir şehir ve bir ilçe",
+          "uk": "одного міста та одного сільського району",
+          "ru": "одного города и одного сельского района"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "drei Städten",
+          "ar": "ثلاث مدن",
+          "en": "three cities",
+          "tr": "üç şehir",
+          "uk": "трьох міст",
+          "ru": "трех городов"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20623,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Wie nennt man das Landesparlament von Bremen?",
+      "ar": "ماذا يسمى برلمان ولاية بريمن؟",
+      "en": "What is the state parliament of Bremen called?",
+      "tr": "Bremen eyalet parlamentosuna ne ad verilir?",
+      "uk": "Як називається земельний парламент Бремена?",
+      "ru": "Как называется земельный парламент Бремена?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت (مجلس المواطنين)",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт (Гражданское собрание)"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Stadtrat",
+          "ar": "مجلس المدينة",
+          "en": "City Council",
+          "tr": "Şehir Meclisi",
+          "uk": "Міська рада",
+          "ru": "Городской совет"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20624,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Die Landesregierung von Bremen nennt man ...",
+      "ar": "تسمى حكومة ولاية بريمن ...",
+      "en": "The state government of Bremen is called ...",
+      "tr": "Bremen eyalet hükümetine ... denir.",
+      "uk": "Уряд землі Бремен називається ...",
+      "ru": "Правительство земли Бремен называется ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Senat",
+          "ar": "مجلس الشيوخ (Senat)",
+          "en": "Senate",
+          "tr": "Senato",
+          "uk": "Сенат",
+          "ru": "Сенат"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ministerrat",
+          "ar": "مجلس الوزراء",
+          "en": "Council of Ministers",
+          "tr": "Bakanlar Kurulu",
+          "uk": "Рада міністрів",
+          "ru": "Совет министров"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Landesregierung",
+          "ar": "حكومة الولاية",
+          "en": "State Government",
+          "tr": "Eyalet Hükümeti",
+          "uk": "Земельний уряд",
+          "ru": "Земельное правительство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Kabinet",
+          "ar": "مجلس الوزراء (Kabinet)",
+          "en": "Cabinet",
+          "tr": "Kabine",
+          "uk": "Кабінет",
+          "ru": "Кабинет"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20625,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Wer wählt in Bremen den Präsidenten / die Präsidentin des Senats?",
+      "ar": "من ينتخب رئيس / رئيسة مجلس الشيوخ في بريمن؟",
+      "en": "Who elects the President of the Senate in Bremen?",
+      "tr": "Bremen'de Senato Başkanı'nı kim seçer?",
+      "uk": "Хто обирає президента Сенату в Бремені?",
+      "ru": "Кто избирает президента Сената в Бремене?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Das Volk",
+          "ar": "الشعب",
+          "en": "The people",
+          "tr": "Halk",
+          "uk": "Народ",
+          "ru": "Народ"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Die Bürgerschaft",
+          "ar": "البرلمان (Bürgerschaft)",
+          "en": "The Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Der Bundeskanzler",
+          "ar": "المستشار الاتحادي",
+          "en": "The Federal Chancellor",
+          "tr": "Federal Şansölye",
+          "uk": "Федеральний канцлер",
+          "ru": "Федеральный канцлер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Der Bundespräsident",
+          "ar": "الرئيس الاتحادي",
+          "en": "The Federal President",
+          "tr": "Federal Cumhurbaşkanı",
+          "uk": "Федеральний президент",
+          "ru": "Федеральный президент"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20626,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Bremen?",
+      "ar": "ما هي ألوان علم ولاية بريمن؟",
+      "en": "What are the colors of the state flag of Bremen?",
+      "tr": "Bremen eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Бремен?",
+      "ru": "Какого цвета флаг земли Бремен?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Blau-Weiß-Rot",
+          "ar": "أزرق-أبيض-أحمر",
+          "en": "Blue-white-red",
+          "tr": "Mavi-beyaz-kırmızı",
+          "uk": "Синьо-біло-червоний",
+          "ru": "Сине-бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Rot-Weiß",
+          "ar": "أحمر-أبيض",
+          "en": "Red-white",
+          "tr": "Kırmızı-beyaz",
+          "uk": "Червоно-білий",
+          "ru": "Красно-белый"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Grün-Weiß",
+          "ar": "أخضر-أبيض",
+          "en": "Green-white",
+          "tr": "Yeşil-beyaz",
+          "uk": "Зелено-білий",
+          "ru": "Зелено-белый"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20627,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Welches Wappentier ist auf dem Wappen von Bremen zu sehen?",
+      "ar": "ما هو الرمز الموجود على شعار بريمن (عادة يشار إليه بالمفتاح، ولكن السؤال عن الحيوان إن وجد، أو الرمز الأساسي)؟ (السؤال الرسمي يسأل عن الرمز وهو المفتاح)",
+      "en": "Which symbol is on the coat of arms of Bremen?",
+      "tr": "Bremen armasında hangi sembol vardır?",
+      "uk": "Який символ зображено на гербі Бремена?",
+      "ru": "Какой символ изображен на гербе Бремена?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ein Schlüssel",
+          "ar": "مفتاح",
+          "en": "A key",
+          "tr": "Bir anahtar",
+          "uk": "Ключ",
+          "ru": "Ключ"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Ein Bär",
+          "ar": "دب",
+          "en": "A bear",
+          "tr": "Bir ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Ein Löwe",
+          "ar": "أسد",
+          "en": "A lion",
+          "tr": "Bir aslan",
+          "uk": "Лев",
+          "ru": "Лев"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Ein Adler",
+          "ar": "نسر",
+          "en": "An eagle",
+          "tr": "Bir kartal",
+          "uk": "Орел",
+          "ru": "Орел"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20628,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Wie oft wird die Bürgerschaft in Bremen gewählt?",
+      "ar": "كل كم سنة يتم انتخاب البرلمان (Bürgerschaft) في بريمن؟",
+      "en": "How often is the Bürgerschaft in Bremen elected?",
+      "tr": "Bremen'de Bürgerschaft ne sıklıkla seçilir?",
+      "uk": "Як часто обирається Бюргершафт у Бремені?",
+      "ru": "Как часто избирается Бюргершафт в Бремене?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Alle 5 Jahre",
+          "ar": "كل 5 سنوات",
+          "en": "Every 5 years",
+          "tr": "Her 5 yılda bir",
+          "uk": "Кожні 5 років",
+          "ru": "Каждые 5 лет"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Alle 4 Jahre",
+          "ar": "كل 4 سنوات",
+          "en": "Every 4 years",
+          "tr": "Her 4 yılda bir",
+          "uk": "Кожні 4 роки",
+          "ru": "Каждые 4 года"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Alle 3 Jahre",
+          "ar": "كل 3 سنوات",
+          "en": "Every 3 years",
+          "tr": "Her 3 yılda bir",
+          "uk": "Кожні 3 роки",
+          "ru": "Каждые 3 года"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Alle 6 Jahre",
+          "ar": "كل 6 سنوات",
+          "en": "Every 6 years",
+          "tr": "Her 6 yılda bir",
+          "uk": "Кожні 6 років",
+          "ru": "Каждые 6 лет"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20629,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Ab welchem Alter darf man in Bremen bei der Wahl zur Bürgerschaft wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات البرلمان في بريمن؟",
+      "en": "From what age are people allowed to vote in the Bürgerschaft election in Bremen?",
+      "tr": "Bremen'de Bürgerschaft seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до Бюргершафту в Бремені?",
+      "ru": "С какого возраста разрешено голосовать на выборах в Бюргершафт в Бремене?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20630,
+    "category_id": "state",
+    "state_code": "HB",
+    "question": {
+      "de": "Die Senatoren in Bremen sind vergleichbar mit ...",
+      "ar": "أعضاء مجلس الشيوخ (Senatoren) في بريمن يماثلون ...",
+      "en": "The Senators in Bremen are comparable to ...",
+      "tr": "Bremen'deki senatörler şunlarla karşılaştırılabilir ...",
+      "uk": "Сенатори в Бремені порівнянні з ...",
+      "ru": "Сенаторы в Бремене сопоставимы с ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministern",
+          "ar": "الوزراء",
+          "en": "Ministers",
+          "tr": "Bakanlar",
+          "uk": "Міністрами",
+          "ru": "Министрами"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bürgermeistern",
+          "ar": "رؤساء البلديات",
+          "en": "Mayors",
+          "tr": "Belediye Başkanları",
+          "uk": "Мерами",
+          "ru": "Бургомистрами"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Abgeordneten",
+          "ar": "النواب",
+          "en": "Members of Parliament",
+          "tr": "Milletvekilleri",
+          "uk": "Депутатами",
+          "ru": "Депутатами"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Richtern",
+          "ar": "القضاة",
+          "en": "Judges",
+          "tr": "Yargıçlar",
+          "uk": "Суддями",
+          "ru": "Судьями"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  }
+]

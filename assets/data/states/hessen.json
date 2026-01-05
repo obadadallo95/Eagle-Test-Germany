@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20621,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Hessen?",
+      "ar": "ما هي ألوان علم ولاية هيسن؟",
+      "en": "What are the colors of the state flag of Hesse?",
+      "tr": "Hessen eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Гессен?",
+      "ru": "Какого цвета флаг земли Гессен?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Rot-Weiß",
+          "ar": "أحمر-أبيض",
+          "en": "Red-white",
+          "tr": "Kırmızı-beyaz",
+          "uk": "Червоно-білий",
+          "ru": "Красно-белый"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Blau-Weiß",
+          "ar": "أزرق-أبيض",
+          "en": "Blue-white",
+          "tr": "Mavi-beyaz",
+          "uk": "Синьо-білий",
+          "ru": "Сине-белый"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20622,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Welches Wappentier gehört zum Wappen von Hessen?",
+      "ar": "أي حيوان ينتمي إلى شعار هيسن؟",
+      "en": "Which heraldic animal belongs to the coat of arms of Hesse?",
+      "tr": "Hessen armasına hangi hayvan aittir?",
+      "uk": "Яка геральдична тварина належить до герба Гессену?",
+      "ru": "Какое геральдическое животное принадлежит гербу Гессена?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Adler",
+          "ar": "النسر",
+          "en": "Eagle",
+          "tr": "Kartal",
+          "uk": "Орел",
+          "ru": "Орел"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bär",
+          "ar": "الدب",
+          "en": "Bear",
+          "tr": "Ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Pferd",
+          "ar": "الحصان",
+          "en": "Horse",
+          "tr": "At",
+          "uk": "Кінь",
+          "ru": "Лошадь"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Löwe",
+          "ar": "الأسد",
+          "en": "Lion",
+          "tr": "Aslan",
+          "uk": "Лев",
+          "ru": "Лев"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20623,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Welches ist ein Nachbarland von Hessen?",
+      "ar": "ما هي الولاية المجاورة لهيسن؟",
+      "en": "Which is a neighboring state of Hesse?",
+      "tr": "Hessen'in komşu eyaleti hangisidir?",
+      "uk": "Яка земля є сусідньою з Гессеном?",
+      "ru": "Какая земля является соседней с Гессеном?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Nordrhein-Westfalen",
+          "ar": "شمال الراين-وستفاليا",
+          "en": "North Rhine-Westphalia",
+          "tr": "Kuzey Ren-Vestfalya",
+          "uk": "Північний Рейн-Вестфалія",
+          "ru": "Северный Рейн-Вестфалия"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Sachsen",
+          "ar": "ساكسونيا",
+          "en": "Saxony",
+          "tr": "Saksonya",
+          "uk": "Саксонія",
+          "ru": "Саксония"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Mecklenburg-Vorpommern",
+          "ar": "مكلنبورغ-فوربومرن",
+          "en": "Mecklenburg-Western Pomerania",
+          "tr": "Mecklenburg-Vorpommern",
+          "uk": "Мекленбург-Передня Померанія",
+          "ru": "Мекленбург-Передняя Померания"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20624,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Welche Stadt ist die Landeshauptstadt von Hessen?",
+      "ar": "ما هي عاصمة ولاية هيسن؟",
+      "en": "Which city is the capital of Hesse?",
+      "tr": "Hessen'in başkenti hangi şehirdir?",
+      "uk": "Яке місто є столицею землі Гессен?",
+      "ru": "Какой город является столицей земли Гессен?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Frankfurt am Main",
+          "ar": "فرانكفورت أم ماين",
+          "en": "Frankfurt am Main",
+          "tr": "Frankfurt am Main",
+          "uk": "Франкфурт-на-Майні",
+          "ru": "Франкфурт-на-Майне"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kassel",
+          "ar": "كاسل",
+          "en": "Kassel",
+          "tr": "Kassel",
+          "uk": "Кассель",
+          "ru": "Кассель"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Wiesbaden",
+          "ar": "فيسبادن",
+          "en": "Wiesbaden",
+          "tr": "Wiesbaden",
+          "uk": "Вісбаден",
+          "ru": "Висбаден"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Darmstadt",
+          "ar": "دارمشتات",
+          "en": "Darmstadt",
+          "tr": "Darmstadt",
+          "uk": "Дармштадт",
+          "ru": "Дармштадт"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20625,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Wie nennt man den Regierungschef in Hessen?",
+      "ar": "ماذا يسمى رئيس الحكومة في هيسن؟",
+      "en": "What is the head of government in Hesse called?",
+      "tr": "Hessen'deki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Гессені?",
+      "ru": "Как называют главу правительства в Гессене?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Kanzler",
+          "ar": "المستشار",
+          "en": "Chancellor",
+          "tr": "Şansölye",
+          "uk": "Канцлер",
+          "ru": "Канцлер"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Erster Bürgermeister",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Präsident des Senats",
+          "ar": "رئيس مجلس الشيوخ",
+          "en": "President of the Senate",
+          "tr": "Senato Başkanı",
+          "uk": "Президент Сенату",
+          "ru": "Президент Сената"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20626,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Wie heißt das Landesparlament von Hessen?",
+      "ar": "ما هو اسم برلمان ولاية هيسن؟",
+      "en": "What is the name of the state parliament of Hesse?",
+      "tr": "Hessen eyalet parlamentosunun adı nedir?",
+      "uk": "Як називається земельний парламент Гессену?",
+      "ru": "Как называется земельный парламент Гессена?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البوندستاغ",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "بورغرشافت (مجلس المواطنين)",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Бюргершафт",
+          "ru": "Бюргершафт"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20627,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Ab welchem Alter darf man in Hessen bei Landtagswahlen wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات الولاية في هيسن؟",
+      "en": "From what age are people allowed to vote in state elections in Hesse?",
+      "tr": "Hessen'deki eyalet seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до ландтагу в Гессені?",
+      "ru": "С какого возраста разрешено голосовать на выборах в ландтаг Гессена?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20628,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Für wie viele Jahre wird der Landtag in Hessen gewählt?",
+      "ar": "لكم سنة يتم انتخاب برلمان الولاية في هيسن؟",
+      "en": "For how many years is the state parliament in Hesse elected?",
+      "tr": "Hessen Eyalet Meclisi kaç yıllığına seçilir?",
+      "uk": "На скільки років обирається ландтаг у Гессені?",
+      "ru": "На сколько лет избирается ландтаг в Гессене?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20629,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Wer wählt den Ministerpräsidenten / die Ministerpräsidentin in Hessen?",
+      "ar": "من ينتخب رئيس / رئيسة الوزراء في هيسن؟",
+      "en": "Who elects the Minister-President in Hesse?",
+      "tr": "Hessen'de Başbakanı kim seçer?",
+      "uk": "Хто обирає прем'єр-міністра в Гессені?",
+      "ru": "Кто избирает премьер-министра в Гессене?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Das Volk",
+          "ar": "الشعب",
+          "en": "The people",
+          "tr": "Halk",
+          "uk": "Народ",
+          "ru": "Народ"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Der Landtag",
+          "ar": "البرلمان (Landtag)",
+          "en": "The Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Der Bundeskanzler",
+          "ar": "المستشار الاتحادي",
+          "en": "The Federal Chancellor",
+          "tr": "Federal Şansölye",
+          "uk": "Федеральний канцлер",
+          "ru": "Федеральный канцлер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Der Bundespräsident",
+          "ar": "الرئيس الاتحادي",
+          "en": "The Federal President",
+          "tr": "Federal Cumhurbaşkanı",
+          "uk": "Федеральний президент",
+          "ru": "Федеральный президент"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20630,
+    "category_id": "state",
+    "state_code": "HE",
+    "question": {
+      "de": "Wie heißt der Ministerpräsident von Hessen (Stand 2024)?",
+      "ar": "ما اسم رئيس وزراء هيسن (حتى 2024)؟",
+      "en": "What is the name of the Minister-President of Hesse (as of 2024)?",
+      "tr": "Hessen Başbakanı'nın adı nedir (2024 itibarıyla)?",
+      "uk": "Як звати прем'єр-міністра Гессену (станом на 2024 рік)?",
+      "ru": "Как зовут премьер-министра Гессена (по состоянию на 2024 год)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Boris Rhein",
+          "ar": "بوريس راين",
+          "en": "Boris Rhein",
+          "tr": "Boris Rhein",
+          "uk": "Борис Райн",
+          "ru": "Борис Райн"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Winfried Kretschmann",
+          "ar": "فينفريد كريتشمان",
+          "en": "Winfried Kretschmann",
+          "tr": "Winfried Kretschmann",
+          "uk": "Вінфрід Кречманн",
+          "ru": "Винфрид Кречманн"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Markus Söder",
+          "ar": "ماركوس زودر",
+          "en": "Markus Söder",
+          "tr": "Markus Söder",
+          "uk": "Маркус Зедер",
+          "ru": "Маркус Зёдер"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Stephan Weil",
+          "ar": "شتيفان فايل",
+          "en": "Stephan Weil",
+          "tr": "Stephan Weil",
+          "uk": "Штефан Вайль",
+          "ru": "Штефан Вайль"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  }
+]

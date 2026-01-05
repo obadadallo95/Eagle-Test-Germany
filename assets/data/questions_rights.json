@@ -1,0 +1,482 @@
+[
+  {
+    "id": 1,
+    "category_id": "general",
+    "question": {
+      "de": "In Deutschland dürfen Menschen offen etwas gegen die Regierung sagen, weil ...",
+      "ar": "في ألمانيا يُسمح للناس بقول شيء ضد الحكومة علانية، لأن ...",
+      "en": "In Germany, people are allowed to openly say something against the government because...",
+      "tr": "Almanya'da insanların hükümete karşı açıkça bir şeyler söylemelerine izin veriliyor çünkü...",
+      "uk": "У Німеччині людям дозволено відкрито говорити щось проти уряду, тому що...",
+      "ru": "В Германии людям разрешено открыто говорить что-то против правительства, потому что..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "hier Religionsfreiheit gilt.",
+          "ar": "هنا تسود حرية الدين.",
+          "en": "freedom of religion applies here.",
+          "tr": "burada din özgürlüğü geçerlidir.",
+          "uk": "тут діє свобода віросповідання.",
+          "ru": "здесь действует свобода вероисповедания."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "die Menschen Steuern zahlen.",
+          "ar": "الناس يدفعون الضرائب.",
+          "en": "people pay taxes.",
+          "tr": "insanlar vergi ödüyor.",
+          "uk": "люди платять податки.",
+          "ru": "люди платят налоги."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "die Menschen das Wahlrecht haben.",
+          "ar": "الناس لديهم حق الانتخاب.",
+          "en": "people have the right to vote.",
+          "tr": "insanların oy kullanma hakkı vardır.",
+          "uk": "люди мають право голосу.",
+          "ru": "люди имеют право голоса."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "hier Meinungsfreiheit gilt.",
+          "ar": "هنا تسود حرية الرأي.",
+          "en": "freedom of opinion applies here.",
+          "tr": "burada ifade özgürlüğü geçerlidir.",
+          "uk": "тут діє свобода слова.",
+          "ru": "здесь действует свобода слова."
+        }
+      }
+    ],
+    "correct_answer": "D",
+    "topic": "rights"
+  },
+  {
+    "id": 20,
+    "category_id": "general",
+    "question": {
+      "de": "Ab welchem Alter ist man in Deutschland volljährig?",
+      "ar": "من أي عمر يصبح الشخص بالغاً (سن الرشد) في ألمانيا؟",
+      "en": "At what age do you become of legal age in Germany?",
+      "tr": "Almanya'da kaç yaşında reşit oluyorsunuz?",
+      "uk": "З якого віку в Німеччині настає повноліття?",
+      "ru": "С какого возраста в Германии наступает совершеннолетие?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "rights"
+  },
+  {
+    "id": 60,
+    "category_id": "general",
+    "question": {
+      "de": "Eine Frau ist schwanger. Sie ist kurz vor und nach der Geburt ihres Kindes vom Gesetz besonders beschützt. Wie heißt dieser Schutz?",
+      "ar": "امرأة حامل. هي محمية بشكل خاص بموجب القانون قبل وبعد ولادة طفلها بفترة وجيزة. ما اسم هذه الحماية؟",
+      "en": "A woman is pregnant. She is specially protected by law shortly before and after the birth of her child. What is this protection called?",
+      "tr": "Bir kadın hamile. Çocuğunun doğumundan kısa bir süre önce ve sonra yasalar tarafından özel olarak korunmaktadır. Bu korumaya ne denir?",
+      "uk": "Жінка вагітна. Вона перебуває під особливим захистом закону незадовго до та після народження дитини. Як називається цей захист?",
+      "ru": "Женщина беременна. Она находится под особой защитой закона незадолго до и после рождения ребенка. Как называется эта защита?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Mutterschutz",
+          "ar": "حماية الأمومة",
+          "en": "Maternity protection",
+          "tr": "Annelik koruması",
+          "uk": "Охорона материнства",
+          "ru": "Охрана материнства"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Elternzeit",
+          "ar": "إجازة الوالدين",
+          "en": "Parental leave",
+          "tr": "Ebeveyn izni",
+          "uk": "Батьківська відпустка",
+          "ru": "Родительский отпуск"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Geburtsvorbereitung",
+          "ar": "التحضير للولادة",
+          "en": "Birth preparation",
+          "tr": "Doğum hazırlığı",
+          "uk": "Підготовка до пологів",
+          "ru": "Подготовка к родам"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Wochenbett",
+          "ar": "فترة النفاس",
+          "en": "Puerperium",
+          "tr": "Lohusalık",
+          "uk": "Післяпологовий період",
+          "ru": "Послеродовой период"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "rights"
+  },
+  {
+    "id": 70,
+    "category_id": "general",
+    "question": {
+      "de": "Was muss man in Deutschland machen, wenn man einen Job hat?",
+      "ar": "ما الذي يجب عليك فعله في ألمانيا إذا كان لديك وظيفة؟",
+      "en": "What do you have to do in Germany if you have a job?",
+      "tr": "Almanya'da bir işiniz varsa ne yapmalısınız?",
+      "uk": "Що ви повинні робити в Німеччині, якщо у вас є робота?",
+      "ru": "Что нужно делать в Германии, если у вас есть работа?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Steuern und Sozialabgaben zahlen",
+          "ar": "دفع الضرائب والمساهمات الاجتماعية",
+          "en": "Pay taxes and social security contributions",
+          "tr": "Vergi ve sosyal güvenlik primlerini ödemek",
+          "uk": "Платити податки та соціальні внески",
+          "ru": "Платить налоги и социальные взносы"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Geld an die Kirche spenden",
+          "ar": "التبرع بالمال للكنيسة",
+          "en": "Donate money to the church",
+          "tr": "Kiliseye para bağışlamak",
+          "uk": "Жертвувати гроші церкві",
+          "ru": "Жертвовать деньги церкви"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Urlaub nehmen",
+          "ar": "أخذ إجازة",
+          "en": "Take a vacation",
+          "tr": "Tatile çıkmak",
+          "uk": "Брати відпустку",
+          "ru": "Брать отпуск"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Einen Verein gründen",
+          "ar": "تأسيس جمعية",
+          "en": "Start a club",
+          "tr": "Bir dernek kurmak",
+          "uk": "Заснувати клуб",
+          "ru": "Основать клуб"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "rights"
+  },
+  {
+    "id": 77,
+    "category_id": "general",
+    "question": {
+      "de": "Wer bezahlt in Deutschland die Sozialversicherungen?",
+      "ar": "من يدفع التأمينات الاجتماعية في ألمانيا؟",
+      "en": "Who pays social security contributions in Germany?",
+      "tr": "Almanya'da sosyal güvenlik primlerini kim ödüyor?",
+      "uk": "Хто платить внески на соціальне страхування в Німеччині?",
+      "ru": "Кто платит взносы на социальное страхование в Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Arbeitgeber und Arbeitnehmer",
+          "ar": "صاحب العمل والموظف",
+          "en": "Employers and employees",
+          "tr": "İşverenler ve çalışanlar",
+          "uk": "Роботодавці та працівники",
+          "ru": "Работодатели и работники"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Nur die Arbeitnehmer",
+          "ar": "الموظفون فقط",
+          "en": "Only the employees",
+          "tr": "Sadece çalışanlar",
+          "uk": "Тільки працівники",
+          "ru": "Только работники"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Nur die Arbeitgeber",
+          "ar": "أصحاب العمل فقط",
+          "en": "Only the employers",
+          "tr": "Sadece işverenler",
+          "uk": "Тільки роботодавці",
+          "ru": "Только работодатели"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Der Staat",
+          "ar": "الدولة",
+          "en": "The state",
+          "tr": "Devlet",
+          "uk": "Держава",
+          "ru": "Государство"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "rights"
+  },
+  {
+    "id": 83,
+    "category_id": "general",
+    "question": {
+      "de": "Was ist eine Gewerkschaft?",
+      "ar": "ما هي النقابة العمالية؟",
+      "en": "What is a trade union?",
+      "tr": "Sendika nedir?",
+      "uk": "Що таке профспілка?",
+      "ru": "Что такое профсоюз?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ein Verein für Sportler",
+          "ar": "جمعية للرياضيين",
+          "en": "A club for athletes",
+          "tr": "Sporcular için bir kulüp",
+          "uk": "Клуб для спортсменів",
+          "ru": "Клуб для спортсменов"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Eine Interessenvertretung der Arbeitnehmer",
+          "ar": "جهة تمثل مصالح الموظفين (العمال)",
+          "en": "An organization representing the interests of employees",
+          "tr": "Çalışanların çıkarlarını temsil eden bir kuruluş",
+          "uk": "Організація, що представляє інтереси працівників",
+          "ru": "Организация, представляющая интересы работников"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Eine Partei im Bundestag",
+          "ar": "حزب في البرلمان الاتحادي",
+          "en": "A party in the Bundestag",
+          "tr": "Federal Meclis'te bir parti",
+          "uk": "Партія в Бундестазі",
+          "ru": "Партия в Бундестаге"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Eine staatliche Behörde",
+          "ar": "هيئة حكومية",
+          "en": "A government agency",
+          "tr": "Bir devlet kurumu",
+          "uk": "Державна установа",
+          "ru": "Государственное учреждение"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "rights"
+  },
+  {
+    "id": 127,
+    "category_id": "general",
+    "question": {
+      "de": "Zwei Freunde wollen in einen öffentlichen Schwimmverein. Beide wollen Mitglied werden. Einer von beiden darf nicht in den Verein, weil er dunkelhäutig ist. Was ist das?",
+      "ar": "صديقان يريدان الانضمام إلى نادٍ عام للسباحة. كلاهما يريد أن يصبح عضواً. يُمنع أحدهما من الانضمام لأنه ذو بشرة داكنة. ماذا يسمى هذا؟",
+      "en": "Two friends want to join a public swimming club. Both want to become members. One of them is not allowed to join the club because he has dark skin. What is that?",
+      "tr": "İki arkadaş halka açık bir yüzme kulübüne gitmek istiyor. İkisi de üye olmak istiyor. İçlerinden birinin koyu tenli olduğu için kulübe girmesine izin verilmiyor. Bu nedir?",
+      "uk": "Двоє друзів хочуть піти в громадський клуб плавання. Обидва хочуть стати членами. Одному з них не дозволяють відвідувати клуб, тому що він темношкірий. Що це?",
+      "ru": "Двое друзей хотят пойти в общественный плавательный клуб. Оба хотят стать членами. Одному из них не разрешают посещать клуб, потому что он темнокожий. Что это?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Diskriminierung",
+          "ar": "تمييز (عنصرية)",
+          "en": "Discrimination",
+          "tr": "Ayrımcılık",
+          "uk": "Дискримінація",
+          "ru": "Дискриминация"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Meinungsfreiheit",
+          "ar": "حرية الرأي",
+          "en": "Freedom of speech",
+          "tr": "İfade özgürlüğü",
+          "uk": "Свобода слова",
+          "ru": "Свобода слова"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Demokratie",
+          "ar": "ديمقراطية",
+          "en": "Democracy",
+          "tr": "Demokrasi",
+          "uk": "Демократія",
+          "ru": "Демократия"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Sozialstaat",
+          "ar": "دولة الرفاهية الاجتماعية",
+          "en": "Welfare state",
+          "tr": "Sosyal devlet",
+          "uk": "Соціальна держава",
+          "ru": "Социальное государство"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "rights"
+  },
+  {
+    "id": 132,
+    "category_id": "general",
+    "question": {
+      "de": "Ein Mann mit dunkler Hautfarbe bewirbt sich um eine Stelle als Kellner in einem Restaurant. Was ist ein Beispiel für Diskriminierung? Er bekommt die Stelle nur deshalb nicht, weil ...",
+      "ar": "رجل ذو بشرة داكنة يتقدم لوظيفة نادل في مطعم. ما هو المثال على التمييز؟ هو لم يحصل على الوظيفة فقط لسبب ...",
+      "en": "A man with dark skin applies for a job as a waiter in a restaurant. What is an example of discrimination? He doesn't get the job just because...",
+      "tr": "Koyu tenli bir adam bir restoranda garsonluk için iş başvurusunda bulunuyor. Ayrımcılığa örnek nedir? İşi alamamasının tek sebebi...",
+      "uk": "Темношкірий чоловік влаштовується офіціантом у ресторан. Що є прикладом дискримінації? Він не отримує роботу лише тому, що...",
+      "ru": "Темнокожий мужчина устраивается официантом в ресторан. Что является примером дискриминации? Он не получает работу только потому, что..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "er eine dunkle Haut hat.",
+          "ar": "بشرته داكنة (بسبب لون بشرته).",
+          "en": "he has dark skin.",
+          "tr": "koyu tenli.",
+          "uk": "у нього темна шкіра.",
+          "ru": "у него темная кожа."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "seine Deutschkenntnisse zu gering sind.",
+          "ar": "معرفته باللغة الألمانية ضعيفة جدًا.",
+          "en": "his knowledge of German is too low.",
+          "tr": "Almanca bilgisi çok düşük.",
+          "uk": "його знання німецької мови занадто низькі.",
+          "ru": "его знание немецкого языка слишком низкое."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "er zu hohe Gehaltsvorstellungen hat.",
+          "ar": "لديه توقعات راتب مرتفعة جداً.",
+          "en": "he has salary expectations that are too high.",
+          "tr": "çok yüksek maaş beklentileri var.",
+          "uk": "він має занадто високі очікування щодо зарплати.",
+          "ru": "у него слишком высокие зарплатные ожидания."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "er keine Erfahrungen im Beruf hat.",
+          "ar": "ليس لديه خبرة في العمل.",
+          "en": "he has no experience in the job.",
+          "tr": "işte tecrübesi yok.",
+          "uk": "він не має досвіду роботи.",
+          "ru": "у него нет опыта работы."
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "rights"
+  }
+]

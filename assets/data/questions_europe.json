@@ -1,0 +1,482 @@
+[
+  {
+    "id": 44,
+    "category_id": "general",
+    "question": {
+      "de": "Wen kann man als Bürger / Bürgerin in Deutschland nicht direkt wählen?",
+      "ar": "من هو الشخص الذي لا يمكن للمواطنين في ألمانيا انتخابه بشكل مباشر؟",
+      "en": "Who cannot you vote directly for as a citizen in Germany?",
+      "tr": "Almanya'da vatandaş olarak kime doğrudan oy veremezsiniz?",
+      "uk": "За кого ви не можете голосувати безпосередньо як громадянин Німеччини?",
+      "ru": "За кого вы не можете голосовать напрямую как гражданин Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Abgeordnete des EU-Parlaments",
+          "ar": "نواب البرلمان الأوروبي",
+          "en": "Members of the EU Parliament",
+          "tr": "AB Parlamentosu Üyeleri",
+          "uk": "Члени Європарламенту",
+          "ru": "Члены Парламента ЕС"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Landtagsabgeordnete",
+          "ar": "نواب برلمان الولاية",
+          "en": "Members of the state parliament",
+          "tr": "Eyalet parlamentosu üyeleri",
+          "uk": "Депутати державного парламенту",
+          "ru": "Члены государственного парламента"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "den Bundespräsidenten / die Bundespräsidentin",
+          "ar": "الرئيس الاتحادي / الرئيسة الاتحادية",
+          "en": "the Federal President",
+          "tr": "Federal Başkan",
+          "uk": "федеральний президент",
+          "ru": "Федеральный президент"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Bundestagsabgeordnete",
+          "ar": "نواب البرلمان الاتحادي (البوندستاغ)",
+          "en": "Members of the Bundestag",
+          "tr": "Federal Meclis üyeleri",
+          "uk": "Депутати Бундестагу",
+          "ru": "Члены Бундестага"
+        }
+      }
+    ],
+    "correct_answer": "C",
+    "topic": "europe"
+  },
+  {
+    "id": 173,
+    "category_id": "general",
+    "question": {
+      "de": "Die Bundesrepublik Deutschland ist ein Gründungsmitglied …",
+      "ar": "جمهورية ألمانيا الاتحادية هي عضو مؤسس لـ ...",
+      "en": "The Federal Republic of Germany is a founding member...",
+      "tr": "Federal Almanya Cumhuriyeti kurucu üyedir...",
+      "uk": "Федеративна Республіка Німеччина є членом-засновником...",
+      "ru": "Федеративная Республика Германия является одним из основателей..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "des Nordatlantikpakts (NATO).",
+          "ar": "حلف شمال الأطلسي (الناتو).",
+          "en": "of the North Atlantic Treaty (NATO).",
+          "tr": "Kuzey Atlantik Antlaşması'nın (NATO)",
+          "uk": "Північноатлантичного договору (НАТО).",
+          "ru": "Североатлантического договора (НАТО)."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "der Europäischen Union (EU).",
+          "ar": "الاتحاد الأوروبي (EU).",
+          "en": "the European Union (EU).",
+          "tr": "Avrupa Birliği (AB).",
+          "uk": "Європейський Союз (ЄС).",
+          "ru": "Европейский Союз (ЕС)."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "der Vereinten Nationen (VN).",
+          "ar": "الأمم المتحدة (UN).",
+          "en": "of the United Nations (UN).",
+          "tr": "Birleşmiş Milletler (BM).",
+          "uk": "Організації Об'єднаних Націй (ООН).",
+          "ru": "Организации Объединенных Наций (ООН)."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "des Warschauer Pakts.",
+          "ar": "حلف وارسو.",
+          "en": "of the Warsaw Pact.",
+          "tr": "Varşova Paktı'nın.",
+          "uk": "Варшавського договору.",
+          "ru": "Варшавского договора."
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "europe"
+  },
+  {
+    "id": 221,
+    "category_id": "general",
+    "question": {
+      "de": "Deutschland ist Mitglied des Schengener Abkommens. Was bedeutet das?",
+      "ar": "ألمانيا عضو في اتفاقية شنغن. ماذا يعني ذلك؟",
+      "en": "Germany is a member of the Schengen Agreement. What does that mean?",
+      "tr": "Almanya Schengen Anlaşmasının bir üyesidir. Bu ne anlama gelir?",
+      "uk": "Німеччина є членом Шенгенської угоди. Що це означає?",
+      "ru": "Германия является членом Шенгенского соглашения. Что это значит?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Alle Menschen können ohne Personenkontrolle in Deutschland einreisen.",
+          "ar": "يمكن لجميع الأشخاص دخول ألمانيا بدون تفتيش شخصي.",
+          "en": "All people can enter Germany without identity checks.",
+          "tr": "Herkes Almanya'ya kimlik kontrolü olmadan girebilir.",
+          "uk": "Усі люди можуть в’їжджати до Німеччини без перевірки особи.",
+          "ru": "Все люди могут въезжать в Германию без проверки документов."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Deutsche können in viele Länder Europas ohne Passkontrolle reisen.",
+          "ar": "يستطيع الألمان السفر إلى العديد من الدول الأوروبية دون مراقبة الجوازات.",
+          "en": "Germans can travel to many European countries without passport control.",
+          "tr": "Almanlar Avrupa'nın birçok ülkesine pasaport kontrolü olmadan seyahat edebiliyor.",
+          "uk": "Німці можуть подорожувати до багатьох країн Європи без паспортного контролю.",
+          "ru": "Немцы могут путешествовать во многие европейские страны без паспортного контроля."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Deutsche können ohne Passkontrolle in jedes Land reisen.",
+          "ar": "يمكن للألمان السفر إلى أي بلد دون مراقبة الجوازات.",
+          "en": "Germans can travel to any country without passport control.",
+          "tr": "Almanlar pasaport kontrolü olmadan her ülkeye seyahat edebiliyor.",
+          "uk": "Німці можуть їздити в будь-яку країну без паспортного контролю.",
+          "ru": "Немцы могут путешествовать в любую страну без паспортного контроля."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Deutsche können in jedem Land mit dem Euro bezahlen.",
+          "ar": "يمكن للألمان الدفع باليورو في أي بلد.",
+          "en": "Germans can pay with the euro in every country.",
+          "tr": "Almanlar her ülkede euro ile ödeme yapabiliyor.",
+          "uk": "Німці можуть платити євро в будь-якій країні.",
+          "ru": "Немцы могут расплачиваться евро в любой стране."
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "europe"
+  },
+  {
+    "id": 224,
+    "category_id": "general",
+    "question": {
+      "de": "Was bedeutet die Abkürzung EU?",
+      "ar": "ماذا يعني الاختصار EU؟",
+      "en": "What does the abbreviation EU mean?",
+      "tr": "AB kısaltması ne anlama geliyor?",
+      "uk": "Що означає абревіатура ЄС?",
+      "ru": "Что означает аббревиатура ЕС?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Europäische Union",
+          "ar": "الاتحاد الأوروبي",
+          "en": "European Union",
+          "tr": "Avrupa Birliği",
+          "uk": "Європейський Союз",
+          "ru": "Евросоюз"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Europäische Unternehmen",
+          "ar": "الشركات الأوروبية",
+          "en": "European companies",
+          "tr": "Avrupalı ​​şirketler",
+          "uk": "європейські компанії",
+          "ru": "Европейские компании"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Einheitliche Union",
+          "ar": "الاتحاد الموحد",
+          "en": "Unitary Union",
+          "tr": "Üniter Birlik",
+          "uk": "Унітарний Союз",
+          "ru": "Унитарный Союз"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Euro Union",
+          "ar": "اتحاد اليورو",
+          "en": "Euro Union",
+          "tr": "Avrupa Birliği",
+          "uk": "Євросоюз",
+          "ru": "Европейский Союз"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "europe"
+  },
+  {
+    "id": 231,
+    "category_id": "general",
+    "question": {
+      "de": "Was bedeutet der Begriff „europäische Integration“?",
+      "ar": "ماذا يعني مصطلح \"الاندماج الأوروبي\"؟",
+      "en": "What does the term “European integration” mean?",
+      "tr": "“Avrupa entegrasyonu” terimi ne anlama geliyor?",
+      "uk": "Що означає термін «європейська інтеграція»?",
+      "ru": "Что означает термин «европейская интеграция»?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Damit sind amerikanische Einwanderer in Europa gemeint.",
+          "ar": "المقصود به المهاجرون الأمريكيون في أوروبا.",
+          "en": "This refers to American immigrants in Europe.",
+          "tr": "Bu, Avrupa'daki Amerikalı göçmenleri ifade eder.",
+          "uk": "Це стосується американських іммігрантів у Європі.",
+          "ru": "Речь идет об американских иммигрантах в Европе."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Der Begriff meint den Zusammenschluss europäischer Staaten zur EU.",
+          "ar": "المصطلح يعني اتحاد الدول الأوروبية لتشكيل الاتحاد الأوروبي.",
+          "en": "The term means the merger of European states to form the EU.",
+          "tr": "Bu terim Avrupa devletlerinin birleşerek AB'yi oluşturması anlamına geliyor.",
+          "uk": "Цей термін означає злиття європейських держав для створення ЄС.",
+          "ru": "Этот термин означает слияние европейских государств с образованием ЕС."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Der Begriff meint den Einwanderungsstopp nach Europa.",
+          "ar": "المصطلح يعني وقف الهجرة إلى أوروبا.",
+          "en": "The term means the immigration stop to Europe.",
+          "tr": "Terim Avrupa'ya göçün durması anlamına gelir.",
+          "uk": "Термін означає імміграційну зупинку до Європи.",
+          "ru": "Этот термин означает остановку иммиграции в Европу."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Damit sind europäische Auswanderer in den USA gemeint.",
+          "ar": "المقصود به المهاجرون الأوروبيون في الولايات المتحدة.",
+          "en": "This refers to European emigrants in the USA.",
+          "tr": "Bu, ABD'deki Avrupalı ​​göçmenleri ifade eder.",
+          "uk": "Маються на увазі європейські емігранти в США.",
+          "ru": "Речь идет о европейских эмигрантах в США."
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "europe"
+  },
+  {
+    "id": 235,
+    "category_id": "general",
+    "question": {
+      "de": "Der französische Staatspräsident François Mitterrand und der deutsche Bundeskanzler Helmut Kohl gedenken in Verdun gemeinsam der Toten beider Weltkriege. Welches Ziel der Europäischen Union wird bei diesem Treffen deutlich?",
+      "ar": "أحيا الرئيس الفرنسي فرانسوا ميتران والمستشار الألماني هيلموت كول ذكرى ضحايا الحربين العالميتين معاً في فيردان. ما هو هدف الاتحاد الأوروبي الذي يتضح في هذا اللقاء؟",
+      "en": "French President François Mitterrand and German Chancellor Helmut Kohl jointly commemorate the dead of both world wars in Verdun. What goal of the European Union will be made clear at this meeting?",
+      "tr": "Fransa Cumhurbaşkanı François Mitterrand ve Almanya Başbakanı Helmut Kohl, Verdun'da her iki dünya savaşında ölenleri ortaklaşa anıyor. Bu toplantıda Avrupa Birliği'nin hangi hedefi netleşecek?",
+      "uk": "Президент Франції Франсуа Міттеран і канцлер Німеччини Гельмут Коль спільно вшанували пам'ять загиблих в обох світових війнах у Вердені. Яка мета Європейського Союзу стане ясною на цій зустрічі?",
+      "ru": "Президент Франции Франсуа Миттеран и канцлер Германии Гельмут Коль совместно чтят память погибших в обеих мировых войнах в Вердене. Какая цель Европейского Союза будет прояснена на этой встрече?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Reisefreiheit in alle Länder der EU",
+          "ar": "حرية السفر إلى جميع دول الاتحاد الأوروبي",
+          "en": "Freedom to travel to all EU countries",
+          "tr": "Tüm AB ülkelerine seyahat etme özgürlüğü",
+          "uk": "Свобода подорожувати до всіх країн ЄС",
+          "ru": "Свобода путешествовать во все страны ЕС"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Freundschaft zwischen England und Deutschland",
+          "ar": "الصداقة بين إنجلترا وألمانيا",
+          "en": "Friendship between England and Germany",
+          "tr": "İngiltere ile Almanya arasındaki dostluk",
+          "uk": "Дружба між Англією та Німеччиною",
+          "ru": "Дружба между Англией и Германией"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "einheitliche Feiertage in den Ländern der EU",
+          "ar": "عطلات موحدة في دول الاتحاد الأوروبي",
+          "en": "uniform public holidays in the EU countries",
+          "tr": "AB ülkelerinde tek tip resmi tatiller",
+          "uk": "єдині державні свята в країнах ЄС",
+          "ru": "единые государственные праздники в странах ЕС"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Frieden und Sicherheit in den Ländern der EU",
+          "ar": "السلام والأمن في دول الاتحاد الأوروبي",
+          "en": "Peace and security in the EU countries",
+          "tr": "AB ülkelerinde barış ve güvenlik",
+          "uk": "Мир і безпека в країнах ЄС",
+          "ru": "Мир и безопасность в странах ЕС"
+        }
+      }
+    ],
+    "correct_answer": "D",
+    "topic": "europe"
+  },
+  {
+    "id": 236,
+    "category_id": "general",
+    "question": {
+      "de": "Wie viele Mitgliedstaaten hat die EU heute?",
+      "ar": "كم عدد الدول الأعضاء في الاتحاد الأوروبي اليوم؟",
+      "en": "How many member states does the EU have today?",
+      "tr": "Bugün AB'nin kaç üye ülkesi var?",
+      "uk": "Скільки держав-членів налічує сьогодні ЄС?",
+      "ru": "Сколько государств-членов сегодня имеет ЕС?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "27",
+          "ar": "27",
+          "en": "27",
+          "tr": "27",
+          "uk": "27",
+          "ru": "27"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "23",
+          "ar": "23",
+          "en": "23",
+          "tr": "23",
+          "uk": "23",
+          "ru": "23"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "25",
+          "ar": "25",
+          "en": "25",
+          "tr": "25",
+          "uk": "25",
+          "ru": "25"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "europe"
+  },
+  {
+    "id": 240,
+    "category_id": "general",
+    "question": {
+      "de": "Seit wann bezahlt man in Deutschland mit dem Euro in bar?",
+      "ar": "منذ متى يتم الدفع نقداً باليورو في ألمانيا؟",
+      "en": "Since when do people pay in cash with the euro in Germany?",
+      "tr": "Almanya'da ne zamandan beri insanlar euroyla nakit ödeme yapıyor?",
+      "uk": "Відколи в Німеччині платять готівкою євро?",
+      "ru": "С каких это пор в Германии люди платят наличными в евро?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "1998",
+          "ar": "1998",
+          "en": "1998",
+          "tr": "1998",
+          "uk": "1998 рік",
+          "ru": "1998 год"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "2005",
+          "ar": "2005",
+          "en": "2005",
+          "tr": "2005",
+          "uk": "2005 рік",
+          "ru": "2005 г."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "2002",
+          "ar": "2002",
+          "en": "2002",
+          "tr": "2002",
+          "uk": "2002 рік",
+          "ru": "2002 год"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "1995",
+          "ar": "1995",
+          "en": "1995",
+          "tr": "1995",
+          "uk": "1995 рік",
+          "ru": "1995 год"
+        }
+      }
+    ],
+    "correct_answer": "C",
+    "topic": "europe"
+  }
+]

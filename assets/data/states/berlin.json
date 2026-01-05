@@ -1,0 +1,602 @@
+[
+  {
+    "id": 20410,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Berlin ist ein ...",
+      "ar": "برلين هي ...",
+      "en": "Berlin is a ...",
+      "tr": "Berlin bir ...",
+      "uk": "Берлін - це ...",
+      "ru": "Берлин - это ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Landkreis",
+          "ar": "دائرة ريفية",
+          "en": "rural district",
+          "tr": "ilçe",
+          "uk": "район",
+          "ru": "район"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Stadtstaat",
+          "ar": "ولاية مدنية (مدينة-دولة)",
+          "en": "city-state",
+          "tr": "şehir eyaleti",
+          "uk": "місто-держава",
+          "ru": "город-государство"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Königreich",
+          "ar": "مملكة",
+          "en": "kingdom",
+          "tr": "krallık",
+          "uk": "королівство",
+          "ru": "королевство"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Regierungsbezirk",
+          "ar": "منطقة إدارية",
+          "en": "administrative district",
+          "tr": "idari bölge",
+          "uk": "адміністративний округ",
+          "ru": "административный округ"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20411,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Welches Wappentier gehört zu Berlin?",
+      "ar": "أي حيوان هو شعار برلين؟",
+      "en": "Which heraldic animal belongs to Berlin?",
+      "tr": "Hangi arma hayvanı Berlin'e aittir?",
+      "uk": "Яка геральдична тварина належить Берліну?",
+      "ru": "Какое геральдическое животное принадлежит Берлину?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Adler",
+          "ar": "النسر",
+          "en": "Eagle",
+          "tr": "Kartal",
+          "uk": "Орел",
+          "ru": "Орел"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Löwe",
+          "ar": "الأسد",
+          "en": "Lion",
+          "tr": "Aslan",
+          "uk": "Лев",
+          "ru": "Лев"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Pferd",
+          "ar": "الحصان",
+          "en": "Horse",
+          "tr": "At",
+          "uk": "Кінь",
+          "ru": "Лошадь"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Bär",
+          "ar": "الدب",
+          "en": "Bear",
+          "tr": "Ayı",
+          "uk": "Ведмідь",
+          "ru": "Медведь"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20412,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Welches ist das Wappen von Berlin?",
+      "ar": "ما هو شعار النبالة لبرلين؟ (صورة الدب)",
+      "en": "Which is the coat of arms of Berlin?",
+      "tr": "Berlin'in arması hangisidir?",
+      "uk": "Який герб у Берліна?",
+      "ru": "Какой герб у Берлина?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Schwarzer Bär mit roten Krallen",
+          "ar": "دب أسود بمخالب حمراء",
+          "en": "Black bear with red claws",
+          "tr": "Kırmızı pençeli siyah ayı",
+          "uk": "Чорний ведмідь з червоними кігтями",
+          "ru": "Черный медведь с красными когтями"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Blauer Löwe",
+          "ar": "أسد أزرق",
+          "en": "Blue lion",
+          "tr": "Mavi aslan",
+          "uk": "Синій лев",
+          "ru": "Синий лев"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Roter Adler",
+          "ar": "نسر أحمر",
+          "en": "Red eagle",
+          "tr": "Kırmızı kartal",
+          "uk": "Червоний орел",
+          "ru": "Красный орел"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Weißes Pferd",
+          "ar": "حصان أبيض",
+          "en": "White horse",
+          "tr": "Beyaz at",
+          "uk": "Білий кінь",
+          "ru": "Белая лошадь"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20413,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Wie heißt das Landesparlament von Berlin?",
+      "ar": "ما هو اسم برلمان ولاية برلين؟",
+      "en": "What is the name of the state parliament of Berlin?",
+      "tr": "Berlin eyalet parlamentosunun adı nedir?",
+      "uk": "Як називається земельний парламент Берліна?",
+      "ru": "Как называется земельный парламент Берлина?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Abgeordnetenhaus",
+          "ar": "مجلس النواب (Abgeordnetenhaus)",
+          "en": "House of Representatives",
+          "tr": "Temsilciler Meclisi",
+          "uk": "Палата депутатів",
+          "ru": "Палата депутатов"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Bundestag",
+          "ar": "البرلمان الاتحادي (Bundestag)",
+          "en": "Bundestag",
+          "tr": "Federal Meclis",
+          "uk": "Бундестаг",
+          "ru": "Бундестаг"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Bürgerschaft",
+          "ar": "مجلس المواطنين",
+          "en": "Bürgerschaft",
+          "tr": "Vatandaşlar Meclisi",
+          "uk": "Громадянство",
+          "ru": "Гражданское собрание"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Landtag",
+          "ar": "لاندتاغ",
+          "en": "Landtag",
+          "tr": "Eyalet Meclisi",
+          "uk": "Ландтаг",
+          "ru": "Ландтаг"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20414,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Wie nennt man den Regierungschef / die Regierungschefin in Berlin?",
+      "ar": "ماذا يسمى رئيس / رئيسة الحكومة في برلين؟",
+      "en": "What is the head of government in Berlin called?",
+      "tr": "Berlin'deki hükümet başkanına ne ad verilir?",
+      "uk": "Як називають главу уряду в Берліні?",
+      "ru": "Как называют главу правительства в Берлине?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Ministerpräsident / Ministerpräsidentin",
+          "ar": "رئيس الوزراء",
+          "en": "Minister-President",
+          "tr": "Eyalet Başbakanı",
+          "uk": "Прем'єр-міністр",
+          "ru": "Премьер-министр"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Erster Bürgermeister / Erste Bürgermeisterin",
+          "ar": "العمدة الأول",
+          "en": "First Mayor",
+          "tr": "Birinci Belediye Başkanı",
+          "uk": "Перший бургомістр",
+          "ru": "Первый бургомистр"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Regierender Bürgermeister / Regierende Bürgermeisterin",
+          "ar": "العمدة الحاكم / العمدة الحاكمة",
+          "en": "Governing Mayor",
+          "tr": "Hükümet Eden Belediye Başkanı",
+          "uk": "Правлячий бургомістр",
+          "ru": "Правящий бургомистр"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Stadtpräsident / Stadtpräsidentin",
+          "ar": "رئيس المدينة",
+          "en": "City President",
+          "tr": "Şehir Başkanı",
+          "uk": "Президент міста",
+          "ru": "Президент города"
+        }
+      }
+    ],
+    "correct_answer": "C"
+  },
+  {
+    "id": 20415,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Welche Farben hat die Landesflagge von Berlin?",
+      "ar": "ما هي ألوان علم ولاية برلين؟",
+      "en": "What are the colors of the state flag of Berlin?",
+      "tr": "Berlin eyalet bayrağının renkleri nelerdir?",
+      "uk": "Які кольори має прапор землі Берлін?",
+      "ru": "Какого цвета флаг земли Берлин?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Grün-Weiß-Rot",
+          "ar": "أخضر-أبيض-أحمر",
+          "en": "Green-white-red",
+          "tr": "Yeşil-beyaz-kırmızı",
+          "uk": "Зелено-біло-червоний",
+          "ru": "Зелено-бело-красный"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Weiß-Rot",
+          "ar": "أبيض-أحمر",
+          "en": "White-red",
+          "tr": "Beyaz-kırmızı",
+          "uk": "Біло-червоний",
+          "ru": "Бело-красный"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Schwarz-Gelb",
+          "ar": "أسود-أصفر",
+          "en": "Black-yellow",
+          "tr": "Siyah-sarı",
+          "uk": "Чорно-жовтий",
+          "ru": "Черно-желтый"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Blau-Weiß",
+          "ar": "أزرق-أبيض",
+          "en": "Blue-white",
+          "tr": "Mavi-beyaz",
+          "uk": "Синьо-білий",
+          "ru": "Сине-белый"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20416,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Ab welchem Alter darf man in Berlin bei den Wahlen zum Abgeordnetenhaus wählen?",
+      "ar": "من أي عمر يُسمح للشخص بالتصويت في انتخابات مجلس النواب في برلين؟",
+      "en": "From what age are people allowed to vote in the House of Representatives elections in Berlin?",
+      "tr": "Berlin'de Temsilciler Meclisi seçimlerinde kaç yaşından itibaren oy kullanılabilir?",
+      "uk": "З якого віку дозволено голосувати на виборах до Палати депутатів у Берліні?",
+      "ru": "С какого возраста разрешено голосовать на выборах в Палату депутатов в Берлине?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "18",
+          "ar": "18",
+          "en": "18",
+          "tr": "18",
+          "uk": "18",
+          "ru": "18"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "20",
+          "ar": "20",
+          "en": "20",
+          "tr": "20",
+          "uk": "20",
+          "ru": "20"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "21",
+          "ar": "21",
+          "en": "21",
+          "tr": "21",
+          "uk": "21",
+          "ru": "21"
+        }
+      }
+    ],
+    "correct_answer": "A"
+  },
+  {
+    "id": 20417,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Wie viele Bezirke hat Berlin?",
+      "ar": "كم عدد الأحياء (Bezirke) في برلين؟",
+      "en": "How many districts does Berlin have?",
+      "tr": "Berlin'in kaç ilçesi vardır?",
+      "uk": "Скільки районів має Берлін?",
+      "ru": "Сколько районов в Берлине?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "10",
+          "ar": "10",
+          "en": "10",
+          "tr": "10",
+          "uk": "10",
+          "ru": "10"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "16",
+          "ar": "16",
+          "en": "16",
+          "tr": "16",
+          "uk": "16",
+          "ru": "16"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "23",
+          "ar": "23",
+          "en": "23",
+          "tr": "23",
+          "uk": "23",
+          "ru": "23"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "12",
+          "ar": "12",
+          "en": "12",
+          "tr": "12",
+          "uk": "12",
+          "ru": "12"
+        }
+      }
+    ],
+    "correct_answer": "D"
+  },
+  {
+    "id": 20418,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Die Mitglieder des Senats von Berlin nennt man ...",
+      "ar": "يُطلق على أعضاء مجلس الشيوخ في برلين اسم ...",
+      "en": "The members of the Senate of Berlin are called ...",
+      "tr": "Berlin Senatosu üyelerine ... denir.",
+      "uk": "Членів Сенату Берліна називають ...",
+      "ru": "Членов Сената Берлина называют ..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Abgeordnete",
+          "ar": "النواب",
+          "en": "Members of Parliament",
+          "tr": "Milletvekilleri",
+          "uk": "Депутати",
+          "ru": "Депутаты"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Senatoren / Senatorinnen",
+          "ar": "أعضاء مجلس الشيوخ (Senatoren)",
+          "en": "Senators",
+          "tr": "Senatörler",
+          "uk": "Сенатори",
+          "ru": "Сенаторы"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Minister / Ministerinnen",
+          "ar": "وزراء",
+          "en": "Ministers",
+          "tr": "Bakanlar",
+          "uk": "Міністри",
+          "ru": "Министры"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Stadträte",
+          "ar": "أعضاء مجلس المدينة",
+          "en": "City Councilors",
+          "tr": "Şehir Meclis Üyeleri",
+          "uk": "Міські радники",
+          "ru": "Городские советники"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  },
+  {
+    "id": 20419,
+    "category_id": "state",
+    "state_code": "BE",
+    "question": {
+      "de": "Welches Bundesland ist das einzige Nachbarland von Berlin?",
+      "ar": "ما هي الولاية الاتحادية الوحيدة المجاورة لبرلين؟",
+      "en": "Which federal state is the only neighbor of Berlin?",
+      "tr": "Berlin'in tek komşusu olan eyalet hangisidir?",
+      "uk": "Яка федеральна земля є єдиним сусідом Берліна?",
+      "ru": "Какая федеральная земля является единственным соседом Берлина?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Sachsen",
+          "ar": "ساكسونيا",
+          "en": "Saxony",
+          "tr": "Saksonya",
+          "uk": "Саксонія",
+          "ru": "Саксония"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Brandenburg",
+          "ar": "براندنبورغ",
+          "en": "Brandenburg",
+          "tr": "Brandenburg",
+          "uk": "Бранденбург",
+          "ru": "Бранденбург"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Mecklenburg-Vorpommern",
+          "ar": "مكلنبورغ-فوربومرن",
+          "en": "Mecklenburg-Western Pomerania",
+          "tr": "Mecklenburg-Vorpommern",
+          "uk": "Мекленбург-Передня Померанія",
+          "ru": "Мекленбург-Передняя Померания"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Sachsen-Anhalt",
+          "ar": "ساكسونيا-أنهالت",
+          "en": "Saxony-Anhalt",
+          "tr": "Saksonya-Anhalt",
+          "uk": "Саксонія-Ангальт",
+          "ru": "Саксония-Анхальт"
+        }
+      }
+    ],
+    "correct_answer": "B"
+  }
+]

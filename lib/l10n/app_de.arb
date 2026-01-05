@@ -1,0 +1,404 @@
+{
+  "@@locale": "de",
+  "appTitle": "Eagle Test: Germany",
+  "startExam": "Prüfung starten",
+  "quickPractice": "Schnellübung",
+  "stats": "Statistiken",
+  "settings": "Einstellungen",
+  "language": "Sprache",
+  "theme": "Design",
+  "daysLeft": "Noch {count} Tage",
+  "@daysLeft": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "dailyGoal": "Tagesziel",
+  "streak": "Tage in Folge",
+  "reviewMistakes": "Fehler überprüfen",
+  "next": "Weiter",
+  "confirm": "Bestätigen",
+  "passed": "Bestanden!",
+  "failed": "Nicht bestanden",
+  "selectState": "Bundesland wählen",
+  "examDate": "Prüfungstermin",
+  "save": "Speichern",
+  "fullExam": "Vollständige Prüfung",
+  "driveMode": "Fahrmodus",
+  "reviewDue": "Überprüfung fällig",
+  "yourGoal": "Ihr Ziel",
+  "questions": "{count} Fragen",
+  "@questions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "question": "{count} Frage",
+  "@question": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "welcome": "Willkommen",
+  "selectBundesland": "Wählen Sie Ihr Bundesland",
+  "whenIsExam": "Wann ist dein Test?",
+  "letsStart": "Los geht's!",
+  "examMode": "Prüfungsmodus",
+  "questionLabel": "Frage {current}/{total}",
+  "@questionLabel": {
+    "placeholders": {
+      "current": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "nextQuestion": "Nächste Frage",
+  "finishExam": "Prüfung beenden",
+  "examCompleted": "Prüfung abgeschlossen!",
+  "showArabic": "Arabische Übersetzung anzeigen",
+  "hideArabic": "Arabisch ausblenden",
+  "noQuestions": "Keine Fragen geladen.",
+  "glossary": "Wörterbuch",
+  "general": "Allgemein",
+  "darkMode": "Dunkelmodus",
+  "audio": "Audio",
+  "speakingSpeed": "Sprechgeschwindigkeit",
+  "data": "Daten",
+  "resetProgress": "Fortschritt zurücksetzen",
+  "resetProgressMessage": "Sind Sie sicher, dass Sie Ihren gesamten Fortschritt zurücksetzen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+  "cancel": "Abbrechen",
+  "progressReset": "Fortschritt erfolgreich zurückgesetzt",
+  "legal": "Rechtliches",
+  "privacyPolicy": "Datenschutzerklärung",
+  "datenschutz": "Datenschutz",
+  "termsOfUse": "Nutzungsbedingungen",
+  "nutzungsbedingungen": "Nutzungsbedingungen",
+  "intellectualProperty": "Geistiges Eigentum",
+  "geistigesEigentum": "Geistiges Eigentum",
+  "impressum": "Impressum",
+  "legalInformation": "Rechtliche Informationen",
+  "printExam": "Prüfung drucken",
+  "searchGlossary": "Wörterbuch durchsuchen...",
+  "chooseLanguage": "Wählen Sie Ihre bevorzugte Sprache zum Lernen",
+  "setupComplete": "Fertig!",
+  "tapToSelect": "Tippen zum Auswählen",
+  "completeAllSteps": "Bitte vervollständigen Sie alle Schritte",
+  "back": "Zurück",
+  "notifications": "Benachrichtigungen",
+  "dailyReminder": "Tägliche Erinnerung",
+  "dailyReminderDescription": "Lassen Sie sich täglich zum Lernen erinnern",
+  "reminderTime": "Uhrzeit",
+  "reminderEnabled": "Tägliche Erinnerung aktiviert",
+  "reminderDisabled": "Tägliche Erinnerung deaktiviert",
+  "reminderTimeUpdated": "Erinnerungszeit aktualisiert",
+  "about": "Über die App",
+  "appVersion": "Version",
+  "rateApp": "App bewerten",
+  "rateAppDescription": "Wenn Ihnen die App gefällt, bewerten Sie sie bitte im Store",
+  "themeLight": "Hell",
+  "themeLightDesc": "Heller Modus",
+  "themeDark": "Dunkel",
+  "themeDarkDesc": "Dunkler Modus",
+  "themeSystem": "System",
+  "themeSystemDesc": "Systemeinstellungen folgen",
+  "quitExam": "Prüfung beenden?",
+  "@quitExam": {
+    "description": "Prüfung beenden Bestätigungstitel"
+  },
+  "quitExamMessage": "Ihr Fortschritt geht verloren.",
+  "@quitExamMessage": {
+    "description": "Prüfung beenden Warnung"
+  },
+  "stay": "Bleiben",
+  "@stay": {
+    "description": "In Prüfung bleiben Button"
+  },
+  "quit": "Beenden",
+  "@quit": {
+    "description": "Prüfung beenden Button"
+  },
+  "dangerZone": "Gefahrenzone",
+  "@dangerZone": {
+    "description": "Gefahrenzone Abschnittstitel"
+  },
+  "resetAppData": "App-Daten zurücksetzen",
+  "@resetAppData": {
+    "description": "App-Daten zurücksetzen Button"
+  },
+  "resetAppDataDescription": "Dies löscht alle App-Daten und kann nicht rückgängig gemacht werden",
+  "@resetAppDataDescription": {
+    "description": "App-Daten zurücksetzen Warnung"
+  },
+  "factoryReset": "Werkseinstellung?",
+  "@factoryReset": {
+    "description": "Werkseinstellung Bestätigungstitel"
+  },
+  "factoryResetMessage": "Dies löscht ALLE App-Daten einschließlich:",
+  "@factoryResetMessage": {
+    "description": "Werkseinstellung Warnung"
+  },
+  "allProgressAndAnswers": "Alle Fortschritte und Antworten",
+  "@allProgressAndAnswers": {
+    "description": "Alle Fortschritte und Antworten Label"
+  },
+  "studyHistory": "Lernverlauf",
+  "@studyHistory": {
+    "description": "Lernverlauf Label"
+  },
+  "streaks": "Serien",
+  "@streaks": {
+    "description": "Serien Label"
+  },
+  "cannotBeUndone": "Diese Aktion kann NICHT rückgängig gemacht werden!",
+  "@cannotBeUndone": {
+    "description": "Kann nicht rückgängig gemacht werden Warnung"
+  },
+  "resetEverything": "Alles zurücksetzen",
+  "@resetEverything": {
+    "description": "Alles zurücksetzen Button"
+  },
+  "appDataResetSuccess": "App-Daten erfolgreich zurückgesetzt",
+  "@appDataResetSuccess": {
+    "description": "App-Daten zurücksetzen Erfolgsmeldung"
+  },
+  "errorResettingApp": "Fehler beim Zurücksetzen der App:",
+  "@errorResettingApp": {
+    "description": "Fehler beim Zurücksetzen der App Meldung"
+  },
+  "totalLearned": "Gesamt gelernt",
+  "@totalLearned": {
+    "description": "Gesamt gelernte Fragen Label"
+  },
+  "ofQuestions": "von 310 Fragen",
+  "@ofQuestions": {
+    "description": "Von Fragen Label"
+  },
+  "dashboard": "Dashboard",
+  "@dashboard": {
+    "description": "Dashboard Tab Label"
+  },
+  "learn": "Lernen",
+  "@learn": {
+    "description": "Lernen Tab Label"
+  },
+  "explainWithAi": "Mit KI erklären",
+  "upgradeToPro": "Auf Pro upgraden",
+  "unlockAiTutor": "KI-Tutor freischalten",
+  "upgrade": "Upgraden",
+  "upgradeToProMessage": "Upgraden Sie auf Pro, um den KI-Tutor freizuschalten und personalisierte Erklärungen für alle Fragen zu erhalten.",
+  "aiTutorDailyLimitReached": "Sie haben den KI-Tutor heute 3 Mal verwendet. Abonnieren Sie Pro für unbegrenzte Nutzung.",
+  "aiExplanation": "KI-Erklärung",
+  "aiThinking": "KI denkt nach...",
+  "errorLoadingExplanation": "Fehler beim Laden der Erklärung",
+  "reviewAnswers": "Antworten überprüfen",
+  "mistakesOnly": "Nur Fehler anzeigen",
+  "aboutMultiLanguageTitle": "Mehrsprachige Beherrschung",
+  "aboutMultiLanguageSubtitle": "6 Sprachen",
+  "aboutMultiLanguageDescription": "Lösung der Sprachbarriere. Lernen Sie in der Sprache, die Sie am besten verstehen.",
+  "aboutTranslationTitle": "Intelligente Kontextübersetzung",
+  "aboutTranslationSubtitle": "Präzise Übersetzung",
+  "aboutTranslationDescription": "Lösung von Missverständnissen. Genaue Übersetzungen komplexer rechtlicher Begriffe, um das richtige Verständnis zu gewährleisten.",
+  "aboutAiTutorTitle": "Eagle KI-Tutor",
+  "aboutAiTutorSubtitle": "KI-Assistent",
+  "aboutAiTutorDescription": "Lösung von Verwirrung. Sofortige Erklärungen für jede Frage in Ihrer Muttersprache, um Ihnen zu helfen, Fehler zu verstehen und zu korrigieren.",
+  "aboutPaperExamTitle": "Drucken & Offline Üben",
+  "aboutPaperExamSubtitle": "Echte Prüfungssimulation",
+  "aboutPaperExamDescription": "Erstellen Sie offizielle PDF-Prüfungen. Trainieren Sie mit Stift und Papier wie bei der echten Prüfung.",
+  "aboutDevelopedWith": "Entwickelt mit ❤️",
+  "aboutRateUs": "Bewerten Sie uns",
+  "aboutSupport": "Support",
+  "aboutWebsite": "Website",
+  "aboutLoadingVersion": "Lädt...",
+  "aboutRoadmapTitle": "Die Zukunft",
+  "aboutRoadmapSubtitle": "Die Zukunft",
+  "aboutRoadmapVoiceCoach": "KI-Stimmcoach",
+  "aboutRoadmapVoiceCoachDesc": "Aussprachetraining",
+  "aboutRoadmapLiveBattles": "Live-Kämpfe",
+  "aboutRoadmapLiveBattlesDesc": "Mehrspielermodus",
+  "aboutRoadmapBureaucracyBot": "Bürokratie-Bot",
+  "aboutRoadmapBureaucracyBotDesc": "Formularhelfer",
+  "glossaryTapToFlip": "Zum Umdrehen tippen",
+  "glossaryPrevious": "Zurück",
+  "glossaryNext": "Weiter",
+  "glossaryPronounce": "Aussprechen",
+  "glossaryListView": "Listenansicht",
+  "glossaryFlashcards": "Karteikarten",
+  "glossarySearchPlaceholder": "Glossar durchsuchen...",
+  "glossaryNoTermsAvailable": "Keine Begriffe verfügbar",
+  "glossaryNoTermsFound": "Keine Begriffe gefunden",
+  "glossaryDefinition": "Definition:",
+  "glossaryExample": "Beispiel:",
+  "glossaryShowInQuestionContext": "Im Fragenkontext anzeigen",
+  "glossaryRelatedQuestions": "Verwandte Fragen zu",
+  "statsOverview": "Übersicht",
+  "statsProgress": "Fortschritt",
+  "statsToday": "Heute",
+  "statsMastered": "Gelernt",
+  "statsMinutes": "Minuten",
+  "statsQuestions": "Fragen",
+  "statsDays": "Tage",
+  "statsDay": "Tag",
+  "statsProgressCharts": "Fortschrittsdiagramme",
+  "statsWeeklyStudyTime": "Wöchentliche Lernzeit",
+  "statsExamScoresOverTime": "Prüfungsergebnisse im Zeitverlauf",
+  "statsCategoryMastery": "Kategorienbeherrschung",
+  "statsSrsInsights": "SRS-Einblicke",
+  "statsDue": "Fällig",
+  "statsEasy": "Einfach",
+  "statsNew": "Neu",
+  "statsHard": "Schwer",
+  "statsGood": "Gut",
+  "statsExamPerformance": "Prüfungsleistung",
+  "statsAverageScore": "Durchschnittspunktzahl",
+  "statsCompleted": "Abgeschlossen",
+  "statsBestScore": "Beste Punktzahl",
+  "statsPassRate": "Bestehensquote",
+  "statsStudyHabits": "Lerngewohnheiten",
+  "statsAvgSession": "Ø Sitzung",
+  "statsMin": "Min",
+  "statsActiveDays": "Aktive Tage",
+  "statsSmartInsights": "Intelligente Einblicke",
+  "statsRecommendations": "Empfehlungen",
+  "statsRecentExams": "Letzte Prüfungen",
+  "statsRefresh": "Aktualisieren",
+  "statsInsightDueQuestions": "Sie haben {count} Fragen zur Überprüfung fällig",
+  "@statsInsightDueQuestions": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsInsightFocusNew": "Konzentrieren Sie sich auf neue Fragen, um Ihren Fortschritt zu steigern",
+  "statsInsightKeepPracticing": "Weiter üben! Durchschnittspunktzahl: {score}%",
+  "@statsInsightKeepPracticing": {
+    "placeholders": {
+      "score": {
+        "type": "String"
+      }
+    }
+  },
+  "statsInsightExcellentStreak": "Ausgezeichnet! Sie pflegen eine Lerngewohnheit ({days} Tage)",
+  "@statsInsightExcellentStreak": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "statsInsightKeepStudying": "Weiter lernen, um intelligente Einblicke zu erhalten",
+  "statsScore": "Punktzahl",
+  "paperExam": "Papierprüfung",
+  "paperExamSimulation": "Papierprüfung Simulation",
+  "paperExamDescription": "Erstellen Sie eine realistische PDF-Prüfung zum Drucken",
+  "paperExamConfiguration": "Konfiguration",
+  "paperExamState": "Bundesland",
+  "paperExamGeneral": "Allgemein (Kein Bundesland)",
+  "paperExamIncludeSolutions": "Lösungsschlüssel beifügen",
+  "paperExamIncludeSolutionsDesc": "Lösungsschlüssel beifügen",
+  "paperExamShuffle": "Fragen mischen",
+  "paperExamShuffleDesc": "Fragen mischen",
+  "paperExamGenerate": "PDF erstellen 📄",
+  "paperExamGenerating": "Wird erstellt...",
+  "paperExamPdfGenerated": "PDF erfolgreich erstellt!",
+  "paperExamPrint": "Drucken",
+  "paperExamShare": "Teilen",
+  "paperExamScan": "Scannen zum Korrigieren",
+  "scanExamTitle": "QR-Code scannen",
+  "scanExamInstructions": "QR-Code aus PDF im Rahmen positionieren",
+  "scanExamProcessing": "Wird verarbeitet...",
+  "paperCorrectionTitle": "Papierprüfung korrigieren",
+  "paperCorrectionInstructions": "Geben Sie Ihre Antworten vom Papier ein",
+  "paperCorrectionAnswered": "beantwortet",
+  "paperCorrectionFinish": "Beenden & Bewerten",
+  "paperCorrectionIncompleteTitle": "Unvollständige Antworten",
+  "paperCorrectionIncompleteMessage": "Sie haben nicht alle Fragen beantwortet. Trotzdem fortfahren?",
+  "paperExamWidgetDescription": "Drucken & Offline Üben",
+  "paperExamTutorialTitle": "Wie man die Papierprüfung verwendet",
+  "paperExamTutorialStep1Title": "PDF erstellen",
+  "paperExamTutorialStep1Desc": "Tippen Sie auf \"Papierprüfung\", wählen Sie Einstellungen (Bundesland, Fragen mischen, Lösungsschlüssel beifügen), dann tippen Sie auf \"PDF erstellen\"",
+  "paperExamTutorialStep2Title": "PDF drucken",
+  "paperExamTutorialStep2Desc": "Drucken Sie das PDF auf Papier. Es wird einen QR-Code oben auf der Seite geben",
+  "paperExamTutorialStep3Title": "Auf Papier antworten",
+  "paperExamTutorialStep3Desc": "Beantworten Sie die Fragen mit Stift und Papier, genau wie bei der echten Prüfung",
+  "paperExamTutorialStep4Title": "QR-Code scannen",
+  "paperExamTutorialStep4Desc": "Öffnen Sie die App, gehen Sie zu \"Papierprüfung\", tippen Sie auf \"Scannen zum Korrigieren\" und scannen Sie den QR-Code vom Papier",
+  "paperExamTutorialStep5Title": "Antworten eingeben & Punktzahl erhalten",
+  "paperExamTutorialStep5Desc": "Geben Sie Ihre Antworten vom Papier schnell in die App ein und erhalten Sie sofort Ihre Punktzahl",
+  "chooseTopic": "Thema wählen",
+  "topicSystem": "Politisches System",
+  "topicRights": "Grundrechte",
+  "topicHistory": "Deutsche Geschichte",
+  "topicSociety": "Gesellschaft",
+  "topicEurope": "Deutschland in Europa",
+  "topicWelfare": "Arbeit & Bildung",
+  "learned": "Gelernt",
+  "correct": "Richtig",
+  "topicQuestions": "Themenfragen",
+  "noQuestionsForTopic": "Keine Fragen für dieses Thema verfügbar",
+  "allTopicsReviewed": "Großartig! Alle Fragen wurden überprüft. 🎉",
+  "topics": "Themen",
+  "topicStatistics": "Themenstatistiken",
+  "totalQuestions": "Gesamtfragen",
+  "questionsAnswered": "Beantwortete Fragen",
+  "accuracyRate": "Genauigkeitsrate",
+  "mostStudiedTopic": "Meist studiertes Thema",
+  "leastStudiedTopic": "Wenigstens studiertes Thema",
+  "availableFeatures": "Verfügbare Funktionen",
+  "freePlan": "Kostenlos",
+  "accessToAllQuestions": "Zugriff auf alle Fragen",
+  "adsIfAvailable": "Werbung (falls vorhanden)",
+  "oneExamPerDay": "Ein Prüfung pro Tag",
+  "proSubscriptionPremium": "Pro-Abonnement (Premium)",
+  "unlimitedAiTutor": "Unbegrenzter KI-Tutor",
+  "pdfExamGeneration": "PDF-Prüfung erstellen",
+  "noAds": "Keine Werbung",
+  "advancedSuccessStatistics": "Erweiterte Erfolgsstatistiken",
+  "monthly": "Monatlich",
+  "renewsMonthly": "Erneuert sich monatlich",
+  "threeMonths": "3 Monate",
+  "yearly": "Jährlich",
+  "mostPopularForExams": "Am beliebtesten für Prüfungen",
+  "lifetime": "Lebenslang",
+  "oneTimePayment": "Einmalige Zahlung",
+  "bestValue": "Bester Wert",
+  "activeSubscription": "Aktives Abonnement",
+  "upgradeForAdditionalFeatures": "Für zusätzliche Funktionen upgraden",
+  "dailyChallenge": "🔥 Tägliche Herausforderung",
+  "challengeCompleted": "Herausforderung abgeschlossen!",
+  "challengeExcellent": "🌟 Ausgezeichnet! Du bist ein Meister!",
+  "challengeGreat": "🎉 Großartige Arbeit! Weiter so!",
+  "challengeGood": "👍 Gute Anstrengung! Übung macht den Meister!",
+  "challengeKeepGoing": "💪 Weiter so! Jeder Fehler ist eine Lektion!",
+  "points": "Punkte",
+  "accuracy": "Genauigkeit",
+  "time": "Zeit",
+  "done": "Fertig",
+  "exitChallenge": "Herausforderung beenden?",
+  "exitChallengeMessage": "Bist du sicher, dass du beenden möchtest? Dein Fortschritt geht verloren.",
+  "exit": "Beenden",
+  "previous": "Zurück",
+  "finish": "Beenden",
+  "loading": "Lädt...",
+  "errorLoadingQuestions": "Fehler beim Laden der Fragen",
+  "retry": "Wiederholen",
+  "noQuestionsAvailable": "Keine Fragen verfügbar",
+  "completedToday": "Abgeschlossen!",
+  "goBack": "Zurück",
+  "errorLoadingExam": "Fehler beim Laden der Prüfung",
+  "topicState": "Länderfragen",
+  "selectStateFirst": "Bitte wählen Sie zuerst ein Bundesland aus",
+  "aboutDailyChallengeTitle": "🔥 Tägliche Herausforderung",
+  "aboutDailyChallengeSubtitle": "Motivierendes tägliches Lernen",
+  "aboutDailyChallengeDescription": "Testen Sie sich täglich mit 10 zufälligen Fragen und verdienen Sie Punkte für jede richtige Antwort. Feiern Sie Ihre Erfolge mit unterhaltsamen visuellen Effekten!"
+}
+

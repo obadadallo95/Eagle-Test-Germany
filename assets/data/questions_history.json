@@ -1,0 +1,542 @@
+[
+  {
+    "id": 151,
+    "category_id": "general",
+    "question": {
+      "de": "Wer baute die Mauer in Berlin?",
+      "ar": "من بنى جدار برلين؟",
+      "en": "Who built the Berlin Wall?",
+      "tr": "Berlin'deki duvarı kim inşa etti?",
+      "uk": "Хто побудував стіну в Берліні?",
+      "ru": "Кто построил стену в Берлине?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Die Bundesrepublik Deutschland",
+          "ar": "جمهورية ألمانيا الاتحادية (ألمانيا الغربية)",
+          "en": "The Federal Republic of Germany",
+          "tr": "Federal Almanya Cumhuriyeti",
+          "uk": "Федеративна Республіка Німеччина",
+          "ru": "Федеративная Республика Германия"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Die USA",
+          "ar": "الولايات المتحدة الأمريكية",
+          "en": "The USA",
+          "tr": "ABD",
+          "uk": "США",
+          "ru": "США"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Die DDR",
+          "ar": "جمهورية ألمانيا الديمقراطية (ألمانيا الشرقية)",
+          "en": "The GDR",
+          "tr": "Demokratik Alman Cumhuriyeti (DDR)",
+          "uk": "НДР (Німецька Демократична Республіка)",
+          "ru": "ГДР (Германская Демократическая Республика)"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Großbritannien",
+          "ar": "بريطانيا العظمى",
+          "en": "Great Britain",
+          "tr": "Büyük Britanya",
+          "uk": "Велика Британія",
+          "ru": "Великобритания"
+        }
+      }
+    ],
+    "correct_answer": "C",
+    "topic": "history"
+  },
+  {
+    "id": 152,
+    "category_id": "general",
+    "question": {
+      "de": "Wann waren die Nationalsozialisten mit Adolf Hitler in Deutschland an der Macht?",
+      "ar": "متى كان الاشتراكيون القوميون (النازيون) بقيادة أدولف هتلر في السلطة في ألمانيا؟",
+      "en": "When were the National Socialists with Adolf Hitler in power in Germany?",
+      "tr": "Nasyonal Sosyalistler Adolf Hitler ile Almanya'da ne zaman iktidardaydı?",
+      "uk": "Коли націонал-соціалісти на чолі з Адольфом Гітлером були при владі в Німеччині?",
+      "ru": "Когда национал-социалисты во главе с Адольфом Гитлером были у власти в Германии?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "1918 bis 1923",
+          "ar": "1918 إلى 1923",
+          "en": "1918 to 1923",
+          "tr": "1918'den 1923'e",
+          "uk": "1918 до 1923",
+          "ru": "1918 по 1923"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "1933 bis 1945",
+          "ar": "1933 إلى 1945",
+          "en": "1933 to 1945",
+          "tr": "1933'ten 1945'e",
+          "uk": "1933 до 1945",
+          "ru": "1933 по 1945"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "1945 bis 1989",
+          "ar": "1945 إلى 1989",
+          "en": "1945 to 1989",
+          "tr": "1945'ten 1989'a",
+          "uk": "1945 до 1989",
+          "ru": "1945 по 1989"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "1989 bis 2005",
+          "ar": "1989 إلى 2005",
+          "en": "1989 to 2005",
+          "tr": "1989'dan 2005'e",
+          "uk": "1989 до 2005",
+          "ru": "1989 по 2005"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "history"
+  },
+  {
+    "id": 153,
+    "category_id": "general",
+    "question": {
+      "de": "Was war am 8. Mai 1945?",
+      "ar": "ماذا حدث في 8 مايو 1945؟",
+      "en": "What happened on May 8, 1945?",
+      "tr": "8 Mayıs 1945'te ne oldu?",
+      "uk": "Що сталося 8 травня 1945 року?",
+      "ru": "Что произошло 8 мая 1945 года?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Tod Adolf Hitlers",
+          "ar": "وفاة أدولف هتلر",
+          "en": "Death of Adolf Hitler",
+          "tr": "Adolf Hitler'in ölümü",
+          "uk": "Смерть Адольфа Гітлера",
+          "ru": "Смерть Адольфа Гитлера"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Beginn des Berliner Mauerbaus",
+          "ar": "بيدء بناء جدار برلين",
+          "en": "Start of the construction of the Berlin Wall",
+          "tr": "Berlin Duvarı inşasının başlangıcı",
+          "uk": "Початок будівництва Берлінської стіни",
+          "ru": "Начало строительства Берлинской стены"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Wahl von Konrad Adenauer zum Bundeskanzler",
+          "ar": "انتخاب كونراد أديناور مستشاراً اتحادياً",
+          "en": "Election of Konrad Adenauer as Chancellor",
+          "tr": "Konrad Adenauer'in Şansölye seçilmesi",
+          "uk": "Обрання Конрада Аденауера канцлером",
+          "ru": "Избрание Конрада Аденауэра канцлером"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Ende des Zweiten Weltkriegs in Europa",
+          "ar": "نهاية الحرب العالمية الثانية في أوروبا",
+          "en": "End of World War II in Europe",
+          "tr": "Avrupa'da İkinci Dünya Savaşı'nın sonu",
+          "uk": "Кінець Другої світової війни в Європі",
+          "ru": "Конец Второй мировой войны в Европе"
+        }
+      }
+    ],
+    "correct_answer": "D",
+    "topic": "history"
+  },
+  {
+    "id": 154,
+    "category_id": "general",
+    "question": {
+      "de": "Wann war der Zweite Weltkrieg zu Ende?",
+      "ar": "متى انتهت الحرب العالمية الثانية؟",
+      "en": "When did World War II end?",
+      "tr": "İkinci Dünya Savaşı ne zaman sona erdi?",
+      "uk": "Коли закінчилася Друга світова війна?",
+      "ru": "Когда закончилась Вторая мировая война?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "1933",
+          "ar": "1933",
+          "en": "1933",
+          "tr": "1933",
+          "uk": "1933",
+          "ru": "1933"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "1945",
+          "ar": "1945",
+          "en": "1945",
+          "tr": "1945",
+          "uk": "1945",
+          "ru": "1945"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "1949",
+          "ar": "1949",
+          "en": "1949",
+          "tr": "1949",
+          "uk": "1949",
+          "ru": "1949"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "1961",
+          "ar": "1961",
+          "en": "1961",
+          "tr": "1961",
+          "uk": "1961",
+          "ru": "1961"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "history"
+  },
+  {
+    "id": 155,
+    "category_id": "general",
+    "question": {
+      "de": "Wann waren die „Montagsdemonstrationen“ in Deutschland?",
+      "ar": "متى كانت \"مظاهرات الاثنين\" في ألمانيا؟",
+      "en": "When were the \"Monday demonstrations\" in Germany?",
+      "tr": "Almanya'da \"Pazartesi Gösterileri\" ne zamandı?",
+      "uk": "Коли в Німеччині проходили «понеділкові демонстрації»?",
+      "ru": "Когда в Германии проходили «понедельничные демонстрации»?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "1989",
+          "ar": "1989",
+          "en": "1989",
+          "tr": "1989",
+          "uk": "1989",
+          "ru": "1989"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "1968",
+          "ar": "1968",
+          "en": "1968",
+          "tr": "1968",
+          "uk": "1968",
+          "ru": "1968"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "1953",
+          "ar": "1953",
+          "en": "1953",
+          "tr": "1953",
+          "uk": "1953",
+          "ru": "1953"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "1945",
+          "ar": "1945",
+          "en": "1945",
+          "tr": "1945",
+          "uk": "1945",
+          "ru": "1945"
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "history"
+  },
+  {
+    "id": 156,
+    "category_id": "general",
+    "question": {
+      "de": "In welchem Zeitraum gab es die Deutsche Demokratische Republik (DDR)?",
+      "ar": "في أي فترة زمنية كانت توجد جمهورية ألمانيا الديمقراطية (DDR)؟",
+      "en": "In which period did the German Democratic Republic (GDR) exist?",
+      "tr": "Demokratik Alman Cumhuriyeti (DDR) hangi dönemde vardı?",
+      "uk": "В який період існувала Німецька Демократична Республіка (НДР)?",
+      "ru": "В какой период существовала Германская Демократическая Республика (ГДР)?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "1919 bis 1933",
+          "ar": "1919 إلى 1933",
+          "en": "1919 to 1933",
+          "tr": "1919'dan 1933'e",
+          "uk": "1919 до 1933",
+          "ru": "1919 по 1933"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "1933 bis 1945",
+          "ar": "1933 إلى 1945",
+          "en": "1933 to 1945",
+          "tr": "1933'ten 1945'e",
+          "uk": "1933 до 1945",
+          "ru": "1933 по 1945"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "1949 bis 1990",
+          "ar": "1949 إلى 1990",
+          "en": "1949 to 1990",
+          "tr": "1949'dan 1990'a",
+          "uk": "1949 до 1990",
+          "ru": "1949 по 1990"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "1945 bis 1961",
+          "ar": "1945 إلى 1961",
+          "en": "1945 to 1961",
+          "tr": "1945'ten 1961'e",
+          "uk": "1945 до 1961",
+          "ru": "1945 по 1961"
+        }
+      }
+    ],
+    "correct_answer": "C",
+    "topic": "history"
+  },
+  {
+    "id": 157,
+    "category_id": "general",
+    "question": {
+      "de": "Wie viele Besatzungszonen gab es in Deutschland nach dem Zweiten Weltkrieg?",
+      "ar": "كم عدد مناطق الاحتلال التي كانت في ألمانيا بعد الحرب العالمية الثانية؟",
+      "en": "How many occupation zones were there in Germany after World War II?",
+      "tr": "İkinci Dünya Savaşı'ndan sonra Almanya'da kaç işgal bölgesi vardı?",
+      "uk": "Скільки окупаційних зон було в Німеччині після Другої світової війни?",
+      "ru": "Сколько оккупационных зон было в Германии после Второй мировой войны?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "3",
+          "ar": "3",
+          "en": "3",
+          "tr": "3",
+          "uk": "3",
+          "ru": "3"
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "4",
+          "ar": "4",
+          "en": "4",
+          "tr": "4",
+          "uk": "4",
+          "ru": "4"
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "5",
+          "ar": "5",
+          "en": "5",
+          "tr": "5",
+          "uk": "5",
+          "ru": "5"
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "6",
+          "ar": "6",
+          "en": "6",
+          "tr": "6",
+          "uk": "6",
+          "ru": "6"
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "history"
+  },
+  {
+    "id": 158,
+    "category_id": "general",
+    "question": {
+      "de": "Wie waren die Besatzungszonen Deutschlands nach 1945 aufgeteilt?",
+      "ar": "كيف تم تقسيم مناطق الاحتلال في ألمانيا بعد عام 1945؟",
+      "en": "How were the occupation zones of Germany divided after 1945?",
+      "tr": "1945'ten sonra Almanya'nın işgal bölgeleri nasıl bölündü?",
+      "uk": "Як були розподілені окупаційні зони Німеччини після 1945 року?",
+      "ru": "Как были разделены оккупационные зоны Германии после 1945 года?"
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Es gab nur eine britische und eine amerikanische Zone.",
+          "ar": "كان هناك فقط منطقة بريطانية ومنطقة أمريكية.",
+          "en": "There was only a British and an American zone.",
+          "tr": "Sadece bir İngiliz ve bir Amerikan bölgesi vardı.",
+          "uk": "Була лише британська та американська зона.",
+          "ru": "Была только британская и американская зоны."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Es gab eine amerikanische, eine britische, eine französische und eine sowjetische Zone.",
+          "ar": "كانت هناك منطقة أمريكية، وبريطانية، وفرنسية، وسوفيتية.",
+          "en": "There was an American, a British, a French and a Soviet zone.",
+          "tr": "Bir Amerikan, bir İngiliz, bir Fransız ve bir Sovyet bölgesi vardı.",
+          "uk": "Була американська, британська, французька та радянська зони.",
+          "ru": "Были американская, британская, французская и советская зоны."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Es gab eine französische, eine schwedische und eine niederländische Zone.",
+          "ar": "كانت هناك منطقة فرنسية، وسويدية، وهولندية.",
+          "en": "There was a French, a Swedish and a Dutch zone.",
+          "tr": "Bir Fransız, bir İsveç ve bir Hollanda bölgesi vardı.",
+          "uk": "Була французька, шведська та нідерландська зони.",
+          "ru": "Были французская, шведская и нидерландская зоны."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Es gab nur eine sowjetische Zone.",
+          "ar": "كانت هناك فقط منطقة سوفيتية.",
+          "en": "There was only a Soviet zone.",
+          "tr": "Sadece bir Sovyet bölgesi vardı.",
+          "uk": "Була лише радянська зона.",
+          "ru": "Была только советская зона."
+        }
+      }
+    ],
+    "correct_answer": "B",
+    "topic": "history"
+  },
+  {
+    "id": 300,
+    "category_id": "general",
+    "question": {
+      "de": "In der DDR gab es vor allem Migranten aus ...",
+      "ar": "في جمهورية ألمانيا الديمقراطية (DDR) كان المهاجرون يأتون بشكل أساسي من ...",
+      "en": "In the GDR, there were migrants primarily from...",
+      "tr": "DDR'de (Doğu Almanya) göçmenler ağırlıklı olarak şuralardan geliyordu...",
+      "uk": "У НДР були в основному мігранти з...",
+      "ru": "В ГДР в основном были мигранты из..."
+    },
+    "answers": [
+      {
+        "id": "A",
+        "text": {
+          "de": "Vietnam, Polen, Mosambik.",
+          "ar": "فيتنام, بولندا, موزمبيق.",
+          "en": "Vietnam, Poland, Mozambique.",
+          "tr": "Vietnam, Polonya, Mozambik.",
+          "uk": "В'єтнам, Польща, Мозамбік.",
+          "ru": "Вьетнам, Польша, Мозамбик."
+        }
+      },
+      {
+        "id": "B",
+        "text": {
+          "de": "Frankreich, Rumänien, Somalia.",
+          "ar": "فرنسا، رومانيا، الصومال.",
+          "en": "France, Romania, Somalia.",
+          "tr": "Fransa, Romanya, Somali.",
+          "uk": "Франція, Румунія, Сомалі.",
+          "ru": "Франция, Румыния, Сомали."
+        }
+      },
+      {
+        "id": "C",
+        "text": {
+          "de": "Chile, Ungarn, Simbabwe.",
+          "ar": "تشيلي، المجر، زيمبابوي.",
+          "en": "Chile, Hungary, Zimbabwe.",
+          "tr": "Şili, Macaristan, Zimbabve.",
+          "uk": "Чилі, Угорщина, Зімбабве.",
+          "ru": "Чили, Венгрия, Зимбабве."
+        }
+      },
+      {
+        "id": "D",
+        "text": {
+          "de": "Nordkorea, Mexiko, Ägypten.",
+          "ar": "كوريا الشمالية، المكسيك، مصر.",
+          "en": "North Korea, Mexico, Egypt.",
+          "tr": "Kuzey Kore, Meksika, Mısır.",
+          "uk": "Північна Корея, Мексика, Єгипет.",
+          "ru": "Северная Корея, Мексика, Египет."
+        }
+      }
+    ],
+    "correct_answer": "A",
+    "topic": "history"
+  }
+]
