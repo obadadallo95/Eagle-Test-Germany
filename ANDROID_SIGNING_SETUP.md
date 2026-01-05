@@ -46,7 +46,7 @@ keytool -genkey -v -keystore upload-keystore.jks -keyalg RSA -keysize 2048 -vali
 عند تنفيذ الأمر، سيطلب منك إدخال المعلومات التالية:
 
 1. **كلمة مرور المستودع (Keystore password)**: 
-   - أدخل كلمة مرور قوية (مثال: `MESSI@1912`)
+   - أدخل كلمة مرور قوية (مثال: `YOUR_STRONG_PASSWORD`)
    - **⚠️ احفظ هذه الكلمة في مكان آمن!**
 
 2. **إعادة إدخال كلمة المرور**: 
@@ -91,11 +91,13 @@ keytool -genkey -v -keystore upload-keystore.jks -keyalg RSA -keysize 2048 -vali
 ### المحتوى المطلوب:
 
 ```properties
-storePassword=MESSI@1912
-keyPassword=MESSI@1912
+storePassword=YOUR_KEYSTORE_PASSWORD
+keyPassword=YOUR_KEY_PASSWORD
 keyAlias=upload
 storeFile=upload-keystore.jks
 ```
+
+**⚠️ مهم**: استبدل `YOUR_KEYSTORE_PASSWORD` و `YOUR_KEY_PASSWORD` بكلمات المرور الفعلية التي استخدمتها عند إنشاء keystore.
 
 ### 📝 شرح الحقول:
 

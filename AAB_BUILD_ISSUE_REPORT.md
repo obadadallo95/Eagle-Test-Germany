@@ -87,7 +87,7 @@ flutter build apk --release
 
 2. **إعدادات التوقيع**: تعمل بشكل صحيح
    - Keystore: `android/upload-keystore.jks`
-   - كلمة المرور: `MESSI1912`
+   - كلمة المرور: `YOUR_KEYSTORE_PASSWORD` (محمية)
    - Alias: `upload`
 
 3. **حماية المعلومات الحساسة**: محمية في `.gitignore`
@@ -134,9 +134,9 @@ Invalid dex file indices, expecting file 'classes٢.dex' but found 'classes2.dex
 3. اختر: **Android App Bundle**
 4. استخدم إعدادات التوقيع:
    - **Key store path**: `android/upload-keystore.jks`
-   - **Key store password**: `MESSI1912`
+   - **Key store password**: `YOUR_KEYSTORE_PASSWORD` (محمية)
    - **Key alias**: `upload`
-   - **Key password**: `MESSI1912`
+   - **Key password**: `YOUR_KEY_PASSWORD` (محمية)
 5. الملف سيكون في: `android/app/release/app-release.aab`
 
 ---

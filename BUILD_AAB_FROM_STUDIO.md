@@ -18,10 +18,10 @@
 3. اضغط **Next**
 
 ### 3. إعدادات التوقيع
-- **Key store path**: `/Users/obadadallo/Documents/politik_test/android/upload-keystore.jks`
-- **Key store password**: `MESSI1912`
+- **Key store path**: `/path/to/your/android/upload-keystore.jks`
+- **Key store password**: `YOUR_KEYSTORE_PASSWORD` (محمية - استخدم كلمة المرور الخاصة بك)
 - **Key alias**: `upload`
-- **Key password**: `MESSI1912`
+- **Key password**: `YOUR_KEY_PASSWORD` (محمية - استخدم كلمة المرور الخاصة بك)
 - اضغط **Next**
 
 ### 4. إعدادات البناء
