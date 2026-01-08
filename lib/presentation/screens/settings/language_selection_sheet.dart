@@ -3,6 +3,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../providers/locale_provider.dart';
+import '../../../core/storage/hive_service.dart';
+import '../../../core/services/notification_service.dart';
+import '../../../core/storage/user_preferences_service.dart';
 
 /// Modal Bottom Sheet لاختيار اللغة
 class LanguageSelectionSheet extends ConsumerWidget {
@@ -74,8 +77,22 @@ class LanguageSelectionSheet extends ConsumerWidget {
                       ? Icon(Icons.check, color: Theme.of(context).primaryColor, size: 24.sp)
                       : null,
                   selected: isSelected,
-                  onTap: () {
-                    ref.read(localeProvider.notifier).changeLocale(language['code']!);
+                  onTap: () async {
+                    final newLanguageCode = language['code']!;
+                    // Update locale provider
+                    ref.read(localeProvider.notifier).changeLocale(newLanguageCode);
+                    // Save to Hive (for notifications)
+                    await HiveService.saveLanguage(newLanguageCode);
+                    
+                    // Re-schedule notifications if enabled (to update language)
+                    final isReminderEnabled = await UserPreferencesService.getReminderEnabled();
+                    if (isReminderEnabled) {
+                      final reminderTime = await UserPreferencesService.getReminderTime();
+                      if (reminderTime != null) {
+                        await NotificationService.scheduleDailyNotification(reminderTime);
+                      }
+                    }
+                    
                     Navigator.pop(context);
                   },
                 );

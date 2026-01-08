@@ -787,7 +787,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                       icon: Icons.trending_up,
                       iconColor: Colors.blue,
                       title: l10n?.statsAverageScore ?? 'Average',
-                      value: '${_dailyChallengeAverageScore.toStringAsFixed(0)}',
+                      value: _dailyChallengeAverageScore.toStringAsFixed(0),
                     ),
                   ),
                   SizedBox(width: 12.w),

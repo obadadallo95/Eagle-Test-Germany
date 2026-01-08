@@ -38,7 +38,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get dailyGoal => 'Günlük Hedef';
 
   @override
-  String get streak => 'Gün Serisi';
+  String get streak => 'Seri';
 
   @override
   String get reviewMistakes => 'Hataları İncele';
@@ -192,7 +192,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get chooseLanguage => 'Çalışmak için tercih ettiğiniz dili seçin';
 
   @override
-  String get setupComplete => 'Tamamlandı!';
+  String get setupComplete => 'Kurulum Tamamlandı';
 
   @override
   String get tapToSelect => 'Seçmek için dokunun';
@@ -787,6 +787,12 @@ class AppLocalizationsTr extends AppLocalizations {
   String get unlimitedAiTutor => 'Sınırsız AI Öğretmeni';
 
   @override
+  String get aiTutorFreeLimit => 'Günde 3 kez';
+
+  @override
+  String get aiTutorUnlimited => 'Sınırsız';
+
+  @override
   String get pdfExamGeneration => 'PDF Sınav Oluşturma';
 
   @override
@@ -907,4 +913,164 @@ class AppLocalizationsTr extends AppLocalizations {
   @override
   String get aboutDailyChallengeDescription =>
       'Her gün 10 rastgele soruyla kendinizi test edin ve her doğru cevap için puan kazanın. Eğlenceli görsel efektlerle başarılarınızı kutlayın!';
+
+  @override
+  String get voiceExam => '🎤 Sesli Sınav (Pro)';
+
+  @override
+  String get playAudio => '🔊 Sesi Oynat';
+
+  @override
+  String get playing => 'Oynatılıyor...';
+
+  @override
+  String get voiceExamMode => 'Sesli Sınav Modu';
+
+  @override
+  String get aiCoachTitle => '🎯 AI Çalışma Koçu';
+
+  @override
+  String get aiCoachSubtitle => 'Kişiselleştirilmiş çalışma planınız';
+
+  @override
+  String get aiCoachWeakTopics => 'En Zayıf Konular:';
+
+  @override
+  String get aiCoachError => 'Koçluk tavsiyesi yüklenemedi';
+
+  @override
+  String get aiCoachNoData =>
+      'Kişiselleştirilmiş çalışma tavsiyesi almak için soruları yanıtlamaya başlayın!';
+
+  @override
+  String get startFocusedPractice => 'Odaklı Pratik Başlat';
+
+  @override
+  String get unlockAiCoach => 'AI Koçunu Aç';
+
+  @override
+  String get aiStudyCoach => 'AI Çalışma Koçu';
+
+  @override
+  String get syncing => 'Senkronize ediliyor...';
+
+  @override
+  String get syncError => 'Senkronizasyon başarısız. Çevrimdışı çalışıyor.';
+
+  @override
+  String get licenseActive => 'Pro Lisans Aktif';
+
+  @override
+  String get invalidCode => 'Geçersiz veya süresi dolmuş kod';
+
+  @override
+  String get guestUser => 'Misafir Kullanıcı';
+
+  @override
+  String get proMember => 'PRO ÜYE';
+
+  @override
+  String get upgradeAccount => 'Hesabınızı Yükseltin';
+
+  @override
+  String get subscribeToPro => 'Pro\'ya Abone Ol';
+
+  @override
+  String get orActivateLicense => 'Veya Lisansı Etkinleştir';
+
+  @override
+  String get activateLicense => 'Lisansı Etkinleştir';
+
+  @override
+  String get enterLicenseKey => 'Lisans anahtarınızı girin';
+
+  @override
+  String get licenseKey => 'Lisans Anahtarı';
+
+  @override
+  String get federalState => 'Federal Eyalet';
+
+  @override
+  String get readiness => 'Hazırlık';
+
+  @override
+  String get mastery => 'Ustalık';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
+  String get smartAiStudyAlerts => '🎯 Akıllı AI Çalışma Uyarıları';
+
+  @override
+  String get cloudBackupSync => '☁️ Bulut Yedekleme ve Senkronizasyon';
+
+  @override
+  String get advancedReadinessIndex => '📊 Gelişmiş Hazırlık Endeksi';
+
+  @override
+  String get organizationSupport => '🏢 Kuruluş Desteği';
+
+  @override
+  String get enterYourName => 'Adınızı girin';
+
+  @override
+  String get saveNameToDatabase => 'Adı veritabanına kaydet';
+
+  @override
+  String get nameSaved => 'Ad kaydedildi';
+
+  @override
+  String get nameRemoved => 'Ad kaldırıldı';
+
+  @override
+  String get pickProfilePicture => 'Profil Resmi Seç';
+
+  @override
+  String get customizeProfileName => '👤 Profil Adını Özelleştir';
+
+  @override
+  String get nameChangeOnce => 'Bir kez';
+
+  @override
+  String get nameChangeUnlimited => 'Sınırsız';
+
+  @override
+  String get topLearners => '🏆 En İyi Öğrenenler';
+
+  @override
+  String get noLeaderboardData => 'Liderlik tablosu verisi yok';
+
+  @override
+  String get you => 'Sen';
+
+  @override
+  String get sharedProgressFeature => '🔄 Cihazlar Arası Paylaşılan İlerleme';
+
+  @override
+  String get sharedProgressDescription =>
+      'Senkronize ilerlemeyle 3 cihaza kadar çalışın. Öğrenme verileriniz tüm cihazlarınızda otomatik olarak senkronize edilir.';
+
+  @override
+  String get sharedProgressBenefit =>
+      'Herhangi bir cihazdan ilerlemenize erişin';
+
+  @override
+  String get deviceLimit => '3 cihaza kadar';
+
+  @override
+  String get automaticSync => 'Otomatik senkronizasyon';
+
+  @override
+  String get progressRestore =>
+      'Cihazınızı kaybederseniz ilerlemeyi geri yükleyin';
+
+  @override
+  String get syncingProgress => 'İlerleme senkronize ediliyor...';
+
+  @override
+  String get progressSynced => 'İlerleme senkronize edildi';
+
+  @override
+  String get cloudSync => 'Bulut senkronizasyonu';
 }

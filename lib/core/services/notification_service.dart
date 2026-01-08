@@ -7,6 +7,8 @@ import '../../core/debug/app_logger.dart';
 import '../../core/storage/user_preferences_service.dart';
 import '../../core/storage/hive_service.dart';
 import '../../core/storage/srs_service.dart';
+import '../../core/services/subscription_service.dart';
+import '../../core/services/notification_content.dart';
 import '../../data/datasources/local_datasource.dart';
 import '../../data/repositories/question_repository_impl.dart';
 import '../../domain/entities/question.dart';
@@ -182,10 +184,41 @@ class NotificationService {
       tz.local,
     );
     
-    // جلب اللغة الحالية للرسالة المترجمة
-    final prefs = await SharedPreferences.getInstance();
-    final languageCode = prefs.getString('language') ?? 'en';
-    final notificationText = _getNotificationText(languageCode);
+    // Fetch User Context for dynamic content
+    final languageCode = HiveService.getSavedLanguage() ?? 'de';
+    final isPro = await SubscriptionService.isProUser();
+    
+    // Get due questions count for Pro users
+    int dueQuestionsCount = 0;
+    if (isPro) {
+      try {
+        final localDataSource = LocalDataSourceImpl();
+        final repository = QuestionRepositoryImpl(localDataSource);
+        final selectedState = await UserPreferencesService.getSelectedState();
+        final result = await repository.getAllQuestions(selectedState);
+        
+        final allQuestions = result.fold(
+          (failure) => <Question>[],
+          (questions) => questions,
+        );
+        
+        if (allQuestions.isNotEmpty) {
+          final allQuestionIds = allQuestions.map((q) => q.id).toList();
+          final dueQuestionIds = SrsService.getDueQuestions(allQuestionIds);
+          dueQuestionsCount = dueQuestionIds.length;
+        }
+      } catch (e) {
+        AppLogger.warn('Failed to get due questions count: $e', source: 'NotificationService');
+      }
+    }
+    
+    // Generate dynamic notification content
+    final title = NotificationContent.getTitle(languageCode, isPro: isPro);
+    final body = NotificationContent.getBody(
+      languageCode,
+      isPro: isPro,
+      dueQuestionsCount: dueQuestionsCount,
+    );
     
     // إعدادات الإشعار
     const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(
@@ -215,8 +248,8 @@ class NotificationService {
     try {
       await _notifications.zonedSchedule(
         _dailyReminderId,
-        notificationText['title'] ?? 'Time to Study!',
-        notificationText['body'] ?? 'Keep your streak alive!',
+        title,
+        body,
         scheduledTZ,
         notificationDetails,
         androidScheduleMode: AndroidScheduleMode.exactAllowWhileIdle,
@@ -225,13 +258,20 @@ class NotificationService {
         matchDateTimeComponents: DateTimeComponents.time,
         payload: 'daily_reminder',
       );
+      
+      AppLogger.event('Daily reminder scheduled', source: 'NotificationService', data: {
+        'time': '${time.hour}:${time.minute}',
+        'language': languageCode,
+        'isPro': isPro,
+        'dueQuestionsCount': dueQuestionsCount,
+      });
     } catch (e) {
       // إذا فشل exactAllowWhileIdle (Android 12+ يتطلب إذن)، استخدم وضع عادي
       try {
         await _notifications.zonedSchedule(
           _dailyReminderId,
-          notificationText['title'] ?? 'Time to Study!',
-          notificationText['body'] ?? 'Keep your streak alive!',
+          title,
+          body,
           scheduledTZ,
           notificationDetails,
           androidScheduleMode: AndroidScheduleMode.inexactAllowWhileIdle,
@@ -244,8 +284,8 @@ class NotificationService {
         // إذا فشل أيضاً، استخدم وضع بسيط
         await _notifications.zonedSchedule(
           _dailyReminderId,
-          notificationText['title'] ?? 'Time to Study!',
-          notificationText['body'] ?? 'Keep your streak alive!',
+          title,
+          body,
           scheduledTZ,
           notificationDetails,
           androidScheduleMode: AndroidScheduleMode.inexact,
@@ -491,41 +531,6 @@ class NotificationService {
     return true; // Default to true if platform not detected
   }
 
-  /// الحصول على نص الإشعار اليومي حسب اللغة
-  static Map<String, String> _getNotificationText(String languageCode) {
-    switch (languageCode) {
-      case 'ar':
-        return {
-          'title': '🇩🇪 وقت الدراسة!',
-          'body': 'حافظ على سلسلتك! ادرس الآن.',
-        };
-      case 'de':
-        return {
-          'title': '🇩🇪 Zeit zum Lernen!',
-          'body': 'Halte deine Serie aufrecht! Lerne jetzt.',
-        };
-      case 'tr':
-        return {
-          'title': '🇩🇪 Çalışma Zamanı!',
-          'body': 'Serinizi koruyun! Şimdi çalışın.',
-        };
-      case 'uk':
-        return {
-          'title': '🇩🇪 Час навчання!',
-          'body': 'Підтримуйте свою серію! Вчіться зараз.',
-        };
-      case 'ru':
-        return {
-          'title': '🇩🇪 Время учиться!',
-          'body': 'Поддерживайте свою серию! Учитесь сейчас.',
-        };
-      default: // en
-        return {
-          'title': '🇩🇪 Time to Study!',
-          'body': 'Keep your streak alive! Study now.',
-        };
-    }
-  }
 
   /// الحصول على نص إشعار SRS حسب اللغة
   static Map<String, String> _getSrsNotificationText(String languageCode, int count) {

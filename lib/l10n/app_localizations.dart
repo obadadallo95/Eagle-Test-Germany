@@ -160,10 +160,10 @@ abstract class AppLocalizations {
   /// **'Daily Goal'**
   String get dailyGoal;
 
-  /// Study streak counter
+  /// Streak days label
   ///
   /// In en, this message translates to:
-  /// **'Day Streak'**
+  /// **'Streak'**
   String get streak;
 
   /// Button to review mistakes
@@ -334,7 +334,7 @@ abstract class AppLocalizations {
   /// **'General'**
   String get general;
 
-  /// Dark mode setting
+  /// Dark mode toggle label
   ///
   /// In en, this message translates to:
   /// **'Dark Mode'**
@@ -457,7 +457,7 @@ abstract class AppLocalizations {
   /// Setup completion message
   ///
   /// In en, this message translates to:
-  /// **'Setup Complete!'**
+  /// **'Setup Complete'**
   String get setupComplete;
 
   /// Tap to select prompt
@@ -484,7 +484,7 @@ abstract class AppLocalizations {
   /// **'Notifications'**
   String get notifications;
 
-  /// No description provided for @dailyReminder.
+  /// Daily reminder toggle label
   ///
   /// In en, this message translates to:
   /// **'Daily Reminder'**
@@ -1594,6 +1594,18 @@ abstract class AppLocalizations {
   /// **'Unlimited AI Tutor'**
   String get unlimitedAiTutor;
 
+  /// AI Tutor free plan limit
+  ///
+  /// In en, this message translates to:
+  /// **'3 times/day'**
+  String get aiTutorFreeLimit;
+
+  /// AI Tutor unlimited for Pro
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited'**
+  String get aiTutorUnlimited;
+
   /// PDF exam generation feature
   ///
   /// In en, this message translates to:
@@ -1833,6 +1845,318 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Test yourself daily with 10 random questions and earn points for each correct answer. Celebrate your achievements with fun visual effects!'**
   String get aboutDailyChallengeDescription;
+
+  /// Voice exam mode title
+  ///
+  /// In en, this message translates to:
+  /// **'🎤 Voice Exam (Pro)'**
+  String get voiceExam;
+
+  /// Play audio button
+  ///
+  /// In en, this message translates to:
+  /// **'🔊 Play Audio'**
+  String get playAudio;
+
+  /// Playing audio status
+  ///
+  /// In en, this message translates to:
+  /// **'Playing...'**
+  String get playing;
+
+  /// Voice exam mode feature name
+  ///
+  /// In en, this message translates to:
+  /// **'Voice Exam Mode'**
+  String get voiceExamMode;
+
+  /// AI coaching card title
+  ///
+  /// In en, this message translates to:
+  /// **'🎯 AI Study Coach'**
+  String get aiCoachTitle;
+
+  /// AI coaching card subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Your personalized study plan'**
+  String get aiCoachSubtitle;
+
+  /// Weakest topics label
+  ///
+  /// In en, this message translates to:
+  /// **'Weakest Topics:'**
+  String get aiCoachWeakTopics;
+
+  /// Error message for AI coaching
+  ///
+  /// In en, this message translates to:
+  /// **'Failed to load coaching advice'**
+  String get aiCoachError;
+
+  /// Message when no user data is available for AI coaching
+  ///
+  /// In en, this message translates to:
+  /// **'Start answering questions to get personalized study advice!'**
+  String get aiCoachNoData;
+
+  /// Button to start focused practice on weak topics
+  ///
+  /// In en, this message translates to:
+  /// **'Start Focused Practice'**
+  String get startFocusedPractice;
+
+  /// Unlock AI coach button for free users
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock AI Coach'**
+  String get unlockAiCoach;
+
+  /// AI Study Coach feature name
+  ///
+  /// In en, this message translates to:
+  /// **'AI Study Coach'**
+  String get aiStudyCoach;
+
+  /// Sync in progress message
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing...'**
+  String get syncing;
+
+  /// Sync error message
+  ///
+  /// In en, this message translates to:
+  /// **'Sync failed. Working offline.'**
+  String get syncError;
+
+  /// Active license status message
+  ///
+  /// In en, this message translates to:
+  /// **'Pro License Active'**
+  String get licenseActive;
+
+  /// Invalid license code message
+  ///
+  /// In en, this message translates to:
+  /// **'Invalid or expired code'**
+  String get invalidCode;
+
+  /// Guest user label
+  ///
+  /// In en, this message translates to:
+  /// **'Guest User'**
+  String get guestUser;
+
+  /// Pro member badge text
+  ///
+  /// In en, this message translates to:
+  /// **'PRO MEMBER'**
+  String get proMember;
+
+  /// Upgrade account title
+  ///
+  /// In en, this message translates to:
+  /// **'Upgrade Your Account'**
+  String get upgradeAccount;
+
+  /// Subscribe to Pro button text
+  ///
+  /// In en, this message translates to:
+  /// **'Subscribe to Pro'**
+  String get subscribeToPro;
+
+  /// Or activate license button text
+  ///
+  /// In en, this message translates to:
+  /// **'Or Activate License'**
+  String get orActivateLicense;
+
+  /// Activate license dialog title
+  ///
+  /// In en, this message translates to:
+  /// **'Activate License'**
+  String get activateLicense;
+
+  /// Enter license key prompt
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your license key'**
+  String get enterLicenseKey;
+
+  /// License key input label
+  ///
+  /// In en, this message translates to:
+  /// **'License Key'**
+  String get licenseKey;
+
+  /// Federal state selection label
+  ///
+  /// In en, this message translates to:
+  /// **'Federal State'**
+  String get federalState;
+
+  /// Readiness score label
+  ///
+  /// In en, this message translates to:
+  /// **'Readiness'**
+  String get readiness;
+
+  /// Mastery questions label
+  ///
+  /// In en, this message translates to:
+  /// **'Mastery'**
+  String get mastery;
+
+  /// Profile tab label
+  ///
+  /// In en, this message translates to:
+  /// **'Profile'**
+  String get profile;
+
+  /// Smart AI study alerts feature name
+  ///
+  /// In en, this message translates to:
+  /// **'🎯 Smart AI Study Alerts'**
+  String get smartAiStudyAlerts;
+
+  /// Cloud backup and sync feature name
+  ///
+  /// In en, this message translates to:
+  /// **'☁️ Cloud Backup & Sync'**
+  String get cloudBackupSync;
+
+  /// Advanced readiness index feature name
+  ///
+  /// In en, this message translates to:
+  /// **'📊 Advanced Readiness Index'**
+  String get advancedReadinessIndex;
+
+  /// Organization support feature name
+  ///
+  /// In en, this message translates to:
+  /// **'🏢 Organization Support'**
+  String get organizationSupport;
+
+  /// Placeholder for name input field
+  ///
+  /// In en, this message translates to:
+  /// **'Enter your name'**
+  String get enterYourName;
+
+  /// Toggle label for allowing name sync to database
+  ///
+  /// In en, this message translates to:
+  /// **'Save name to database'**
+  String get saveNameToDatabase;
+
+  /// Message when name is saved
+  ///
+  /// In en, this message translates to:
+  /// **'Name saved'**
+  String get nameSaved;
+
+  /// Message when name is removed
+  ///
+  /// In en, this message translates to:
+  /// **'Name removed'**
+  String get nameRemoved;
+
+  /// Button text for picking profile picture
+  ///
+  /// In en, this message translates to:
+  /// **'Pick Profile Picture'**
+  String get pickProfilePicture;
+
+  /// Feature name for profile name customization
+  ///
+  /// In en, this message translates to:
+  /// **'👤 Customize Profile Name'**
+  String get customizeProfileName;
+
+  /// Text indicating name can be changed once (free plan)
+  ///
+  /// In en, this message translates to:
+  /// **'Once'**
+  String get nameChangeOnce;
+
+  /// Text indicating unlimited name changes (pro plan)
+  ///
+  /// In en, this message translates to:
+  /// **'Unlimited'**
+  String get nameChangeUnlimited;
+
+  /// Title for leaderboard card
+  ///
+  /// In en, this message translates to:
+  /// **'🏆 Top Learners'**
+  String get topLearners;
+
+  /// Message when no leaderboard data is available
+  ///
+  /// In en, this message translates to:
+  /// **'No leaderboard data available'**
+  String get noLeaderboardData;
+
+  /// Label indicating current user in leaderboard
+  ///
+  /// In en, this message translates to:
+  /// **'You'**
+  String get you;
+
+  /// Shared progress feature name for Pro subscription
+  ///
+  /// In en, this message translates to:
+  /// **'🔄 Shared Progress Across Devices'**
+  String get sharedProgressFeature;
+
+  /// Description of shared progress feature
+  ///
+  /// In en, this message translates to:
+  /// **'Study on up to 3 devices with synchronized progress. Your learning data is automatically synced across all your devices.'**
+  String get sharedProgressDescription;
+
+  /// Benefit of shared progress feature
+  ///
+  /// In en, this message translates to:
+  /// **'Access your progress from any device'**
+  String get sharedProgressBenefit;
+
+  /// Device limit for Pro subscription
+  ///
+  /// In en, this message translates to:
+  /// **'Up to 3 devices'**
+  String get deviceLimit;
+
+  /// Automatic sync feature
+  ///
+  /// In en, this message translates to:
+  /// **'Automatic sync'**
+  String get automaticSync;
+
+  /// Progress restore feature
+  ///
+  /// In en, this message translates to:
+  /// **'Restore progress if you lose your device'**
+  String get progressRestore;
+
+  /// Tooltip shown when progress is being synced
+  ///
+  /// In en, this message translates to:
+  /// **'Syncing progress...'**
+  String get syncingProgress;
+
+  /// Tooltip shown when progress sync is complete
+  ///
+  /// In en, this message translates to:
+  /// **'Progress synced'**
+  String get progressSynced;
+
+  /// Tooltip for cloud sync indicator
+  ///
+  /// In en, this message translates to:
+  /// **'Cloud sync'**
+  String get cloudSync;
 }
 
 class _AppLocalizationsDelegate

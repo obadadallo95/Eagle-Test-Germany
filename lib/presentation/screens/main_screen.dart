@@ -7,10 +7,11 @@ import 'package:politik_test/l10n/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
 import '../providers/locale_provider.dart';
 import '../widgets/points_display_widget.dart';
+import '../widgets/sync_indicator_widget.dart';
 import 'dashboard/dashboard_screen.dart';
 import 'study/study_screen.dart';
 import 'exam/exam_landing_screen.dart';
-import 'settings/settings_screen.dart';
+import 'profile/profile_dashboard_screen.dart';
 import 'dart:async';
 
 /// -----------------------------------------------------------------
@@ -31,21 +32,26 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   DateTime? _lastBackPressTime;
   int _dashboardRefreshKey = 0; // Key لتحديث Dashboard
 
-  final List<Widget> _screens = [
-    const DashboardScreen(),
-    const StudyScreen(),
-    const ExamLandingScreen(),
-    const SettingsScreen(),
-  ];
+  // إنشاء قائمة الشاشات مع keys ثابتة
+  late final List<Widget> _screens;
   
-  // Getter للـ screens مع Dashboard محدث
-  List<Widget> get _screensWithRefresh {
-    return [
-      DashboardScreen(key: ValueKey('dashboard_$_dashboardRefreshKey')),
-      _screens[1],
-      _screens[2],
-      _screens[3],
+  @override
+  void initState() {
+    super.initState();
+    _screens = [
+      const DashboardScreen(key: PageStorageKey('dashboard')),
+      const StudyScreen(key: PageStorageKey('study')),
+      const ExamLandingScreen(key: PageStorageKey('exam')),
+      const ProfileDashboardScreen(key: PageStorageKey('profile')),
     ];
+  }
+  
+  // تحديث Dashboard عند الحاجة
+  void _refreshDashboard() {
+    setState(() {
+      _dashboardRefreshKey++;
+      _screens[0] = DashboardScreen(key: ValueKey('dashboard_$_dashboardRefreshKey'));
+    });
   }
 
   Future<bool> _onWillPop() async {
@@ -126,15 +132,19 @@ class _MainScreenState extends ConsumerState<MainScreen> {
                   color: Theme.of(context).colorScheme.onSurface,
                 ),
               ),
-              // عرض النقاط
-              const PointsDisplayWidget(),
+              // عرض النقاط ومؤشر المزامنة
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const SyncIndicatorWidget(),
+                  SizedBox(width: 8.w),
+                  const PointsDisplayWidget(),
+                ],
+              ),
             ],
           ),
         ),
-        body: IndexedStack(
-          index: _currentIndex,
-          children: _screensWithRefresh,
-        ),
+        body: _screens[_currentIndex],
       bottomNavigationBar: Builder(
         builder: (context) {
           final theme = Theme.of(context);
@@ -143,13 +153,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
           return NavigationBar(
             selectedIndex: _currentIndex,
             onDestinationSelected: (index) {
-              // إذا تم التبديل إلى Dashboard، قم بتحديثه
-              if (index == 0 && _currentIndex != 0) {
-                setState(() {
-                  _dashboardRefreshKey++; // تحديث key لإعادة بناء Dashboard
-                  _currentIndex = index;
-                });
-              } else {
+              if (mounted) {
+                // إذا تم التبديل إلى Dashboard، قم بتحديثه
+                if (index == 0 && _currentIndex != 0) {
+                  _refreshDashboard();
+                }
                 setState(() {
                   _currentIndex = index;
                 });
@@ -185,11 +193,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               ),
               NavigationDestination(
                 icon: Icon(
-                  Icons.settings_outlined,
+                  Icons.person_outline,
                   color: isDark ? Colors.grey.shade400 : Colors.grey.shade600,
                 ),
-                selectedIcon: const Icon(Icons.settings, color: AppColors.eagleGold),
-                label: l10n?.settings ?? 'Settings',
+                selectedIcon: const Icon(Icons.person, color: AppColors.eagleGold),
+                label: l10n?.settings ?? 'Profile',
               ),
             ],
           );

@@ -38,7 +38,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get dailyGoal => 'Щоденна мета';
 
   @override
-  String get streak => 'Днів поспіль';
+  String get streak => 'Серія';
 
   @override
   String get reviewMistakes => 'Переглянути помилки';
@@ -192,7 +192,7 @@ class AppLocalizationsUk extends AppLocalizations {
   String get chooseLanguage => 'Виберіть мову для навчання';
 
   @override
-  String get setupComplete => 'Готово!';
+  String get setupComplete => 'Налаштування завершено';
 
   @override
   String get tapToSelect => 'Натисніть для вибору';
@@ -787,6 +787,12 @@ class AppLocalizationsUk extends AppLocalizations {
   String get unlimitedAiTutor => 'Необмежений ШІ-репетитор';
 
   @override
+  String get aiTutorFreeLimit => '3 рази/день';
+
+  @override
+  String get aiTutorUnlimited => 'Необмежено';
+
+  @override
   String get pdfExamGeneration => 'Створення PDF-іспиту';
 
   @override
@@ -907,4 +913,165 @@ class AppLocalizationsUk extends AppLocalizations {
   @override
   String get aboutDailyChallengeDescription =>
       'Тестуйте себе щодня з 10 випадковими питаннями та заробляйте бали за кожну правильну відповідь. Святкуйте свої досягнення з веселими візуальними ефектами!';
+
+  @override
+  String get voiceExam => '🎤 Голосовий іспит (Pro)';
+
+  @override
+  String get playAudio => '🔊 Відтворити аудіо';
+
+  @override
+  String get playing => 'Відтворюється...';
+
+  @override
+  String get voiceExamMode => 'Режим голосового іспиту';
+
+  @override
+  String get aiCoachTitle => '🎯 AI Навчальний Тренер';
+
+  @override
+  String get aiCoachSubtitle => 'Ваш персоналізований план навчання';
+
+  @override
+  String get aiCoachWeakTopics => 'Найслабші теми:';
+
+  @override
+  String get aiCoachError => 'Не вдалося завантажити поради тренера';
+
+  @override
+  String get aiCoachNoData =>
+      'Почніть відповідати на запитання, щоб отримати персоналізовані навчальні поради!';
+
+  @override
+  String get startFocusedPractice => 'Почати зосереджену практику';
+
+  @override
+  String get unlockAiCoach => 'Розблокувати AI Тренера';
+
+  @override
+  String get aiStudyCoach => 'AI Навчальний Тренер';
+
+  @override
+  String get syncing => 'Синхронізація...';
+
+  @override
+  String get syncError => 'Синхронізація не вдалася. Працюємо офлайн.';
+
+  @override
+  String get licenseActive => 'Pro Ліцензія Активна';
+
+  @override
+  String get invalidCode => 'Недійсний або застарілий код';
+
+  @override
+  String get guestUser => 'Гість';
+
+  @override
+  String get proMember => 'PRO ЧЛЕН';
+
+  @override
+  String get upgradeAccount => 'Оновіть свій акаунт';
+
+  @override
+  String get subscribeToPro => 'Підписатися на Pro';
+
+  @override
+  String get orActivateLicense => 'Або активувати ліцензію';
+
+  @override
+  String get activateLicense => 'Активувати ліцензію';
+
+  @override
+  String get enterLicenseKey => 'Введіть свій ліцензійний ключ';
+
+  @override
+  String get licenseKey => 'Ліцензійний ключ';
+
+  @override
+  String get federalState => 'Федеральна земля';
+
+  @override
+  String get readiness => 'Готовність';
+
+  @override
+  String get mastery => 'Майстерність';
+
+  @override
+  String get profile => 'Профіль';
+
+  @override
+  String get smartAiStudyAlerts => '🎯 Розумні навчальні сповіщення AI';
+
+  @override
+  String get cloudBackupSync =>
+      '☁️ Хмарне резервне копіювання та синхронізація';
+
+  @override
+  String get advancedReadinessIndex => '📊 Розширений індекс готовності';
+
+  @override
+  String get organizationSupport => '🏢 Підтримка організацій';
+
+  @override
+  String get enterYourName => 'Введіть ваше ім\'я';
+
+  @override
+  String get saveNameToDatabase => 'Зберегти ім\'я в базі даних';
+
+  @override
+  String get nameSaved => 'Ім\'я збережено';
+
+  @override
+  String get nameRemoved => 'Ім\'я видалено';
+
+  @override
+  String get pickProfilePicture => 'Вибрати фото профілю';
+
+  @override
+  String get customizeProfileName => '👤 Налаштувати ім\'я профілю';
+
+  @override
+  String get nameChangeOnce => 'Один раз';
+
+  @override
+  String get nameChangeUnlimited => 'Без обмежень';
+
+  @override
+  String get topLearners => '🏆 Найкращі учні';
+
+  @override
+  String get noLeaderboardData => 'Немає даних таблиці лідерів';
+
+  @override
+  String get you => 'Ви';
+
+  @override
+  String get sharedProgressFeature =>
+      '🔄 Спільний прогрес на кількох пристроях';
+
+  @override
+  String get sharedProgressDescription =>
+      'Навчайтеся на до 3 пристроях з синхронізованим прогресом. Ваші дані про навчання автоматично синхронізуються на всіх ваших пристроях.';
+
+  @override
+  String get sharedProgressBenefit =>
+      'Доступ до вашого прогресу з будь-якого пристрою';
+
+  @override
+  String get deviceLimit => 'До 3 пристроїв';
+
+  @override
+  String get automaticSync => 'Автоматична синхронізація';
+
+  @override
+  String get progressRestore => 'Відновити прогрес, якщо ви втратили пристрій';
+
+  @override
+  String get syncingProgress => 'Синхронізація прогресу...';
+
+  @override
+  String get progressSynced => 'Прогрес синхронізовано';
+
+  @override
+  String get cloudSync => 'Хмарна синхронізація';
 }

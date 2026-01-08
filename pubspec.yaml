@@ -1,7 +1,7 @@
 name: politik_test
 description: German Citizenship Test App
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.3+4
 
 environment:
   sdk: '>=3.2.0 <4.0.0'
@@ -30,14 +30,15 @@ dependencies:
   path_provider: ^2.1.1    # FOR FILE PATHS
   share_plus: ^7.2.1       # FOR SHARING PDF
   barcode_image: ^2.0.1    # FOR QR CODE IN PDF
-  mobile_scanner: ^3.5.5   # FOR QR CODE SCANNING
+  mobile_scanner: ^7.0.0   # FOR QR CODE SCANNING (upgraded for arm64 simulator support)
   flutter_local_notifications: ^17.2.3  # FOR DAILY REMINDERS
   timezone: ^0.9.2         # FOR TIMEZONE SUPPORT
   google_generative_ai: ^0.4.0  # FOR AI TUTOR (GEMINI)
   http: ^1.1.0              # FOR HTTP REQUESTS (AI API)
   package_info_plus: ^8.0.0  # FOR APP VERSION INFO
   url_launcher: ^6.3.1      # FOR OPENING EXTERNAL LINKS
-  purchases_flutter: ^8.1.0  # FOR REVENUECAT SUBSCRIPTIONS
+  purchases_flutter: ^9.10.3  # FOR REVENUECAT SUBSCRIPTIONS
+  supabase_flutter: ^2.5.6     # FOR SUPABASE CLOUD SYNC
   
   # UI & Assets
   google_fonts: ^6.1.0
@@ -58,6 +59,8 @@ dependencies:
   flutter_markdown: ^0.7.1 # For rendering AI explanations and legal documents
 
   image: any
+  image_picker: ^1.0.7  # FOR USER PROFILE PICTURE
+  purchases_ui_flutter: ^9.10.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

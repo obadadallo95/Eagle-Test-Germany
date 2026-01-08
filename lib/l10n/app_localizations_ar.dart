@@ -38,7 +38,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dailyGoal => 'الهدف اليومي';
 
   @override
-  String get streak => 'أيام متتالية';
+  String get streak => 'التتابع';
 
   @override
   String get reviewMistakes => 'مراجعة الأخطاء';
@@ -131,7 +131,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get general => 'عام';
 
   @override
-  String get darkMode => 'الوضع الداكن';
+  String get darkMode => 'الوضع الليلي';
 
   @override
   String get audio => 'الصوت';
@@ -192,7 +192,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get chooseLanguage => 'اختر لغتك المفضلة للدراسة';
 
   @override
-  String get setupComplete => 'تم الإعداد!';
+  String get setupComplete => 'تم الإعداد بنجاح';
 
   @override
   String get tapToSelect => 'اضغط للاختيار';
@@ -782,6 +782,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get unlimitedAiTutor => 'AI Tutor غير محدود';
 
   @override
+  String get aiTutorFreeLimit => '3 مرات/يوم';
+
+  @override
+  String get aiTutorUnlimited => 'غير محدود';
+
+  @override
   String get pdfExamGeneration => 'إنشاء امتحان PDF';
 
   @override
@@ -902,4 +908,162 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get aboutDailyChallengeDescription =>
       'اختبر نفسك يومياً مع 10 أسئلة عشوائية واحصل على نقاط لكل إجابة صحيحة. احتفل بإنجازاتك مع تأثيرات بصرية ممتعة!';
+
+  @override
+  String get voiceExam => '🎤 امتحان صوتي (Pro)';
+
+  @override
+  String get playAudio => '🔊 تشغيل الصوت';
+
+  @override
+  String get playing => 'جاري التشغيل...';
+
+  @override
+  String get voiceExamMode => 'وضع الامتحان الصوتي';
+
+  @override
+  String get aiCoachTitle => '🎯 الموجه الذكي';
+
+  @override
+  String get aiCoachSubtitle => 'خطة دراسية مخصصة';
+
+  @override
+  String get aiCoachWeakTopics => 'أضعف المواضيع:';
+
+  @override
+  String get aiCoachError => 'فشل تحميل النصيحة';
+
+  @override
+  String get aiCoachNoData =>
+      'ابدأ الإجابة على الأسئلة للحصول على نصيحة دراسية مخصصة!';
+
+  @override
+  String get startFocusedPractice => 'ابدأ التدريب المركز';
+
+  @override
+  String get unlockAiCoach => 'فتح الموجه الذكي';
+
+  @override
+  String get aiStudyCoach => 'الموجه الذكي للدراسة';
+
+  @override
+  String get syncing => 'جاري المزامنة...';
+
+  @override
+  String get syncError => 'فشلت المزامنة. العمل دون إنترنت.';
+
+  @override
+  String get licenseActive => 'النسخة الاحترافية مفعلة';
+
+  @override
+  String get invalidCode => 'الكود غير صالح أو منتهي';
+
+  @override
+  String get guestUser => 'مستخدم ضيف';
+
+  @override
+  String get proMember => 'عضو برو';
+
+  @override
+  String get upgradeAccount => 'قم بترقية حسابك';
+
+  @override
+  String get subscribeToPro => 'اشتراك برو';
+
+  @override
+  String get orActivateLicense => 'أو قم بتفعيل الترخيص';
+
+  @override
+  String get activateLicense => 'تفعيل الترخيص';
+
+  @override
+  String get enterLicenseKey => 'أدخل رمز الترخيص الخاص بك';
+
+  @override
+  String get licenseKey => 'رمز الترخيص';
+
+  @override
+  String get federalState => 'الولاية الفيدرالية';
+
+  @override
+  String get readiness => 'الجاهزية';
+
+  @override
+  String get mastery => 'المتعلم';
+
+  @override
+  String get profile => 'الملف الشخصي';
+
+  @override
+  String get smartAiStudyAlerts => '🎯 تنبيهات الدراسة الذكية';
+
+  @override
+  String get cloudBackupSync => '☁️ النسخ الاحتياطي السحابي والمزامنة';
+
+  @override
+  String get advancedReadinessIndex => '📊 مؤشر الجاهزية المتقدم';
+
+  @override
+  String get organizationSupport => '🏢 دعم المؤسسات';
+
+  @override
+  String get enterYourName => 'أدخل اسمك';
+
+  @override
+  String get saveNameToDatabase => 'حفظ الاسم في قاعدة البيانات';
+
+  @override
+  String get nameSaved => 'تم حفظ الاسم';
+
+  @override
+  String get nameRemoved => 'تم حذف الاسم';
+
+  @override
+  String get pickProfilePicture => 'اختر صورة الملف الشخصي';
+
+  @override
+  String get customizeProfileName => '👤 تخصيص اسم الملف الشخصي';
+
+  @override
+  String get nameChangeOnce => 'مرة واحدة';
+
+  @override
+  String get nameChangeUnlimited => 'غير محدود';
+
+  @override
+  String get topLearners => '🏆 أفضل المتعلمين';
+
+  @override
+  String get noLeaderboardData => 'لا توجد بيانات للوحة المتصدرين';
+
+  @override
+  String get you => 'أنت';
+
+  @override
+  String get sharedProgressFeature => '🔄 التقدم المشترك بين الأجهزة';
+
+  @override
+  String get sharedProgressDescription =>
+      'ادرس على ما يصل إلى 3 أجهزة مع تقدم متزامن. يتم مزامنة بيانات التعلم تلقائياً عبر جميع أجهزتك.';
+
+  @override
+  String get sharedProgressBenefit => 'الوصول إلى تقدمك من أي جهاز';
+
+  @override
+  String get deviceLimit => 'حتى 3 أجهزة';
+
+  @override
+  String get automaticSync => 'مزامنة تلقائية';
+
+  @override
+  String get progressRestore => 'استعادة التقدم في حالة فقدان جهازك';
+
+  @override
+  String get syncingProgress => 'جاري مزامنة التقدم...';
+
+  @override
+  String get progressSynced => 'تمت مزامنة التقدم';
+
+  @override
+  String get cloudSync => 'مزامنة السحابة';
 }

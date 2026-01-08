@@ -53,7 +53,7 @@
 - Auto-play questions and answers
 - Perfect for commuting
 
-### 🔄 Spaced Repetition System (SRS) / نظام التكرار المتباعد
+### 🧠 Smart Spaced Repetition (SRS) / نظام التكرار المتباعد الذكي
 > **Deutsch:** Intelligentes System, das schwierige Fragen häufiger wiederholt.
 
 > **العربية:** نظام ذكي يعيد الأسئلة الصعبة بشكل متكرر.
@@ -61,6 +61,7 @@
 - Adaptive difficulty tracking
 - Automatic review scheduling
 - Optimized learning retention
+- AI-powered forgetting curve analysis
 
 ### 🔥 Daily Challenge Mode / وضع التحدي اليومي
 > **Deutsch:** Tägliche Herausforderung mit 10 zufälligen Fragen und einem Punktesystem.
@@ -101,6 +102,36 @@
 - Achievement tracking
 - Visual feedback for progress
 
+### 🔔 Localized AI Notifications / إشعارات ذكية متعددة اللغات
+> **Deutsch:** Erhalten Sie intelligente Benachrichtigungen basierend auf Ihrem Lernfortschritt.
+
+> **العربية:** احصل على إشعارات ذكية بناءً على تقدمك في التعلم.
+
+- Smart reminders based on forgetting curve
+- Multi-language support (6 languages)
+- Personalized study alerts for Pro users
+- Context-aware notification content
+
+### 🏢 B2B/Organization Management / إدارة المؤسسات
+> **Deutsch:** Verknüpfen Sie Ihr Profil mit Ihrer Schule oder Organisation.
+
+> **العربية:** اربط ملفك الشخصي بمدرستك أو مؤسستك.
+
+- Organization profile linking
+- Progress tracking for institutions
+- Cloud-based data synchronization
+- Anonymous secure authentication
+
+### 🔐 Anonymous Secure Auth / المصادقة الآمنة المجهولة
+> **Deutsch:** Sichere Authentifizierung ohne persönliche Daten.
+
+> **العربية:** مصادقة آمنة بدون بيانات شخصية.
+
+- No email required
+- Privacy-first approach
+- Secure cloud sync
+- GDPR compliant
+
 ---
 
 ## 🛠️ Tech Stack / التقنيات
@@ -117,13 +148,19 @@
 
 ### Architecture / البنية المعمارية
 
+**Offline-First + Cloud Sync Hybrid Architecture**
+
+This app uses a hybrid architecture that prioritizes offline functionality while providing optional cloud synchronization:
+
 ```
 lib/
 ├── core/              # Core utilities and themes
+│   ├── config/        # Environment config (Supabase keys)
+│   ├── services/      # Notification, Sync, Remote Config services
 │   ├── storage/       # Hive, SharedPreferences services
 │   └── theme/         # App themes and colors
 ├── data/              # Data layer
-│   ├── datasources/   # Local data sources
+│   ├── datasources/   # Local data sources (JSON files)
 │   ├── models/        # Data models
 │   └── repositories/  # Repository implementations
 ├── domain/            # Business logic
@@ -139,9 +176,12 @@ lib/
 ### Key Features Implementation / تنفيذ الميزات الرئيسية
 
 - **Clean Architecture**: Separation of concerns with clear layer boundaries
+- **Offline-First Design**: Hive for fast local data persistence (works without internet)
+- **Cloud Sync (Optional)**: Supabase integration for progress backup and organization tracking
 - **State Management**: Riverpod for reactive state management
 - **Localization**: Flutter's built-in l10n with 6 language support
-- **Storage**: Hive for fast local data persistence
+- **Smart Notifications**: Localized AI-powered study reminders
+- **Privacy-First**: Anonymous authentication, no personal data required
 - **Audio**: Flutter TTS for hands-free learning
 
 ---
@@ -185,12 +225,24 @@ cd politik_test
 flutter pub get
 ```
 
-3. **Generate localization files / إنشاء ملفات الترجمة**
+3. **Configure Supabase (Required for cloud features) / إعداد Supabase**
+   
+   Update `lib/core/config/env_config.dart` with your Supabase credentials:
+   ```dart
+   class EnvConfig {
+     static const String supabaseUrl = 'YOUR_SUPABASE_URL';
+     static const String supabaseAnonKey = 'YOUR_SUPABASE_ANON_KEY';
+   }
+   ```
+   
+   > **Note:** The app will work offline without Supabase, but cloud sync and organization features require valid credentials.
+
+4. **Generate localization files / إنشاء ملفات الترجمة**
 ```bash
 flutter gen-l10n
 ```
 
-4. **Run the app / تشغيل التطبيق**
+5. **Run the app / تشغيل التطبيق**
 ```bash
 flutter run
 ```

@@ -38,7 +38,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get dailyGoal => 'Tagesziel';
 
   @override
-  String get streak => 'Tage in Folge';
+  String get streak => 'Serie';
 
   @override
   String get reviewMistakes => 'Fehler überprüfen';
@@ -131,7 +131,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get general => 'Allgemein';
 
   @override
-  String get darkMode => 'Dunkelmodus';
+  String get darkMode => 'Dunkler Modus';
 
   @override
   String get audio => 'Audio';
@@ -192,7 +192,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get chooseLanguage => 'Wählen Sie Ihre bevorzugte Sprache zum Lernen';
 
   @override
-  String get setupComplete => 'Fertig!';
+  String get setupComplete => 'Einrichtung abgeschlossen';
 
   @override
   String get tapToSelect => 'Tippen zum Auswählen';
@@ -790,6 +790,12 @@ class AppLocalizationsDe extends AppLocalizations {
   String get unlimitedAiTutor => 'Unbegrenzter KI-Tutor';
 
   @override
+  String get aiTutorFreeLimit => '3 Mal/Tag';
+
+  @override
+  String get aiTutorUnlimited => 'Unbegrenzt';
+
+  @override
   String get pdfExamGeneration => 'PDF-Prüfung erstellen';
 
   @override
@@ -912,4 +918,165 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get aboutDailyChallengeDescription =>
       'Testen Sie sich täglich mit 10 zufälligen Fragen und verdienen Sie Punkte für jede richtige Antwort. Feiern Sie Ihre Erfolge mit unterhaltsamen visuellen Effekten!';
+
+  @override
+  String get voiceExam => '🎤 Sprachprüfung (Pro)';
+
+  @override
+  String get playAudio => '🔊 Audio abspielen';
+
+  @override
+  String get playing => 'Wird abgespielt...';
+
+  @override
+  String get voiceExamMode => 'Sprachprüfungsmodus';
+
+  @override
+  String get aiCoachTitle => '🎯 KI-Studiencoach';
+
+  @override
+  String get aiCoachSubtitle => 'Ihr personalisierter Studienplan';
+
+  @override
+  String get aiCoachWeakTopics => 'Schwächste Themen:';
+
+  @override
+  String get aiCoachError => 'Fehler beim Laden der Coaching-Beratung';
+
+  @override
+  String get aiCoachNoData =>
+      'Beginnen Sie mit dem Beantworten von Fragen, um personalisierte Studienberatung zu erhalten!';
+
+  @override
+  String get startFocusedPractice => 'Fokussiertes Üben starten';
+
+  @override
+  String get unlockAiCoach => 'KI-Coach freischalten';
+
+  @override
+  String get aiStudyCoach => 'KI-Studiencoach';
+
+  @override
+  String get syncing => 'Synchronisieren...';
+
+  @override
+  String get syncError => 'Sync fehlgeschlagen. Offline-Modus.';
+
+  @override
+  String get licenseActive => 'Pro-Lizenz Aktiv';
+
+  @override
+  String get invalidCode => 'Ungültiger Code';
+
+  @override
+  String get guestUser => 'Gastbenutzer';
+
+  @override
+  String get proMember => 'PRO-MITGLIED';
+
+  @override
+  String get upgradeAccount => 'Konto upgraden';
+
+  @override
+  String get subscribeToPro => 'Pro abonnieren';
+
+  @override
+  String get orActivateLicense => 'Oder Lizenz aktivieren';
+
+  @override
+  String get activateLicense => 'Lizenz aktivieren';
+
+  @override
+  String get enterLicenseKey => 'Geben Sie Ihren Lizenzschlüssel ein';
+
+  @override
+  String get licenseKey => 'Lizenzschlüssel';
+
+  @override
+  String get federalState => 'Bundesland';
+
+  @override
+  String get readiness => 'Bereitschaft';
+
+  @override
+  String get mastery => 'Beherrschung';
+
+  @override
+  String get profile => 'Profil';
+
+  @override
+  String get smartAiStudyAlerts => '🎯 Intelligente KI-Lernbenachrichtigungen';
+
+  @override
+  String get cloudBackupSync => '☁️ Cloud-Backup & Synchronisation';
+
+  @override
+  String get advancedReadinessIndex => '📊 Erweiterter Bereitschaftsindex';
+
+  @override
+  String get organizationSupport => '🏢 Organisationsunterstützung';
+
+  @override
+  String get enterYourName => 'Geben Sie Ihren Namen ein';
+
+  @override
+  String get saveNameToDatabase => 'Namen in Datenbank speichern';
+
+  @override
+  String get nameSaved => 'Name gespeichert';
+
+  @override
+  String get nameRemoved => 'Name entfernt';
+
+  @override
+  String get pickProfilePicture => 'Profilbild auswählen';
+
+  @override
+  String get customizeProfileName => '👤 Profilname anpassen';
+
+  @override
+  String get nameChangeOnce => 'Einmal';
+
+  @override
+  String get nameChangeUnlimited => 'Unbegrenzt';
+
+  @override
+  String get topLearners => '🏆 Top Lerner';
+
+  @override
+  String get noLeaderboardData => 'Keine Ranglistendaten verfügbar';
+
+  @override
+  String get you => 'Du';
+
+  @override
+  String get sharedProgressFeature =>
+      '🔄 Gemeinsamer Fortschritt auf mehreren Geräten';
+
+  @override
+  String get sharedProgressDescription =>
+      'Lernen Sie auf bis zu 3 Geräten mit synchronisiertem Fortschritt. Ihre Lerndaten werden automatisch auf allen Ihren Geräten synchronisiert.';
+
+  @override
+  String get sharedProgressBenefit =>
+      'Greifen Sie von jedem Gerät auf Ihren Fortschritt zu';
+
+  @override
+  String get deviceLimit => 'Bis zu 3 Geräten';
+
+  @override
+  String get automaticSync => 'Automatische Synchronisation';
+
+  @override
+  String get progressRestore =>
+      'Fortschritt wiederherstellen, wenn Sie Ihr Gerät verlieren';
+
+  @override
+  String get syncingProgress => 'Fortschritt wird synchronisiert...';
+
+  @override
+  String get progressSynced => 'Fortschritt synchronisiert';
+
+  @override
+  String get cloudSync => 'Cloud-Synchronisation';
 }

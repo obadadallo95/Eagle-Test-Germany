@@ -647,7 +647,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
     required AppLocalizations l10n,
     required ThemeData theme,
   }) {
-    final color = Colors.indigo;
+    const color = Colors.indigo;
     final title = l10n.topicState;
 
     // Calculate progress
@@ -740,7 +740,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                 child: LinearProgressIndicator(
                   value: progressValue,
                   backgroundColor: color.withValues(alpha: 0.1),
-                  valueColor: AlwaysStoppedAnimation<Color>(color),
+                  valueColor: const AlwaysStoppedAnimation<Color>(color),
                   minHeight: 4.h,
                 ),
               ),

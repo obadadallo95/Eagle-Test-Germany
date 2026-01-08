@@ -47,7 +47,11 @@
 		<true/>
 		<key>UIStatusBarHidden</key>
 		<true/>
-		<key>UIViewControllerBasedStatusBarAppearance</key>
-		<false/>
-	</dict>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+	<key>NSCameraUsageDescription</key>
+	<string>This app needs camera access to scan QR codes from exam PDFs</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>This app needs photo library access to scan QR codes from images</string>
+</dict>
 </plist>

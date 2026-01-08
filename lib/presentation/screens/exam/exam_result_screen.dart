@@ -10,6 +10,7 @@ import '../../../domain/entities/question.dart';
 import '../../../core/theme/app_colors.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/services/ai_tutor_service.dart';
+import '../../../core/services/sync_service.dart';
 import '../../../core/debug/app_logger.dart';
 import '../../providers/locale_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -153,6 +154,14 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
         if (savedHistory.isNotEmpty) {
           final lastExam = savedHistory.first;
           AppLogger.log('Last exam: score=${lastExam['scorePercentage']}%, mode=${lastExam['mode']}', source: 'ExamResultScreen');
+        }
+        
+        // Sync progress to cloud (non-blocking)
+        try {
+          await SyncService.syncProgressToCloud();
+        } catch (e) {
+          // Don't show error to user - sync is optional
+          AppLogger.warn('Background sync failed (non-critical): $e', source: 'ExamResultScreen');
         }
       } catch (e, stackTrace) {
         AppLogger.error('Failed to save exam result', source: 'ExamResultScreen', error: e, stackTrace: stackTrace);

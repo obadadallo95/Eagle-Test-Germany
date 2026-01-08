@@ -56,4 +56,5 @@ upload-keystore.jks
 .env.*.local
 
 # API Keys - NEVER commit these!
+lib/core/config/api_config.dart.dart_tool 2/
 lib/core/config/api_config.dart

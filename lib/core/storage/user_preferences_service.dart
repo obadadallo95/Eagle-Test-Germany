@@ -10,6 +10,11 @@ class UserPreferencesService {
   static const String _keyLastStudyDate = 'last_study_date';
   static const String _keyIsReminderOn = 'is_reminder_on';
   static const String _keyReminderTime = 'reminder_time';
+  static const String _keyUserName = 'user_name';
+  static const String _keyUserAvatarPath = 'user_avatar_path';
+  static const String _keyAllowNameSync = 'allow_name_sync';
+  static const String _keyNameChangeCount = 'name_change_count';
+  static const String _keyOriginalName = 'original_name'; // للتحقق من التغيير الأول
 
   /// التحقق من أول إطلاق للتطبيق
   static Future<bool> isFirstLaunch() async {
@@ -161,6 +166,72 @@ class UserPreferencesService {
     return const TimeOfDay(hour: 20, minute: 0); // Default: 20:00
   }
 
+  /// حفظ اسم المستخدم
+  static Future<void> saveUserName(String name) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyUserName, name);
+  }
+
+  /// جلب اسم المستخدم
+  static Future<String?> getUserName() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keyUserName);
+  }
+
+  /// حفظ مسار صورة المستخدم (محلي)
+  static Future<void> saveUserAvatarPath(String path) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_keyUserAvatarPath, path);
+  }
+
+  /// جلب مسار صورة المستخدم
+  static Future<String?> getUserAvatarPath() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keyUserAvatarPath);
+  }
+
+  /// حفظ إعداد السماح بمزامنة الاسم في قاعدة البيانات
+  static Future<void> saveAllowNameSync(bool allow) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool(_keyAllowNameSync, allow);
+  }
+
+  /// جلب إعداد السماح بمزامنة الاسم
+  static Future<bool> getAllowNameSync() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_keyAllowNameSync) ?? false; // Default: false (privacy-first)
+  }
+
+  /// جلب عدد مرات تغيير الاسم
+  static Future<int> getNameChangeCount() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getInt(_keyNameChangeCount) ?? 0;
+  }
+
+  /// زيادة عدد مرات تغيير الاسم
+  static Future<int> incrementNameChangeCount() async {
+    final prefs = await SharedPreferences.getInstance();
+    final currentCount = await getNameChangeCount();
+    final newCount = currentCount + 1;
+    await prefs.setInt(_keyNameChangeCount, newCount);
+    return newCount;
+  }
+
+  /// حفظ الاسم الأصلي (للتحقق من التغيير الأول)
+  static Future<void> saveOriginalName(String name) async {
+    final prefs = await SharedPreferences.getInstance();
+    final existing = prefs.getString(_keyOriginalName);
+    if (existing == null && name.isNotEmpty) {
+      await prefs.setString(_keyOriginalName, name);
+    }
+  }
+
+  /// جلب الاسم الأصلي
+  static Future<String?> getOriginalName() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getString(_keyOriginalName);
+  }
+
   /// مسح جميع التفضيلات
   static Future<void> clearAll() async {
     final prefs = await SharedPreferences.getInstance();
@@ -171,6 +242,9 @@ class UserPreferencesService {
     await prefs.remove(_keyLastStudyDate);
     await prefs.remove(_keyIsReminderOn);
     await prefs.remove(_keyReminderTime);
+    await prefs.remove(_keyUserName);
+    await prefs.remove(_keyUserAvatarPath);
+    await prefs.remove(_keyAllowNameSync);
   }
 }
 

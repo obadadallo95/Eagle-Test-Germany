@@ -80,7 +80,18 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
       final customerInfo = await SubscriptionService.purchasePackage(package);
       
       if (customerInfo != null) {
-        final isPro = customerInfo.entitlements.all['pro_access']?.isActive ?? false;
+        // استخدام نفس منطق SubscriptionService للتحقق من الـ entitlement
+        const entitlementId = SubscriptionService.entitlementId;
+        const fallbackEntitlementId = SubscriptionService.fallbackEntitlementId;
+        
+        var isPro = customerInfo.entitlements.all[entitlementId]?.isActive ?? false;
+        if (!isPro) {
+          isPro = customerInfo.entitlements.all[fallbackEntitlementId]?.isActive ?? false;
+        }
+        if (!isPro && customerInfo.entitlements.active.isNotEmpty) {
+          isPro = true; // Fallback: أي entitlement نشط
+        }
+        
         state = state.copyWith(
           isPro: isPro,
           isLoading: false,
@@ -119,7 +130,18 @@ class SubscriptionNotifier extends StateNotifier<SubscriptionState> {
       final customerInfo = await SubscriptionService.restorePurchases();
       
       if (customerInfo != null) {
-        final isPro = customerInfo.entitlements.all['pro_access']?.isActive ?? false;
+        // استخدام نفس منطق SubscriptionService للتحقق من الـ entitlement
+        const entitlementId = SubscriptionService.entitlementId;
+        const fallbackEntitlementId = SubscriptionService.fallbackEntitlementId;
+        
+        var isPro = customerInfo.entitlements.all[entitlementId]?.isActive ?? false;
+        if (!isPro) {
+          isPro = customerInfo.entitlements.all[fallbackEntitlementId]?.isActive ?? false;
+        }
+        if (!isPro && customerInfo.entitlements.active.isNotEmpty) {
+          isPro = true; // Fallback: أي entitlement نشط
+        }
+        
         state = state.copyWith(
           isPro: isPro,
           isLoading: false,

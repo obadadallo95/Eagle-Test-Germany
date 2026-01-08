@@ -19,6 +19,7 @@ import '../../providers/progress_story_provider.dart';
 import '../../widgets/app_logo.dart';
 import '../../widgets/gamification/celebration_overlay.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
+import '../../widgets/ai_coaching_card.dart';
 
 /// -----------------------------------------------------------------
 /// 📊 DASHBOARD SCREEN / DASHBOARD / لوحة التحكم
@@ -375,6 +376,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   ),
                 ),
               ),
+
+              SizedBox(height: 24.h),
+
+              // AI Coaching Card (Pro Feature)
+              const AiCoachingCard(),
 
               SizedBox(height: 24.h),
 

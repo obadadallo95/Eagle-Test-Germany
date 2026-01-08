@@ -755,6 +755,14 @@
   "@unlimitedAiTutor": {
     "description": "Unlimited AI Tutor feature"
   },
+  "aiTutorFreeLimit": "3 times/day",
+  "@aiTutorFreeLimit": {
+    "description": "AI Tutor free plan limit"
+  },
+  "aiTutorUnlimited": "Unlimited",
+  "@aiTutorUnlimited": {
+    "description": "AI Tutor unlimited for Pro"
+  },
   "pdfExamGeneration": "PDF Exam Generation",
   "@pdfExamGeneration": {
     "description": "PDF exam generation feature"
@@ -830,6 +838,230 @@
   "selectStateFirst": "Please select a state first",
   "aboutDailyChallengeTitle": "🔥 Daily Challenge",
   "aboutDailyChallengeSubtitle": "Motivating Daily Learning",
-  "aboutDailyChallengeDescription": "Test yourself daily with 10 random questions and earn points for each correct answer. Celebrate your achievements with fun visual effects!"
+  "aboutDailyChallengeDescription": "Test yourself daily with 10 random questions and earn points for each correct answer. Celebrate your achievements with fun visual effects!",
+  "voiceExam": "🎤 Voice Exam (Pro)",
+  "@voiceExam": {
+    "description": "Voice exam mode title"
+  },
+  "playAudio": "🔊 Play Audio",
+  "@playAudio": {
+    "description": "Play audio button"
+  },
+  "playing": "Playing...",
+  "@playing": {
+    "description": "Playing audio status"
+  },
+  "voiceExamMode": "Voice Exam Mode",
+  "@voiceExamMode": {
+    "description": "Voice exam mode feature name"
+  },
+  "aiCoachTitle": "🎯 AI Study Coach",
+  "@aiCoachTitle": {
+    "description": "AI coaching card title"
+  },
+  "aiCoachSubtitle": "Your personalized study plan",
+  "@aiCoachSubtitle": {
+    "description": "AI coaching card subtitle"
+  },
+  "aiCoachWeakTopics": "Weakest Topics:",
+  "@aiCoachWeakTopics": {
+    "description": "Weakest topics label"
+  },
+  "aiCoachError": "Failed to load coaching advice",
+  "@aiCoachError": {
+    "description": "Error message for AI coaching"
+  },
+  "aiCoachNoData": "Start answering questions to get personalized study advice!",
+  "@aiCoachNoData": {
+    "description": "Message when no user data is available for AI coaching"
+  },
+  "startFocusedPractice": "Start Focused Practice",
+  "@startFocusedPractice": {
+    "description": "Button to start focused practice on weak topics"
+  },
+  "unlockAiCoach": "Unlock AI Coach",
+  "@unlockAiCoach": {
+    "description": "Unlock AI coach button for free users"
+  },
+  "aiStudyCoach": "AI Study Coach",
+  "@aiStudyCoach": {
+    "description": "AI Study Coach feature name"
+  },
+  "syncing": "Syncing...",
+  "@syncing": {
+    "description": "Sync in progress message"
+  },
+  "syncError": "Sync failed. Working offline.",
+  "@syncError": {
+    "description": "Sync error message"
+  },
+  "licenseActive": "Pro License Active",
+  "@licenseActive": {
+    "description": "Active license status message"
+  },
+  "invalidCode": "Invalid or expired code",
+  "@invalidCode": {
+    "description": "Invalid license code message"
+  },
+  "setupComplete": "Setup Complete",
+  "@setupComplete": {
+    "description": "Setup completion message"
+  },
+  "guestUser": "Guest User",
+  "@guestUser": {
+    "description": "Guest user label"
+  },
+  "proMember": "PRO MEMBER",
+  "@proMember": {
+    "description": "Pro member badge text"
+  },
+  "upgradeAccount": "Upgrade Your Account",
+  "@upgradeAccount": {
+    "description": "Upgrade account title"
+  },
+  "subscribeToPro": "Subscribe to Pro",
+  "@subscribeToPro": {
+    "description": "Subscribe to Pro button text"
+  },
+  "orActivateLicense": "Or Activate License",
+  "@orActivateLicense": {
+    "description": "Or activate license button text"
+  },
+  "activateLicense": "Activate License",
+  "@activateLicense": {
+    "description": "Activate license dialog title"
+  },
+  "enterLicenseKey": "Enter your license key",
+  "@enterLicenseKey": {
+    "description": "Enter license key prompt"
+  },
+  "licenseKey": "License Key",
+  "@licenseKey": {
+    "description": "License key input label"
+  },
+  "federalState": "Federal State",
+  "@federalState": {
+    "description": "Federal state selection label"
+  },
+  "darkMode": "Dark Mode",
+  "@darkMode": {
+    "description": "Dark mode toggle label"
+  },
+  "readiness": "Readiness",
+  "@readiness": {
+    "description": "Readiness score label"
+  },
+  "streak": "Streak",
+  "@streak": {
+    "description": "Streak days label"
+  },
+  "mastery": "Mastery",
+  "@mastery": {
+    "description": "Mastery questions label"
+  },
+  "profile": "Profile",
+  "@profile": {
+    "description": "Profile tab label"
+  },
+  "dailyReminder": "Daily Reminder",
+  "@dailyReminder": {
+    "description": "Daily reminder toggle label"
+  },
+  "smartAiStudyAlerts": "🎯 Smart AI Study Alerts",
+  "@smartAiStudyAlerts": {
+    "description": "Smart AI study alerts feature name"
+  },
+  "cloudBackupSync": "☁️ Cloud Backup & Sync",
+  "@cloudBackupSync": {
+    "description": "Cloud backup and sync feature name"
+  },
+  "advancedReadinessIndex": "📊 Advanced Readiness Index",
+  "@advancedReadinessIndex": {
+    "description": "Advanced readiness index feature name"
+  },
+  "organizationSupport": "🏢 Organization Support",
+  "@organizationSupport": {
+    "description": "Organization support feature name"
+  },
+  "enterYourName": "Enter your name",
+  "@enterYourName": {
+    "description": "Placeholder for name input field"
+  },
+  "saveNameToDatabase": "Save name to database",
+  "@saveNameToDatabase": {
+    "description": "Toggle label for allowing name sync to database"
+  },
+  "nameSaved": "Name saved",
+  "@nameSaved": {
+    "description": "Message when name is saved"
+  },
+  "nameRemoved": "Name removed",
+  "@nameRemoved": {
+    "description": "Message when name is removed"
+  },
+  "pickProfilePicture": "Pick Profile Picture",
+  "@pickProfilePicture": {
+    "description": "Button text for picking profile picture"
+  },
+  "customizeProfileName": "👤 Customize Profile Name",
+  "@customizeProfileName": {
+    "description": "Feature name for profile name customization"
+  },
+  "nameChangeOnce": "Once",
+  "@nameChangeOnce": {
+    "description": "Text indicating name can be changed once (free plan)"
+  },
+  "nameChangeUnlimited": "Unlimited",
+  "@nameChangeUnlimited": {
+    "description": "Text indicating unlimited name changes (pro plan)"
+  },
+  "topLearners": "🏆 Top Learners",
+  "@topLearners": {
+    "description": "Title for leaderboard card"
+  },
+  "noLeaderboardData": "No leaderboard data available",
+  "@noLeaderboardData": {
+    "description": "Message when no leaderboard data is available"
+  },
+  "you": "You",
+  "@you": {
+    "description": "Label indicating current user in leaderboard"
+  },
+  "sharedProgressFeature": "🔄 Shared Progress Across Devices",
+  "@sharedProgressFeature": {
+    "description": "Shared progress feature name for Pro subscription"
+  },
+  "sharedProgressDescription": "Study on up to 3 devices with synchronized progress. Your learning data is automatically synced across all your devices.",
+  "@sharedProgressDescription": {
+    "description": "Description of shared progress feature"
+  },
+  "sharedProgressBenefit": "Access your progress from any device",
+  "@sharedProgressBenefit": {
+    "description": "Benefit of shared progress feature"
+  },
+  "deviceLimit": "Up to 3 devices",
+  "@deviceLimit": {
+    "description": "Device limit for Pro subscription"
+  },
+  "automaticSync": "Automatic sync",
+  "@automaticSync": {
+    "description": "Automatic sync feature"
+  },
+  "progressRestore": "Restore progress if you lose your device",
+  "@progressRestore": {
+    "description": "Progress restore feature"
+  },
+  "syncingProgress": "Syncing progress...",
+  "@syncingProgress": {
+    "description": "Tooltip shown when progress is being synced"
+  },
+  "progressSynced": "Progress synced",
+  "@progressSynced": {
+    "description": "Tooltip shown when progress sync is complete"
+  },
+  "cloudSync": "Cloud sync",
+  "@cloudSync": {
+    "description": "Tooltip for cloud sync indicator"
+  }
 }
 

@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/storage/user_preferences_service.dart';
+import '../../../core/services/sync_service.dart';
+import '../../../core/debug/app_logger.dart';
 import '../main_screen.dart';
 import '../../widgets/app_logo.dart';
 import '../../providers/locale_provider.dart';
@@ -26,6 +28,7 @@ class SetupScreen extends ConsumerStatefulWidget {
 class _SetupScreenState extends ConsumerState<SetupScreen> {
   final PageController _pageController = PageController();
   int _currentPage = 0;
+  bool _isSaving = false;
   
   String? _selectedLanguage;
   String? _selectedState;
@@ -120,7 +123,7 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
   Future<void> _completeSetup() async {
     if (_selectedLanguage == null || _selectedState == null || _selectedExamDate == null) {
       final l10n = AppLocalizations.of(context);
-        ScaffoldMessenger.of(context).showSnackBar(
+      ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(l10n?.completeAllSteps ?? 'Please complete all steps'),
         ),
@@ -128,17 +131,104 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
       return;
     }
 
-    // حفظ التفضيلات
-    await UserPreferencesService.saveSelectedState(_selectedState!);
-    await UserPreferencesService.saveExamDate(_selectedExamDate!);
-    await UserPreferencesService.setFirstLaunchCompleted();
+    // Show loading indicator
+    if (mounted) {
+      setState(() => _isSaving = true);
+    }
 
-      // الانتقال إلى Main Screen (Dashboard)
+    final isArabic = ref.watch(localeProvider).languageCode == 'ar';
+
+    try {
+      // Step 1: Save local preferences
+      await UserPreferencesService.saveSelectedState(_selectedState!);
+      await UserPreferencesService.saveExamDate(_selectedExamDate!);
+      await UserPreferencesService.setFirstLaunchCompleted();
+
+      // Step 2: Ensure user profile exists in Supabase (if available)
+      if (SyncService.isAvailable) {
+        AppLogger.info('Ensuring user profile exists before completing setup', source: 'SetupScreen');
+        
+        try {
+          await SyncService.createUserProfile();
+          
+          // Step 3: Verify profile creation
+          final profileExists = await SyncService.verifyUserProfileExists();
+          if (!profileExists) {
+            AppLogger.warn('Profile not found after creation. Retrying...', source: 'SetupScreen');
+            // Retry once after a short delay
+            await Future.delayed(const Duration(seconds: 2));
+            await SyncService.createUserProfile();
+            
+            final retryVerified = await SyncService.verifyUserProfileExists();
+            if (!retryVerified) {
+              AppLogger.error(
+                'CRITICAL: User profile still not found after retry. User account may not be saved in database.',
+                source: 'SetupScreen',
+              );
+              // Continue anyway - app works offline
+            } else {
+              AppLogger.info('User profile verified successfully after retry', source: 'SetupScreen');
+            }
+          } else {
+            AppLogger.info('User profile verified successfully', source: 'SetupScreen');
+          }
+        } catch (e, stackTrace) {
+          AppLogger.error(
+            'Failed to create/verify user profile during setup. App will continue but account may not be saved.',
+            source: 'SetupScreen',
+            error: e,
+            stackTrace: stackTrace,
+          );
+          // Continue anyway - app works offline, but show warning to user
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  isArabic 
+                    ? 'تم حفظ الإعدادات محلياً. قد لا يتم حفظ الحساب في السحابة.'
+                    : 'Settings saved locally. Account may not be saved to cloud.',
+                ),
+                backgroundColor: Colors.orange,
+                duration: const Duration(seconds: 3),
+              ),
+            );
+          }
+        }
+      } else {
+        AppLogger.warn('Supabase not available. Setup completed in offline mode.', source: 'SetupScreen');
+      }
+
+      // Step 4: Navigate only after successful save
       if (mounted) {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (_) => const MainScreen()),
         );
       }
+    } catch (e, stackTrace) {
+      AppLogger.error(
+        'Failed to complete setup',
+        source: 'SetupScreen',
+        error: e,
+        stackTrace: stackTrace,
+      );
+      
+      // Show error dialog
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              isArabic ? 'فشل الإعداد. يرجى المحاولة مرة أخرى.' : 'Setup failed. Please try again.',
+            ),
+            backgroundColor: Colors.red,
+            duration: const Duration(seconds: 3),
+          ),
+        );
+      }
+    } finally {
+      if (mounted) {
+        setState(() => _isSaving = false);
+      }
+    }
   }
 
   Future<void> _selectExamDate() async {
@@ -208,14 +298,25 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
           children: [
             if (_currentPage > 0)
               TextButton(
-                onPressed: _previousPage,
+                onPressed: _isSaving ? null : _previousPage,
                 child: Text(l10n?.back ?? (l10n?.cancel ?? 'Back')),
               )
             else
               const SizedBox.shrink(),
             ElevatedButton(
-              onPressed: _canProceed() ? _nextPage : null,
-              child: Text(_getNextButtonText(_currentPage, l10n, isArabic)),
+              onPressed: (_canProceed() && !_isSaving) ? _nextPage : null,
+              child: _isSaving
+                  ? SizedBox(
+                      width: 20.w,
+                      height: 20.h,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                    )
+                  : Text(_getNextButtonText(_currentPage, l10n, isArabic)),
             ),
           ],
         ),

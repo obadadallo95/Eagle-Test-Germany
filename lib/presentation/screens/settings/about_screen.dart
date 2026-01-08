@@ -108,7 +108,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                   AutoSizeText(
                     _isLoadingVersion
                         ? l10n.aboutLoadingVersion
-                        : 'v$version (Pro)',
+                        : 'v$version (Hybrid Edition)',
                     style: GoogleFonts.poppins(
                       fontSize: 16.sp,
                       color: AppColors.eagleGold,
@@ -278,7 +278,16 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
 
             SizedBox(height: 32.h),
 
-            // 3. The Roadmap (Coming Soon)
+            // 3. Tech Stack Section
+            FadeInUp(
+              delay: const Duration(milliseconds: 550),
+              duration: const Duration(milliseconds: 600),
+              child: _buildTechStackSection(context, l10n),
+            ),
+
+            SizedBox(height: 32.h),
+
+            // 4. The Roadmap (Coming Soon)
             FadeInUp(
               delay: const Duration(milliseconds: 600),
               duration: const Duration(milliseconds: 600),
@@ -287,7 +296,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
 
             SizedBox(height: 32.h),
 
-            // 4. Developer & Socials
+            // 5. Developer & Socials
             FadeInUp(
               delay: const Duration(milliseconds: 700),
               duration: const Duration(milliseconds: 600),
@@ -775,6 +784,99 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
           ),
           SizedBox(height: 8.h),
         ],
+      ],
+    );
+  }
+
+  Widget _buildTechStackSection(BuildContext context, AppLocalizations l10n) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(20.r),
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            AppColors.darkSurface.withValues(alpha: 0.6),
+            AppColors.darkSurface.withValues(alpha: 0.4),
+          ],
+        ),
+        border: Border.all(
+          color: AppColors.eagleGold.withValues(alpha: 0.15),
+          width: 1.5,
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(20.w),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Title
+            Row(
+              children: [
+                Text(
+                  '⚙️',
+                  style: TextStyle(fontSize: 24.sp),
+                ),
+                SizedBox(width: 8.w),
+                AutoSizeText(
+                  'Tech Stack',
+                  style: GoogleFonts.poppins(
+                    fontSize: 22.sp,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                  maxLines: 1,
+                ),
+              ],
+            ),
+            SizedBox(height: 20.h),
+            // Tech items
+            _buildTechItem(
+              context,
+              icon: '🎯',
+              text: 'Built with Flutter & Riverpod',
+            ),
+            SizedBox(height: 12.h),
+            _buildTechItem(
+              context,
+              icon: '🤖',
+              text: 'Powered by Eagle AI & Supabase Cloud',
+            ),
+            SizedBox(height: 12.h),
+            _buildTechItem(
+              context,
+              icon: '🔐',
+              text: 'Privacy-First Offline Architecture',
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildTechItem(
+    BuildContext context, {
+    required String icon,
+    required String text,
+  }) {
+    return Row(
+      children: [
+        Text(
+          icon,
+          style: TextStyle(fontSize: 20.sp),
+        ),
+        SizedBox(width: 12.w),
+        Expanded(
+          child: AutoSizeText(
+            text,
+            style: GoogleFonts.poppins(
+              fontSize: 14.sp,
+              color: Colors.white70,
+            ),
+            maxLines: 2,
+          ),
+        ),
       ],
     );
   }

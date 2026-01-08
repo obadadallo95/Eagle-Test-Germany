@@ -38,7 +38,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dailyGoal => 'Daily Goal';
 
   @override
-  String get streak => 'Day Streak';
+  String get streak => 'Streak';
 
   @override
   String get reviewMistakes => 'Review Mistakes';
@@ -192,7 +192,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get chooseLanguage => 'Choose your preferred language for studying';
 
   @override
-  String get setupComplete => 'Setup Complete!';
+  String get setupComplete => 'Setup Complete';
 
   @override
   String get tapToSelect => 'Tap to select';
@@ -784,6 +784,12 @@ class AppLocalizationsEn extends AppLocalizations {
   String get unlimitedAiTutor => 'Unlimited AI Tutor';
 
   @override
+  String get aiTutorFreeLimit => '3 times/day';
+
+  @override
+  String get aiTutorUnlimited => 'Unlimited';
+
+  @override
   String get pdfExamGeneration => 'PDF Exam Generation';
 
   @override
@@ -904,4 +910,162 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get aboutDailyChallengeDescription =>
       'Test yourself daily with 10 random questions and earn points for each correct answer. Celebrate your achievements with fun visual effects!';
+
+  @override
+  String get voiceExam => '🎤 Voice Exam (Pro)';
+
+  @override
+  String get playAudio => '🔊 Play Audio';
+
+  @override
+  String get playing => 'Playing...';
+
+  @override
+  String get voiceExamMode => 'Voice Exam Mode';
+
+  @override
+  String get aiCoachTitle => '🎯 AI Study Coach';
+
+  @override
+  String get aiCoachSubtitle => 'Your personalized study plan';
+
+  @override
+  String get aiCoachWeakTopics => 'Weakest Topics:';
+
+  @override
+  String get aiCoachError => 'Failed to load coaching advice';
+
+  @override
+  String get aiCoachNoData =>
+      'Start answering questions to get personalized study advice!';
+
+  @override
+  String get startFocusedPractice => 'Start Focused Practice';
+
+  @override
+  String get unlockAiCoach => 'Unlock AI Coach';
+
+  @override
+  String get aiStudyCoach => 'AI Study Coach';
+
+  @override
+  String get syncing => 'Syncing...';
+
+  @override
+  String get syncError => 'Sync failed. Working offline.';
+
+  @override
+  String get licenseActive => 'Pro License Active';
+
+  @override
+  String get invalidCode => 'Invalid or expired code';
+
+  @override
+  String get guestUser => 'Guest User';
+
+  @override
+  String get proMember => 'PRO MEMBER';
+
+  @override
+  String get upgradeAccount => 'Upgrade Your Account';
+
+  @override
+  String get subscribeToPro => 'Subscribe to Pro';
+
+  @override
+  String get orActivateLicense => 'Or Activate License';
+
+  @override
+  String get activateLicense => 'Activate License';
+
+  @override
+  String get enterLicenseKey => 'Enter your license key';
+
+  @override
+  String get licenseKey => 'License Key';
+
+  @override
+  String get federalState => 'Federal State';
+
+  @override
+  String get readiness => 'Readiness';
+
+  @override
+  String get mastery => 'Mastery';
+
+  @override
+  String get profile => 'Profile';
+
+  @override
+  String get smartAiStudyAlerts => '🎯 Smart AI Study Alerts';
+
+  @override
+  String get cloudBackupSync => '☁️ Cloud Backup & Sync';
+
+  @override
+  String get advancedReadinessIndex => '📊 Advanced Readiness Index';
+
+  @override
+  String get organizationSupport => '🏢 Organization Support';
+
+  @override
+  String get enterYourName => 'Enter your name';
+
+  @override
+  String get saveNameToDatabase => 'Save name to database';
+
+  @override
+  String get nameSaved => 'Name saved';
+
+  @override
+  String get nameRemoved => 'Name removed';
+
+  @override
+  String get pickProfilePicture => 'Pick Profile Picture';
+
+  @override
+  String get customizeProfileName => '👤 Customize Profile Name';
+
+  @override
+  String get nameChangeOnce => 'Once';
+
+  @override
+  String get nameChangeUnlimited => 'Unlimited';
+
+  @override
+  String get topLearners => '🏆 Top Learners';
+
+  @override
+  String get noLeaderboardData => 'No leaderboard data available';
+
+  @override
+  String get you => 'You';
+
+  @override
+  String get sharedProgressFeature => '🔄 Shared Progress Across Devices';
+
+  @override
+  String get sharedProgressDescription =>
+      'Study on up to 3 devices with synchronized progress. Your learning data is automatically synced across all your devices.';
+
+  @override
+  String get sharedProgressBenefit => 'Access your progress from any device';
+
+  @override
+  String get deviceLimit => 'Up to 3 devices';
+
+  @override
+  String get automaticSync => 'Automatic sync';
+
+  @override
+  String get progressRestore => 'Restore progress if you lose your device';
+
+  @override
+  String get syncingProgress => 'Syncing progress...';
+
+  @override
+  String get progressSynced => 'Progress synced';
+
+  @override
+  String get cloudSync => 'Cloud sync';
 }

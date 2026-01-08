@@ -1,0 +1,19 @@
+#!/bin/bash
+# Local codesign wrapper - skips signing for simulator
+
+# Check if signing for simulator
+for arg in "$@"; do
+    if [[ "$arg" == *"iphonesimulator"* ]] || [[ "$arg" == *"Debug-iphonesimulator"* ]]; then
+        echo "⏭️  [LOCAL] Skipping codesign for simulator"
+        exit 0
+    fi
+done
+
+# Check PLATFORM_NAME
+if [[ "${PLATFORM_NAME}" == *"simulator"* ]]; then
+    echo "⏭️  [LOCAL] Skipping codesign for simulator (PLATFORM_NAME)"
+    exit 0
+fi
+
+# Call real codesign
+/usr/bin/codesign "$@"

@@ -12,8 +12,10 @@ import '../exam_screen.dart';
 import 'exam_mode.dart';
 import 'exam_detail_screen.dart';
 import 'paper_exam_config_screen.dart';
+import 'voice_exam_screen.dart';
 import '../../providers/locale_provider.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
+import '../../widgets/paywall_guard.dart';
 
 /// -----------------------------------------------------------------
 /// 📝 EXAM LANDING SCREEN / PRÜFUNG / شاشة الامتحان
@@ -171,9 +173,48 @@ class _ExamLandingScreenState extends ConsumerState<ExamLandingScreen> {
 
             SizedBox(height: 24.h),
 
-            // Quick Practice Button
+            // Voice Exam Button (Pro Feature)
             FadeInUp(
               delay: const Duration(milliseconds: 200),
+              child: PaywallGuard(
+                child: SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const VoiceExamScreen(),
+                        ),
+                      );
+                    },
+                    icon: Icon(Icons.mic, size: 24.sp),
+                    label: AutoSizeText(
+                      l10n?.voiceExam ?? '🎤 Voice Exam (Pro)',
+                      style: GoogleFonts.poppins(
+                        fontSize: 16.sp,
+                        fontWeight: FontWeight.w600,
+                      ),
+                      maxLines: 1,
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.eagleGold,
+                      foregroundColor: Colors.black,
+                      padding: EdgeInsets.symmetric(vertical: 16.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(16.r),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 16.h),
+
+            // Quick Practice Button
+            FadeInUp(
+              delay: const Duration(milliseconds: 250),
               child: SizedBox(
                 width: double.infinity,
                 child: ElevatedButton.icon(

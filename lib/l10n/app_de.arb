@@ -360,6 +360,14 @@
   "oneExamPerDay": "Ein Prüfung pro Tag",
   "proSubscriptionPremium": "Pro-Abonnement (Premium)",
   "unlimitedAiTutor": "Unbegrenzter KI-Tutor",
+  "aiTutorFreeLimit": "3 Mal/Tag",
+  "@aiTutorFreeLimit": {
+    "description": "KI-Tutor kostenloser Plan Limit"
+  },
+  "aiTutorUnlimited": "Unbegrenzt",
+  "@aiTutorUnlimited": {
+    "description": "KI-Tutor unbegrenzt für Pro"
+  },
   "pdfExamGeneration": "PDF-Prüfung erstellen",
   "noAds": "Keine Werbung",
   "advancedSuccessStatistics": "Erweiterte Erfolgsstatistiken",
@@ -399,6 +407,126 @@
   "selectStateFirst": "Bitte wählen Sie zuerst ein Bundesland aus",
   "aboutDailyChallengeTitle": "🔥 Tägliche Herausforderung",
   "aboutDailyChallengeSubtitle": "Motivierendes tägliches Lernen",
-  "aboutDailyChallengeDescription": "Testen Sie sich täglich mit 10 zufälligen Fragen und verdienen Sie Punkte für jede richtige Antwort. Feiern Sie Ihre Erfolge mit unterhaltsamen visuellen Effekten!"
+  "aboutDailyChallengeDescription": "Testen Sie sich täglich mit 10 zufälligen Fragen und verdienen Sie Punkte für jede richtige Antwort. Feiern Sie Ihre Erfolge mit unterhaltsamen visuellen Effekten!",
+  "voiceExam": "🎤 Sprachprüfung (Pro)",
+  "playAudio": "🔊 Audio abspielen",
+  "playing": "Wird abgespielt...",
+  "voiceExamMode": "Sprachprüfungsmodus",
+  "aiCoachTitle": "🎯 KI-Studiencoach",
+  "aiCoachSubtitle": "Ihr personalisierter Studienplan",
+  "aiCoachWeakTopics": "Schwächste Themen:",
+  "aiCoachError": "Fehler beim Laden der Coaching-Beratung",
+  "aiCoachNoData": "Beginnen Sie mit dem Beantworten von Fragen, um personalisierte Studienberatung zu erhalten!",
+  "startFocusedPractice": "Fokussiertes Üben starten",
+  "unlockAiCoach": "KI-Coach freischalten",
+  "aiStudyCoach": "KI-Studiencoach",
+  "syncing": "Synchronisieren...",
+  "syncError": "Sync fehlgeschlagen. Offline-Modus.",
+  "licenseActive": "Pro-Lizenz Aktiv",
+  "invalidCode": "Ungültiger Code",
+  "setupComplete": "Einrichtung abgeschlossen",
+  "guestUser": "Gastbenutzer",
+  "proMember": "PRO-MITGLIED",
+  "upgradeAccount": "Konto upgraden",
+  "subscribeToPro": "Pro abonnieren",
+  "orActivateLicense": "Oder Lizenz aktivieren",
+  "activateLicense": "Lizenz aktivieren",
+  "enterLicenseKey": "Geben Sie Ihren Lizenzschlüssel ein",
+  "licenseKey": "Lizenzschlüssel",
+  "federalState": "Bundesland",
+  "darkMode": "Dunkler Modus",
+  "readiness": "Bereitschaft",
+  "streak": "Serie",
+  "mastery": "Beherrschung",
+  "profile": "Profil",
+  "dailyReminder": "Tägliche Erinnerung",
+  "smartAiStudyAlerts": "🎯 Intelligente KI-Lernbenachrichtigungen",
+  "cloudBackupSync": "☁️ Cloud-Backup & Synchronisation",
+  "advancedReadinessIndex": "📊 Erweiterter Bereitschaftsindex",
+  "organizationSupport": "🏢 Organisationsunterstützung",
+  "enterYourName": "Geben Sie Ihren Namen ein",
+  "@enterYourName": {
+    "description": "Platzhalter für Namenseingabefeld"
+  },
+  "saveNameToDatabase": "Namen in Datenbank speichern",
+  "@saveNameToDatabase": {
+    "description": "Umschalter-Beschriftung für Namenssynchronisation in Datenbank"
+  },
+  "nameSaved": "Name gespeichert",
+  "@nameSaved": {
+    "description": "Nachricht wenn Name gespeichert wurde"
+  },
+  "nameRemoved": "Name entfernt",
+  "@nameRemoved": {
+    "description": "Nachricht wenn Name entfernt wurde"
+  },
+  "pickProfilePicture": "Profilbild auswählen",
+  "@pickProfilePicture": {
+    "description": "Button-Text für Profilbildauswahl"
+  },
+  "customizeProfileName": "👤 Profilname anpassen",
+  "@customizeProfileName": {
+    "description": "Feature-Name für Profilnamen-Anpassung"
+  },
+  "nameChangeOnce": "Einmal",
+  "@nameChangeOnce": {
+    "description": "Text, der angibt, dass der Name einmal geändert werden kann (kostenloser Plan)"
+  },
+  "nameChangeUnlimited": "Unbegrenzt",
+  "@nameChangeUnlimited": {
+    "description": "Text, der unbegrenzte Namensänderungen angibt (Pro-Plan)"
+  },
+  "topLearners": "🏆 Top Lerner",
+  "@topLearners": {
+    "description": "Titel für Ranglisten-Karte"
+  },
+  "noLeaderboardData": "Keine Ranglistendaten verfügbar",
+  "@noLeaderboardData": {
+    "description": "Nachricht, wenn keine Ranglistendaten verfügbar sind"
+  },
+  "you": "Du",
+  "@you": {
+    "description": "Bezeichnung für aktuellen Benutzer in Rangliste"
+  },
+  "questionsLearned": "Fragen",
+  "@questionsLearned": {
+    "description": "Bezeichnung für Anzahl gelernte Fragen in Rangliste"
+  },
+  "sharedProgressFeature": "🔄 Gemeinsamer Fortschritt auf mehreren Geräten",
+  "@sharedProgressFeature": {
+    "description": "Name der Funktion für gemeinsamen Fortschritt für Pro-Abonnement"
+  },
+  "sharedProgressDescription": "Lernen Sie auf bis zu 3 Geräten mit synchronisiertem Fortschritt. Ihre Lerndaten werden automatisch auf allen Ihren Geräten synchronisiert.",
+  "@sharedProgressDescription": {
+    "description": "Beschreibung der Funktion für gemeinsamen Fortschritt"
+  },
+  "sharedProgressBenefit": "Greifen Sie von jedem Gerät auf Ihren Fortschritt zu",
+  "@sharedProgressBenefit": {
+    "description": "Vorteil der Funktion für gemeinsamen Fortschritt"
+  },
+  "deviceLimit": "Bis zu 3 Geräten",
+  "@deviceLimit": {
+    "description": "Gerätelimit für Pro-Abonnement"
+  },
+  "automaticSync": "Automatische Synchronisation",
+  "@automaticSync": {
+    "description": "Funktion für automatische Synchronisation"
+  },
+  "progressRestore": "Fortschritt wiederherstellen, wenn Sie Ihr Gerät verlieren",
+  "@progressRestore": {
+    "description": "Funktion zur Fortschrittswiederherstellung"
+  },
+  "syncingProgress": "Fortschritt wird synchronisiert...",
+  "@syncingProgress": {
+    "description": "Tooltip, das angezeigt wird, wenn der Fortschritt synchronisiert wird"
+  },
+  "progressSynced": "Fortschritt synchronisiert",
+  "@progressSynced": {
+    "description": "Tooltip, das angezeigt wird, wenn die Fortschrittssynchronisation abgeschlossen ist"
+  },
+  "cloudSync": "Cloud-Synchronisation",
+  "@cloudSync": {
+    "description": "Tooltip für Cloud-Synchronisationsindikator"
+  }
 }
 

@@ -50,6 +50,20 @@ Die kommerzielle Nutzung, Weiterverteilung oder Integration in andere Apps oder 
 **العربية:**  
 الاستخدام التجاري أو إعادة التوزيع أو التكامل في تطبيقات أو مواقع أخرى **محظور تماماً** دون موافقة خطية من المطور.
 
+### Pro-Abonnement und Geräte-Limit / اشتراك Pro وحد الأجهزة
+
+**Deutsch:**  
+- Pro-Abonnenten können ihren Fortschritt auf **bis zu 3 Geräten** gleichzeitig aktivieren
+- Wenn ein viertes Gerät hinzugefügt wird, wird das älteste Gerät automatisch auf den kostenlosen Plan zurückgesetzt
+- Der Fortschritt wird automatisch zwischen allen aktiven Geräten synchronisiert
+- Missbrauch der Geräte-Limit-Funktion (z.B. Versuch, mehr als 3 Geräte zu aktivieren) kann zur dauerhaften Sperrung des Pro-Accounts führen
+
+**العربية:**  
+- يمكن لمشتركي Pro تفعيل تقدمهم على **ما يصل إلى 3 أجهزة** في نفس الوقت
+- عند إضافة جهاز رابع، يتم إعادة تعيين أقدم جهاز تلقائياً إلى الخطة المجانية
+- يتم مزامنة التقدم تلقائياً بين جميع الأجهزة النشطة
+- قد يؤدي إساءة استخدام ميزة حد الأجهزة (مثل محاولة تفعيل أكثر من 3 أجهزة) إلى حظر حساب Pro بشكل دائم
+
 ## 5. Geistiges Eigentum / الملكية الفكرية
 
 **Deutsch:**  
@@ -76,5 +90,6 @@ Sie können die Nutzung dieser App jederzeit beenden, indem Sie die App von Ihre
 
 ---
 
-**Stand / الحالة:** 24. Dezember 2025 / 24 ديسمبر 2025
+**Stand / الحالة:** 24. Dezember 2025 / 24 ديسمبر 2025  
+**Letzte Aktualisierung / آخر تحديث:** Progress-Synchronisation zwischen Geräten hinzugefügt / تمت إضافة مزامنة التقدم بين الأجهزة
 

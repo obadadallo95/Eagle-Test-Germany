@@ -139,7 +139,7 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
         duration: const Duration(milliseconds: 500),
         child: Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
+            gradient: const LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
@@ -318,7 +318,7 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                         SizedBox(height: 20.h),
                         Container(
                           height: 1.h,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
                                 Colors.transparent,

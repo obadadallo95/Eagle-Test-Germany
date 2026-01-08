@@ -13,6 +13,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
+      visualDensity: VisualDensity.compact, // Compact UI density
       colorScheme: ColorScheme.fromSeed(
         seedColor: _eagleGold,
         brightness: Brightness.light,
@@ -28,17 +29,25 @@ class AppTheme {
           headlineLarge: GoogleFonts.poppins(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
+            fontSize: 24, // Reduced from default
           ),
           headlineMedium: GoogleFonts.poppins(
             color: Colors.black87,
             fontWeight: FontWeight.bold,
+            fontSize: 20, // Reduced from default
           ),
           titleLarge: GoogleFonts.poppins(
             color: Colors.black87,
             fontWeight: FontWeight.w600,
+            fontSize: 18, // Reduced from 20
           ),
           bodyLarge: GoogleFonts.poppins(
             color: Colors.black54,
+            fontSize: 14, // Reduced from 16
+          ),
+          bodyMedium: GoogleFonts.poppins(
+            color: Colors.black54,
+            fontSize: 13, // Reduced from 14
           ),
         ),
       ),
@@ -50,14 +59,14 @@ class AppTheme {
         titleTextStyle: GoogleFonts.poppins(
           color: Colors.black87,
           fontWeight: FontWeight.bold,
-          fontSize: 20,
+          fontSize: 18, // Reduced from 20
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: _eagleGold,
           foregroundColor: Colors.black,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Reduced padding
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -65,14 +74,24 @@ class AppTheme {
       ),
       cardTheme: CardThemeData(
         color: Colors.white,
-        elevation: 2,
+        elevation: 2, // Flatter look
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Tighter margins
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12), // Slightly smaller radius
           side: BorderSide(
             color: _eagleGold.withValues(alpha: 0.2),
             width: 1,
           ),
         ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        isDense: true, // Compact input fields
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12), // Reduced padding
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        filled: true,
+        fillColor: Colors.grey.shade50,
       ),
     );
   }
@@ -82,6 +101,7 @@ class AppTheme {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
+      visualDensity: VisualDensity.compact, // Compact UI density
       colorScheme: ColorScheme.fromSeed(
         seedColor: _eagleGold,
         brightness: Brightness.dark,
@@ -97,17 +117,25 @@ class AppTheme {
           headlineLarge: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.bold,
+            fontSize: 24, // Reduced from default
           ),
           headlineMedium: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.bold,
+            fontSize: 20, // Reduced from default
           ),
           titleLarge: GoogleFonts.poppins(
             color: Colors.white,
             fontWeight: FontWeight.w600,
+            fontSize: 18, // Reduced from 20
           ),
           bodyLarge: GoogleFonts.poppins(
             color: Colors.white70,
+            fontSize: 14, // Reduced from 16
+          ),
+          bodyMedium: GoogleFonts.poppins(
+            color: Colors.white70,
+            fontSize: 13, // Reduced from 14
           ),
         ),
       ),
@@ -119,14 +147,14 @@ class AppTheme {
         titleTextStyle: GoogleFonts.poppins(
           color: Colors.white,
           fontWeight: FontWeight.bold,
-          fontSize: 20,
+          fontSize: 18, // Reduced from 20
         ),
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
           backgroundColor: _eagleGold,
           foregroundColor: Colors.black,
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10), // Reduced padding
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
@@ -134,14 +162,24 @@ class AppTheme {
       ),
       cardTheme: CardThemeData(
         color: _darkSurface,
-        elevation: 4,
+        elevation: 2, // Flatter look (reduced from 4)
+        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8), // Tighter margins
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
+          borderRadius: BorderRadius.circular(12), // Slightly smaller radius
           side: BorderSide(
             color: _eagleGold.withValues(alpha: 0.3),
             width: 1,
           ),
         ),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        isDense: true, // Compact input fields
+        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12), // Reduced padding
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(12),
+        ),
+        filled: true,
+        fillColor: _darkSurface,
       ),
     );
   }

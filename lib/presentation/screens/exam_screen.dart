@@ -12,6 +12,7 @@ import '../../domain/entities/question.dart';
 import '../providers/exam_provider.dart';
 import '../providers/quick_practice_provider.dart';
 import '../providers/locale_provider.dart';
+import '../providers/subscription_provider.dart';
 import '../widgets/question_card.dart';
 import '../widgets/time_tracker.dart';
 import '../widgets/gamification/celebration_overlay.dart';
@@ -19,6 +20,9 @@ import '../widgets/gamification/animated_question_card.dart';
 import '../widgets/core/adaptive_page_wrapper.dart';
 import '../../core/theme/app_colors.dart';
 import '../../core/debug/app_logger.dart';
+import '../../core/services/ai_tutor_service.dart';
+import '../../core/storage/hive_service.dart';
+import 'subscription/paywall_screen.dart';
 import 'exam/exam_mode.dart';
 import 'exam/exam_result_screen.dart';
 
@@ -148,6 +152,108 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
     final savedSpeed = prefs.getDouble('tts_speed') ?? 1.0;
     await _flutterTts.setSpeechRate(savedSpeed);
     await _flutterTts.speak(text);
+  }
+
+  /// عرض شرح السؤال بالمساعد الذكي (Pro فقط)
+  Future<void> _showAiExplanation(Question question) async {
+    final l10n = AppLocalizations.of(context);
+    final currentLocale = ref.read(localeProvider);
+    final userLanguage = currentLocale.languageCode;
+
+    // Check if user is Pro
+    final subscriptionState = ref.read(subscriptionProvider);
+    final isPro = subscriptionState.isPro;
+    
+    // التحقق من عدد الاستخدامات اليومية للمستخدمين المجانيين
+    if (!isPro) {
+      final canUse = HiveService.canUseAiTutor(isPro: false);
+      
+      if (!canUse) {
+        // تم تجاوز الحد اليومي (3 مرات)
+        if (mounted) {
+          showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              backgroundColor: AppColors.darkSurface,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.r),
+              ),
+              title: Row(
+                children: [
+                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
+                  SizedBox(width: 12.w),
+                  Expanded(
+                    child: Text(
+                      l10n?.upgradeToPro ?? 'Upgrade to Pro',
+                      style: GoogleFonts.poppins(
+                        fontSize: 20.sp,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                ],
+              ),
+              content: Text(
+                l10n?.aiTutorDailyLimitReached ?? 'You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.',
+                style: GoogleFonts.poppins(
+                  fontSize: 14.sp,
+                  color: Colors.white70,
+                ),
+              ),
+              actions: [
+                TextButton(
+                  onPressed: () => Navigator.pop(context),
+                  child: Text(
+                    l10n?.cancel ?? 'Cancel',
+                    style: GoogleFonts.poppins(color: Colors.white54),
+                  ),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PaywallScreen(),
+                      ),
+                    );
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.eagleGold,
+                    foregroundColor: Colors.black,
+                  ),
+                  child: Text(
+                    l10n?.upgrade ?? 'Upgrade',
+                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          );
+        }
+        return;
+      }
+      
+      // تسجيل الاستخدام
+      await HiveService.recordAiTutorUsage();
+    }
+
+    // Show loading bottom sheet
+    if (mounted) {
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (context) => _AiExplanationBottomSheet(
+          question: question,
+          userLanguage: userLanguage,
+          l10n: l10n,
+        ),
+      );
+    }
   }
 
   void _nextQuestion() {
@@ -413,6 +519,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                                 });
                               },
                               onPlayAudio: () => _playQuestion(question.getText('de')),
+                              onShowAiExplanation: () => _showAiExplanation(question),
                             );
                           },
                         ),
@@ -525,6 +632,188 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// StatefulWidget منفصل لحفظ الشرح ومنع إعادة الاستدعاء
+class _AiExplanationBottomSheet extends StatefulWidget {
+  final Question question;
+  final String userLanguage;
+  final AppLocalizations? l10n;
+
+  const _AiExplanationBottomSheet({
+    required this.question,
+    required this.userLanguage,
+    required this.l10n,
+  });
+
+  @override
+  State<_AiExplanationBottomSheet> createState() => _AiExplanationBottomSheetState();
+}
+
+class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
+  Future<String>? _explanationFuture;
+  String? _cachedExplanation;
+
+  @override
+  void initState() {
+    super.initState();
+    // تحميل الشرح الأول مرة واحدة فقط
+    _explanationFuture = _loadExplanation();
+  }
+
+  Future<String> _loadExplanation() async {
+    if (_cachedExplanation != null) {
+      return _cachedExplanation!;
+    }
+    
+    final explanation = await AiTutorService.explainQuestion(
+      question: widget.question,
+      userLanguage: widget.userLanguage,
+    );
+    
+    if (mounted) {
+      setState(() {
+        _cachedExplanation = explanation;
+      });
+    }
+    
+    return explanation;
+  }
+
+  Future<void> _refreshExplanation() async {
+    setState(() {
+      _cachedExplanation = null; // مسح الـ cache
+    });
+
+    final newExplanation = await AiTutorService.explainQuestion(
+      question: widget.question,
+      userLanguage: widget.userLanguage,
+    );
+
+    if (mounted) {
+      setState(() {
+        _cachedExplanation = newExplanation;
+        _explanationFuture = Future.value(newExplanation);
+      });
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: MediaQuery.of(context).size.height * 0.6,
+      decoration: BoxDecoration(
+        color: AppColors.darkSurface,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24.r),
+          topRight: Radius.circular(24.r),
+        ),
+      ),
+      child: Column(
+        children: [
+          // Header
+          Padding(
+            padding: EdgeInsets.all(16.w),
+            child: Row(
+              children: [
+                Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 24.sp),
+                SizedBox(width: 12.w),
+                Expanded(
+                  child: Text(
+                    widget.l10n?.explainWithAi ?? 'Question Explanation',
+                    style: GoogleFonts.poppins(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
+                  ),
+                ),
+                IconButton(
+                  icon: const Icon(Icons.close, color: Colors.white70),
+                  onPressed: () => Navigator.pop(context),
+                ),
+              ],
+            ),
+          ),
+          Divider(color: Colors.white.withValues(alpha: 0.1)),
+          // Content
+          Expanded(
+            child: FutureBuilder<String>(
+              future: _explanationFuture,
+              builder: (context, snapshot) {
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const CircularProgressIndicator(color: AppColors.eagleGold),
+                        SizedBox(height: 24.h),
+                        Text(
+                          widget.l10n?.aiThinking ?? 'AI is thinking...',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white70,
+                            fontSize: 14.sp,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+
+                if (snapshot.hasError) {
+                  return Padding(
+                    padding: EdgeInsets.all(24.w),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.error_outline, color: Colors.red, size: 48.sp),
+                        SizedBox(height: 16.h),
+                        Text(
+                          widget.l10n?.errorLoadingExplanation ?? 'Error loading explanation',
+                          style: GoogleFonts.poppins(
+                            color: Colors.white,
+                            fontSize: 16.sp,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                        SizedBox(height: 24.h),
+                        ElevatedButton.icon(
+                          onPressed: _refreshExplanation,
+                          icon: Icon(Icons.refresh, size: 20.sp),
+                          label: Text(
+                            widget.l10n?.retry ?? 'Retry',
+                            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: AppColors.eagleGold,
+                            foregroundColor: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  );
+                }
+
+                final explanation = snapshot.data ?? '';
+                return SingleChildScrollView(
+                  padding: EdgeInsets.all(24.w),
+                  child: Text(
+                    explanation,
+                    style: GoogleFonts.poppins(
+                      fontSize: 16.sp,
+                      color: Colors.white,
+                      height: 1.6,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ),
+        ],
       ),
     );
   }

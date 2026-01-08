@@ -25,30 +25,54 @@ class PdfExamService {
   }) async {
     final doc = pw.Document();
 
-    // Load questions
+    // Load questions using the same logic as exam generation
     final localDataSource = LocalDataSourceImpl();
-    final allQuestions = await localDataSource.getGeneralQuestions();
+    final allGeneralQuestions = await localDataSource.getGeneralQuestions();
 
-    List<Question> stateQuestions = [];
+    if (allGeneralQuestions.isEmpty) {
+      throw Exception('No general questions available');
+    }
+
+    // Step A: Shuffle and pick first 30 general questions
+    final shuffledGeneral = List<Question>.from(allGeneralQuestions);
+    shuffledGeneral.shuffle();
+    final selectedGeneral = shuffledGeneral.take(30).toList();
+
+    // Step B: If stateCode is provided, fetch state questions
+    List<Question> selectedStateQuestions = [];
     if (stateCode != null && stateCode.isNotEmpty) {
-      stateQuestions = await localDataSource.getStateQuestions(stateCode);
+      try {
+        final stateQuestions = await localDataSource.getStateQuestions(stateCode);
+        
+        if (stateQuestions.isNotEmpty) {
+          // Shuffle and pick first 3
+          final shuffledState = List<Question>.from(stateQuestions);
+          shuffledState.shuffle();
+          selectedStateQuestions = shuffledState.take(3).toList();
+        }
+      } catch (e) {
+        // Graceful fallback: if state questions fail, continue with general only
+        // This ensures PDF generation never crashes even if a state file is corrupt
+      }
     }
 
-    // Combine: 30 general + 3 state-specific = 33 total
-    List<Question> examQuestions = [];
-    if (allQuestions.length >= 30) {
-      examQuestions = allQuestions.take(30).toList();
-    } else {
-      examQuestions = allQuestions;
+    // Step C: Combine into single list of 33 questions
+    final examQuestions = <Question>[];
+    examQuestions.addAll(selectedGeneral);
+    examQuestions.addAll(selectedStateQuestions);
+    
+    // If we don't have 33 questions (e.g., state questions missing),
+    // fill with additional general questions
+    if (examQuestions.length < 33 && allGeneralQuestions.length >= 33) {
+      final remaining = 33 - examQuestions.length;
+      final additionalGeneral = shuffledGeneral
+          .where((q) => !examQuestions.any((eq) => eq.id == q.id))
+          .take(remaining)
+          .toList();
+      examQuestions.addAll(additionalGeneral);
     }
 
-    if (stateQuestions.length >= 3) {
-      examQuestions.addAll(stateQuestions.take(3));
-    } else if (stateQuestions.isNotEmpty) {
-      examQuestions.addAll(stateQuestions);
-    }
-
-    // Shuffle if requested
+    // Step D: Shuffle the final list if requested
     if (shuffleQuestions) {
       examQuestions.shuffle();
     }
@@ -129,20 +153,30 @@ class PdfExamService {
   static Future<Uint8List?> _generateQRCodeBytes(String data) async {
     try {
       // Create QR code barcode
+      // Note: barcode_image library uses appropriate error correction automatically
       final qrCode = Barcode.qrCode();
       
-      // Create image with QR code (QR codes don't need text, so no font needed)
-      final qrImage = img.Image(width: 80, height: 80);
+      // Create larger image for better print quality (200x200 pixels)
+      // This ensures the QR code is clear and scannable when printed
+      final qrImage = img.Image(width: 200, height: 200);
+      
+      // Fill with white background
+      img.fill(qrImage, color: img.ColorRgb8(255, 255, 255));
+      
+      // Draw QR code
       drawBarcode(
         qrImage,
         qrCode,
         data,
       );
       
-      // Convert to PNG bytes
+      // Convert to PNG bytes with high quality
       final pngBytes = img.encodePng(qrImage);
       return Uint8List.fromList(pngBytes);
-    } catch (e) {
+    } catch (e, stackTrace) {
+      // Log error for debugging
+      print('Error generating QR code: $e');
+      print('Stack trace: $stackTrace');
       // Fallback: return null if QR generation fails
       return null;
     }
@@ -201,18 +235,19 @@ class PdfExamService {
             qrImageBytes != null
                 ? pw.Image(
                     pw.MemoryImage(qrImageBytes),
-                    width: 80,
-                    height: 80,
+                    width: 120,
+                    height: 120,
+                    fit: pw.BoxFit.contain,
                   )
                 : pw.Container(
-                    width: 80,
-                    height: 80,
+                    width: 120,
+                    height: 120,
                     decoration: pw.BoxDecoration(
                       border: pw.Border.all(color: PdfColors.grey400),
                     ),
                     child: pw.Center(
                       child: pw.Text(
-                        'QR',
+                        'QR Error',
                         style: const pw.TextStyle(fontSize: 10),
                       ),
                     ),

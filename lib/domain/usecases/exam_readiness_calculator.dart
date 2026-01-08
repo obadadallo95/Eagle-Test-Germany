@@ -99,7 +99,19 @@ class ExamReadinessCalculator {
   static double _calculateMasteryScore(Map<String, dynamic>? progress) {
     if (progress == null) return 0.0;
 
-    final answers = progress['answers'] as Map<String, dynamic>?;
+    // Convert Hive's _Map<dynamic, dynamic> to Map<String, dynamic>
+    final answersRaw = progress['answers'];
+    Map<String, dynamic>? answers;
+    if (answersRaw == null) {
+      answers = null;
+    } else if (answersRaw is Map) {
+      answers = Map<String, dynamic>.from(
+        answersRaw.map((key, value) => MapEntry(key.toString(), value)),
+      );
+    } else {
+      answers = null;
+    }
+    
     if (answers == null || answers.isEmpty) return 0.0;
 
     int totalAnswered = 0;

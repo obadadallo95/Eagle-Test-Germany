@@ -1,2 +1,13 @@
-#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
 #include "Generated.xcconfig"
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+
+// Allow arm64 on simulator (Apple Silicon)
+EXCLUDED_ARCHS[sdk=iphonesimulator*]=i386
+
+// Build only for active architecture on Debug (faster builds)
+ONLY_ACTIVE_ARCH=YES
+
+// Disable code signing for simulator
+CODE_SIGN_IDENTITY[sdk=iphonesimulator*]=
+CODE_SIGNING_REQUIRED[sdk=iphonesimulator*]=NO
+CODE_SIGNING_ALLOWED[sdk=iphonesimulator*]=NO

@@ -31,6 +31,22 @@ Gemäß dem deutschen Telemediengesetz (TMG) sind folgende Angaben erforderlich:
 
 ---
 
+## Online-Streitbeilegung / تسوية النزاعات
+
+**Deutsch:**  
+Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit, die Sie hier finden:  
+[https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr)
+
+Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
+
+**العربية:**  
+توفر المفوضية الأوروبية منصة لتسوية النزاعات عبر الإنترنت (OS)، والتي يمكنك العثور عليها هنا:  
+[https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr)
+
+نحن لسنا ملزمين ولا مستعدين للمشاركة في إجراءات تسوية المنازعات أمام هيئة تحكيم المستهلكين.
+
+---
+
 ## Verantwortlich für den Inhalt / المسؤول عن المحتوى
 
 **Deutsch:**  

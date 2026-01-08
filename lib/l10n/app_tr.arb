@@ -301,6 +301,14 @@
   "oneExamPerDay": "Günde bir sınav",
   "proSubscriptionPremium": "Pro Abonelik (Premium)",
   "unlimitedAiTutor": "Sınırsız AI Öğretmeni",
+  "aiTutorFreeLimit": "Günde 3 kez",
+  "@aiTutorFreeLimit": {
+    "description": "AI Öğretmeni ücretsiz plan limiti"
+  },
+  "aiTutorUnlimited": "Sınırsız",
+  "@aiTutorUnlimited": {
+    "description": "Pro için sınırsız AI Öğretmeni"
+  },
   "pdfExamGeneration": "PDF Sınav Oluşturma",
   "noAds": "Reklam Yok",
   "advancedSuccessStatistics": "Gelişmiş Başarı İstatistikleri",
@@ -340,6 +348,126 @@
   "selectStateFirst": "Lütfen önce bir eyalet seçin",
   "aboutDailyChallengeTitle": "🔥 Günlük Mücadele",
   "aboutDailyChallengeSubtitle": "Motivasyonlu Günlük Öğrenme",
-  "aboutDailyChallengeDescription": "Her gün 10 rastgele soruyla kendinizi test edin ve her doğru cevap için puan kazanın. Eğlenceli görsel efektlerle başarılarınızı kutlayın!"
+  "aboutDailyChallengeDescription": "Her gün 10 rastgele soruyla kendinizi test edin ve her doğru cevap için puan kazanın. Eğlenceli görsel efektlerle başarılarınızı kutlayın!",
+  "voiceExam": "🎤 Sesli Sınav (Pro)",
+  "playAudio": "🔊 Sesi Oynat",
+  "playing": "Oynatılıyor...",
+  "voiceExamMode": "Sesli Sınav Modu",
+  "aiCoachTitle": "🎯 AI Çalışma Koçu",
+  "aiCoachSubtitle": "Kişiselleştirilmiş çalışma planınız",
+  "aiCoachWeakTopics": "En Zayıf Konular:",
+  "aiCoachError": "Koçluk tavsiyesi yüklenemedi",
+  "aiCoachNoData": "Kişiselleştirilmiş çalışma tavsiyesi almak için soruları yanıtlamaya başlayın!",
+  "startFocusedPractice": "Odaklı Pratik Başlat",
+  "unlockAiCoach": "AI Koçunu Aç",
+  "aiStudyCoach": "AI Çalışma Koçu",
+  "syncing": "Senkronize ediliyor...",
+  "syncError": "Senkronizasyon başarısız. Çevrimdışı çalışıyor.",
+  "licenseActive": "Pro Lisans Aktif",
+  "invalidCode": "Geçersiz veya süresi dolmuş kod",
+  "setupComplete": "Kurulum Tamamlandı",
+  "guestUser": "Misafir Kullanıcı",
+  "proMember": "PRO ÜYE",
+  "upgradeAccount": "Hesabınızı Yükseltin",
+  "subscribeToPro": "Pro'ya Abone Ol",
+  "orActivateLicense": "Veya Lisansı Etkinleştir",
+  "activateLicense": "Lisansı Etkinleştir",
+  "enterLicenseKey": "Lisans anahtarınızı girin",
+  "licenseKey": "Lisans Anahtarı",
+  "federalState": "Federal Eyalet",
+  "darkMode": "Karanlık Mod",
+  "readiness": "Hazırlık",
+  "streak": "Seri",
+  "mastery": "Ustalık",
+  "profile": "Profil",
+  "dailyReminder": "Günlük Hatırlatıcı",
+  "smartAiStudyAlerts": "🎯 Akıllı AI Çalışma Uyarıları",
+  "cloudBackupSync": "☁️ Bulut Yedekleme ve Senkronizasyon",
+  "advancedReadinessIndex": "📊 Gelişmiş Hazırlık Endeksi",
+  "organizationSupport": "🏢 Kuruluş Desteği",
+  "enterYourName": "Adınızı girin",
+  "@enterYourName": {
+    "description": "Ad giriş alanı için yer tutucu"
+  },
+  "saveNameToDatabase": "Adı veritabanına kaydet",
+  "@saveNameToDatabase": {
+    "description": "Veritabanına ad senkronizasyonuna izin verme için geçiş etiketi"
+  },
+  "nameSaved": "Ad kaydedildi",
+  "@nameSaved": {
+    "description": "Ad kaydedildiğinde mesaj"
+  },
+  "nameRemoved": "Ad kaldırıldı",
+  "@nameRemoved": {
+    "description": "Ad kaldırıldığında mesaj"
+  },
+  "pickProfilePicture": "Profil Resmi Seç",
+  "@pickProfilePicture": {
+    "description": "Profil resmi seçimi için düğme metni"
+  },
+  "customizeProfileName": "👤 Profil Adını Özelleştir",
+  "@customizeProfileName": {
+    "description": "Profil adı özelleştirme özellik adı"
+  },
+  "nameChangeOnce": "Bir kez",
+  "@nameChangeOnce": {
+    "description": "Adın bir kez değiştirilebileceğini belirten metin (ücretsiz plan)"
+  },
+  "nameChangeUnlimited": "Sınırsız",
+  "@nameChangeUnlimited": {
+    "description": "Sınırsız ad değişikliğini belirten metin (pro plan)"
+  },
+  "topLearners": "🏆 En İyi Öğrenenler",
+  "@topLearners": {
+    "description": "Liderlik tablosu kartı başlığı"
+  },
+  "noLeaderboardData": "Liderlik tablosu verisi yok",
+  "@noLeaderboardData": {
+    "description": "Liderlik tablosu verisi olmadığında mesaj"
+  },
+  "you": "Sen",
+  "@you": {
+    "description": "Liderlik tablosundaki mevcut kullanıcı etiketi"
+  },
+  "questionsLearned": "Sorular",
+  "@questionsLearned": {
+    "description": "Liderlik tablosundaki öğrenilen soru sayısı etiketi"
+  },
+  "sharedProgressFeature": "🔄 Cihazlar Arası Paylaşılan İlerleme",
+  "@sharedProgressFeature": {
+    "description": "Pro abonelik için paylaşılan ilerleme özellik adı"
+  },
+  "sharedProgressDescription": "Senkronize ilerlemeyle 3 cihaza kadar çalışın. Öğrenme verileriniz tüm cihazlarınızda otomatik olarak senkronize edilir.",
+  "@sharedProgressDescription": {
+    "description": "Paylaşılan ilerleme özelliğinin açıklaması"
+  },
+  "sharedProgressBenefit": "Herhangi bir cihazdan ilerlemenize erişin",
+  "@sharedProgressBenefit": {
+    "description": "Paylaşılan ilerleme özelliğinin faydası"
+  },
+  "deviceLimit": "3 cihaza kadar",
+  "@deviceLimit": {
+    "description": "Pro abonelik için cihaz limiti"
+  },
+  "automaticSync": "Otomatik senkronizasyon",
+  "@automaticSync": {
+    "description": "Otomatik senkronizasyon özelliği"
+  },
+  "progressRestore": "Cihazınızı kaybederseniz ilerlemeyi geri yükleyin",
+  "@progressRestore": {
+    "description": "İlerleme geri yükleme özelliği"
+  },
+  "syncingProgress": "İlerleme senkronize ediliyor...",
+  "@syncingProgress": {
+    "description": "İlerleme senkronize edilirken gösterilen ipucu"
+  },
+  "progressSynced": "İlerleme senkronize edildi",
+  "@progressSynced": {
+    "description": "İlerleme senkronizasyonu tamamlandığında gösterilen ipucu"
+  },
+  "cloudSync": "Bulut senkronizasyonu",
+  "@cloudSync": {
+    "description": "Bulut senkronizasyon göstergesi için ipucu"
+  }
 }
 

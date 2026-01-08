@@ -4,6 +4,12 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- Camera permission is used ONLY for scanning QR codes from PDF exam papers -->
+    <!-- The camera is NOT used for taking photos or recording videos -->
+    <!-- No images or videos are stored or transmitted -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32" />
     <application
         android:label="Eagle Test: Germany"
         android:name="${applicationName}"
