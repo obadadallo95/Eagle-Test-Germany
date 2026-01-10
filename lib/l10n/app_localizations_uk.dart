@@ -1074,4 +1074,86 @@ class AppLocalizationsUk extends AppLocalizations {
 
   @override
   String get cloudSync => 'Хмарна синхронізація';
+
+  @override
+  String get themeTitle => 'Обрати тему';
+
+  @override
+  String get close => 'Закрити';
+
+  @override
+  String get appearance => 'Вигляд';
+
+  @override
+  String get examReadinessReport => 'Звіт про готовність до іспиту';
+
+  @override
+  String get overallScore => 'Загальний бал';
+
+  @override
+  String get componentScores => 'Бали компонентів';
+
+  @override
+  String get questionMastery => 'Оволодіння питаннями';
+
+  @override
+  String get examPerformance => 'Результати іспиту';
+
+  @override
+  String get studyConsistency => 'Послідовність навчання';
+
+  @override
+  String get stateQuestions => 'Питання землі';
+
+  @override
+  String get statistics => 'Статистика';
+
+  @override
+  String get questionsMastered => 'Оволоділі питання';
+
+  @override
+  String get correctAnswers => 'Правильні відповіді';
+
+  @override
+  String get examsCompleted => 'Завершені іспити';
+
+  @override
+  String get currentStreak => 'Поточна серія';
+
+  @override
+  String get studySessionsLast7Days => 'Сесії навчання (останні 7 днів)';
+
+  @override
+  String get totalStudyTime => 'Загальний час навчання';
+
+  @override
+  String get strengths => 'Сильні сторони';
+
+  @override
+  String get weaknesses => 'Слабкі сторони';
+
+  @override
+  String get recommendations => 'Рекомендації';
+
+  @override
+  String get tapToViewDetailedReport =>
+      'Натисніть, щоб переглянути детальний звіт';
+
+  @override
+  String get excellentFullyReady => 'Відмінно - Повністю готовий';
+
+  @override
+  String get readyForExam => 'Готовий до іспиту';
+
+  @override
+  String get almostReady => 'Майже готовий';
+
+  @override
+  String get needsMoreWork => 'Потребує більше роботи';
+
+  @override
+  String get days => 'днів';
+
+  @override
+  String get hours => 'годин';
 }

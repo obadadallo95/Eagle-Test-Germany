@@ -1066,4 +1066,85 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get cloudSync => 'مزامنة السحابة';
+
+  @override
+  String get themeTitle => 'اختر المظهر';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get appearance => 'المظهر';
+
+  @override
+  String get examReadinessReport => 'تقرير الجاهزية للامتحان';
+
+  @override
+  String get overallScore => 'النتيجة الإجمالية';
+
+  @override
+  String get componentScores => 'تفاصيل النتائج';
+
+  @override
+  String get questionMastery => 'إتقان الأسئلة';
+
+  @override
+  String get examPerformance => 'أداء الامتحانات';
+
+  @override
+  String get studyConsistency => 'الانتظام في الدراسة';
+
+  @override
+  String get stateQuestions => 'أسئلة الولاية';
+
+  @override
+  String get statistics => 'الإحصائيات';
+
+  @override
+  String get questionsMastered => 'الأسئلة المتقنة';
+
+  @override
+  String get correctAnswers => 'الإجابات الصحيحة';
+
+  @override
+  String get examsCompleted => 'الامتحانات المكتملة';
+
+  @override
+  String get currentStreak => 'سلسلة الأيام';
+
+  @override
+  String get studySessionsLast7Days => 'جلسات الدراسة (آخر 7 أيام)';
+
+  @override
+  String get totalStudyTime => 'إجمالي وقت الدراسة';
+
+  @override
+  String get strengths => 'نقاط القوة';
+
+  @override
+  String get weaknesses => 'نقاط الضعف';
+
+  @override
+  String get recommendations => 'التوصيات';
+
+  @override
+  String get tapToViewDetailedReport => 'اضغط لعرض التقرير التفصيلي';
+
+  @override
+  String get excellentFullyReady => 'ممتاز - جاهز تماماً';
+
+  @override
+  String get readyForExam => 'جاهز للامتحان';
+
+  @override
+  String get almostReady => 'قريب من الجاهزية';
+
+  @override
+  String get needsMoreWork => 'يحتاج إلى مزيد من العمل';
+
+  @override
+  String get days => 'يوم';
+
+  @override
+  String get hours => 'ساعة';
 }

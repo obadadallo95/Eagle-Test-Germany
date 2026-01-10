@@ -468,6 +468,118 @@
   "cloudSync": "Хмарна синхронізація",
   "@cloudSync": {
     "description": "Підказка для індикатора хмарної синхронізації"
+  },
+  "themeTitle": "Обрати тему",
+  "@themeTitle": {
+    "description": "Заголовок діалогу вибору теми"
+  },
+  "close": "Закрити",
+  "@close": {
+    "description": "Текст кнопки закриття"
+  },
+  "appearance": "Вигляд",
+  "@appearance": {
+    "description": "Заголовок розділу налаштувань вигляду"
+  },
+  "examReadinessReport": "Звіт про готовність до іспиту",
+  "@examReadinessReport": {
+    "description": "Заголовок діалогу звіту про готовність до іспиту"
+  },
+  "overallScore": "Загальний бал",
+  "@overallScore": {
+    "description": "Мітка загального балу готовності"
+  },
+  "componentScores": "Бали компонентів",
+  "@componentScores": {
+    "description": "Мітка розділу балів компонентів"
+  },
+  "questionMastery": "Оволодіння питаннями",
+  "@questionMastery": {
+    "description": "Мітка балу оволодіння питаннями"
+  },
+  "examPerformance": "Результати іспиту",
+  "@examPerformance": {
+    "description": "Мітка балу результатів іспиту"
+  },
+  "studyConsistency": "Послідовність навчання",
+  "@studyConsistency": {
+    "description": "Мітка балу послідовності навчання"
+  },
+  "stateQuestions": "Питання землі",
+  "@stateQuestions": {
+    "description": "Мітка балу питань конкретної землі"
+  },
+  "statistics": "Статистика",
+  "@statistics": {
+    "description": "Мітка розділу статистики"
+  },
+  "questionsAnswered": "Відповіді на питання",
+  "@questionsAnswered": {
+    "description": "Мітка загальної кількості відповідей на питання"
+  },
+  "questionsMastered": "Оволоділі питання",
+  "@questionsMastered": {
+    "description": "Мітка кількості оволоділих питань"
+  },
+  "correctAnswers": "Правильні відповіді",
+  "@correctAnswers": {
+    "description": "Мітка кількості правильних відповідей"
+  },
+  "examsCompleted": "Завершені іспити",
+  "@examsCompleted": {
+    "description": "Мітка кількості завершених іспитів"
+  },
+  "currentStreak": "Поточна серія",
+  "@currentStreak": {
+    "description": "Мітка поточної серії навчання"
+  },
+  "studySessionsLast7Days": "Сесії навчання (останні 7 днів)",
+  "@studySessionsLast7Days": {
+    "description": "Мітка сесій навчання за останні 7 днів"
+  },
+  "totalStudyTime": "Загальний час навчання",
+  "@totalStudyTime": {
+    "description": "Мітка загального часу навчання"
+  },
+  "strengths": "Сильні сторони",
+  "@strengths": {
+    "description": "Мітка розділу сильних сторін"
+  },
+  "weaknesses": "Слабкі сторони",
+  "@weaknesses": {
+    "description": "Мітка розділу слабких сторін"
+  },
+  "recommendations": "Рекомендації",
+  "@recommendations": {
+    "description": "Мітка розділу рекомендацій"
+  },
+  "tapToViewDetailedReport": "Натисніть, щоб переглянути детальний звіт",
+  "@tapToViewDetailedReport": {
+    "description": "Текст підказки для натискання на картку готовності для перегляду звіту"
+  },
+  "excellentFullyReady": "Відмінно - Повністю готовий",
+  "@excellentFullyReady": {
+    "description": "Текст статусу відмінної готовності (>=85%)"
+  },
+  "readyForExam": "Готовий до іспиту",
+  "@readyForExam": {
+    "description": "Текст статусу готовності (>=70%)"
+  },
+  "almostReady": "Майже готовий",
+  "@almostReady": {
+    "description": "Текст статусу майже готовності (>=50%)"
+  },
+  "needsMoreWork": "Потребує більше роботи",
+  "@needsMoreWork": {
+    "description": "Текст статусу потребує більше роботи (<50%)"
+  },
+  "days": "днів",
+  "@days": {
+    "description": "Одиниця днів у серії"
+  },
+  "hours": "годин",
+  "@hours": {
+    "description": "Одиниця годин у часі навчання"
   }
 }
 

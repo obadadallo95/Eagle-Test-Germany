@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../domain/entities/question.dart';
 import '../../../core/storage/hive_service.dart';
 import 'exam_result_screen.dart';
@@ -96,35 +96,50 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
       final isArabic = Localizations.localeOf(context).languageCode == 'ar';
       
       if (!mounted) return;
+      final theme = Theme.of(context);
+      final isDark = theme.brightness == Brightness.dark;
+      final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+      final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+      final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+      final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+      
       final shouldContinue = await showDialog<bool>(
         context: context,
         builder: (context) => AlertDialog(
-          backgroundColor: AppColors.darkSurface,
+          backgroundColor: surfaceColor,
           title: Text(
             l10n?.paperCorrectionIncompleteTitle ?? 
             (isArabic ? 'إجابات غير مكتملة' : 'Incomplete Answers'),
-            style: GoogleFonts.poppins(color: Colors.white),
+            style: AppTypography.h3.copyWith(
+              color: textPrimary,
+            ),
           ),
           content: Text(
             l10n?.paperCorrectionIncompleteMessage ?? 
             (isArabic 
                 ? 'لم تقم بالإجابة على جميع الأسئلة. هل تريد المتابعة؟' 
                 : 'You have not answered all questions. Continue anyway?'),
-            style: GoogleFonts.poppins(color: Colors.white70),
+            style: AppTypography.bodyM.copyWith(
+              color: textSecondary,
+            ),
           ),
           actions: [
             TextButton(
               onPressed: () => Navigator.pop(context, false),
               child: Text(
                 l10n?.cancel ?? 'Cancel',
-                style: GoogleFonts.poppins(color: Colors.white70),
+                style: AppTypography.bodyM.copyWith(
+                  color: textSecondary,
+                ),
               ),
             ),
             TextButton(
               onPressed: () => Navigator.pop(context, true),
               child: Text(
                 l10n?.confirm ?? 'Confirm',
-                style: GoogleFonts.poppins(color: AppColors.eagleGold),
+                style: AppTypography.bodyM.copyWith(
+                  color: primaryGold,
+                ),
               ),
             ),
           ],
@@ -214,6 +229,11 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
     final isArabic = Localizations.localeOf(context).languageCode == 'ar';
 
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
     
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
@@ -221,8 +241,7 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
         title: Text(
           l10n?.paperCorrectionTitle ?? 
           (isArabic ? 'تصحيح الامتحان الورقي' : 'Paper Exam Correction'),
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h2.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -244,8 +263,8 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
                 colors: [
-                  AppColors.eagleGold.withValues(alpha: 0.2),
-                  AppColors.darkSurface,
+                  primaryGold.withValues(alpha: 0.2),
+                  surfaceColor,
                 ],
               ),
             ),
@@ -257,9 +276,8 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                   (isArabic 
                       ? 'أدخل إجاباتك من الورقة' 
                       : 'Enter your answers from the paper'),
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    color: Colors.white,
+                  style: AppTypography.bodyL.copyWith(
+                    color: textPrimary,
                     fontWeight: FontWeight.w600,
                   ),
                   textAlign: TextAlign.center,
@@ -268,9 +286,8 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                 SizedBox(height: 8.h),
                 AutoSizeText(
                   '${_userAnswers.length} / ${widget.questions.length} ${l10n?.paperCorrectionAnswered ?? (isArabic ? 'إجابة' : 'answered')}',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    color: AppColors.eagleGold,
+                  style: AppTypography.bodyM.copyWith(
+                    color: primaryGold,
                   ),
                 ),
               ],
@@ -294,12 +311,12 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                     margin: EdgeInsets.only(bottom: 12.h),
                     padding: EdgeInsets.all(16.w),
                     decoration: BoxDecoration(
-                      color: AppColors.darkSurface,
+                      color: surfaceColor,
                       borderRadius: BorderRadius.circular(12.r),
                       border: Border.all(
                         color: selectedAnswer != null
-                            ? AppColors.eagleGold.withValues(alpha: 0.5)
-                            : AppColors.eagleGold.withValues(alpha: 0.2),
+                            ? primaryGold.withValues(alpha: 0.5)
+                            : primaryGold.withValues(alpha: 0.2),
                         width: selectedAnswer != null ? 2 : 1,
                       ),
                     ),
@@ -313,16 +330,15 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                                 width: 32.w,
                                 height: 32.h,
                                 decoration: BoxDecoration(
-                                  color: AppColors.eagleGold.withValues(alpha: 0.2),
+                                  color: primaryGold.withValues(alpha: 0.2),
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
                                 child: Center(
                                   child: Text(
                                     'Q$questionNumber',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 12.sp,
+                                    style: AppTypography.bodyS.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      color: AppColors.eagleGold,
+                                      color: primaryGold,
                                     ),
                                   ),
                                 ),
@@ -333,10 +349,8 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                                 width: 60.w,
                                 child: TextField(
                                   controller: controller,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 18.sp,
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.white,
+                                  style: AppTypography.h4.copyWith(
+                                    color: textPrimary,
                                   ),
                                   textAlign: TextAlign.center,
                                   maxLength: 1,
@@ -345,31 +359,31 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                                   ],
                                   decoration: InputDecoration(
                                     hintText: '?',
-                                    hintStyle: GoogleFonts.poppins(
-                                      color: Colors.white30,
+                                    hintStyle: AppTypography.bodyL.copyWith(
+                                      color: textSecondary,
                                     ),
                                     counterText: '',
                                     border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.r),
                                       borderSide: BorderSide(
-                                        color: AppColors.eagleGold.withValues(alpha: 0.3),
+                                        color: primaryGold.withValues(alpha: 0.3),
                                       ),
                                     ),
                                     enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.r),
                                       borderSide: BorderSide(
-                                        color: AppColors.eagleGold.withValues(alpha: 0.3),
+                                        color: primaryGold.withValues(alpha: 0.3),
                                       ),
                                     ),
                                     focusedBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(8.r),
-                                      borderSide: const BorderSide(
-                                        color: AppColors.eagleGold,
+                                      borderSide: BorderSide(
+                                        color: primaryGold,
                                         width: 2,
                                       ),
                                     ),
                                     filled: true,
-                                    fillColor: AppColors.darkCharcoal,
+                                    fillColor: isDark ? AppColors.darkBg : AppColors.lightBg,
                                   ),
                                   onChanged: (value) => _onTextFieldChanged(question.id, value),
                                 ),
@@ -393,23 +407,24 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                                 margin: EdgeInsets.symmetric(horizontal: 4.w),
                                 decoration: BoxDecoration(
                                   color: isSelected
-                                      ? AppColors.eagleGold
-                                      : AppColors.darkCharcoal,
+                                      ? primaryGold
+                                      : (isDark ? AppColors.darkBg : AppColors.lightBg),
                                   borderRadius: BorderRadius.circular(8.r),
                                   border: Border.all(
                                     color: isSelected
-                                        ? AppColors.eagleGold
-                                        : AppColors.eagleGold.withValues(alpha: 0.3),
+                                        ? primaryGold
+                                        : primaryGold.withValues(alpha: 0.3),
                                     width: isSelected ? 2 : 1,
                                   ),
                                 ),
                                 child: Center(
                                   child: Text(
                                     letter,
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 16.sp,
+                                    style: AppTypography.bodyL.copyWith(
                                       fontWeight: FontWeight.bold,
-                                      color: isSelected ? Colors.black : Colors.white,
+                                      color: isSelected 
+                                          ? (isDark ? AppColors.darkBg : AppColors.lightTextPrimary)
+                                          : textPrimary,
                                     ),
                                   ),
                                 ),
@@ -429,10 +444,12 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
           Container(
             padding: EdgeInsets.all(16.w),
             decoration: BoxDecoration(
-              color: AppColors.darkSurface,
+              color: surfaceColor,
               boxShadow: [
                 BoxShadow(
-                  color: Colors.black.withValues(alpha: 0.3),
+                  color: isDark 
+                      ? AppColors.darkBg.withValues(alpha: 0.3)
+                      : AppColors.lightBg.withValues(alpha: 0.1),
                   blurRadius: 10,
                   offset: const Offset(0, -2),
                 ),
@@ -447,14 +464,13 @@ class _PaperCorrectionScreenState extends ConsumerState<PaperCorrectionScreen> {
                 label: AutoSizeText(
                   l10n?.paperCorrectionFinish ?? 
                   (isArabic ? 'إنهاء وتصحيح' : 'Finish & Grade'),
-                  style: GoogleFonts.poppins(
+                  style: AppTypography.button.copyWith(
                     fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
                   ),
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.eagleGold,
-                  foregroundColor: Colors.black,
+                  backgroundColor: AppColors.gold,
+                  foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.r),
                   ),

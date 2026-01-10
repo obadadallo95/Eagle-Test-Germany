@@ -754,7 +754,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get totalQuestions => 'Всего вопросов';
 
   @override
-  String get questionsAnswered => 'Отвеченные вопросы';
+  String get questionsAnswered => 'Ответы на вопросы';
 
   @override
   String get accuracyRate => 'Точность';
@@ -1077,4 +1077,86 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get cloudSync => 'Облачная синхронизация';
+
+  @override
+  String get themeTitle => 'Выберите тему';
+
+  @override
+  String get close => 'Закрыть';
+
+  @override
+  String get appearance => 'Внешний вид';
+
+  @override
+  String get examReadinessReport => 'Отчет о готовности к экзамену';
+
+  @override
+  String get overallScore => 'Общий балл';
+
+  @override
+  String get componentScores => 'Баллы компонентов';
+
+  @override
+  String get questionMastery => 'Освоение вопросов';
+
+  @override
+  String get examPerformance => 'Результаты экзамена';
+
+  @override
+  String get studyConsistency => 'Последовательность обучения';
+
+  @override
+  String get stateQuestions => 'Вопросы земли';
+
+  @override
+  String get statistics => 'Статистика';
+
+  @override
+  String get questionsMastered => 'Освоенные вопросы';
+
+  @override
+  String get correctAnswers => 'Правильные ответы';
+
+  @override
+  String get examsCompleted => 'Завершенные экзамены';
+
+  @override
+  String get currentStreak => 'Текущая серия';
+
+  @override
+  String get studySessionsLast7Days => 'Сессии обучения (последние 7 дней)';
+
+  @override
+  String get totalStudyTime => 'Общее время обучения';
+
+  @override
+  String get strengths => 'Сильные стороны';
+
+  @override
+  String get weaknesses => 'Слабые стороны';
+
+  @override
+  String get recommendations => 'Рекомендации';
+
+  @override
+  String get tapToViewDetailedReport =>
+      'Нажмите, чтобы просмотреть подробный отчет';
+
+  @override
+  String get excellentFullyReady => 'Отлично - Полностью готов';
+
+  @override
+  String get readyForExam => 'Готов к экзамену';
+
+  @override
+  String get almostReady => 'Почти готов';
+
+  @override
+  String get needsMoreWork => 'Требуется больше работы';
+
+  @override
+  String get days => 'дней';
+
+  @override
+  String get hours => 'часов';
 }

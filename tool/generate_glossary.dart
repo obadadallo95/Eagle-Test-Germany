@@ -6,7 +6,7 @@ import 'dart:io';
 /// Usage: dart tool/generate_glossary.dart
 
 void main() async {
-  print('🚀 Starting Glossary Generation...\n');
+  stdout.writeln('🚀 Starting Glossary Generation...\n');
 
   // Read existing glossary for baseline terms
   final existingGlossaryFile = File('assets/data/glossary.json');
@@ -19,21 +19,21 @@ void main() async {
       final termMap = term as Map<String, dynamic>;
       existingTerms[termMap['term'] as String] = termMap;
     }
-    print('📚 Loaded ${existingTerms.length} existing terms from glossary.json');
+    stdout.writeln('📚 Loaded ${existingTerms.length} existing terms from glossary.json');
   }
 
   // Read questions.json (main file with all questions)
   final questionsFile = File('assets/data/questions.json');
   if (!await questionsFile.exists()) {
-    print('❌ Error: questions.json not found!');
-    print('   Looking for: ${questionsFile.absolute.path}');
+    stdout.writeln('❌ Error: questions.json not found!');
+    stdout.writeln('   Looking for: ${questionsFile.absolute.path}');
     exit(1);
   }
 
-  print('📖 Reading questions.json...');
+  stdout.writeln('📖 Reading questions.json...');
   final questionsContent = await questionsFile.readAsString();
   final questions = json.decode(questionsContent) as List<dynamic>;
-  print('✅ Loaded ${questions.length} questions from questions.json\n');
+  stdout.writeln('✅ Loaded ${questions.length} questions from questions.json\n');
 
   // Political/Legal keywords to extract (B1/C1 level)
   final keywordsToExtract = {
@@ -125,13 +125,13 @@ void main() async {
     const JsonEncoder.withIndent('  ').convert(termsList),
   );
 
-  print('✅ Generated ${termsList.length} terms in glossary.json');
-  print('📝 File saved to: ${outputFile.absolute.path}\n');
+  stdout.writeln('✅ Generated ${termsList.length} terms in glossary.json');
+  stdout.writeln('📝 File saved to: ${outputFile.absolute.path}\n');
   
   // Print summary
-  print('📊 Summary:');
-  print('   - New terms extracted: ${extractedTerms.length - existingTerms.length}');
-  print('   - Total terms: ${termsList.length}');
+  stdout.writeln('📊 Summary:');
+  stdout.writeln('   - New terms extracted: ${extractedTerms.length - existingTerms.length}');
+  stdout.writeln('   - Total terms: ${termsList.length}');
 }
 
 Map<String, String> _generateDefinition(String term, Map<String, dynamic> questionText) {

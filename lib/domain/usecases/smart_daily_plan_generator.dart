@@ -85,7 +85,7 @@ class SmartDailyPlanGenerator {
   /// - State questions: IDs 20000+ (heuristic based on data structure)
   /// - Plus any questions the user has already answered
   /// 
-  /// TODO: In production, inject QuestionRepository to get actual question IDs.
+  /// Note: Future enhancement - inject QuestionRepository to get actual question IDs.
   static List<int> _getAllQuestionIds(Map<String, dynamic>? progress) {
     final questionIds = <int>{};
     

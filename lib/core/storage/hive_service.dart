@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'srs_service.dart';
 import 'user_preferences_service.dart';
@@ -368,15 +369,48 @@ class HiveService {
     return [];
   }
 
-  /// إضافة وقت دراسة
+  // نظام تجميع ذكي لوقت الدراسة
+  static int _pendingStudySeconds = 0;
+  static DateTime? _lastFlushTime;
+  static Timer? _autoFlushTimer;
+  static const int _minSaveIntervalSeconds = 30; // الحد الأدنى بين الحفظ (30 ثانية)
+  static const int _autoFlushIntervalSeconds = 60; // الحفظ التلقائي كل دقيقة
+
+  /// إضافة وقت دراسة (مع تجميع ذكي)
   static Future<void> addStudyTime(int seconds) async {
     if (seconds < 10) return; // Ignore sessions less than 10 seconds
+
+    final now = DateTime.now();
+    
+    // إضافة الوقت إلى المجمع
+    _pendingStudySeconds += seconds;
+
+    // إذا مرت فترة كافية منذ آخر حفظ، احفظ فوراً
+    if (_lastFlushTime == null || 
+        now.difference(_lastFlushTime!).inSeconds >= _minSaveIntervalSeconds) {
+      await _flushStudyTime();
+    } else {
+      // جدولة الحفظ التلقائي بعد فترة
+      _scheduleAutoFlush();
+    }
+  }
+
+  /// حفظ الوقت المجمع في Hive
+  static Future<void> _flushStudyTime() async {
+    if (_pendingStudySeconds < 10) {
+      _pendingStudySeconds = 0;
+      return;
+    }
+
+    final secondsToSave = _pendingStudySeconds;
+    _pendingStudySeconds = 0;
+    _lastFlushTime = DateTime.now();
 
     final progress = getUserProgress() ?? {};
 
     // Update total study time
     final totalSeconds =
-        (progress[_totalStudySecondsKey] as int? ?? 0) + seconds;
+        (progress[_totalStudySecondsKey] as int? ?? 0) + secondsToSave;
     progress[_totalStudySecondsKey] = totalSeconds;
 
     // Update daily study time
@@ -391,17 +425,41 @@ class HiveService {
       dailyStudy = Map<String, dynamic>.from(
           (dailyStudyRaw).map((key, value) => MapEntry(key.toString(), value)));
     }
-    final todaySeconds = (dailyStudy[dateKey] as int? ?? 0) + seconds;
+    final todaySeconds = (dailyStudy[dateKey] as int? ?? 0) + secondsToSave;
     dailyStudy[dateKey] = todaySeconds;
     progress[_dailyStudySecondsKey] = dailyStudy;
 
     await saveUserProgress(progress);
 
     AppLogger.event('Study time added', source: 'HiveService', data: {
-      'seconds': seconds,
+      'seconds': secondsToSave,
       'todayTotal': todaySeconds,
       'overallTotal': totalSeconds,
     });
+  }
+
+  /// جدولة الحفظ التلقائي
+  static void _scheduleAutoFlush() {
+    // إلغاء أي جدولة سابقة
+    _autoFlushTimer?.cancel();
+    
+    // جدولة جديدة
+    _autoFlushTimer = Timer(const Duration(seconds: _autoFlushIntervalSeconds), () {
+      // التحقق من أن الوقت لم يتم حفظه بالفعل
+      if (_pendingStudySeconds > 0 && 
+          (_lastFlushTime == null || 
+           DateTime.now().difference(_lastFlushTime!).inSeconds >= _minSaveIntervalSeconds)) {
+        _flushStudyTime();
+      }
+      _autoFlushTimer = null;
+    });
+  }
+
+  /// إجبار الحفظ الفوري (يستخدم عند إغلاق التطبيق)
+  static Future<void> forceFlushStudyTime() async {
+    if (_pendingStudySeconds > 0) {
+      await _flushStudyTime();
+    }
   }
 
   /// جلب وقت الدراسة اليوم (بالدقائق)

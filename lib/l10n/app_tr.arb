@@ -468,6 +468,118 @@
   "cloudSync": "Bulut senkronizasyonu",
   "@cloudSync": {
     "description": "Bulut senkronizasyon göstergesi için ipucu"
+  },
+  "themeTitle": "Tema Seçin",
+  "@themeTitle": {
+    "description": "Tema seçim iletişim kutusu başlığı"
+  },
+  "close": "Kapat",
+  "@close": {
+    "description": "Kapat düğmesi metni"
+  },
+  "appearance": "Görünüm",
+  "@appearance": {
+    "description": "Görünüm ayarları bölüm başlığı"
+  },
+  "examReadinessReport": "Sınav Hazırlık Raporu",
+  "@examReadinessReport": {
+    "description": "Sınav hazırlık raporu iletişim kutusu başlığı"
+  },
+  "overallScore": "Genel Puan",
+  "@overallScore": {
+    "description": "Genel hazırlık puanı etiketi"
+  },
+  "componentScores": "Bileşen Puanları",
+  "@componentScores": {
+    "description": "Bileşen puanları bölüm etiketi"
+  },
+  "questionMastery": "Soru Ustalığı",
+  "@questionMastery": {
+    "description": "Soru ustalığı puanı etiketi"
+  },
+  "examPerformance": "Sınav Performansı",
+  "@examPerformance": {
+    "description": "Sınav performansı puanı etiketi"
+  },
+  "studyConsistency": "Çalışma Tutarlılığı",
+  "@studyConsistency": {
+    "description": "Çalışma tutarlılığı puanı etiketi"
+  },
+  "stateQuestions": "Eyalet Soruları",
+  "@stateQuestions": {
+    "description": "Eyalete özel soru puanı etiketi"
+  },
+  "statistics": "İstatistikler",
+  "@statistics": {
+    "description": "İstatistikler bölüm etiketi"
+  },
+  "questionsAnswered": "Cevaplanan Sorular",
+  "@questionsAnswered": {
+    "description": "Toplam cevaplanan soru etiketi"
+  },
+  "questionsMastered": "Ustalaşılan Sorular",
+  "@questionsMastered": {
+    "description": "Ustalaşılan soru sayısı etiketi"
+  },
+  "correctAnswers": "Doğru Cevaplar",
+  "@correctAnswers": {
+    "description": "Doğru cevap sayısı etiketi"
+  },
+  "examsCompleted": "Tamamlanan Sınavlar",
+  "@examsCompleted": {
+    "description": "Tamamlanan sınav sayısı etiketi"
+  },
+  "currentStreak": "Mevcut Seri",
+  "@currentStreak": {
+    "description": "Mevcut çalışma serisi etiketi"
+  },
+  "studySessionsLast7Days": "Çalışma Oturumları (Son 7 Gün)",
+  "@studySessionsLast7Days": {
+    "description": "Son 7 gündeki çalışma oturumları etiketi"
+  },
+  "totalStudyTime": "Toplam Çalışma Süresi",
+  "@totalStudyTime": {
+    "description": "Toplam çalışma süresi etiketi"
+  },
+  "strengths": "Güçlü Yönler",
+  "@strengths": {
+    "description": "Güçlü yönler bölüm etiketi"
+  },
+  "weaknesses": "Zayıf Yönler",
+  "@weaknesses": {
+    "description": "Zayıf yönler bölüm etiketi"
+  },
+  "recommendations": "Öneriler",
+  "@recommendations": {
+    "description": "Öneriler bölüm etiketi"
+  },
+  "tapToViewDetailedReport": "Detaylı raporu görüntülemek için dokunun",
+  "@tapToViewDetailedReport": {
+    "description": "Raporu görüntülemek için hazırlık kartına dokunma ipucu metni"
+  },
+  "excellentFullyReady": "Mükemmel - Tamamen Hazır",
+  "@excellentFullyReady": {
+    "description": "Mükemmel hazırlık durumu metni (>=85%)"
+  },
+  "readyForExam": "Sınava Hazır",
+  "@readyForExam": {
+    "description": "Hazır durum metni (>=70%)"
+  },
+  "almostReady": "Neredeyse Hazır",
+  "@almostReady": {
+    "description": "Neredeyse hazır durum metni (>=50%)"
+  },
+  "needsMoreWork": "Daha Fazla Çalışma Gerekiyor",
+  "@needsMoreWork": {
+    "description": "Daha fazla çalışma gerektiren durum metni (<50%)"
+  },
+  "days": "gün",
+  "@days": {
+    "description": "Serideki gün birimi"
+  },
+  "hours": "saat",
+  "@hours": {
+    "description": "Çalışma süresindeki saat birimi"
   }
 }
 

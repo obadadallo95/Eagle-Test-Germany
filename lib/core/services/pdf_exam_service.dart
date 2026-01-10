@@ -1,6 +1,5 @@
 import 'dart:io';
-import 'dart:typed_data';
-import 'package:flutter/services.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
 import 'package:printing/printing.dart';
@@ -175,8 +174,8 @@ class PdfExamService {
       return Uint8List.fromList(pngBytes);
     } catch (e, stackTrace) {
       // Log error for debugging
-      print('Error generating QR code: $e');
-      print('Stack trace: $stackTrace');
+      debugPrint('Error generating QR code: $e');
+      debugPrint('Stack trace: $stackTrace');
       // Fallback: return null if QR generation fails
       return null;
     }

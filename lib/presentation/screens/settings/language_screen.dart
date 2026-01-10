@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../providers/locale_provider.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
+import '../../../core/theme/app_colors.dart';
 
 /// شاشة اختيار اللغة
 class LanguageScreen extends ConsumerWidget {
@@ -36,6 +37,8 @@ class LanguageScreen extends ConsumerWidget {
           itemBuilder: (context, index) {
           final language = _languages[index];
           final isSelected = currentLocale.languageCode == language['code'];
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
 
           return ListTile(
             leading: Text(
@@ -45,7 +48,11 @@ class LanguageScreen extends ConsumerWidget {
             title: Text(language['name']!, style: TextStyle(fontSize: 16.sp)),
             subtitle: Text(language['nativeName']!, style: TextStyle(fontSize: 14.sp)),
             trailing: isSelected
-                ? Icon(Icons.check, color: Colors.green, size: 24.sp)
+                ? Icon(
+                    Icons.check, 
+                    color: isDark ? AppColors.successDark : AppColors.successLight, 
+                    size: 24.sp,
+                  )
                 : null,
             onTap: () {
               ref.read(localeProvider.notifier).changeLocale(language['code']!);

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../domain/entities/question.dart';
 import '../../providers/question_provider.dart';
@@ -153,44 +154,51 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
           // عرض حوار التأكيد
           final shouldQuit = await showDialog<bool>(
             context: context,
-            builder: (context) => AlertDialog(
-              backgroundColor: AppColors.darkSurface,
-              title: Text(
-                isArabic ? 'الخروج من المفضلة؟' : 'Quit Favorites?',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.sp,
-                ),
-              ),
-              content: Text(
-                isArabic ? 'سيتم فقدان التقدم الحالي.' : 'Your progress will be lost.',
-                style: TextStyle(color: Colors.white70, fontSize: 14.sp),
-              ),
-              actions: [
-                TextButton(
-                  onPressed: () => Navigator.pop(context, false),
-                  child: Text(
-                    isArabic ? 'البقاء' : 'Stay',
-                    style: const TextStyle(color: AppColors.eagleGold),
+            builder: (context) {
+              final theme = Theme.of(context);
+              final isDark = theme.brightness == Brightness.dark;
+              final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+              final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+              
+              return AlertDialog(
+                backgroundColor: surfaceColor,
+                title: Text(
+                  isArabic ? 'الخروج من المفضلة؟' : 'Quit Favorites?',
+                  style: AppTypography.h3.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                   ),
                 ),
-                TextButton(
-                  onPressed: () => Navigator.pop(context, true),
-                  style: TextButton.styleFrom(
-                    foregroundColor: AppColors.germanRed,
+                content: Text(
+                  isArabic ? 'سيتم فقدان التقدم الحالي.' : 'Your progress will be lost.',
+                  style: AppTypography.bodyM.copyWith(
+                    color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                   ),
-                  child: Text(
-                    isArabic ? 'الخروج' : 'Quit',
-                    style: TextStyle(
-                      color: AppColors.germanRed,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, false),
+                    child: Text(
+                      isArabic ? 'البقاء' : 'Stay',
+                      style: AppTypography.button.copyWith(
+                        color: primaryGold,
+                      ),
                     ),
                   ),
-                ),
-              ],
-            ),
+                  TextButton(
+                    onPressed: () => Navigator.pop(context, true),
+                    style: TextButton.styleFrom(
+                      foregroundColor: AppColors.errorDark,
+                    ),
+                    child: Text(
+                      isArabic ? 'الخروج' : 'Quit',
+                      style: AppTypography.button.copyWith(
+                        color: AppColors.errorDark,
+                      ),
+                    ),
+                  ),
+                ],
+              );
+            },
           );
           
           if (shouldQuit == true && mounted && context.mounted) {
@@ -212,8 +220,7 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
               appBar: AppBar(
                 title: Text(
                   isArabic ? 'المفضلة' : 'Favorites',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
+                  style: AppTypography.h2.copyWith(
                     color: theme.colorScheme.onSurface,
                   ),
                 ),
@@ -231,11 +238,13 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
                 padding: EdgeInsets.zero,
                 enableScroll: false, // PageView يملأ الشاشة
                 child: _isLoading
-                    ? const Center(
-                        child: CircularProgressIndicator(color: AppColors.eagleGold),
+                    ? Center(
+                        child: CircularProgressIndicator(
+                          color: theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
+                        ),
                       )
                     : _favoriteQuestions.isEmpty
-                        ? _buildEmptyState(isArabic)
+                        ? _buildEmptyState(context, isArabic)
                         : _buildQuestionsView(l10n, isArabic),
               ),
             );
@@ -245,48 +254,39 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
     );
   }
 
-  Widget _buildEmptyState(bool isArabic) {
+  Widget _buildEmptyState(BuildContext context, bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(32.w),
+        padding: const EdgeInsets.all(AppSpacing.xxxl),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.favorite_border,
               size: 80.sp,
-              color: Colors.grey,
+              color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
             ),
-            SizedBox(height: 24.h),
-            Builder(
-              builder: (context) {
-                final theme = Theme.of(context);
-                return Column(
-                  children: [
-                    AutoSizeText(
-                      isArabic ? 'لا توجد أسئلة مفضلة' : 'No favorite questions',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    SizedBox(height: 12.h),
-                    AutoSizeText(
-                      isArabic
-                          ? 'اضغط على أيقونة القلب في أي سؤال لإضافته إلى المفضلة'
-                          : 'Tap the heart icon on any question to add it to favorites',
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                      ),
-                      textAlign: TextAlign.center,
-                      maxLines: 3,
-                    ),
-                  ],
-                );
-              },
+            const SizedBox(height: AppSpacing.xxl),
+            AutoSizeText(
+              isArabic ? 'لا توجد أسئلة مفضلة' : 'No favorite questions',
+              style: AppTypography.h2.copyWith(
+                color: theme.colorScheme.onSurface,
+              ),
+              textAlign: TextAlign.center,
+            ),
+            const SizedBox(height: AppSpacing.md),
+            AutoSizeText(
+              isArabic
+                  ? 'اضغط على أيقونة القلب في أي سؤال لإضافته إلى المفضلة'
+                  : 'Tap the heart icon on any question to add it to favorites',
+              style: AppTypography.bodyM.copyWith(
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+              ),
+              textAlign: TextAlign.center,
+              maxLines: 3,
             ),
           ],
         ),
@@ -301,26 +301,26 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
         Builder(
           builder: (context) {
             final theme = Theme.of(context);
+            final isDark = theme.brightness == Brightness.dark;
+            final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+            
             return Container(
-              padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+              padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.md),
               color: theme.cardTheme.color,
               child: Row(
                 children: [
                   Expanded(
                     child: LinearProgressIndicator(
                       value: (_currentIndex + 1) / _favoriteQuestions.length,
-                      backgroundColor: theme.brightness == Brightness.dark 
-                          ? Colors.grey.shade800 
-                          : Colors.grey.shade300,
-                      valueColor: const AlwaysStoppedAnimation<Color>(AppColors.eagleGold),
+                      backgroundColor: isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant,
+                      valueColor: AlwaysStoppedAnimation<Color>(primaryGold),
                     ),
                   ),
-                  SizedBox(width: 16.w),
+                  const SizedBox(width: AppSpacing.lg),
                   Text(
                     '${_currentIndex + 1}/${_favoriteQuestions.length}',
-                    style: GoogleFonts.poppins(
+                    style: AppTypography.h4.copyWith(
                       color: theme.colorScheme.onSurface,
-                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ],
@@ -364,8 +364,8 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
                     label: Text(isArabic ? 'السابق' : 'Previous'),
                     style: ElevatedButton.styleFrom(
                       backgroundColor: theme.brightness == Brightness.dark 
-                          ? AppColors.darkCharcoal 
-                          : Colors.grey.shade200,
+                          ? AppColors.darkBg 
+                          : AppColors.lightSurfaceVariant,
                       foregroundColor: theme.colorScheme.onSurface,
                     ),
                   ),
@@ -376,8 +376,8 @@ class _FavoritesScreenState extends ConsumerState<FavoritesScreen> {
                     icon: Icon(Icons.arrow_forward, size: 20.sp),
                     label: Text(isArabic ? 'التالي' : 'Next'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
+                      foregroundColor: theme.brightness == Brightness.dark ? AppColors.darkBg : AppColors.lightTextPrimary,
                     ),
                   ),
                 ],

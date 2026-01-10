@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/storage/user_preferences_service.dart';
 import '../../providers/subscription_provider.dart';
@@ -148,25 +149,28 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
   Future<void> _showLicenseActivationDialog() async {
     final l10n = AppLocalizations.of(context)!;
     final licenseKeyController = TextEditingController();
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightSurface;
     
     return showDialog<void>(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppColors.darkSurface,
+        backgroundColor: surfaceColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
         ),
         title: Row(
           children: [
-            Icon(Icons.vpn_key, color: AppColors.eagleGold, size: 28.sp),
-            SizedBox(width: 12.w),
+            Icon(Icons.vpn_key, color: primaryGold, size: 28.sp),
+            const SizedBox(width: AppSpacing.md),
             Expanded(
               child: AutoSizeText(
                 l10n.activateLicense,
-                style: GoogleFonts.poppins(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                style: AppTypography.h3.copyWith(
+                  color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                 ),
                 maxLines: 2,
                 minFontSize: 16.sp,
@@ -180,39 +184,39 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
           children: [
             AutoSizeText(
               l10n.enterLicenseKey,
-              style: GoogleFonts.poppins(
-                fontSize: 14.sp,
-                color: Colors.white70,
+              style: AppTypography.bodyM.copyWith(
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
               ),
               maxLines: 2,
               minFontSize: 12.sp,
               stepGranularity: 1.sp,
             ),
-            SizedBox(height: 16.h),
+            const SizedBox(height: AppSpacing.lg),
             TextField(
               controller: licenseKeyController,
-              style: GoogleFonts.poppins(
-                fontSize: 16.sp,
-                color: Colors.white,
+              style: AppTypography.bodyL.copyWith(
+                color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
               ),
               decoration: InputDecoration(
                 hintText: l10n.licenseKey,
-                hintStyle: GoogleFonts.poppins(
-                  color: Colors.white38,
+                hintStyle: AppTypography.bodyL.copyWith(
+                  color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
                 ),
                 filled: true,
-                fillColor: AppColors.darkCharcoal,
+                fillColor: bgColor,
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.r),
-                  borderSide: const BorderSide(color: AppColors.eagleGold),
+                  borderSide: BorderSide(color: primaryGold),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.r),
-                  borderSide: BorderSide(color: Colors.grey.shade700),
+                  borderSide: BorderSide(
+                    color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+                  ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(12.r),
-                  borderSide: const BorderSide(color: AppColors.eagleGold, width: 2),
+                  borderSide: BorderSide(color: primaryGold, width: 2),
                 ),
               ),
             ),
@@ -223,36 +227,35 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
             onPressed: () => Navigator.pop(context),
             child: Text(
               l10n.cancel,
-              style: GoogleFonts.poppins(
-                color: Colors.white70,
+              style: AppTypography.button.copyWith(
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
               ),
             ),
           ),
           ElevatedButton(
             onPressed: () async {
-              // TODO: Call activate_license RPC in Supabase
+              // Note: Future enhancement - Call activate_license RPC in Supabase
               // For now, show a message
               if (mounted) {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text(
                       l10n.setupComplete,
+                      style: AppTypography.button,
                     ),
-                    backgroundColor: AppColors.eagleGold,
+                    backgroundColor: primaryGold,
                   ),
                 );
                 Navigator.pop(context);
               }
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.eagleGold,
-              foregroundColor: AppColors.darkSurface,
+              backgroundColor: primaryGold,
+              foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
             ),
             child: Text(
               l10n.activateLicense,
-              style: GoogleFonts.poppins(
-                fontWeight: FontWeight.w600,
-              ),
+              style: AppTypography.button,
             ),
           ),
         ],
@@ -281,7 +284,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
             child: _buildHeaderSection(context, isPro, l10n),
           ),
           
-          SizedBox(height: 24.h),
+          const SizedBox(height: AppSpacing.xxl),
           
           // KPI Section
           FadeInUp(
@@ -290,7 +293,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
             child: _buildKpiSection(context, readinessAsync, l10n),
           ),
           
-          SizedBox(height: 24.h),
+          const SizedBox(height: AppSpacing.xxl),
           
           // Action Section (Only for Free users)
           if (!isPro)
@@ -300,7 +303,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
               child: _buildActionSection(context, l10n),
             ),
           
-          if (!isPro) SizedBox(height: 24.h),
+          if (!isPro) const SizedBox(height: AppSpacing.xxl),
           
           // Settings Section
           FadeInUp(
@@ -315,12 +318,12 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
             ),
           ),
           
-          SizedBox(height: 24.h),
+          const SizedBox(height: AppSpacing.xxl),
           
           // Leaderboard Section
           const LeaderboardCard(),
           
-          SizedBox(height: 24.h), // Bottom padding
+          const SizedBox(height: AppSpacing.xxl), // Bottom padding
           ],
         ),
       ),
@@ -351,10 +354,12 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
       }
     } catch (e) {
       if (mounted) {
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Error picking image: $e'),
-            backgroundColor: Colors.red,
+            backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
           ),
         );
       }
@@ -408,6 +413,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
     final isPro = subscriptionState.isPro;
     final name = _nameController.text.trim();
     final currentName = await UserPreferencesService.getUserName();
+    if (!mounted) return;
     final isArabic = Localizations.localeOf(context).languageCode == 'ar';
     
     // Check if name is actually changing
@@ -428,16 +434,18 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
       } else if (nameChangeCount >= 1) {
         // Free users can only change name once
         if (mounted) {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(isArabic 
                 ? 'يمكنك تغيير الاسم مرة واحدة فقط في الخطة المجانية. ترقية إلى Pro لتغيير الاسم بدون حدود.'
                 : 'You can only change your name once in the free plan. Upgrade to Pro for unlimited name changes.'),
-              backgroundColor: Colors.orange,
+              backgroundColor: isDark ? AppColors.warningDark : AppColors.warningLight,
               duration: const Duration(seconds: 3),
               action: SnackBarAction(
                 label: isArabic ? 'ترقية' : 'Upgrade',
-                textColor: Colors.white,
+                textColor: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                 onPressed: () {
                   Navigator.push(
                     context,
@@ -466,12 +474,14 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
     }
     
     if (mounted) {
+      final theme = Theme.of(context);
+      final isDark = theme.brightness == Brightness.dark;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text(name.isEmpty 
             ? l10n.nameRemoved
             : l10n.nameSaved),
-          backgroundColor: Colors.green,
+          backgroundColor: isDark ? AppColors.successDark : AppColors.successLight,
           duration: const Duration(seconds: 2),
         ),
       );
@@ -500,21 +510,33 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
   }
 
   Widget _buildHeaderSection(BuildContext context, bool isPro, AppLocalizations l10n) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    
     return Container(
-      padding: EdgeInsets.all(24.w),
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            AppColors.eagleGold.withValues(alpha: 0.2),
-            AppColors.eagleGold.withValues(alpha: 0.1),
-            AppColors.darkCharcoal,
-          ],
+          colors: isDark
+              ? [
+                  primaryGold.withValues(alpha: 0.2),
+                  primaryGold.withValues(alpha: 0.1),
+                  bgColor,
+                ]
+              : [
+                  primaryGold.withValues(alpha: 0.1),
+                  primaryGold.withValues(alpha: 0.05),
+                  surfaceColor,
+                ],
         ),
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(
-          color: AppColors.eagleGold.withValues(alpha: 0.3),
+          color: primaryGold.withValues(alpha: 0.3),
           width: 1,
         ),
       ),
@@ -534,9 +556,9 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                       height: 70.w,
                       decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: AppColors.eagleGold.withValues(alpha: 0.2),
+                        color: primaryGold.withValues(alpha: 0.2),
                         border: Border.all(
-                          color: AppColors.eagleGold,
+                          color: primaryGold,
                           width: 2,
                         ),
                         image: _avatarPath != null
@@ -550,7 +572,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                         ? Icon(
                             Icons.person,
                             size: 40.sp,
-                            color: AppColors.eagleGold,
+                            color: primaryGold,
                           )
                         : null,
                     ),
@@ -562,13 +584,13 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                         height: 24.h,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: AppColors.eagleGold,
-                          border: Border.all(color: AppColors.darkSurface, width: 2),
+                          color: primaryGold,
+                          border: Border.all(color: surfaceColor, width: 2),
                         ),
                         child: Icon(
                           Icons.camera_alt,
                           size: 14.sp,
-                          color: AppColors.darkSurface,
+                          color: isDark ? AppColors.darkSurface : AppColors.lightSurface,
                         ),
                       ),
                     ),
@@ -585,16 +607,15 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                   children: [
                     TextField(
                       controller: _nameController,
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.h3.copyWith(
                         fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       decoration: InputDecoration(
                         hintText: l10n.enterYourName,
-                        hintStyle: GoogleFonts.poppins(
+                        hintStyle: AppTypography.bodyL.copyWith(
                           fontSize: 16.sp,
-                          color: Colors.white70,
+                          color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                         ),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.zero,
@@ -607,9 +628,9 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                     if (_nameController.text.isEmpty)
                       AutoSizeText(
                         l10n.guestUser,
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.bodyL.copyWith(
                           fontSize: 16.sp,
-                          color: Colors.white70,
+                          color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                         ),
                         maxLines: 1,
                         minFontSize: 14.sp,
@@ -623,14 +644,14 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                         final isArabic = Localizations.localeOf(context).languageCode == 'ar';
                         if (changeCount >= 1) {
                           return Padding(
-                            padding: EdgeInsets.only(top: 4.h),
+                            padding: const EdgeInsets.only(top: AppSpacing.xs),
                             child: AutoSizeText(
                               isArabic 
                                 ? 'تم تغيير الاسم مرة واحدة (الخطة المجانية)'
                                 : 'Name changed once (Free plan)',
-                              style: GoogleFonts.poppins(
+                              style: AppTypography.bodyS.copyWith(
                                 fontSize: 10.sp,
-                                color: Colors.orange,
+                                color: AppColors.warningDark,
                               ),
                               maxLines: 1,
                               minFontSize: 8.sp,
@@ -655,11 +676,11 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
               // Status Badge
               Flexible(
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                  padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
                   decoration: BoxDecoration(
                     color: isPro
-                        ? AppColors.eagleGold
-                        : Colors.grey.shade700,
+                        ? primaryGold
+                        : (isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
@@ -669,14 +690,15 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                         isPro ? '🥇' : '⚪',
                         style: TextStyle(fontSize: 16.sp),
                       ),
-                      SizedBox(width: 6.w),
+                      const SizedBox(width: AppSpacing.sm),
                       Flexible(
                         child: AutoSizeText(
                           isPro ? l10n.proMember : l10n.freePlan,
-                          style: GoogleFonts.poppins(
+                          style: AppTypography.bodyS.copyWith(
                             fontSize: 12.sp,
-                            fontWeight: FontWeight.w600,
-                            color: isPro ? AppColors.darkSurface : Colors.white,
+                            color: isPro 
+                                ? (isDark ? AppColors.darkSurface : AppColors.lightSurface)
+                                : (isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary),
                           ),
                           maxLines: 1,
                           minFontSize: 10.sp,
@@ -699,9 +721,9 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                     Flexible(
                       child: AutoSizeText(
                         l10n.saveNameToDatabase,
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.bodyS.copyWith(
                           fontSize: 11.sp,
-                          color: Colors.white70,
+                          color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                         ),
                         maxLines: 1,
                         minFontSize: 9.sp,
@@ -709,7 +731,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    SizedBox(width: 8.w),
+                    const SizedBox(width: AppSpacing.sm),
                     Switch(
                       value: _allowNameSync,
                       onChanged: (value) async {
@@ -723,7 +745,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                           await _syncNameToSupabase(_nameController.text.trim());
                         }
                       },
-                      activeThumbColor: AppColors.eagleGold,
+                      activeThumbColor: primaryGold,
                     ),
                   ],
                 ),
@@ -747,7 +769,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
           child: _buildKpiCard(
             context,
             icon: Icons.trending_up,
-            iconColor: Colors.blue,
+            iconColor: AppColors.infoDark,
             title: l10n.readiness,
             value: readinessAsync.when(
               data: (readiness) => '${readiness.overallScore.toStringAsFixed(0)}%',
@@ -763,14 +785,14 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
           ),
         ),
         
-        SizedBox(width: 12.w),
+        const SizedBox(width: AppSpacing.md),
         
         // Card 2: Streak
         Expanded(
           child: _buildKpiCard(
             context,
             icon: Icons.local_fire_department,
-            iconColor: Colors.orange,
+            iconColor: AppColors.warningDark,
             title: l10n.streak,
             value: _isLoadingStats ? '...' : '$_streak',
             subtitle: 'Days',
@@ -778,14 +800,14 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
           ),
         ),
         
-        SizedBox(width: 12.w),
+        const SizedBox(width: AppSpacing.md),
         
         // Card 3: Mastery
         Expanded(
           child: _buildKpiCard(
             context,
             icon: Icons.check_circle,
-            iconColor: Colors.green,
+            iconColor: AppColors.successDark,
             title: l10n.mastery,
             value: _isLoadingStats ? '...' : '$_questionsLearned',
             subtitle: 'Questions',
@@ -806,20 +828,26 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
     double? progress,
     bool showProgress = true,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final borderColor = isDark ? AppColors.darkBorder : AppColors.lightBorder;
+    final bgColor = isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant;
+    
     return Container(
-      padding: EdgeInsets.all(16.w),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       decoration: BoxDecoration(
-        color: AppColors.darkCharcoal,
+        color: surfaceColor,
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          color: Colors.grey.shade800,
+          color: borderColor,
           width: 1,
         ),
       ),
       child: Column(
         children: [
           Icon(icon, color: iconColor, size: 32.sp),
-          SizedBox(height: 12.h),
+          const SizedBox(height: AppSpacing.md),
           if (showProgress && progress != null)
             CircularPercentIndicator(
               radius: 30.r,
@@ -827,36 +855,34 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
               percent: progress.clamp(0.0, 1.0),
               center: AutoSizeText(
                 value,
-                style: GoogleFonts.poppins(
+                style: AppTypography.h2.copyWith(
                   fontSize: 18.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                 ),
                 maxLines: 1,
                 minFontSize: 14.sp,
                 stepGranularity: 1.sp,
               ),
               progressColor: iconColor,
-              backgroundColor: Colors.grey.shade800,
+              backgroundColor: bgColor,
             )
           else
             AutoSizeText(
               value,
-              style: GoogleFonts.poppins(
+              style: AppTypography.h1.copyWith(
                 fontSize: 24.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
               ),
               maxLines: 1,
               minFontSize: 18.sp,
               stepGranularity: 1.sp,
             ),
-          SizedBox(height: 8.h),
+          const SizedBox(height: AppSpacing.sm),
           AutoSizeText(
             title,
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyS.copyWith(
               fontSize: 12.sp,
-              color: Colors.white70,
+              color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
             ),
             maxLines: 1,
             minFontSize: 10.sp,
@@ -864,9 +890,9 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
           ),
           AutoSizeText(
             subtitle,
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyS.copyWith(
               fontSize: 10.sp,
-              color: Colors.white54,
+              color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
             ),
             maxLines: 1,
             minFontSize: 8.sp,
@@ -878,18 +904,22 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
   }
 
   Widget _buildActionSection(BuildContext context, AppLocalizations l10n) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    
     return Container(
-      padding: EdgeInsets.all(20.w),
+      padding: const EdgeInsets.all(AppSpacing.xl),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.eagleGold.withValues(alpha: 0.2),
-            AppColors.eagleGold.withValues(alpha: 0.1),
+            primaryGold.withValues(alpha: 0.2),
+            primaryGold.withValues(alpha: 0.1),
           ],
         ),
         borderRadius: BorderRadius.circular(16.r),
         border: Border.all(
-          color: AppColors.eagleGold,
+          color: primaryGold,
           width: 2,
         ),
       ),
@@ -897,17 +927,16 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
         children: [
           AutoSizeText(
             l10n.upgradeAccount,
-            style: GoogleFonts.poppins(
+            style: AppTypography.h3.copyWith(
               fontSize: 18.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
             ),
             textAlign: TextAlign.center,
             maxLines: 2,
             minFontSize: 16.sp,
             stepGranularity: 1.sp,
           ),
-          SizedBox(height: 12.h),
+          const SizedBox(height: AppSpacing.md),
           ElevatedButton.icon(
             onPressed: () {
               Navigator.push(
@@ -920,31 +949,27 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
             icon: Icon(Icons.star, size: 24.sp),
             label: Text(
               l10n.subscribeToPro,
-              style: GoogleFonts.poppins(
-                fontSize: 16.sp,
-                fontWeight: FontWeight.w600,
-              ),
+              style: AppTypography.button,
             ),
             style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.eagleGold,
-              foregroundColor: AppColors.darkSurface,
-              padding: EdgeInsets.symmetric(
-                horizontal: 32.w,
-                vertical: 16.h,
+              backgroundColor: primaryGold,
+              foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+              padding: const EdgeInsets.symmetric(
+                horizontal: AppSpacing.xxxl,
+                vertical: AppSpacing.lg,
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12.r),
               ),
             ),
           ),
-          SizedBox(height: 8.h),
+          const SizedBox(height: AppSpacing.sm),
           TextButton(
             onPressed: _showLicenseActivationDialog,
             child: Text(
               l10n.orActivateLicense,
-              style: GoogleFonts.poppins(
-                fontSize: 14.sp,
-                color: AppColors.eagleGold,
+              style: AppTypography.bodyM.copyWith(
+                color: primaryGold,
               ),
             ),
           ),
@@ -965,13 +990,12 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: EdgeInsets.only(left: 4.w, bottom: 12.h),
+          padding: const EdgeInsets.only(left: AppSpacing.xs, bottom: AppSpacing.md),
           child: AutoSizeText(
             l10n.settings,
-            style: GoogleFonts.poppins(
+            style: AppTypography.h3.copyWith(
               fontSize: 18.sp,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
             ),
             maxLines: 1,
             minFontSize: 16.sp,
@@ -979,7 +1003,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
           ),
         ),
         Card(
-          color: AppColors.darkCharcoal,
+          color: isDark ? AppColors.darkSurface : AppColors.lightSurface,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(16.r),
           ),
@@ -987,16 +1011,23 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
             children: [
               // Language
               ListTile(
-                leading: const Icon(Icons.language, color: AppColors.eagleGold),
+                leading: Icon(Icons.language, color: isDark ? AppColors.gold : AppColors.goldDark),
                 title: Text(
                   l10n.language,
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                 ),
                 subtitle: Text(
                   _getLanguageName(locale.languageCode, isArabic),
-                  style: GoogleFonts.poppins(color: Colors.white70),
+                  style: AppTypography.bodyM.copyWith(
+                    color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                  ),
                 ),
-                trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+                trailing: Icon(
+                  Icons.chevron_right, 
+                  color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
+                ),
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
@@ -1010,14 +1041,19 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                   );
                 },
               ),
-              Divider(height: 1, color: Colors.grey.shade800),
+              Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
               
               // Federal State
               ListTile(
-                leading: const Icon(Icons.location_on, color: AppColors.eagleGold),
+                leading: Icon(Icons.location_on, color: isDark ? AppColors.gold : AppColors.goldDark),
                 title: Text(
                   l10n.federalState,
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                 ),
                 subtitle: FutureBuilder<String?>(
                   future: UserPreferencesService.getSelectedState(),
@@ -1025,11 +1061,16 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                     final state = snapshot.data ?? (isArabic ? 'غير محدد' : 'Not Set');
                     return Text(
                       state,
-                      style: GoogleFonts.poppins(color: Colors.white70),
+                      style: AppTypography.bodyM.copyWith(
+                        color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                      ),
                     );
                   },
                 ),
-                trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+                trailing: Icon(
+                  Icons.chevron_right, 
+                  color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
+                ),
                 onTap: () {
                   showModalBottomSheet(
                     context: context,
@@ -1043,28 +1084,36 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                   );
                 },
               ),
-              Divider(height: 1, color: Colors.grey.shade800),
+              Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
               
               // Dark Mode
               ListTile(
-                leading: const Icon(Icons.dark_mode, color: AppColors.eagleGold),
+                leading: Icon(Icons.dark_mode, color: isDark ? AppColors.gold : AppColors.goldDark),
                 title: Text(
                   l10n.darkMode,
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                 ),
                 trailing: Switch(
                   value: isDark,
                   onChanged: (value) {
                     ref.read(themeProvider.notifier).toggleTheme();
                   },
-                  activeThumbColor: AppColors.eagleGold,
+                  activeThumbColor: isDark ? AppColors.gold : AppColors.goldDark,
                 ),
               ),
-              Divider(height: 1, color: Colors.grey.shade800),
+              Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
               
               // Speaking Speed (TTS)
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.md),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -1073,37 +1122,33 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                       children: [
                         Row(
                           children: [
-                            Icon(Icons.speed, color: AppColors.eagleGold, size: 24.sp),
-                            SizedBox(width: 12.w),
+                            Icon(Icons.speed, color: isDark ? AppColors.gold : AppColors.goldDark, size: 24.sp),
+                            const SizedBox(width: AppSpacing.md),
                             Text(
                               l10n.speakingSpeed,
-                              style: GoogleFonts.poppins(
-                                color: Colors.white,
-                                fontSize: 16.sp,
-                                fontWeight: FontWeight.w500,
+                              style: AppTypography.bodyL.copyWith(
+                                color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                               ),
                             ),
                           ],
                         ),
                         Text(
                           '${_ttsSpeed.toStringAsFixed(1)}x',
-                          style: GoogleFonts.poppins(
-                            color: AppColors.eagleGold,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
+                          style: AppTypography.bodyL.copyWith(
+                            color: isDark ? AppColors.gold : AppColors.goldDark,
                           ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 12.h),
+                    const SizedBox(height: AppSpacing.md),
                     Slider(
                       value: _ttsSpeed,
                       min: 0.5,
                       max: 2.0,
                       divisions: 15,
                       label: '${_ttsSpeed.toStringAsFixed(1)}x',
-                      activeColor: AppColors.eagleGold,
-                      inactiveColor: Colors.grey.shade700,
+                      activeColor: isDark ? AppColors.gold : AppColors.goldDark,
+                      inactiveColor: isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant,
                       onChanged: (value) {
                         _saveTtsSpeed(value);
                       },
@@ -1111,19 +1156,26 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                   ],
                 ),
               ),
-              Divider(height: 1, color: Colors.grey.shade800),
+              Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
               
               // Daily Reminder
               ListTile(
-                leading: const Icon(Icons.notifications, color: AppColors.eagleGold),
+                leading: Icon(Icons.notifications, color: isDark ? AppColors.gold : AppColors.goldDark),
                 title: Text(
                   l10n.dailyReminder,
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                 ),
                 subtitle: _isReminderEnabled
                     ? Text(
                         '${_reminderTime.hour.toString().padLeft(2, '0')}:${_reminderTime.minute.toString().padLeft(2, '0')}',
-                        style: GoogleFonts.poppins(color: Colors.white70),
+                        style: AppTypography.bodyM.copyWith(
+                          color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                        ),
                       )
                     : null,
                 trailing: Switch(
@@ -1139,7 +1191,7 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                       await NotificationService.cancelNotification(1); // _dailyReminderId
                     }
                   },
-                  activeThumbColor: AppColors.eagleGold,
+                  activeThumbColor: isDark ? AppColors.gold : AppColors.goldDark,
                 ),
                 onTap: _isReminderEnabled
                     ? () async {
@@ -1149,11 +1201,11 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                           builder: (context, child) {
                             return Theme(
                               data: Theme.of(context).copyWith(
-                                colorScheme: const ColorScheme.dark(
-                                  primary: AppColors.eagleGold,
-                                  onPrimary: AppColors.darkSurface,
-                                  surface: AppColors.darkCharcoal,
-                                  onSurface: Colors.white,
+                                colorScheme: ColorScheme.dark(
+                                  primary: isDark ? AppColors.gold : AppColors.goldDark,
+                                  onPrimary: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                                  surface: isDark ? AppColors.darkSurface : AppColors.lightSurface,
+                                  onSurface: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                                 ),
                               ),
                               child: child!,
@@ -1170,16 +1222,24 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                       }
                     : null,
               ),
-              Divider(height: 1, color: Colors.grey.shade800),
+              Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
               
               // Privacy Policy
               ListTile(
-                leading: const Icon(Icons.privacy_tip, color: AppColors.eagleGold),
+                leading: Icon(Icons.privacy_tip, color: isDark ? AppColors.gold : AppColors.goldDark),
                 title: Text(
                   l10n.privacyPolicy,
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                 ),
-                trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+                trailing: Icon(
+                  Icons.chevron_right, 
+                  color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
+                ),
                 onTap: () {
                   Navigator.push(
                     context,
@@ -1189,16 +1249,24 @@ class _ProfileDashboardScreenState extends ConsumerState<ProfileDashboardScreen>
                   );
                 },
               ),
-              Divider(height: 1, color: Colors.grey.shade800),
+              Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
               
               // About App
               ListTile(
-                leading: const Icon(Icons.info_outline, color: AppColors.eagleGold),
+                leading: Icon(Icons.info_outline, color: isDark ? AppColors.gold : AppColors.goldDark),
                 title: Text(
                   l10n.about,
-                  style: GoogleFonts.poppins(color: Colors.white),
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                 ),
-                trailing: const Icon(Icons.chevron_right, color: Colors.grey),
+                trailing: Icon(
+                  Icons.chevron_right, 
+                  color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
+                ),
                 onTap: () {
                   Navigator.push(
                     context,

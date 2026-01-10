@@ -234,8 +234,19 @@ class ExamReadinessCalculator {
   static int _countStudySessionsLast7Days(Map<String, dynamic>? progress) {
     if (progress == null) return 0;
 
-    final dailyStudy = progress['daily_study_seconds'] as Map<String, dynamic>?;
-    if (dailyStudy == null) return 0;
+    // Convert from Map<dynamic, dynamic> to Map<String, dynamic>
+    final dailyStudyRaw = progress['daily_study_seconds'];
+    if (dailyStudyRaw == null) return 0;
+    
+    // Safely convert the map
+    Map<String, dynamic> dailyStudy;
+    if (dailyStudyRaw is Map) {
+      dailyStudy = Map<String, dynamic>.from(
+        dailyStudyRaw.map((key, value) => MapEntry(key.toString(), value)),
+      );
+    } else {
+      return 0;
+    }
 
     final now = DateTime.now();
     int sessionCount = 0;
@@ -277,14 +288,26 @@ class ExamReadinessCalculator {
 
     if (progress == null) return 0.0;
 
-    final answers = progress['answers'] as Map<String, dynamic>?;
+    // Convert Hive's _Map<dynamic, dynamic> to Map<String, dynamic>
+    final answersRaw = progress['answers'];
+    Map<String, dynamic>? answers;
+    if (answersRaw == null) {
+      answers = null;
+    } else if (answersRaw is Map) {
+      answers = Map<String, dynamic>.from(
+        answersRaw.map((key, value) => MapEntry(key.toString(), value)),
+      );
+    } else {
+      answers = null;
+    }
+    
     if (answers == null || answers.isEmpty) return 0.0;
 
     // Simplified approach: Use overall mastery as proxy for state-specific mastery
     // This assumes that if user has good overall mastery, they likely have
     // good state-specific mastery too (since state questions are part of the pool)
     // 
-    // TODO: Enhance to filter by actual state_code when question repository
+    // Note: Future enhancement - filter by actual state_code when question repository
     // is accessible. This would require:
     // 1. Injecting QuestionRepository into the use case
     // 2. Filtering questions by stateCode == selectedState

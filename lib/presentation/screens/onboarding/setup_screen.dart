@@ -10,6 +10,7 @@ import '../main_screen.dart';
 import '../../widgets/app_logo.dart';
 import '../../providers/locale_provider.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
+import '../../../core/theme/app_colors.dart';
 
 /// -----------------------------------------------------------------
 /// 🎯 SETUP SCREEN / EINRICHTUNGSBILDSCHIRM / شاشة الإعداد
@@ -181,6 +182,8 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
           );
           // Continue anyway - app works offline, but show warning to user
           if (mounted) {
+            final theme = Theme.of(context);
+            final isDark = theme.brightness == Brightness.dark;
             ScaffoldMessenger.of(context).showSnackBar(
               SnackBar(
                 content: Text(
@@ -188,7 +191,7 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                     ? 'تم حفظ الإعدادات محلياً. قد لا يتم حفظ الحساب في السحابة.'
                     : 'Settings saved locally. Account may not be saved to cloud.',
                 ),
-                backgroundColor: Colors.orange,
+                backgroundColor: isDark ? AppColors.warningDark : AppColors.warningLight,
                 duration: const Duration(seconds: 3),
               ),
             );
@@ -214,12 +217,14 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
       
       // Show error dialog
       if (mounted) {
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
               isArabic ? 'فشل الإعداد. يرجى المحاولة مرة أخرى.' : 'Setup failed. Please try again.',
             ),
-            backgroundColor: Colors.red,
+            backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
             duration: const Duration(seconds: 3),
           ),
         );
@@ -529,6 +534,9 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
   }
 
   Widget _buildExamDatePage(AppLocalizations? l10n, bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    
     return Padding(
       padding: EdgeInsets.all(24.w),
       child: Column(
@@ -577,8 +585,8 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
                             style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                               fontSize: 16.sp,
                               color: _selectedExamDate != null 
-                                ? Colors.black 
-                                : Colors.grey,
+                                ? (isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary)
+                                : (isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary),
                             ),
                             maxLines: 1,
                           ),
@@ -598,6 +606,8 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
   }
 
   Widget _buildDonePage(AppLocalizations? l10n, bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final selectedStateName = _germanStates
         .firstWhere((s) => s['code'] == _selectedState, orElse: () => {'name': ''})['name'];
     
@@ -609,7 +619,7 @@ class _SetupScreenState extends ConsumerState<SetupScreen> {
           Icon(
             Icons.check_circle,
             size: 80.sp,
-            color: Colors.green,
+            color: isDark ? AppColors.successDark : AppColors.successLight,
           ),
           SizedBox(height: 32.h),
           AutoSizeText(

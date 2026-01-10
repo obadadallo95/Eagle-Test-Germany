@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../domain/entities/question.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/services/ai_tutor_service.dart';
 import '../../../core/services/sync_service.dart';
@@ -175,11 +176,12 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
     }
   }
 
-  Future<void> _showAiExplanation(BuildContext context, Question question) async {
+  Future<void> _showAiExplanation(BuildContext context, Question question, bool isDark, Color primaryGold) async {
     final l10n = AppLocalizations.of(context)!;
     final currentLocale = ref.read(localeProvider);
     final userLanguage = currentLocale.languageCode;
     final isArabic = userLanguage == 'ar';
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
 
     // Check if user is Pro
     final subscriptionState = ref.read(subscriptionProvider);
@@ -197,20 +199,18 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
           builder: (context) {
             final theme = Theme.of(context);
             return AlertDialog(
-              backgroundColor: theme.cardTheme.color,
+              backgroundColor: surfaceColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.r),
               ),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
-                  SizedBox(width: 12.w),
+                  Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp),
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: Text(
                       l10n.upgradeToPro,
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
+                      style: AppTypography.h3.copyWith(
                         color: theme.colorScheme.onSurface,
                       ),
                       maxLines: 1,
@@ -221,9 +221,8 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
               ),
             content: Text(
               l10n.aiTutorDailyLimitReached,
-              style: GoogleFonts.poppins(
-                fontSize: 14.sp,
-                color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+              style: AppTypography.bodyM.copyWith(
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
               ),
             ),
               actions: [
@@ -231,8 +230,8 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n.cancel,
-                    style: GoogleFonts.poppins(
-                      color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
+                    style: AppTypography.button.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                     ),
                   ),
                 ),
@@ -247,12 +246,12 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: primaryGold,
+                    foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   ),
                   child: Text(
                     l10n.upgrade,
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -278,6 +277,8 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
         userLanguage: userLanguage,
         isArabic: isArabic,
         l10n: l10n,
+        isDark: isDark,
+        primaryGold: primaryGold,
       ),
     );
   }
@@ -315,14 +316,16 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
     final timeString = '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
 
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
     
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           isArabic ? 'نتيجة الامتحان' : 'Exam Results',
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h2.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -335,46 +338,44 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
           children: [
             // Result Card
             Card(
-              color: isPassed ? Colors.green.withValues(alpha: 0.2) : Colors.red.withValues(alpha: 0.2),
+              color: isPassed ? AppColors.successDark.withValues(alpha: 0.2) : AppColors.errorDark.withValues(alpha: 0.2),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.r),
                 side: BorderSide(
-                  color: isPassed ? Colors.green : Colors.red,
+                  color: isPassed ? AppColors.successDark : AppColors.errorDark,
                   width: 2.w,
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.all(24.w),
+                padding: const EdgeInsets.all(AppSpacing.xxl),
                 child: Column(
                   children: [
                     Icon(
                       isPassed ? Icons.check_circle : Icons.cancel,
                       size: 80.sp,
-                      color: isPassed ? Colors.green : Colors.red,
+                      color: isPassed ? AppColors.successDark : AppColors.errorDark,
                     ),
-                    SizedBox(height: 16.h),
+                    const SizedBox(height: AppSpacing.lg),
                     AutoSizeText(
                       isPassed 
                           ? (isArabic ? 'نجحت!' : 'Passed!')
                           : (isArabic ? 'لم تنجح' : 'Failed'),
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.h1.copyWith(
                         fontSize: 32.sp,
-                        fontWeight: FontWeight.bold,
-                        color: isPassed ? Colors.green : Colors.red,
+                        color: isPassed ? AppColors.successDark : AppColors.errorDark,
                       ),
                       maxLines: 1,
                     ),
-                    SizedBox(height: 8.h),
+                    const SizedBox(height: AppSpacing.sm),
                     AutoSizeText(
                       '$scorePercentage%',
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.h1.copyWith(
                         fontSize: 48.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       maxLines: 1,
                     ),
-                    SizedBox(height: 16.h),
+                    const SizedBox(height: AppSpacing.lg),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
@@ -383,21 +384,24 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
                           icon: Icons.check_circle,
                           label: isArabic ? 'صحيح' : 'Correct',
                           value: '$correctCount',
-                          color: Colors.green,
+                          color: AppColors.successDark,
+                          isDark: isDark,
                         ),
                         _buildStatItem(
                           context,
                           icon: Icons.cancel,
                           label: isArabic ? 'خطأ' : 'Wrong',
                           value: '$wrongCount',
-                          color: Colors.red,
+                          color: AppColors.errorDark,
+                          isDark: isDark,
                         ),
                         _buildStatItem(
                           context,
                           icon: Icons.timer,
                           label: isArabic ? 'الوقت' : 'Time',
                           value: timeString,
-                          color: AppColors.eagleGold,
+                          color: primaryGold,
+                          isDark: isDark,
                         ),
                       ],
                     ),
@@ -406,7 +410,7 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
               ),
             ),
 
-            SizedBox(height: 24.h),
+            const SizedBox(height: AppSpacing.xxl),
 
             // Translation Toggle
             if (wrongQuestions.isNotEmpty) ...[
@@ -416,18 +420,17 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
                   Icon(
                     Icons.translate,
                     size: 18.sp,
-                    color: _showTranslation ? AppColors.eagleGold : Colors.white54,
+                    color: _showTranslation ? primaryGold : (isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary),
                   ),
-                  SizedBox(width: 8.w),
+                  const SizedBox(width: AppSpacing.sm),
                   AutoSizeText(
                     isArabic ? 'عرض الترجمة' : 'Show Translation',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      color: Colors.white70,
+                    style: AppTypography.bodyM.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                     ),
                     maxLines: 1,
                   ),
-                  SizedBox(width: 8.w),
+                  const SizedBox(width: AppSpacing.sm),
                   Switch(
                     value: _showTranslation,
                     onChanged: (value) {
@@ -435,119 +438,108 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
                         _showTranslation = value;
                       });
                     },
-                    activeThumbColor: AppColors.eagleGold,
-                    activeTrackColor: AppColors.eagleGold.withValues(alpha: 0.5),
-                    inactiveThumbColor: Colors.grey,
-                    inactiveTrackColor: Colors.grey.withValues(alpha: 0.3),
+                    activeThumbColor: primaryGold,
                   ),
                 ],
               ),
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
             ],
 
             // Wrong Answers Section
             if (wrongQuestions.isNotEmpty) ...[
               AutoSizeText(
                 isArabic ? 'الأجوبة الخاطئة' : 'Wrong Answers',
-                style: GoogleFonts.poppins(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                style: AppTypography.h3.copyWith(
+                  color: theme.colorScheme.onSurface,
                 ),
                 maxLines: 1,
               ),
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
               ...wrongQuestions.map((question) {
                 final userAnswer = widget.userAnswers[question.id];
                 return Card(
-                  color: AppColors.darkSurface,
-                  margin: EdgeInsets.only(bottom: 12.h),
+                  color: surfaceColor,
+                  margin: const EdgeInsets.only(bottom: AppSpacing.md),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
                     side: BorderSide(
-                      color: Colors.red.withValues(alpha: 0.3),
+                      color: AppColors.errorDark.withValues(alpha: 0.3),
                       width: 1,
                     ),
                   ),
                   child: Padding(
-                    padding: EdgeInsets.all(16.w),
+                    padding: const EdgeInsets.all(AppSpacing.lg),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           AutoSizeText(
                             question.getText(_showTranslation ? currentLocale.languageCode : 'de'),
-                            style: GoogleFonts.poppins(
-                              fontSize: 14.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                            style: AppTypography.h4.copyWith(
+                              color: theme.colorScheme.onSurface,
                             ),
                             maxLines: 3,
                           ),
-                          SizedBox(height: 12.h),
+                          const SizedBox(height: AppSpacing.md),
                           Row(
                             children: [
-                              Icon(Icons.close, size: 16.sp, color: Colors.red),
-                              SizedBox(width: 8.w),
+                              Icon(Icons.close, size: 16.sp, color: AppColors.errorDark),
+                              const SizedBox(width: AppSpacing.sm),
                               Expanded(
                                 child: AutoSizeText(
                                   '${isArabic ? 'إجابتك' : 'Your answer'}: ${userAnswer != null ? question.answers.firstWhere((a) => a.id == userAnswer, orElse: () => question.answers.first).getText(_showTranslation ? currentLocale.languageCode : 'de') : 'N/A'}',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12.sp,
-                                    color: Colors.red.shade300,
+                                  style: AppTypography.bodyS.copyWith(
+                                    color: AppColors.errorDark,
                                   ),
                                   maxLines: 2,
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 8.h),
+                          const SizedBox(height: AppSpacing.sm),
                           Row(
                             children: [
-                              Icon(Icons.check, size: 16.sp, color: Colors.green),
-                              SizedBox(width: 8.w),
+                              Icon(Icons.check, size: 16.sp, color: AppColors.successDark),
+                              const SizedBox(width: AppSpacing.sm),
                               Expanded(
                                 child: AutoSizeText(
                                   '${isArabic ? 'الإجابة الصحيحة' : 'Correct answer'}: ${question.answers.firstWhere((a) => a.id == question.correctAnswerId).getText(_showTranslation ? currentLocale.languageCode : 'de')}',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12.sp,
-                                    color: Colors.green.shade300,
+                                  style: AppTypography.bodyS.copyWith(
+                                    color: AppColors.successDark,
                                   ),
                                   maxLines: 2,
                                 ),
                               ),
                             ],
                           ),
-                          SizedBox(height: 12.h),
+                          const SizedBox(height: AppSpacing.md),
                           // AI Explain Button
                           SizedBox(
                             width: double.infinity,
                             child: OutlinedButton.icon(
-                              onPressed: () => _showAiExplanation(context, question),
+                              onPressed: () => _showAiExplanation(context, question, isDark, primaryGold),
                               icon: Icon(
                                 Icons.auto_awesome,
                                 size: 18.sp,
-                                color: AppColors.eagleGold,
+                                color: primaryGold,
                               ),
                               label: AutoSizeText(
                                 l10n.explainWithAi,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12.sp,
-                                  color: AppColors.eagleGold,
-                                  fontWeight: FontWeight.w600,
+                                style: AppTypography.bodyS.copyWith(
+                                  color: primaryGold,
                                 ),
                                 maxLines: 1,
                               ),
                               style: OutlinedButton.styleFrom(
                                 side: BorderSide(
-                                  color: AppColors.eagleGold.withValues(alpha: 0.5),
+                                  color: primaryGold.withValues(alpha: 0.5),
                                   width: 1,
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(8.r),
                                 ),
-                                padding: EdgeInsets.symmetric(
-                                  vertical: 8.h,
-                                  horizontal: 12.w,
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: AppSpacing.sm,
+                                  horizontal: AppSpacing.md,
                                 ),
                               ),
                             ),
@@ -559,7 +551,7 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
               }),
             ],
 
-            SizedBox(height: 24.h),
+            const SizedBox(height: AppSpacing.xxl),
 
             // Review Answers Button
             ElevatedButton.icon(
@@ -596,28 +588,25 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
               },
               icon: Icon(
                 Icons.rate_review,
-                size: 24.sp,
-                color: Colors.black,
+                size: AppSpacing.iconLg,
+                color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
               ),
               label: AutoSizeText(
                 l10n.reviewAnswers,
-                style: GoogleFonts.poppins(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: AppTypography.button,
                 maxLines: 1,
               ),
               style: ElevatedButton.styleFrom(
-                backgroundColor: AppColors.eagleGold,
+                backgroundColor: primaryGold,
                 foregroundColor: Colors.black,
-                padding: EdgeInsets.symmetric(vertical: 16.h),
+                padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
               ),
             ),
 
-            SizedBox(height: 12.h),
+            const SizedBox(height: AppSpacing.md),
 
             // Back to Home Button
             OutlinedButton(
@@ -631,20 +620,18 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
               },
               style: OutlinedButton.styleFrom(
                 side: BorderSide(
-                  color: AppColors.eagleGold.withValues(alpha: 0.5),
+                  color: primaryGold.withValues(alpha: 0.5),
                   width: 1,
                 ),
-                padding: EdgeInsets.symmetric(vertical: 16.h),
+                padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12.r),
                 ),
               ),
               child: AutoSizeText(
                 isArabic ? 'العودة للرئيسية' : 'Back to Home',
-                style: GoogleFonts.poppins(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: AppColors.eagleGold,
+                style: AppTypography.button.copyWith(
+                  color: primaryGold,
                 ),
                 maxLines: 1,
               ),
@@ -661,25 +648,24 @@ class _ExamResultScreenState extends ConsumerState<ExamResultScreen> {
     required String label,
     required String value,
     required Color color,
+    required bool isDark,
   }) {
+    final theme = Theme.of(context);
     return Column(
       children: [
         Icon(icon, color: color, size: 24.sp),
-        SizedBox(height: 4.h),
+        const SizedBox(height: AppSpacing.xs),
         AutoSizeText(
           value,
-          style: GoogleFonts.poppins(
-            fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+          style: AppTypography.h2.copyWith(
+            color: theme.colorScheme.onSurface,
           ),
           maxLines: 1,
         ),
         AutoSizeText(
           label,
-          style: GoogleFonts.poppins(
-            fontSize: 12.sp,
-            color: Colors.white70,
+          style: AppTypography.bodyS.copyWith(
+            color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
           ),
           maxLines: 1,
         ),
@@ -694,12 +680,16 @@ class _AiExplanationBottomSheet extends StatefulWidget {
   final String userLanguage;
   final bool isArabic;
   final AppLocalizations? l10n;
+  final bool isDark;
+  final Color primaryGold;
 
   const _AiExplanationBottomSheet({
     required this.question,
     required this.userLanguage,
     required this.isArabic,
     required this.l10n,
+    required this.isDark,
+    required this.primaryGold,
   });
 
   @override
@@ -756,10 +746,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final surfaceColor = widget.isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
       decoration: BoxDecoration(
-        color: AppColors.darkSurface,
+        color: surfaceColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24.r),
           topRight: Radius.circular(24.r),
@@ -787,9 +779,8 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                     SizedBox(height: 24.h),
                     Text(
                       widget.l10n?.aiThinking ?? 'AI is thinking...',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white70,
-                        fontSize: 14.sp,
+                      style: AppTypography.bodyM.copyWith(
+                        color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                       ),
                     ),
                   ],
@@ -808,40 +799,37 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.error_outline, color: Colors.red, size: 48.sp),
-                    SizedBox(height: 16.h),
+                    Icon(Icons.error_outline, color: AppColors.errorDark, size: 48.sp),
+                    const SizedBox(height: AppSpacing.lg),
                     Text(
                       widget.l10n?.errorLoadingExplanation ?? 'Error loading explanation',
-                      style: GoogleFonts.poppins(
-                        color: Colors.white,
-                        fontSize: 16.sp,
-                        fontWeight: FontWeight.bold,
+                      style: AppTypography.h4.copyWith(
+                        color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       textAlign: TextAlign.center,
                     ),
-                    SizedBox(height: 12.h),
+                    const SizedBox(height: AppSpacing.md),
                     Text(
                       errorMessage.length > 100 
                           ? '${errorMessage.substring(0, 100)}...' 
                           : errorMessage,
-                      style: GoogleFonts.poppins(
-                        color: Colors.white70,
-                        fontSize: 12.sp,
+                      style: AppTypography.bodyS.copyWith(
+                        color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 3,
                       overflow: TextOverflow.ellipsis,
                     ),
-                    SizedBox(height: 24.h),
+                    const SizedBox(height: AppSpacing.xxl),
                     ElevatedButton.icon(
                       onPressed: _refreshExplanation,
                       icon: Icon(Icons.refresh, size: 18.sp),
                       label: Text(
                         widget.isArabic ? 'إعادة المحاولة' : 'Retry',
-                        style: GoogleFonts.poppins(fontSize: 14.sp),
+                        style: AppTypography.button,
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.eagleGold,
+                        backgroundColor: widget.primaryGold,
                         foregroundColor: Colors.black,
                       ),
                     ),
@@ -854,18 +842,18 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
             return Container(
               decoration: BoxDecoration(
-                color: AppColors.darkSurface.withValues(alpha: 0.95),
+                color: surfaceColor.withValues(alpha: 0.95),
                 borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(24.r),
                   topRight: Radius.circular(24.r),
                 ),
                 border: Border.all(
-                  color: AppColors.eagleGold.withValues(alpha: 0.3),
+                  color: widget.primaryGold.withValues(alpha: 0.3),
                   width: 2.w,
                 ),
               ),
               child: Padding(
-                padding: EdgeInsets.all(24.w),
+                padding: const EdgeInsets.all(AppSpacing.xxl),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -875,17 +863,15 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                       children: [
                         Icon(
                           Icons.auto_awesome,
-                          color: AppColors.eagleGold,
+                          color: widget.primaryGold,
                           size: 28.sp,
                         ),
-                        SizedBox(width: 12.w),
+                        const SizedBox(width: AppSpacing.md),
                         Expanded(
                           child: Text(
                             widget.l10n?.aiExplanation ?? 'AI Explanation',
-                            style: GoogleFonts.poppins(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            style: AppTypography.h3.copyWith(
+                              color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                             ),
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -893,51 +879,45 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                         ),
                         IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: const Icon(Icons.close, color: Colors.white70),
+                          icon: Icon(
+                            Icons.close, 
+                            color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 24.h),
+                    const SizedBox(height: AppSpacing.xxl),
                     // Explanation with Markdown
                     Flexible(
                       child: SingleChildScrollView(
                         child: MarkdownBody(
                           data: explanation,
                           styleSheet: MarkdownStyleSheet(
-                            p: GoogleFonts.poppins(
-                              fontSize: 16.sp,
-                              color: Colors.white,
+                            p: AppTypography.bodyL.copyWith(
                               height: 1.6,
+                              color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                             ),
-                            strong: GoogleFonts.poppins(
-                              fontSize: 16.sp,
+                            strong: AppTypography.bodyL.copyWith(
                               fontWeight: FontWeight.bold,
-                              color: AppColors.eagleGold,
+                              color: widget.primaryGold,
                             ),
-                            h1: GoogleFonts.poppins(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            h1: AppTypography.h1.copyWith(
+                              color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                             ),
-                            h2: GoogleFonts.poppins(
-                              fontSize: 18.sp,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
+                            h2: AppTypography.h2.copyWith(
+                              color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                             ),
-                            h3: GoogleFonts.poppins(
-                              fontSize: 16.sp,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.white,
+                            h3: AppTypography.h3.copyWith(
+                              color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                             ),
-                            listBullet: GoogleFonts.poppins(
-                              fontSize: 16.sp,
-                              color: AppColors.eagleGold,
+                            listBullet: AppTypography.bodyL.copyWith(
+                              color: widget.primaryGold,
                             ),
                           ),
                         ),
                       ),
                     ),
-                    SizedBox(height: 16.h),
+                    const SizedBox(height: AppSpacing.lg),
                     // Action Buttons (Copy & Share)
                     Row(
                       children: [
@@ -949,9 +929,9 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                                 SnackBar(
                                   content: Text(
                                     widget.isArabic ? 'تم النسخ!' : 'Copied!',
-                                    style: GoogleFonts.poppins(),
+                                    style: AppTypography.button,
                                   ),
-                                  backgroundColor: AppColors.eagleGold,
+                                  backgroundColor: widget.primaryGold,
                                   duration: const Duration(seconds: 2),
                                 ),
                               );
@@ -959,30 +939,28 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                             icon: Icon(
                               Icons.copy,
                               size: 18.sp,
-                              color: AppColors.eagleGold,
+                              color: widget.primaryGold,
                             ),
                             label: Text(
                               widget.isArabic ? 'نسخ' : 'Copy',
-                              style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                color: AppColors.eagleGold,
-                                fontWeight: FontWeight.w600,
+                              style: AppTypography.button.copyWith(
+                                color: widget.primaryGold,
                               ),
                               maxLines: 1,
                             ),
                             style: OutlinedButton.styleFrom(
                               side: BorderSide(
-                                color: AppColors.eagleGold.withValues(alpha: 0.5),
+                                color: widget.primaryGold.withValues(alpha: 0.5),
                                 width: 1,
                               ),
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
-                              padding: EdgeInsets.symmetric(vertical: 12.h),
+                              padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                             ),
                           ),
                         ),
-                        SizedBox(width: 12.w),
+                        const SizedBox(width: AppSpacing.md),
                         Expanded(
                           child: ElevatedButton.icon(
                             onPressed: () {
@@ -993,27 +971,29 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                                     : 'Explanation from Eagle AI Tutor',
                               );
                             },
-                            icon: Icon(
-                              Icons.share,
-                              size: 18.sp,
-                              color: Colors.black,
+                            icon: Builder(
+                              builder: (context) {
+                                final theme = Theme.of(context);
+                                final isDark = theme.brightness == Brightness.dark;
+                                return Icon(
+                                  Icons.share,
+                                  size: AppSpacing.iconMd,
+                                  color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                                );
+                              },
                             ),
                             label: Text(
                               widget.isArabic ? 'مشاركة' : 'Share',
-                              style: GoogleFonts.poppins(
-                                fontSize: 14.sp,
-                                color: Colors.black,
-                                fontWeight: FontWeight.w600,
-                              ),
+                              style: AppTypography.button,
                               maxLines: 1,
                             ),
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.eagleGold,
-                              foregroundColor: Colors.black,
+                              backgroundColor: widget.primaryGold,
+                              foregroundColor: widget.isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(12.r),
                               ),
-                              padding: EdgeInsets.symmetric(vertical: 12.h),
+                              padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                             ),
                           ),
                         ),
@@ -1049,8 +1029,8 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
             child: Container(
               width: 12.w,
               height: 12.w,
-              decoration: const BoxDecoration(
-                color: AppColors.eagleGold,
+              decoration: BoxDecoration(
+                color: widget.primaryGold,
                 shape: BoxShape.circle,
               ),
             ),

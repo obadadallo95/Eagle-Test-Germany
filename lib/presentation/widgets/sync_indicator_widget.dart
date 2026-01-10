@@ -95,6 +95,9 @@ class _SyncIndicatorWidgetState extends ConsumerState<SyncIndicatorWidget> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
     
     // COMPLETELY HIDE for Free users - no icon at all
     if (!_isInitialized || !_isPro || !SyncService.isAvailable) {
@@ -110,7 +113,7 @@ class _SyncIndicatorWidgetState extends ConsumerState<SyncIndicatorWidget> {
         height: 20.h,
         child: CircularProgressIndicator(
           strokeWidth: 2,
-          valueColor: AlwaysStoppedAnimation<Color>(AppColors.eagleGold),
+          valueColor: AlwaysStoppedAnimation<Color>(primaryGold),
         ),
       );
       tooltip = l10n?.syncingProgress ?? 'Syncing progress...';
@@ -118,7 +121,7 @@ class _SyncIndicatorWidgetState extends ConsumerState<SyncIndicatorWidget> {
       iconWidget = Icon(
         Icons.cloud_done,
         size: 20.sp,
-        color: AppColors.eagleGold,
+        color: primaryGold,
       );
       tooltip = l10n?.progressSynced ?? 'Progress synced';
     } else {
@@ -126,7 +129,7 @@ class _SyncIndicatorWidgetState extends ConsumerState<SyncIndicatorWidget> {
       iconWidget = Icon(
         Icons.cloud,
         size: 20.sp,
-        color: AppColors.eagleGold.withValues(alpha: 0.7),
+        color: primaryGold.withValues(alpha: 0.7),
       );
       tooltip = l10n?.cloudSync ?? 'Cloud sync';
     }

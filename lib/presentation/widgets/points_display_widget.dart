@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_typography.dart';
 import '../providers/points_provider.dart';
 
 /// Widget لعرض النقاط في AppBar
@@ -14,6 +14,9 @@ class PointsDisplayWidget extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final totalPoints = ref.watch(totalPointsProvider);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
 
     return FadeInRight(
       duration: const Duration(milliseconds: 500),
@@ -22,15 +25,15 @@ class PointsDisplayWidget extends ConsumerWidget {
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [
-              AppColors.eagleGold.withValues(alpha: 0.2),
-              AppColors.eagleGold.withValues(alpha: 0.1),
+              primaryGold.withValues(alpha: 0.2),
+              primaryGold.withValues(alpha: 0.1),
             ],
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
           ),
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
-            color: AppColors.eagleGold.withValues(alpha: 0.4),
+            color: primaryGold.withValues(alpha: 0.4),
             width: 1.5,
           ),
         ),
@@ -40,17 +43,16 @@ class PointsDisplayWidget extends ConsumerWidget {
             // أيقونة النقاط
             Icon(
               Icons.stars_rounded,
-              color: AppColors.eagleGold,
+              color: primaryGold,
               size: 20.sp,
             ),
             SizedBox(width: 6.w),
             // عدد النقاط
             Text(
               _formatPoints(totalPoints),
-              style: GoogleFonts.poppins(
-                fontSize: 16.sp,
+              style: AppTypography.bodyL.copyWith(
                 fontWeight: FontWeight.bold,
-                color: AppColors.eagleGold,
+                color: primaryGold,
                 letterSpacing: 0.5,
               ),
             ),

@@ -6,17 +6,17 @@ void main() async {
   final inputFile = File('assets/data/questions_general.json');
   
   if (!await inputFile.exists()) {
-    print('Error: File not found: ${inputFile.path}');
+    stdout.writeln('Error: File not found: ${inputFile.path}');
     exit(1);
   }
 
-  print('Reading ${inputFile.path}...');
+  stdout.writeln('Reading ${inputFile.path}...');
   
   // Read and parse JSON
   final jsonString = await inputFile.readAsString();
   final List<dynamic> questions = jsonDecode(jsonString);
   
-  print('Found ${questions.length} questions\n');
+  stdout.writeln('Found ${questions.length} questions\n');
   
   // Group questions by topic
   final Map<String, List<dynamic>> groupedQuestions = {};
@@ -50,7 +50,7 @@ void main() async {
   }
   
   // Write each topic group to its own file
-  print('Generating topic files...\n');
+  stdout.writeln('Generating topic files...\n');
   
   for (var entry in groupedQuestions.entries) {
     final topic = entry.key;
@@ -65,13 +65,13 @@ void main() async {
     const jsonEncoder = JsonEncoder.withIndent('  ');
     await outputFile.writeAsString(jsonEncoder.convert(topicQuestions));
     
-    print('✓ ${fileName.padRight(25)} : ${topicQuestions.length.toString().padLeft(3)} questions');
+    stdout.writeln('✓ ${fileName.padRight(25)} : ${topicQuestions.length.toString().padLeft(3)} questions');
   }
-  
+
   // Print summary
-  print('\n${'=' * 50}');
-  print('Summary:');
-  print('=' * 50);
+  stdout.writeln('\n${'=' * 50}');
+  stdout.writeln('Summary:');
+  stdout.writeln('=' * 50);
   
   int total = 0;
   for (var entry in groupedQuestions.entries) {
@@ -79,19 +79,19 @@ void main() async {
     final count = entry.value.length;
     total += count;
     final percentage = (count / questions.length * 100).toStringAsFixed(1);
-    print('${topic.padRight(15)} : ${count.toString().padLeft(3)} questions ($percentage%)');
+    stdout.writeln('${topic.padRight(15)} : ${count.toString().padLeft(3)} questions ($percentage%)');
   }
   
-  print('-' * 50);
-  print('${'Total'.padRight(15)} : ${total.toString().padLeft(3)} questions');
-  print('=' * 50);
+  stdout.writeln('-' * 50);
+  stdout.writeln('${'Total'.padRight(15)} : ${total.toString().padLeft(3)} questions');
+  stdout.writeln('=' * 50);
   
   if (total != questions.length) {
-    print('\n⚠ Warning: Total count mismatch!');
-    print('   Expected: ${questions.length}');
-    print('   Found: $total');
+    stdout.writeln('\n⚠ Warning: Total count mismatch!');
+    stdout.writeln('   Expected: ${questions.length}');
+    stdout.writeln('   Found: $total');
   } else {
-    print('\n✓ All questions processed successfully!');
+    stdout.writeln('\n✓ All questions processed successfully!');
   }
 }
 

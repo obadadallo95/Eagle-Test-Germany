@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_typography.dart';
+import '../../core/theme/app_spacing.dart';
 import '../providers/locale_provider.dart';
 import '../widgets/points_display_widget.dart';
 import '../widgets/sync_indicator_widget.dart';
@@ -56,6 +56,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
 
   Future<bool> _onWillPop() async {
     final now = DateTime.now();
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     
     // إذا كانت هذه أول مرة أو مر أكثر من ثانيتين
     if (_lastBackPressTime == null || 
@@ -70,9 +71,11 @@ class _MainScreenState extends ConsumerState<MainScreen> {
         SnackBar(
           content: Text(
             isArabic ? 'اضغط مرة أخرى للخروج' : 'Press back again to exit',
-            style: TextStyle(color: Colors.white, fontSize: 14.sp),
+            style: AppTypography.bodyM.copyWith(
+              color: isDark ? AppColors.darkTextPrimary : AppColors.lightBg,
+            ),
           ),
-          backgroundColor: AppColors.darkSurface,
+          backgroundColor: isDark ? AppColors.darkSurface : AppColors.lightTextPrimary,
           duration: const Duration(seconds: 2),
           behavior: SnackBarBehavior.floating,
         ),
@@ -104,6 +107,8 @@ class _MainScreenState extends ConsumerState<MainScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
 
     return PopScope(
       canPop: false,
@@ -118,7 +123,7 @@ class _MainScreenState extends ConsumerState<MainScreen> {
       child: Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: false,
-          backgroundColor: Theme.of(context).appBarTheme.backgroundColor,
+          backgroundColor: theme.appBarTheme.backgroundColor,
           elevation: 0,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -126,85 +131,87 @@ class _MainScreenState extends ConsumerState<MainScreen> {
               // العنوان (يمكن تخصيصه حسب الشاشة)
               Text(
                 _getAppBarTitle(_currentIndex, l10n),
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20.sp,
-                  color: Theme.of(context).colorScheme.onSurface,
+                style: AppTypography.h2.copyWith(
+                  color: theme.colorScheme.onSurface,
                 ),
               ),
               // عرض النقاط ومؤشر المزامنة
-              Row(
+              const Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const SyncIndicatorWidget(),
-                  SizedBox(width: 8.w),
-                  const PointsDisplayWidget(),
+                  SyncIndicatorWidget(),
+                  SizedBox(width: AppSpacing.sm),
+                  PointsDisplayWidget(),
                 ],
               ),
             ],
           ),
         ),
         body: _screens[_currentIndex],
-      bottomNavigationBar: Builder(
-        builder: (context) {
-          final theme = Theme.of(context);
-          final isDark = theme.brightness == Brightness.dark;
-          
-          return NavigationBar(
-            selectedIndex: _currentIndex,
-            onDestinationSelected: (index) {
-              if (mounted) {
-                // إذا تم التبديل إلى Dashboard، قم بتحديثه
-                if (index == 0 && _currentIndex != 0) {
-                  _refreshDashboard();
-                }
-                setState(() {
-                  _currentIndex = index;
-                });
+        bottomNavigationBar: NavigationBar(
+          selectedIndex: _currentIndex,
+          onDestinationSelected: (index) {
+            if (mounted) {
+              // إذا تم التبديل إلى Dashboard، قم بتحديثه
+              if (index == 0 && _currentIndex != 0) {
+                _refreshDashboard();
               }
-            },
-            backgroundColor: isDark ? AppColors.darkSurface : Colors.white,
-            indicatorColor: AppColors.eagleGold.withValues(alpha: 0.2),
-            labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
-            destinations: [
-              NavigationDestination(
-                icon: Icon(
-                  Icons.dashboard_outlined,
-                  color: isDark ? Colors.grey.shade400 : Colors.grey.shade600,
-                ),
-                selectedIcon: const Icon(Icons.dashboard, color: AppColors.eagleGold),
-                label: l10n?.dashboard ?? 'Dashboard',
+              setState(() {
+                _currentIndex = index;
+              });
+            }
+          },
+          backgroundColor: isDark ? AppColors.darkBg : AppColors.lightBg,
+          indicatorColor: AppColors.gold.withValues(alpha: 0.2),
+          labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
+          destinations: [
+            NavigationDestination(
+              icon: Icon(
+                Icons.dashboard_outlined,
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
               ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.school_outlined,
-                  color: isDark ? Colors.grey.shade400 : Colors.grey.shade600,
-                ),
-                selectedIcon: const Icon(Icons.school, color: AppColors.eagleGold),
-                label: l10n?.learn ?? 'Learn',
+              selectedIcon: Icon(
+                Icons.dashboard,
+                color: isDark ? AppColors.gold : AppColors.goldDark,
               ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.assignment_outlined,
-                  color: isDark ? Colors.grey.shade400 : Colors.grey.shade600,
-                ),
-                selectedIcon: const Icon(Icons.assignment, color: AppColors.eagleGold),
-                label: l10n?.examMode ?? 'Exam',
+              label: l10n?.dashboard ?? 'Dashboard',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.school_outlined,
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
               ),
-              NavigationDestination(
-                icon: Icon(
-                  Icons.person_outline,
-                  color: isDark ? Colors.grey.shade400 : Colors.grey.shade600,
-                ),
-                selectedIcon: const Icon(Icons.person, color: AppColors.eagleGold),
-                label: l10n?.settings ?? 'Profile',
+              selectedIcon: Icon(
+                Icons.school,
+                color: isDark ? AppColors.gold : AppColors.goldDark,
               ),
-            ],
-          );
-        },
-      ),
+              label: l10n?.learn ?? 'Learn',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.assignment_outlined,
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+              ),
+              selectedIcon: Icon(
+                Icons.assignment,
+                color: isDark ? AppColors.gold : AppColors.goldDark,
+              ),
+              label: l10n?.examMode ?? 'Exam',
+            ),
+            NavigationDestination(
+              icon: Icon(
+                Icons.person_outline,
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+              ),
+              selectedIcon: Icon(
+                Icons.person,
+                color: isDark ? AppColors.gold : AppColors.goldDark,
+              ),
+              label: l10n?.settings ?? 'Profile',
+            ),
+          ],
+        ),
       ),
     );
   }
 }
-

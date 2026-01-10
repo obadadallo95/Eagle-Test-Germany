@@ -1068,4 +1068,85 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get cloudSync => 'Cloud sync';
+
+  @override
+  String get themeTitle => 'Choose Theme';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get appearance => 'Appearance';
+
+  @override
+  String get examReadinessReport => 'Exam Readiness Report';
+
+  @override
+  String get overallScore => 'Overall Score';
+
+  @override
+  String get componentScores => 'Component Scores';
+
+  @override
+  String get questionMastery => 'Question Mastery';
+
+  @override
+  String get examPerformance => 'Exam Performance';
+
+  @override
+  String get studyConsistency => 'Study Consistency';
+
+  @override
+  String get stateQuestions => 'State Questions';
+
+  @override
+  String get statistics => 'Statistics';
+
+  @override
+  String get questionsMastered => 'Questions Mastered';
+
+  @override
+  String get correctAnswers => 'Correct Answers';
+
+  @override
+  String get examsCompleted => 'Exams Completed';
+
+  @override
+  String get currentStreak => 'Current Streak';
+
+  @override
+  String get studySessionsLast7Days => 'Study Sessions (Last 7 Days)';
+
+  @override
+  String get totalStudyTime => 'Total Study Time';
+
+  @override
+  String get strengths => 'Strengths';
+
+  @override
+  String get weaknesses => 'Weaknesses';
+
+  @override
+  String get recommendations => 'Recommendations';
+
+  @override
+  String get tapToViewDetailedReport => 'Tap to view detailed report';
+
+  @override
+  String get excellentFullyReady => 'Excellent - Fully Ready';
+
+  @override
+  String get readyForExam => 'Ready for Exam';
+
+  @override
+  String get almostReady => 'Almost Ready';
+
+  @override
+  String get needsMoreWork => 'Needs More Work';
+
+  @override
+  String get days => 'days';
+
+  @override
+  String get hours => 'hours';
 }

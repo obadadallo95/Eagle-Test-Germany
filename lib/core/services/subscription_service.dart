@@ -37,7 +37,6 @@ class SubscriptionService {
   static const String _testApiKey = 'test_rFXIKOHeKdBYqpessQtlqMacqlT';
 
   // Production API Key (for release builds)
-  // TODO: Replace with your actual production API key from RevenueCat Dashboard
   // Get it from: Project Settings → API Keys → Public SDK Keys → Android/iOS (Production)
   // ⚠️ IMPORTANT: Set this to null to disable RevenueCat in release builds (app will work in free mode)
   static const String? _productionApiKey =
@@ -282,7 +281,7 @@ class SubscriptionService {
 
       // Purchase the package
       // This will show the native payment dialog
-      final purchaseResult = await Purchases.purchasePackage(package);
+      final purchaseResult = await Purchases.purchase(PurchaseParams.package(package));
 
       // Get customer info after purchase
       final customerInfo = purchaseResult.customerInfo;
@@ -1075,7 +1074,7 @@ class SubscriptionService {
 
       // Count active devices (Pro) with same revenuecat_customer_id
       // Active = has user_progress record with last_active_at within last 30 days
-      final thirtyDaysAgo = DateTime.now().subtract(Duration(days: 30)).toIso8601String();
+      final thirtyDaysAgo = DateTime.now().subtract(const Duration(days: 30)).toIso8601String();
       
       final activeDevices = await supabase
           .from('user_progress')

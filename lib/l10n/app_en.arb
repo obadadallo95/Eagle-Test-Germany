@@ -1062,6 +1062,118 @@
   "cloudSync": "Cloud sync",
   "@cloudSync": {
     "description": "Tooltip for cloud sync indicator"
+  },
+  "themeTitle": "Choose Theme",
+  "@themeTitle": {
+    "description": "Title for theme selection dialog"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Close button text"
+  },
+  "appearance": "Appearance",
+  "@appearance": {
+    "description": "Section header for appearance settings"
+  },
+  "examReadinessReport": "Exam Readiness Report",
+  "@examReadinessReport": {
+    "description": "Title for exam readiness report dialog"
+  },
+  "overallScore": "Overall Score",
+  "@overallScore": {
+    "description": "Label for overall readiness score"
+  },
+  "componentScores": "Component Scores",
+  "@componentScores": {
+    "description": "Label for component scores section"
+  },
+  "questionMastery": "Question Mastery",
+  "@questionMastery": {
+    "description": "Label for question mastery score"
+  },
+  "examPerformance": "Exam Performance",
+  "@examPerformance": {
+    "description": "Label for exam performance score"
+  },
+  "studyConsistency": "Study Consistency",
+  "@studyConsistency": {
+    "description": "Label for study consistency score"
+  },
+  "stateQuestions": "State Questions",
+  "@stateQuestions": {
+    "description": "Label for state-specific questions score"
+  },
+  "statistics": "Statistics",
+  "@statistics": {
+    "description": "Label for statistics section"
+  },
+  "questionsAnswered": "Questions Answered",
+  "@questionsAnswered": {
+    "description": "Label for total questions answered"
+  },
+  "questionsMastered": "Questions Mastered",
+  "@questionsMastered": {
+    "description": "Label for questions mastered count"
+  },
+  "correctAnswers": "Correct Answers",
+  "@correctAnswers": {
+    "description": "Label for correct answers count"
+  },
+  "examsCompleted": "Exams Completed",
+  "@examsCompleted": {
+    "description": "Label for exams completed count"
+  },
+  "currentStreak": "Current Streak",
+  "@currentStreak": {
+    "description": "Label for current study streak"
+  },
+  "studySessionsLast7Days": "Study Sessions (Last 7 Days)",
+  "@studySessionsLast7Days": {
+    "description": "Label for study sessions in last 7 days"
+  },
+  "totalStudyTime": "Total Study Time",
+  "@totalStudyTime": {
+    "description": "Label for total study time"
+  },
+  "strengths": "Strengths",
+  "@strengths": {
+    "description": "Label for strengths section"
+  },
+  "weaknesses": "Weaknesses",
+  "@weaknesses": {
+    "description": "Label for weaknesses section"
+  },
+  "recommendations": "Recommendations",
+  "@recommendations": {
+    "description": "Label for recommendations section"
+  },
+  "tapToViewDetailedReport": "Tap to view detailed report",
+  "@tapToViewDetailedReport": {
+    "description": "Hint text for tapping readiness card to view report"
+  },
+  "excellentFullyReady": "Excellent - Fully Ready",
+  "@excellentFullyReady": {
+    "description": "Status text for excellent readiness (>=85%)"
+  },
+  "readyForExam": "Ready for Exam",
+  "@readyForExam": {
+    "description": "Status text for ready status (>=70%)"
+  },
+  "almostReady": "Almost Ready",
+  "@almostReady": {
+    "description": "Status text for almost ready status (>=50%)"
+  },
+  "needsMoreWork": "Needs More Work",
+  "@needsMoreWork": {
+    "description": "Status text for needs work status (<50%)"
+  },
+  "days": "days",
+  "@days": {
+    "description": "Unit for days in streak"
+  },
+  "hours": "hours",
+  "@hours": {
+    "description": "Unit for hours in study time"
   }
 }
 

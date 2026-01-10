@@ -4,6 +4,7 @@ import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
+import '../../../core/theme/app_colors.dart';
 
 /// -----------------------------------------------------------------
 /// ⚖️ LEGAL SCREEN / RECHTSBILDSCHIRM / الشاشة القانونية
@@ -127,11 +128,17 @@ class LegalDocumentScreen extends StatelessWidget {
           }
 
           if (snapshot.hasError) {
+            final theme = Theme.of(context);
+            final isDark = theme.brightness == Brightness.dark;
             return Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Icon(Icons.error_outline, size: 64.sp, color: Colors.red),
+                  Icon(
+                    Icons.error_outline, 
+                    size: 64.sp, 
+                    color: isDark ? AppColors.errorDark : AppColors.errorLight,
+                  ),
                   SizedBox(height: 16.h),
                   Text(
                     'Error loading document',
@@ -157,7 +164,9 @@ class LegalDocumentScreen extends StatelessWidget {
               p: Theme.of(context).textTheme.bodyLarge,
               strong: const TextStyle(fontWeight: FontWeight.bold),
               blockquote: TextStyle(
-                color: Colors.grey[700],
+                color: Theme.of(context).brightness == Brightness.dark 
+                    ? AppColors.darkTextSecondary 
+                    : AppColors.lightTextSecondary,
                 fontStyle: FontStyle.italic,
               ),
             ),

@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../domain/entities/question.dart';
 import '../../../data/datasources/local_datasource.dart';
 import 'paper_correction_screen.dart';
@@ -122,7 +122,7 @@ class _ScanExamScreenState extends ConsumerState<ScanExamScreen> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        backgroundColor: Colors.red,
+        backgroundColor: AppColors.errorDark,
         duration: const Duration(seconds: 3),
       ),
     );
@@ -140,8 +140,7 @@ class _ScanExamScreenState extends ConsumerState<ScanExamScreen> {
       appBar: AppBar(
         title: Text(
           l10n?.scanExamTitle ?? (isArabic ? 'مسح QR Code' : 'Scan QR Code'),
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h2.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -167,71 +166,90 @@ class _ScanExamScreenState extends ConsumerState<ScanExamScreen> {
           ),
 
           // Overlay with instructions
-          Positioned(
-            top: 20.h,
-            left: 0,
-            right: 0,
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 20.w),
-              padding: EdgeInsets.all(16.w),
-              decoration: BoxDecoration(
-                color: AppColors.darkSurface.withValues(alpha: 0.9),
-                borderRadius: BorderRadius.circular(16.r),
-                border: Border.all(
-                  color: AppColors.eagleGold.withValues(alpha: 0.5),
-                  width: 2,
-                ),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.qr_code_scanner,
-                    color: AppColors.eagleGold,
-                    size: 32.sp,
-                  ),
-                  SizedBox(height: 8.h),
-                  AutoSizeText(
-                    l10n?.scanExamInstructions ?? 
-                    (isArabic 
-                        ? 'ضع QR Code من PDF داخل الإطار' 
-                        : 'Position QR Code from PDF within frame'),
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w600,
+          Builder(
+            builder: (context) {
+              final theme = Theme.of(context);
+              final isDark = theme.brightness == Brightness.dark;
+              final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+              final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+              final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+              
+              return Positioned(
+                top: 20.h,
+                left: 0,
+                right: 0,
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20.w),
+                  padding: EdgeInsets.all(16.w),
+                  decoration: BoxDecoration(
+                    color: surfaceColor.withValues(alpha: 0.9),
+                    borderRadius: BorderRadius.circular(16.r),
+                    border: Border.all(
+                      color: primaryGold.withValues(alpha: 0.5),
+                      width: 2,
                     ),
-                    textAlign: TextAlign.center,
-                    maxLines: 2,
                   ),
-                ],
-              ),
-            ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Icon(
+                        Icons.qr_code_scanner,
+                        color: primaryGold,
+                        size: 32.sp,
+                      ),
+                      SizedBox(height: 8.h),
+                      AutoSizeText(
+                        l10n?.scanExamInstructions ?? 
+                        (isArabic 
+                            ? 'ضع QR Code من PDF داخل الإطار' 
+                            : 'Position QR Code from PDF within frame'),
+                        style: AppTypography.bodyM.copyWith(
+                          color: textPrimary,
+                          fontWeight: FontWeight.w600,
+                        ),
+                        textAlign: TextAlign.center,
+                        maxLines: 2,
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
           ),
 
           // Processing indicator
           if (_isProcessing)
-            Container(
-              color: Colors.black.withValues(alpha: 0.7),
-              child: Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const CircularProgressIndicator(
-                      valueColor: AlwaysStoppedAnimation<Color>(AppColors.eagleGold),
+            Builder(
+              builder: (context) {
+                final theme = Theme.of(context);
+                final isDark = theme.brightness == Brightness.dark;
+                final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+                
+                return Container(
+                  color: isDark 
+                      ? AppColors.darkBg.withValues(alpha: 0.9)
+                      : AppColors.lightBg.withValues(alpha: 0.9),
+                  child: Center(
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(primaryGold),
+                        ),
+                        SizedBox(height: 16.h),
+                        AutoSizeText(
+                          l10n?.scanExamProcessing ?? 
+                          (isArabic ? 'جاري المعالجة...' : 'Processing...'),
+                          style: AppTypography.bodyL.copyWith(
+                            color: textPrimary,
+                          ),
+                        ),
+                      ],
                     ),
-                    SizedBox(height: 16.h),
-                    AutoSizeText(
-                      l10n?.scanExamProcessing ?? 
-                      (isArabic ? 'جاري المعالجة...' : 'Processing...'),
-                      style: GoogleFonts.poppins(
-                        fontSize: 16.sp,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
             ),
           ],
         ),

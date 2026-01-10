@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../../domain/entities/question.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../core/debug/app_logger.dart';
 import '../../providers/exam_provider.dart';
 import '../../providers/locale_provider.dart';
@@ -206,6 +207,8 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
     final l10n = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
 
     final questionsAsync = ref.watch(examQuestionsProvider);
 
@@ -216,8 +219,7 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
         appBar: AppBar(
           title: AutoSizeText(
             l10n?.voiceExam ?? '🎤 Voice Exam',
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold,
+            style: AppTypography.h2.copyWith(
               color: theme.colorScheme.onSurface,
             ),
             maxLines: 1,
@@ -231,10 +233,9 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                 child: Center(
                   child: AutoSizeText(
                     '${_currentIndex + 1}/${_questions!.length}',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
+                    style: AppTypography.bodyL.copyWith(
                       fontWeight: FontWeight.w600,
-                      color: AppColors.eagleGold,
+                      color: primaryGold,
                     ),
                     maxLines: 1,
                   ),
@@ -258,9 +259,8 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                       SizedBox(height: 16.h),
                       AutoSizeText(
                         l10n?.noQuestionsAvailable ?? 'No questions available',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18.sp,
-                          color: Colors.white70,
+                        style: AppTypography.bodyL.copyWith(
+                          color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                         ),
                         textAlign: TextAlign.center,
                       ),
@@ -307,98 +307,110 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                   ),
 
                   // Controls
-                  Container(
-                    padding: EdgeInsets.all(24.w),
-                    decoration: BoxDecoration(
-                      color: AppColors.darkSurface,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withValues(alpha: 0.3),
-                          blurRadius: 10,
-                          offset: const Offset(0, -2),
+                  Builder(
+                    builder: (context) {
+                      final theme = Theme.of(context);
+                      final isDark = theme.brightness == Brightness.dark;
+                      final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                      final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+                      
+                      return Container(
+                        padding: EdgeInsets.all(24.w),
+                        decoration: BoxDecoration(
+                          color: surfaceColor,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.3),
+                              blurRadius: 10,
+                              offset: const Offset(0, -2),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        // Play Audio Button
-                        FadeInUp(
-                          child: SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton.icon(
-                              onPressed: _isPlaying ? null : _readQuestion,
-                              icon: Icon(
-                                _isPlaying ? Icons.volume_up : Icons.play_circle_outline,
-                                size: 28.sp,
-                              ),
-                              label: Text(
-                                _isPlaying
-                                    ? (l10n?.playing ?? 'Playing...')
-                                    : (l10n?.playAudio ?? '🔊 Play Audio'),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: AppColors.eagleGold,
-                                foregroundColor: Colors.black,
-                                padding: EdgeInsets.symmetric(vertical: 16.h),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16.r),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            // Play Audio Button
+                            FadeInUp(
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: ElevatedButton.icon(
+                                  onPressed: _isPlaying ? null : _readQuestion,
+                                  icon: Icon(
+                                    _isPlaying ? Icons.volume_up : Icons.play_circle_outline,
+                                    size: AppSpacing.iconLg,
+                                  ),
+                                  label: Text(
+                                    _isPlaying
+                                        ? (l10n?.playing ?? 'Playing...')
+                                        : (l10n?.playAudio ?? '🔊 Play Audio'),
+                                    style: AppTypography.button,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: AppColors.gold,
+                                    foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                                    padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
 
-                        SizedBox(height: 16.h),
+                            SizedBox(height: 16.h),
 
-                        // Next Button
-                        FadeInUp(
-                          delay: const Duration(milliseconds: 100),
-                          child: SizedBox(
-                            width: double.infinity,
-                            child: ElevatedButton(
-                              onPressed: userAnswer == null ? null : _nextQuestion,
-                              style: ElevatedButton.styleFrom(
-                                backgroundColor: userAnswer != null
-                                    ? AppColors.eagleGold
-                                    : Colors.grey.shade700,
-                                foregroundColor: Colors.white,
-                                padding: EdgeInsets.symmetric(vertical: 16.h),
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(16.r),
+                            // Next Button
+                            FadeInUp(
+                              delay: const Duration(milliseconds: 100),
+                              child: SizedBox(
+                                width: double.infinity,
+                                child: ElevatedButton(
+                                  onPressed: userAnswer == null ? null : _nextQuestion,
+                                  style: ElevatedButton.styleFrom(
+                                    backgroundColor: userAnswer != null
+                                        ? primaryGold
+                                        : (isDark ? AppColors.darkSurfaceVariant : AppColors.lightTextDisabled),
+                                    foregroundColor: userAnswer != null
+                                        ? (isDark ? AppColors.darkBg : AppColors.lightTextPrimary)
+                                        : (isDark ? AppColors.darkTextDisabled : AppColors.lightTextTertiary),
+                                    padding: EdgeInsets.symmetric(vertical: 16.h),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+                                    ),
+                                  ),
+                                  child: Text(
+                                    _currentIndex >= _questions!.length - 1
+                                        ? (l10n?.finish ?? 'Finish')
+                                        : (l10n?.next ?? 'Next'),
+                                    style: AppTypography.button,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
                                 ),
-                              ),
-                              child: Text(
-                                _currentIndex >= _questions!.length - 1
-                                    ? (l10n?.finish ?? 'Finish')
-                                    : (l10n?.next ?? 'Next'),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 18.sp,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      );
+                    },
                   ),
                 ],
               ),
             );
           },
-          loading: () => const Center(
-            child: CircularProgressIndicator(
-              color: AppColors.eagleGold,
-            ),
+          loading: () => Builder(
+            builder: (context) {
+              final theme = Theme.of(context);
+              final isDark = theme.brightness == Brightness.dark;
+              final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+              return Center(
+                child: CircularProgressIndicator(
+                  color: primaryGold,
+                ),
+              );
+            },
           ),
           error: (error, stack) {
             AppLogger.error('Failed to load questions', source: 'VoiceExamScreen', error: error, stackTrace: stack);
@@ -410,14 +422,13 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                     Icon(
                       Icons.error_outline,
                       size: 64.sp,
-                      color: Colors.red,
+                      color: AppColors.errorDark,
                     ),
                     SizedBox(height: 16.h),
                     AutoSizeText(
                       l10n?.errorLoadingQuestions ?? 'Error loading questions',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyL.copyWith(
+                        color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                       ),
                       textAlign: TextAlign.center,
                     ),
@@ -426,11 +437,13 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                       onPressed: () {
                         ref.invalidate(examQuestionsProvider);
                       },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: AppColors.gold,
+                        foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                      ),
                       child: AutoSizeText(
                         l10n?.retry ?? 'Retry',
-                        style: GoogleFonts.poppins(
-                          fontSize: 16.sp,
-                        ),
+                        style: AppTypography.button,
                       ),
                     ),
                   ],
@@ -448,22 +461,26 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
     final subscriptionState = ref.watch(subscriptionProvider);
     final isPro = subscriptionState.isPro;
     final isRtl = userLanguage == 'ar';
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
 
     return Padding(
-      padding: EdgeInsets.all(24.w),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.md),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           // Question Text with Translation Toggle
           FadeInDown(
             child: Container(
-              padding: EdgeInsets.all(24.w),
+              padding: const EdgeInsets.all(AppSpacing.lg),
               decoration: BoxDecoration(
-                color: AppColors.darkSurface,
-                borderRadius: BorderRadius.circular(20.r),
+                color: surfaceColor,
+                borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
                 border: Border.all(
-                  color: AppColors.eagleGold.withValues(alpha: 0.3),
-                  width: 2.w,
+                  color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+                  width: 1,
                 ),
               ),
               child: Column(
@@ -475,8 +492,8 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                       IconButton(
                         icon: Icon(
                           _showGerman ? Icons.translate : Icons.language,
-                          color: AppColors.eagleGold,
-                          size: 24.sp,
+                          color: primaryGold,
+                          size: AppSpacing.iconLg,
                         ),
                         onPressed: () {
                           setState(() {
@@ -489,7 +506,7 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 8.h),
+                  const SizedBox(height: AppSpacing.sm),
                   // Question Text
                   Directionality(
                     textDirection: _showGerman ? TextDirection.ltr : (isRtl ? TextDirection.rtl : TextDirection.ltr),
@@ -497,38 +514,40 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                       _showGerman 
                         ? question.getText('de')
                         : question.getText(userLanguage),
-                      style: GoogleFonts.poppins(
-                        fontSize: 22.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        height: 1.5,
+                      style: AppTypography.h3.copyWith(
+                        color: textPrimary,
+                        height: 1.4,
                       ),
                       textAlign: TextAlign.center,
-                      minFontSize: 16.sp,
+                      minFontSize: 14.sp,
                       stepGranularity: 1.sp,
-                      maxLines: 10,
+                      maxLines: 4,
                     ),
                   ),
                   // AI Tutor Button (Pro only)
                   if (isPro) ...[
-                    SizedBox(height: 16.h),
+                    const SizedBox(height: AppSpacing.md),
                     ElevatedButton.icon(
                       onPressed: () => _showAiExplanation(question, userLanguage, l10n),
-                      icon: Icon(Icons.auto_awesome, size: 20.sp),
+                      icon: const Icon(Icons.auto_awesome, size: AppSpacing.iconMd),
                       label: Text(
                         l10n?.explainWithAi ?? 'Explain Question',
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
+                        style: AppTypography.bodyS.copyWith(
                           fontWeight: FontWeight.w600,
                         ),
                       ),
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.eagleGold.withValues(alpha: 0.2),
-                        foregroundColor: AppColors.eagleGold,
-                        padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
+                        backgroundColor: isDark 
+                            ? AppColors.successBgDark 
+                            : AppColors.successBgLight,
+                        foregroundColor: isDark ? AppColors.successDark : AppColors.successLight,
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.md, vertical: AppSpacing.sm),
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(12.r),
-                          side: BorderSide(color: AppColors.eagleGold, width: 1.w),
+                          borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+                          side: BorderSide(
+                            color: isDark ? AppColors.successDark : AppColors.successLight, 
+                            width: 1,
+                          ),
                         ),
                       ),
                     ),
@@ -538,93 +557,106 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
             ),
           ),
 
-          SizedBox(height: 32.h),
+          const SizedBox(height: AppSpacing.md),
 
-          // Answers
+          // Answers - All visible without scrolling
           Expanded(
-            child: ListView.builder(
-              itemCount: question.answers.length,
-              itemBuilder: (context, index) {
-                final answer = question.answers[index];
-                final isSelected = userAnswer == answer.id;
-                final isCorrect = answer.id == question.correctAnswerId;
+            child: Column(
+              children: List.generate(
+                question.answers.length,
+                (index) {
+                  final answer = question.answers[index];
+                  final isSelected = userAnswer == answer.id;
+                  final isCorrect = answer.id == question.correctAnswerId;
 
-                return FadeInUp(
-                  delay: Duration(milliseconds: 100 * index),
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 12.h),
-                    child: InkWell(
-                      onTap: () => _selectAnswer(answer.id),
-                      borderRadius: BorderRadius.circular(16.r),
-                      child: Container(
-                        padding: EdgeInsets.all(20.w),
-                        decoration: BoxDecoration(
-                          color: isSelected
-                              ? (isCorrect
-                                  ? Colors.green.withValues(alpha: 0.2)
-                                  : Colors.red.withValues(alpha: 0.2))
-                              : AppColors.darkSurface,
-                          borderRadius: BorderRadius.circular(16.r),
-                          border: Border.all(
-                            color: isSelected
-                                ? (isCorrect ? Colors.green : Colors.red)
-                                : AppColors.eagleGold.withValues(alpha: 0.3),
-                            width: isSelected ? 2.w : 1.w,
-                          ),
-                        ),
-                        child: Row(
-                          children: [
-                            // Radio Button
-                            Container(
-                              width: 24.w,
-                              height: 24.h,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                border: Border.all(
-                                  color: isSelected
-                                      ? (isCorrect ? Colors.green : Colors.red)
-                                      : AppColors.eagleGold,
-                                  width: 2.w,
-                                ),
+                  return Expanded(
+                    child: FadeInUp(
+                      delay: Duration(milliseconds: 100 * index),
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom: AppSpacing.sm),
+                        child: InkWell(
+                          onTap: () => _selectAnswer(answer.id),
+                          borderRadius: const BorderRadius.all(Radius.circular(AppSpacing.radiusSm)),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: AppSpacing.lg,
+                              vertical: AppSpacing.md,
+                            ),
+                            decoration: BoxDecoration(
+                              color: isSelected
+                                  ? (isCorrect
+                                      ? (isDark ? AppColors.successBgDark : AppColors.successBgLight)
+                                      : (isDark ? AppColors.errorBgDark : AppColors.errorBgLight))
+                                  : surfaceColor,
+                              borderRadius: BorderRadius.circular(AppSpacing.radiusSm),
+                              border: Border.all(
                                 color: isSelected
-                                    ? (isCorrect ? Colors.green : Colors.red)
-                                    : Colors.transparent,
+                                    ? (isCorrect 
+                                        ? (isDark ? AppColors.successDark : AppColors.successLight)
+                                        : (isDark ? AppColors.errorDark : AppColors.errorLight))
+                                    : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
+                                width: isSelected ? 2 : 1,
                               ),
-                              child: isSelected
-                                  ? Icon(
-                                      isCorrect ? Icons.check : Icons.close,
-                                      size: 16.sp,
-                                      color: Colors.white,
-                                    )
-                                  : null,
                             ),
-                            SizedBox(width: 16.w),
-                            // Answer Text
-                            Expanded(
-                              child: Directionality(
-                                textDirection: _showGerman ? TextDirection.ltr : (isRtl ? TextDirection.rtl : TextDirection.ltr),
-                                child: AutoSizeText(
-                                  _showGerman 
-                                    ? answer.getText('de')
-                                    : answer.getText(userLanguage),
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 18.sp,
-                                    color: Colors.white,
-                                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                            child: Row(
+                              children: [
+                                // Radio Button
+                                Container(
+                                  width: 20.w,
+                                  height: 20.h,
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    border: Border.all(
+                                      color: isSelected
+                                          ? (isCorrect 
+                                              ? (isDark ? AppColors.successDark : AppColors.successLight)
+                                              : (isDark ? AppColors.errorDark : AppColors.errorLight))
+                                          : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
+                                      width: 2,
+                                    ),
+                                    color: isSelected
+                                        ? (isCorrect 
+                                            ? (isDark ? AppColors.successDark : AppColors.successLight)
+                                            : (isDark ? AppColors.errorDark : AppColors.errorLight))
+                                        : Colors.transparent,
                                   ),
-                                  minFontSize: 14.sp,
-                                  stepGranularity: 1.sp,
-                                  maxLines: 3,
+                                  child: isSelected
+                                      ? Icon(
+                                          isCorrect ? Icons.check : Icons.close,
+                                          size: 14.sp,
+                                          color: Colors.white,
+                                        )
+                                      : null,
                                 ),
-                              ),
+                                const SizedBox(width: AppSpacing.md),
+                                // Answer Text
+                                Expanded(
+                                  child: Directionality(
+                                    textDirection: _showGerman ? TextDirection.ltr : (isRtl ? TextDirection.rtl : TextDirection.ltr),
+                                    child: AutoSizeText(
+                                      _showGerman 
+                                        ? answer.getText('de')
+                                        : answer.getText(userLanguage),
+                                      style: AppTypography.bodyM.copyWith(
+                                        color: textPrimary,
+                                        fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                                      ),
+                                      minFontSize: 12.sp,
+                                      stepGranularity: 1.sp,
+                                      maxLines: 2,
+                                      textAlign: TextAlign.start,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
         ],
@@ -646,24 +678,29 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
       if (!canUse) {
         // تم تجاوز الحد اليومي (3 مرات)
         if (mounted) {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
+          final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+          final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+          final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+          final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+          
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              backgroundColor: AppColors.darkSurface,
+              backgroundColor: surfaceColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.r),
               ),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
+                  Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp),
                   SizedBox(width: 12.w),
                   Expanded(
                     child: Text(
                       l10n?.upgradeToPro ?? 'Upgrade to Pro',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      style: AppTypography.h3.copyWith(
+                        color: textPrimary,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -673,9 +710,8 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
               ),
               content: Text(
                 l10n?.aiTutorDailyLimitReached ?? 'You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: Colors.white70,
+                style: AppTypography.bodyM.copyWith(
+                  color: textSecondary,
                 ),
               ),
               actions: [
@@ -683,7 +719,9 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n?.cancel ?? 'Cancel',
-                    style: GoogleFonts.poppins(color: Colors.white54),
+                    style: AppTypography.bodyM.copyWith(
+                      color: textSecondary,
+                    ),
                   ),
                 ),
                 ElevatedButton(
@@ -697,12 +735,12 @@ class _VoiceExamScreenState extends ConsumerState<VoiceExamScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   ),
                   child: Text(
                     l10n?.upgrade ?? 'Upgrade',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -798,15 +836,19 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: MediaQuery.of(context).size.height * 0.6,
-      decoration: BoxDecoration(
-        color: AppColors.darkSurface,
-        borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(24.r),
-          topRight: Radius.circular(24.r),
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
+      return Container(
+        height: MediaQuery.of(context).size.height * 0.6,
+        decoration: BoxDecoration(
+          color: surfaceColor,
+          borderRadius: AppSpacing.bottomSheetRadius,
         ),
-      ),
       child: Column(
         children: [
           // Header
@@ -814,26 +856,24 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
             padding: EdgeInsets.all(16.w),
             child: Row(
               children: [
-                Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 24.sp),
+                Icon(Icons.auto_awesome, color: primaryGold, size: 24.sp),
                 SizedBox(width: 12.w),
                 Expanded(
                   child: Text(
                     widget.l10n?.explainWithAi ?? 'Question Explanation',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    style: AppTypography.h3.copyWith(
+                      color: textPrimary,
                     ),
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white70),
+                  icon: Icon(Icons.close, color: textSecondary),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],
             ),
           ),
-          Divider(color: Colors.white.withValues(alpha: 0.1)),
+          Divider(color: isDark ? AppColors.darkDivider : AppColors.lightDivider),
           // Content
           Expanded(
             child: FutureBuilder<String>(
@@ -844,13 +884,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CircularProgressIndicator(color: AppColors.eagleGold),
+                        CircularProgressIndicator(color: primaryGold),
                         SizedBox(height: 24.h),
                         Text(
                           widget.l10n?.aiThinking ?? 'AI is thinking...',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white70,
-                            fontSize: 14.sp,
+                          style: AppTypography.bodyM.copyWith(
+                            color: textSecondary,
                           ),
                         ),
                       ],
@@ -864,13 +903,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.error_outline, color: Colors.red, size: 48.sp),
+                        Icon(Icons.error_outline, color: AppColors.errorDark, size: 48.sp),
                         SizedBox(height: 16.h),
                         Text(
                           widget.l10n?.errorLoadingExplanation ?? 'Error loading explanation',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 16.sp,
+                          style: AppTypography.bodyL.copyWith(
+                            color: textPrimary,
                             fontWeight: FontWeight.bold,
                           ),
                           textAlign: TextAlign.center,
@@ -881,11 +919,11 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                           icon: Icon(Icons.refresh, size: 20.sp),
                           label: Text(
                             widget.l10n?.retry ?? 'Retry',
-                            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                            style: AppTypography.button,
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.eagleGold,
-                            foregroundColor: Colors.black,
+                            backgroundColor: AppColors.gold,
+                            foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                           ),
                         ),
                       ],
@@ -898,9 +936,8 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                   padding: EdgeInsets.all(24.w),
                   child: Text(
                     explanation,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      color: Colors.white,
+                    style: AppTypography.bodyL.copyWith(
+                      color: textPrimary,
                       height: 1.6,
                     ),
                   ),

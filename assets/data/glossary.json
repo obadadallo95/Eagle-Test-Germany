@@ -406,5 +406,1421 @@
     "related_question_id": 55,
     "keywords": ["Gesetze", "Gerichte", "Unabhängigkeit"],
     "related_question_ids": [55]
+  },
+  {
+    "id": 65,
+    "term": "Grundgesetz",
+    "category": "System",
+    "definition": {
+      "de": "Die Verfassung der Bundesrepublik Deutschland, das höchste Gesetz.",
+      "ar": "دستور جمهورية ألمانيا الاتحادية، القانون الأعلى.",
+      "en": "The constitution of the Federal Republic of Germany, the highest law.",
+      "tr": "Federal Almanya Cumhuriyeti'nin anayasası, en yüksek yasa.",
+      "uk": "Конституція Федеративної Республіки Німеччина, найвищий закон.",
+      "ru": "Конституция Федеративной Республики Германия, высший закон."
+    },
+    "example": {
+      "de": "Wie heißt die deutsche Verfassung?",
+      "ar": "ماذا يسمى الدستور الألماني؟",
+      "en": "What is the German constitution called?",
+      "tr": "Alman anayasasına ne denir?",
+      "uk": "Як називається німецька конституція?",
+      "ru": "Как называется немецкая конституция?"
+    },
+    "related_question_id": 6,
+    "keywords": ["Verfassung", "Gesetz", "Deutschland"],
+    "related_question_ids": [6, 11]
+  },
+  {
+    "id": 66,
+    "term": "Bundestag",
+    "category": "System",
+    "definition": {
+      "de": "Das deutsche Parlament, die Volksvertretung auf Bundesebene.",
+      "ar": "البرلمان الألماني، ممثل الشعب على المستوى الاتحادي.",
+      "en": "The German parliament, the people's representation at the federal level.",
+      "tr": "Alman parlamentosu, federal düzeyde halkın temsili.",
+      "uk": "Німецький парламент, представництво народу на федеральному рівні.",
+      "ru": "Немецкий парламент, представительство народа на федеральном уровне."
+    },
+    "example": {
+      "de": "Wer wählt in Deutschland die Abgeordneten zum Bundestag?",
+      "ar": "من ينتخب نواب البوندستاغ في ألمانيا؟",
+      "en": "Who elects the members of the Bundestag in Germany?",
+      "tr": "Almanya'da Federal Meclis üyelerini kim seçiyor?",
+      "uk": "Хто обирає депутатів Бундестагу в Німеччині?",
+      "ru": "Кто выбирает членов Бундестага в Германии?"
+    },
+    "related_question_id": 43,
+    "keywords": ["Parlament", "Wahl", "Abgeordnete"],
+    "related_question_ids": [43, 35]
+  },
+  {
+    "id": 67,
+    "term": "Bundesrat",
+    "category": "System",
+    "definition": {
+      "de": "Die Vertretung der Bundesländer auf Bundesebene.",
+      "ar": "ممثل الولايات الاتحادية على المستوى الاتحادي.",
+      "en": "The representation of the federal states at the federal level.",
+      "tr": "Federal eyaletlerin federal düzeyde temsili.",
+      "uk": "Представництво федеральних земель на федеральному рівні.",
+      "ru": "Представительство федеральных земель на федеральном уровне."
+    },
+    "example": {
+      "de": "Welches Organ vertritt die Bundesländer?",
+      "ar": "أي هيئة تمثل الولايات الاتحادية؟",
+      "en": "Which body represents the federal states?",
+      "tr": "Federal eyaletleri hangi organ temsil eder?",
+      "uk": "Який орган представляє федеральні землі?",
+      "ru": "Какой орган представляет федеральные земли?"
+    },
+    "related_question_id": 48,
+    "keywords": ["Bundesländer", "Vertretung", "Föderalismus"],
+    "related_question_ids": [48, 14]
+  },
+  {
+    "id": 68,
+    "term": "Bundeskanzler",
+    "category": "System",
+    "definition": {
+      "de": "Der Regierungschef Deutschlands, vom Bundestag gewählt.",
+      "ar": "رئيس حكومة ألمانيا، يُنتخب من قبل البوندستاغ.",
+      "en": "The head of government of Germany, elected by the Bundestag.",
+      "tr": "Almanya'nın hükümet başkanı, Federal Meclis tarafından seçilir.",
+      "uk": "Глава уряду Німеччини, обраний Бундестагом.",
+      "ru": "Глава правительства Германии, избираемый Бундестагом."
+    },
+    "example": {
+      "de": "Wer bestimmt die Richtlinien der Regierungspolitik?",
+      "ar": "من يحدد الخطوط العريضة لسياسة الحكومة؟",
+      "en": "Who determines the guidelines of government policy?",
+      "tr": "Hükümet politikasının ana hatlarını kim belirler?",
+      "uk": "Хто визначає основні напрямки урядової політики?",
+      "ru": "Кто определяет основные направления правительственной политики?"
+    },
+    "related_question_id": 123,
+    "keywords": ["Regierung", "Wahl", "Politik"],
+    "related_question_ids": [123, 33]
+  },
+  {
+    "id": 69,
+    "term": "Bundespräsident",
+    "category": "System",
+    "definition": {
+      "de": "Das Staatsoberhaupt Deutschlands, repräsentative Funktion.",
+      "ar": "رئيس الدولة في ألمانيا، وظيفة تمثيلية.",
+      "en": "The head of state of Germany, representative function.",
+      "tr": "Almanya'nın devlet başkanı, temsili işlev.",
+      "uk": "Глава держави Німеччини, представницька функція.",
+      "ru": "Глава государства Германии, представительская функция."
+    },
+    "example": {
+      "de": "Wer ist das Staatsoberhaupt Deutschlands?",
+      "ar": "من هو رئيس الدولة في ألمانيا؟",
+      "en": "Who is the head of state of Germany?",
+      "tr": "Almanya'nın devlet başkanı kimdir?",
+      "uk": "Хто є главою держави Німеччини?",
+      "ru": "Кто является главой государства Германии?"
+    },
+    "related_question_id": 48,
+    "keywords": ["Staatsoberhaupt", "Repräsentation", "Bundesversammlung"],
+    "related_question_ids": [48]
+  },
+  {
+    "id": 70,
+    "term": "Demokratie",
+    "category": "System",
+    "definition": {
+      "de": "Herrschaftsform, bei der das Volk die Macht ausübt.",
+      "ar": "نظام حكم يمارس فيه الشعب السلطة (الديمقراطية).",
+      "en": "Form of government in which the people exercise power.",
+      "tr": "Halkın iktidarı kullandığı yönetim biçimi.",
+      "uk": "Форма правління, при якій народ здійснює владу.",
+      "ru": "Форма правления, при которой народ осуществляет власть."
+    },
+    "example": {
+      "de": "Was bedeutet Demokratie?",
+      "ar": "ماذا تعني الديمقراطية؟",
+      "en": "What does democracy mean?",
+      "tr": "Demokrasi ne anlama gelir?",
+      "uk": "Що означає демократія?",
+      "ru": "Что означает демократия?"
+    },
+    "related_question_id": 12,
+    "keywords": ["Volk", "Macht", "Wahlen"],
+    "related_question_ids": [12, 13]
+  },
+  {
+    "id": 71,
+    "term": "Legislative",
+    "category": "System",
+    "definition": {
+      "de": "Die gesetzgebende Gewalt (Parlament).",
+      "ar": "السلطة التشريعية (البرلمان).",
+      "en": "The legislative branch (parliament).",
+      "tr": "Yasama organı (parlamento).",
+      "uk": "Законодавча влада (парламент).",
+      "ru": "Законодательная власть (парламент)."
+    },
+    "example": {
+      "de": "Was versteht man unter Legislative?",
+      "ar": "ماذا يُقصد بالسلطة التشريعية؟",
+      "en": "What is meant by the legislative branch?",
+      "tr": "Yasama organı ne anlama gelir?",
+      "uk": "Що розуміється під законодавчою владою?",
+      "ru": "Что понимается под законодательной властью?"
+    },
+    "related_question_id": 25,
+    "keywords": ["Gesetzgebung", "Parlament", "Gewaltenteilung"],
+    "related_question_ids": [25, 27]
+  },
+  {
+    "id": 72,
+    "term": "Exekutive",
+    "category": "System",
+    "definition": {
+      "de": "Die ausführende Gewalt (Regierung und Verwaltung).",
+      "ar": "السلطة التنفيذية (الحكومة والإدارة).",
+      "en": "The executive branch (government and administration).",
+      "tr": "Yürütme organı (hükümet ve idare).",
+      "uk": "Виконавча влада (уряд і адміністрація).",
+      "ru": "Исполнительная власть (правительство и администрация)."
+    },
+    "example": {
+      "de": "Was versteht man unter Exekutive?",
+      "ar": "ماذا يُقصد بالسلطة التنفيذية؟",
+      "en": "What is meant by the executive branch?",
+      "tr": "Yürütme organı ne anlama gelir?",
+      "uk": "Що розуміється під виконавчою владою?",
+      "ru": "Что понимается под исполнительной властью?"
+    },
+    "related_question_id": 25,
+    "keywords": ["Regierung", "Verwaltung", "Gewaltenteilung"],
+    "related_question_ids": [25, 27]
+  },
+  {
+    "id": 73,
+    "term": "Judikative",
+    "category": "System",
+    "definition": {
+      "de": "Die rechtsprechende Gewalt (Gerichte).",
+      "ar": "السلطة القضائية (المحاكم).",
+      "en": "The judicial branch (courts).",
+      "tr": "Yargı organı (mahkemeler).",
+      "uk": "Судова влада (суді).",
+      "ru": "Судебная власть (суды)."
+    },
+    "example": {
+      "de": "Was versteht man unter Judikative?",
+      "ar": "ماذا يُقصد بالسلطة القضائية؟",
+      "en": "What is meant by the judicial branch?",
+      "tr": "Yargı organı ne anlama gelir?",
+      "uk": "Що розуміється під судовою владою?",
+      "ru": "Что понимается под судебной властью?"
+    },
+    "related_question_id": 25,
+    "keywords": ["Gerichte", "Rechtsprechung", "Gewaltenteilung"],
+    "related_question_ids": [25, 27]
+  },
+  {
+    "id": 74,
+    "term": "Pressefreiheit",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht der Medien, frei zu berichten und zu informieren.",
+      "ar": "حق وسائل الإعلام في الإبلاغ والإعلام بحرية.",
+      "en": "The right of the media to report and inform freely.",
+      "tr": "Medyanın özgürce haber yapma ve bilgilendirme hakkı.",
+      "uk": "Право засобів масової інформації вільно повідомляти та інформувати.",
+      "ru": "Право средств массовой информации свободно сообщать и информировать."
+    },
+    "example": {
+      "de": "Eine Partei will die Pressefreiheit abschaffen. Ist das möglich?",
+      "ar": "حزب يريد إلغاء حرية الصحافة. هل هذا ممكن؟",
+      "en": "A party wants to abolish press freedom. Is that possible?",
+      "tr": "Bir parti basın özgürlüğünü kaldırmak istiyor. Bu mümkün mü?",
+      "uk": "Партія хоче скасувати свободу преси. Чи це можливо?",
+      "ru": "Партия хочет отменить свободу прессы. Возможно ли это?"
+    },
+    "related_question_id": 12,
+    "keywords": ["Medien", "Information", "Grundrecht"],
+    "related_question_ids": [12, 1]
+  },
+  {
+    "id": 75,
+    "term": "Religionsfreiheit",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, seine Religion frei zu wählen und auszuüben.",
+      "ar": "الحق في اختيار وممارسة الدين بحرية.",
+      "en": "The right to freely choose and practice one's religion.",
+      "tr": "Dininizi özgürce seçme ve uygulama hakkı.",
+      "uk": "Право вільно обирати та сповідувати свою релігію.",
+      "ru": "Право свободно выбирать и исповедовать свою религию."
+    },
+    "example": {
+      "de": "Welches Recht gehört zu den Grundrechten?",
+      "ar": "أي حق ينتمي إلى الحقوق الأساسية؟",
+      "en": "Which right belongs to the fundamental rights?",
+      "tr": "Hangi hak temel haklara aittir?",
+      "uk": "Яке право належить до основних прав?",
+      "ru": "Какое право относится к основным правам?"
+    },
+    "related_question_id": 7,
+    "keywords": ["Glaube", "Religion", "Grundrecht"],
+    "related_question_ids": [7]
+  },
+  {
+    "id": 76,
+    "term": "Asyl",
+    "category": "Rights",
+    "definition": {
+      "de": "Schutz für politisch Verfolgte in Deutschland.",
+      "ar": "حماية للمضطهدين سياسياً في ألمانيا (اللجوء).",
+      "en": "Protection for those politically persecuted in Germany.",
+      "tr": "Almanya'da siyasi olarak zulüm görenler için koruma.",
+      "uk": "Захист для політично переслідуваних у Німеччині.",
+      "ru": "Защита для политически преследуемых в Германии."
+    },
+    "example": {
+      "de": "Welches Grundrecht gilt in Deutschland nur für Ausländer?",
+      "ar": "ما هو الحق الأساسي في ألمانيا المتاح للأجانب فقط؟",
+      "en": "Which fundamental right applies in Germany only to foreigners?",
+      "tr": "Almanya'da hangi temel hak sadece yabancılar için geçerlidir?",
+      "uk": "Яке основне право діє в Німеччині лише для іноземців?",
+      "ru": "Какое основное право действует в Германии только для иностранцев?"
+    },
+    "related_question_id": 9,
+    "keywords": ["Schutz", "Verfolgung", "Grundrecht"],
+    "related_question_ids": [9]
+  },
+  {
+    "id": 77,
+    "term": "Soziale Marktwirtschaft",
+    "category": "Welfare",
+    "definition": {
+      "de": "Wirtschaftsform, die freie Marktwirtschaft mit sozialer Absicherung verbindet.",
+      "ar": "نظام اقتصادي يجمع بين اقتصاد السوق الحر والضمان الاجتماعي.",
+      "en": "Economic system that combines free market economy with social security.",
+      "tr": "Serbest piyasa ekonomisini sosyal güvenlikle birleştiren ekonomik sistem.",
+      "uk": "Економічна система, яка поєднує вільну ринкову економіку з соціальним захистом.",
+      "ru": "Экономическая система, сочетающая свободную рыночную экономику с социальной защитой."
+    },
+    "example": {
+      "de": "Die Wirtschaftsform in Deutschland nennt man...",
+      "ar": "يسمى الشكل الاقتصادي في ألمانيا ب...",
+      "en": "The economic system in Germany is called...",
+      "tr": "Almanya'daki ekonomik sistem... olarak adlandırılır.",
+      "uk": "Економічна система в Німеччині називається...",
+      "ru": "Экономическая система в Германии называется..."
+    },
+    "related_question_id": 50,
+    "keywords": ["Wirtschaft", "Markt", "Sozial"],
+    "related_question_ids": [50]
+  },
+  {
+    "id": 78,
+    "term": "Bundesländer",
+    "category": "System",
+    "definition": {
+      "de": "Die 16 teilsouveränen Gliedstaaten der Bundesrepublik Deutschland.",
+      "ar": "الولايات الست عشرة شبه المستقلة في جمهورية ألمانيا الاتحادية.",
+      "en": "The 16 partly sovereign member states of the Federal Republic of Germany.",
+      "tr": "Federal Almanya Cumhuriyeti'nin 16 kısmen egemen üye eyaleti.",
+      "uk": "16 частково суверенних земель Федеративної Республіки Німеччина.",
+      "ru": "16 частично суверенных земель Федеративной Республики Германия."
+    },
+    "example": {
+      "de": "Wer bestimmt in Deutschland die Schulpolitik?",
+      "ar": "من يحدد سياسة التعليم في ألمانيا؟",
+      "en": "Who determines school policy in Germany?",
+      "tr": "Almanya'da okul politikasını kim belirler?",
+      "uk": "Хто визначає шкільну політику в Німеччині?",
+      "ru": "Кто определяет школьную политику в Германии?"
+    },
+    "related_question_id": 49,
+    "keywords": ["Föderalismus", "Länder", "Bundesrat"],
+    "related_question_ids": [49, 14]
+  },
+  {
+    "id": 79,
+    "term": "Wahlrecht",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, an Wahlen teilzunehmen und zu wählen.",
+      "ar": "الحق في المشاركة في الانتخابات والتصويت.",
+      "en": "The right to participate in elections and vote.",
+      "tr": "Seçimlere katılma ve oy verme hakkı.",
+      "uk": "Право брати участь у виборах та голосувати.",
+      "ru": "Право участвовать в выборах и голосовать."
+    },
+    "example": {
+      "de": "Wahlen in Deutschland sind frei. Was bedeutet das?",
+      "ar": "الانتخابات في ألمانيا حرة. ما المقصود بذلك؟",
+      "en": "Elections in Germany are free. What does that mean?",
+      "tr": "Almanya'da seçimler özgürdür. Bu ne anlama gelir?",
+      "uk": "Вибори в Німеччині вільні. Що це означає?",
+      "ru": "Выборы в Германии свободны. Что это значит?"
+    },
+    "related_question_id": 5,
+    "keywords": ["Wahl", "Stimme", "Demokratie"],
+    "related_question_ids": [5]
+  },
+  {
+    "id": 80,
+    "term": "Menschenwürde",
+    "category": "Rights",
+    "definition": {
+      "de": "Die Würde des Menschen ist unantastbar (Artikel 1 GG).",
+      "ar": "كرامة الإنسان غير قابلة للانتهاك (المادة 1 من القانون الأساسي).",
+      "en": "Human dignity is inviolable (Article 1 GG).",
+      "tr": "İnsan onuru dokunulmazdır (Temel Yasa Madde 1).",
+      "uk": "Гідність людини недоторканна (Стаття 1 Основного закону).",
+      "ru": "Достоинство человека неприкосновенно (Статья 1 Основного закона)."
+    },
+    "example": {
+      "de": "Was steht im Grundgesetz von Deutschland?",
+      "ar": "ما الذي يوجد في القانون الأساسي لألمانيا؟",
+      "en": "What is in the Basic Law of Germany?",
+      "tr": "Almanya'nın Temel Yasasında ne var?",
+      "uk": "Що є в Основному законі Німеччини?",
+      "ru": "Что есть в Основном законе Германии?"
+    },
+    "related_question_id": 8,
+    "keywords": ["Würde", "Grundgesetz", "Grundrecht"],
+    "related_question_ids": [8]
+  },
+  {
+    "id": 81,
+    "term": "Sozialstaat",
+    "category": "Welfare",
+    "definition": {
+      "de": "Ein Staat, der soziale Gerechtigkeit und Absicherung gewährleistet.",
+      "ar": "دولة تضمن العدالة الاجتماعية والضمان الاجتماعي.",
+      "en": "A state that ensures social justice and security.",
+      "tr": "Sosyal adalet ve güvenliği sağlayan devlet.",
+      "uk": "Держава, яка забезпечує соціальну справедливість та безпеку.",
+      "ru": "Государство, обеспечивающее социальную справедливость и безопасность."
+    },
+    "example": {
+      "de": "Deutschland ist ein Sozialstaat. Was bedeutet das?",
+      "ar": "ألمانيا دولة رعاية اجتماعية. ماذا يعني ذلك؟",
+      "en": "Germany is a welfare state. What does that mean?",
+      "tr": "Almanya bir refah devletidir. Bu ne anlama gelir?",
+      "uk": "Німеччина є соціальною державою. Що це означає?",
+      "ru": "Германия является социальным государством. Что это значит?"
+    },
+    "related_question_id": 77,
+    "keywords": ["Sozial", "Gerechtigkeit", "Absicherung"],
+    "related_question_ids": [77]
+  },
+  {
+    "id": 82,
+    "term": "Todesstrafe",
+    "category": "Rights",
+    "definition": {
+      "de": "Die Todesstrafe ist in Deutschland verboten.",
+      "ar": "عقوبة الإعدام محظورة في ألمانيا.",
+      "en": "The death penalty is prohibited in Germany.",
+      "tr": "Almanya'da idam cezası yasaktır.",
+      "uk": "Смертна кара заборонена в Німеччині.",
+      "ru": "Смертная казнь запрещена в Германии."
+    },
+    "example": {
+      "de": "Was ist mit dem deutschen Grundgesetz vereinbar?",
+      "ar": "ما هو الشيء المتوافق مع الدستور الألماني؟",
+      "en": "What is compatible with the German Basic Law?",
+      "tr": "Almanya'nın Temel Yasasıyla uyumlu olan nedir?",
+      "uk": "Що сумісно з німецьким Основним законом?",
+      "ru": "Что совместимо с немецким Основным законом?"
+    },
+    "related_question_id": 10,
+    "keywords": ["Strafe", "Verbot", "Grundgesetz"],
+    "related_question_ids": [10]
+  },
+  {
+    "id": 83,
+    "term": "Glaubensfreiheit",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, seinen Glauben frei zu wählen und zu praktizieren.",
+      "ar": "الحق في اختيار وممارسة المعتقد بحرية.",
+      "en": "The right to freely choose and practice one's faith.",
+      "tr": "İnancınızı özgürce seçme ve uygulama hakkı.",
+      "uk": "Право вільно обирати та сповідувати свою віру.",
+      "ru": "Право свободно выбирать и исповедовать свою веру."
+    },
+    "example": {
+      "de": "Welches Recht gehört zu den Grundrechten?",
+      "ar": "أي حق ينتمي إلى الحقوق الأساسية؟",
+      "en": "Which right belongs to the fundamental rights?",
+      "tr": "Hangi hak temel haklara aittir?",
+      "uk": "Яке право належить до основних прав?",
+      "ru": "Какое право относится к основным правам?"
+    },
+    "related_question_id": 7,
+    "keywords": ["Glaube", "Religion", "Grundrecht"],
+    "related_question_ids": [7]
+  },
+  {
+    "id": 84,
+    "term": "Gewissensfreiheit",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, nach seinem Gewissen zu handeln.",
+      "ar": "الحق في التصرف وفقاً للضمير.",
+      "en": "The right to act according to one's conscience.",
+      "tr": "Vicdanına göre hareket etme hakkı.",
+      "uk": "Право діяти згідно зі своєю совістю.",
+      "ru": "Право действовать согласно своей совести."
+    },
+    "example": {
+      "de": "Welches Recht gehört zu den Grundrechten?",
+      "ar": "أي حق ينتمي إلى الحقوق الأساسية؟",
+      "en": "Which right belongs to the fundamental rights?",
+      "tr": "Hangi hak temel haklara aittir?",
+      "uk": "Яке право належить до основних прав?",
+      "ru": "Какое право относится к основным правам?"
+    },
+    "related_question_id": 7,
+    "keywords": ["Gewissen", "Glaube", "Grundrecht"],
+    "related_question_ids": [7]
+  },
+  {
+    "id": 85,
+    "term": "Steuern",
+    "category": "Welfare",
+    "definition": {
+      "de": "Abgaben, die Bürger an den Staat zahlen müssen.",
+      "ar": "الضرائب التي يجب على المواطنين دفعها للدولة.",
+      "en": "Taxes that citizens must pay to the state.",
+      "tr": "Vatandaşların devlete ödemesi gereken vergiler.",
+      "uk": "Податки, які громадяни повинні сплачувати державі.",
+      "ru": "Налоги, которые граждане должны платить государству."
+    },
+    "example": {
+      "de": "Wer bezahlt in Deutschland die Sozialversicherungen?",
+      "ar": "من يدفع التأمينات الاجتماعية في ألمانيا؟",
+      "en": "Who pays social security contributions in Germany?",
+      "tr": "Almanya'da sosyal güvenlik primlerini kim ödüyor?",
+      "uk": "Хто платить внески на соціальне страхування в Німеччині?",
+      "ru": "Кто платит взносы на социальное страхование в Германии?"
+    },
+    "related_question_id": 77,
+    "keywords": ["Abgaben", "Staat", "Finanzen"],
+    "related_question_ids": [77]
+  },
+  {
+    "id": 86,
+    "term": "Integration",
+    "category": "Society",
+    "definition": {
+      "de": "Die Eingliederung von Zuwanderern in die deutsche Gesellschaft.",
+      "ar": "اندماج المهاجرين في المجتمع الألماني.",
+      "en": "The integration of immigrants into German society.",
+      "tr": "Göçmenlerin Alman toplumuna entegrasyonu.",
+      "uk": "Інтеграція іммігрантів у німецьке суспільство.",
+      "ru": "Интеграция иммигрантов в немецкое общество."
+    },
+    "example": {
+      "de": "Was bedeutet Integration?",
+      "ar": "ماذا تعني الاندماج؟",
+      "en": "What does integration mean?",
+      "tr": "Entegrasyon ne anlama gelir?",
+      "uk": "Що означає інтеграція?",
+      "ru": "Что означает интеграция?"
+    },
+    "related_question_id": null,
+    "keywords": ["Zuwanderer", "Gesellschaft", "Teilhabe"],
+    "related_question_ids": []
+  },
+  {
+    "id": 87,
+    "term": "Toleranz",
+    "category": "Society",
+    "definition": {
+      "de": "Respekt und Akzeptanz gegenüber anderen Meinungen und Lebensweisen.",
+      "ar": "الاحترام والقبول تجاه الآراء وأساليب الحياة الأخرى.",
+      "en": "Respect and acceptance of other opinions and ways of life.",
+      "tr": "Diğer görüşlere ve yaşam tarzlarına saygı ve kabul.",
+      "uk": "Повага та прийняття інших думок та способів життя.",
+      "ru": "Уважение и принятие других мнений и образа жизни."
+    },
+    "example": {
+      "de": "Was bedeutet Toleranz in einer Demokratie?",
+      "ar": "ماذا تعني التسامح في الديمقراطية؟",
+      "en": "What does tolerance mean in a democracy?",
+      "tr": "Demokraside hoşgörü ne anlama gelir?",
+      "uk": "Що означає толерантність у демократії?",
+      "ru": "Что означает толерантность в демократии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Respekt", "Akzeptanz", "Vielfalt"],
+    "related_question_ids": []
+  },
+  {
+    "id": 88,
+    "term": "Solidarität",
+    "category": "Society",
+    "definition": {
+      "de": "Gemeinsame Verantwortung und Unterstützung füreinander.",
+      "ar": "المسؤولية المشتركة والدعم المتبادل.",
+      "en": "Shared responsibility and mutual support.",
+      "tr": "Ortak sorumluluk ve karşılıklı destek.",
+      "uk": "Спільна відповідальність та взаємна підтримка.",
+      "ru": "Общая ответственность и взаимная поддержка."
+    },
+    "example": {
+      "de": "Was bedeutet Solidarität?",
+      "ar": "ماذا تعني التضامن؟",
+      "en": "What does solidarity mean?",
+      "tr": "Dayanışma ne anlama gelir?",
+      "uk": "Що означає солідарність?",
+      "ru": "Что означает солидарность?"
+    },
+    "related_question_id": null,
+    "keywords": ["Gemeinschaft", "Hilfe", "Unterstützung"],
+    "related_question_ids": []
+  },
+  {
+    "id": 89,
+    "term": "Petition",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, Bitten und Beschwerden an staatliche Stellen zu richten.",
+      "ar": "الحق في تقديم الطلبات والشكاوى إلى الجهات الحكومية.",
+      "en": "The right to address requests and complaints to government bodies.",
+      "tr": "Devlet organlarına istek ve şikayetlerini iletme hakkı.",
+      "uk": "Право звертатися з проханнями та скаргами до державних органів.",
+      "ru": "Право обращаться с просьбами и жалобами в государственные органы."
+    },
+    "example": {
+      "de": "Welches Recht haben Bürger in Deutschland?",
+      "ar": "ما هو الحق الذي يتمتع به المواطنون في ألمانيا؟",
+      "en": "What right do citizens have in Germany?",
+      "tr": "Almanya'da vatandaşların hangi hakkı var?",
+      "uk": "Яке право мають громадяни в Німеччині?",
+      "ru": "Какое право имеют граждане в Германии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Bürgerrecht", "Beschwerde", "Bitte"],
+    "related_question_ids": []
+  },
+  {
+    "id": 90,
+    "term": "Europäische Union",
+    "category": "System",
+    "definition": {
+      "de": "Der Zusammenschluss europäischer Staaten zu einer politischen und wirtschaftlichen Gemeinschaft.",
+      "ar": "اتحاد الدول الأوروبية في مجتمع سياسي واقتصادي.",
+      "en": "The union of European states into a political and economic community.",
+      "tr": "Avrupa devletlerinin siyasi ve ekonomik bir toplulukta birleşmesi.",
+      "uk": "Об'єднання європейських держав у політичну та економічну спільноту.",
+      "ru": "Объединение европейских государств в политическое и экономическое сообщество."
+    },
+    "example": {
+      "de": "Zu welcher Organisation gehört Deutschland?",
+      "ar": "إلى أي منظمة تنتمي ألمانيا؟",
+      "en": "Which organization does Germany belong to?",
+      "tr": "Almanya hangi organizasyona aittir?",
+      "uk": "До якої організації належить Німеччина?",
+      "ru": "К какой организации принадлежит Германия?"
+    },
+    "related_question_id": null,
+    "keywords": ["EU", "Europa", "Gemeinschaft"],
+    "related_question_ids": []
+  },
+  {
+    "id": 91,
+    "term": "Bürgerpflichten",
+    "category": "Rights",
+    "definition": {
+      "de": "Pflichten, die Bürger gegenüber dem Staat haben.",
+      "ar": "الواجبات التي يتحملها المواطنون تجاه الدولة.",
+      "en": "Duties that citizens have towards the state.",
+      "tr": "Vatandaşların devlete karşı yükümlülükleri.",
+      "uk": "Обов'язки, які громадяни мають перед державою.",
+      "ru": "Обязанности, которые граждане имеют перед государством."
+    },
+    "example": {
+      "de": "Was sind Bürgerpflichten in Deutschland?",
+      "ar": "ما هي واجبات المواطنين في ألمانيا؟",
+      "en": "What are the duties of citizens in Germany?",
+      "tr": "Almanya'da vatandaşlık görevleri nelerdir?",
+      "uk": "Які обов'язки громадян у Німеччині?",
+      "ru": "Каковы обязанности граждан в Германии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Pflicht", "Staat", "Bürger"],
+    "related_question_ids": []
+  },
+  {
+    "id": 92,
+    "term": "Verfassungsschutz",
+    "category": "System",
+    "definition": {
+      "de": "Behörde zum Schutz der freiheitlich-demokratischen Grundordnung.",
+      "ar": "هيئة لحماية النظام الأساسي الديمقراطي الحر.",
+      "en": "Agency for the protection of the free democratic basic order.",
+      "tr": "Özgür demokratik temel düzeni koruma kurumu.",
+      "uk": "Орган захисту вільного демократичного основного порядку.",
+      "ru": "Орган защиты свободного демократического основного порядка."
+    },
+    "example": {
+      "de": "Was ist der Verfassungsschutz?",
+      "ar": "ما هو حماية الدستور؟",
+      "en": "What is the Office for the Protection of the Constitution?",
+      "tr": "Anayasa Koruma nedir?",
+      "uk": "Що таке захист конституції?",
+      "ru": "Что такое защита конституции?"
+    },
+    "related_question_id": null,
+    "keywords": ["Schutz", "Demokratie", "Grundordnung"],
+    "related_question_ids": []
+  },
+  {
+    "id": 93,
+    "term": "Kommunen",
+    "category": "System",
+    "definition": {
+      "de": "Gemeinden und Städte als kleinste Verwaltungseinheiten.",
+      "ar": "البلديات والمدن كأصغر وحدات إدارية.",
+      "en": "Municipalities and cities as the smallest administrative units.",
+      "tr": "En küçük idari birimler olarak belediyeler ve şehirler.",
+      "uk": "Громади та міста як найменші адміністративні одиниці.",
+      "ru": "Муниципалитеты и города как наименьшие административные единицы."
+    },
+    "example": {
+      "de": "Was sind Kommunen?",
+      "ar": "ما هي البلديات؟",
+      "en": "What are municipalities?",
+      "tr": "Belediyeler nedir?",
+      "uk": "Що таке громади?",
+      "ru": "Что такое муниципалитеты?"
+    },
+    "related_question_id": null,
+    "keywords": ["Gemeinde", "Stadt", "Verwaltung"],
+    "related_question_ids": []
+  },
+  {
+    "id": 94,
+    "term": "Volksabstimmung",
+    "category": "System",
+    "definition": {
+      "de": "Direkte Abstimmung des Volkes über wichtige politische Fragen.",
+      "ar": "تصويت مباشر للشعب حول القضايا السياسية المهمة.",
+      "en": "Direct vote of the people on important political issues.",
+      "tr": "Halkın önemli siyasi konularda doğrudan oylaması.",
+      "uk": "Пряме голосування народу з важливих політичних питань.",
+      "ru": "Прямое голосование народа по важным политическим вопросам."
+    },
+    "example": {
+      "de": "Was ist eine Volksabstimmung?",
+      "ar": "ما هي الاستفتاء الشعبي؟",
+      "en": "What is a referendum?",
+      "tr": "Halk oylaması nedir?",
+      "uk": "Що таке референдум?",
+      "ru": "Что такое референдум?"
+    },
+    "related_question_id": null,
+    "keywords": ["Abstimmung", "Volk", "Demokratie"],
+    "related_question_ids": []
+  },
+  {
+    "id": 95,
+    "term": "Mehrheit",
+    "category": "System",
+    "definition": {
+      "de": "Die größere Anzahl von Stimmen oder Personen.",
+      "ar": "العدد الأكبر من الأصوات أو الأشخاص.",
+      "en": "The larger number of votes or people.",
+      "tr": "Oy veya kişi sayısının daha büyük olması.",
+      "uk": "Більша кількість голосів або людей.",
+      "ru": "Большее количество голосов или людей."
+    },
+    "example": {
+      "de": "Was bedeutet absolute Mehrheit?",
+      "ar": "ماذا تعني الأغلبية المطلقة؟",
+      "en": "What does absolute majority mean?",
+      "tr": "Mutlak çoğunluk ne anlama gelir?",
+      "uk": "Що означає абсолютна більшість?",
+      "ru": "Что означает абсолютное большинство?"
+    },
+    "related_question_id": null,
+    "keywords": ["Stimmen", "Wahl", "Entscheidung"],
+    "related_question_ids": []
+  },
+  {
+    "id": 96,
+    "term": "Grundrechte",
+    "category": "Rights",
+    "definition": {
+      "de": "Die wichtigsten Rechte, die jedem Menschen zustehen.",
+      "ar": "أهم الحقوق التي يتمتع بها كل إنسان.",
+      "en": "The most important rights that belong to every person.",
+      "tr": "Her insana ait en önemli haklar.",
+      "uk": "Найважливіші права, які належать кожній людині.",
+      "ru": "Важнейшие права, принадлежащие каждому человеку."
+    },
+    "example": {
+      "de": "Welches Recht gehört zu den Grundrechten?",
+      "ar": "أي حق ينتمي إلى الحقوق الأساسية؟",
+      "en": "Which right belongs to the fundamental rights?",
+      "tr": "Hangi hak temel haklara aittir?",
+      "uk": "Яке право належить до основних прав?",
+      "ru": "Какое право относится к основным правам?"
+    },
+    "related_question_id": 4,
+    "keywords": ["Rechte", "Menschen", "Grundgesetz"],
+    "related_question_ids": [4, 7]
+  },
+  {
+    "id": 97,
+    "term": "Diskriminierung",
+    "category": "Rights",
+    "definition": {
+      "de": "Ungleichbehandlung von Menschen aufgrund bestimmter Merkmale.",
+      "ar": "المعاملة غير المتساوية للأشخاص على أساس خصائص معينة.",
+      "en": "Unequal treatment of people based on certain characteristics.",
+      "tr": "Belirli özelliklere dayalı olarak insanların eşitsiz muamelesi.",
+      "uk": "Нерівне ставлення до людей на основі певних характеристик.",
+      "ru": "Неравное обращение с людьми на основе определенных характеристик."
+    },
+    "example": {
+      "de": "Was ist Diskriminierung?",
+      "ar": "ما هو التمييز؟",
+      "en": "What is discrimination?",
+      "tr": "Ayrımcılık nedir?",
+      "uk": "Що таке дискримінація?",
+      "ru": "Что такое дискриминация?"
+    },
+    "related_question_id": null,
+    "keywords": ["Ungleichbehandlung", "Verbot", "Grundrecht"],
+    "related_question_ids": []
+  },
+  {
+    "id": 98,
+    "term": "Flüchtlinge",
+    "category": "Rights",
+    "definition": {
+      "de": "Menschen, die aus ihrer Heimat fliehen müssen.",
+      "ar": "الأشخاص الذين يضطرون للفرار من وطنهم.",
+      "en": "People who must flee their homeland.",
+      "tr": "Vatanlarından kaçmak zorunda kalan insanlar.",
+      "uk": "Люди, які повинні втекти зі своєї батьківщини.",
+      "ru": "Люди, которые должны бежать из своей родины."
+    },
+    "example": {
+      "de": "Wer kann in Deutschland Asyl beantragen?",
+      "ar": "من يمكنه التقدم بطلب اللجوء في ألمانيا؟",
+      "en": "Who can apply for asylum in Germany?",
+      "tr": "Almanya'da kim sığınma başvurusunda bulunabilir?",
+      "uk": "Хто може подати заявку на притулок у Німеччині?",
+      "ru": "Кто может подать заявление на убежище в Германии?"
+    },
+    "related_question_id": 9,
+    "keywords": ["Asyl", "Schutz", "Migration"],
+    "related_question_ids": [9]
+  },
+  {
+    "id": 99,
+    "term": "Migration",
+    "category": "Society",
+    "definition": {
+      "de": "Die Wanderung von Menschen von einem Land in ein anderes.",
+      "ar": "هجرة الأشخاص من بلد إلى آخر.",
+      "en": "The movement of people from one country to another.",
+      "tr": "İnsanların bir ülkeden diğerine göçü.",
+      "uk": "Переміщення людей з однієї країни в іншу.",
+      "ru": "Перемещение людей из одной страны в другую."
+    },
+    "example": {
+      "de": "Was bedeutet Migration?",
+      "ar": "ماذا تعني الهجرة؟",
+      "en": "What does migration mean?",
+      "tr": "Göç ne anlama gelir?",
+      "uk": "Що означає міграція?",
+      "ru": "Что означает миграция?"
+    },
+    "related_question_id": null,
+    "keywords": ["Zuwanderung", "Einwanderung", "Gesellschaft"],
+    "related_question_ids": []
+  },
+  {
+    "id": 100,
+    "term": "Vielfalt",
+    "category": "Society",
+    "definition": {
+      "de": "Die Verschiedenheit und Unterschiedlichkeit in der Gesellschaft.",
+      "ar": "التنوع والاختلاف في المجتمع.",
+      "en": "The diversity and difference in society.",
+      "tr": "Toplumdaki çeşitlilik ve farklılık.",
+      "uk": "Різноманітність та відмінність у суспільстві.",
+      "ru": "Разнообразие и различие в обществе."
+    },
+    "example": {
+      "de": "Was bedeutet Vielfalt in Deutschland?",
+      "ar": "ماذا يعني التنوع في ألمانيا؟",
+      "en": "What does diversity mean in Germany?",
+      "tr": "Almanya'da çeşitlilik ne anlama gelir?",
+      "uk": "Що означає різноманітність у Німеччині?",
+      "ru": "Что означает разнообразие в Германии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Gesellschaft", "Toleranz", "Respekt"],
+    "related_question_ids": []
+  },
+  {
+    "id": 101,
+    "term": "Respekt",
+    "category": "Society",
+    "definition": {
+      "de": "Achtung und Wertschätzung gegenüber anderen Menschen.",
+      "ar": "الاحترام والتقدير تجاه الآخرين.",
+      "en": "Respect and appreciation for other people.",
+      "tr": "Diğer insanlara saygı ve takdir.",
+      "uk": "Повага та оцінка інших людей.",
+      "ru": "Уважение и признательность к другим людям."
+    },
+    "example": {
+      "de": "Was bedeutet Respekt?",
+      "ar": "ماذا يعني الاحترام؟",
+      "en": "What does respect mean?",
+      "tr": "Saygı ne anlama gelir?",
+      "uk": "Що означає повага?",
+      "ru": "Что означает уважение?"
+    },
+    "related_question_id": null,
+    "keywords": ["Achtung", "Wertschätzung", "Toleranz"],
+    "related_question_ids": []
+  },
+  {
+    "id": 102,
+    "term": "Selbstverwaltung",
+    "category": "System",
+    "definition": {
+      "de": "Die Verwaltung einer Gemeinde oder Region durch sich selbst.",
+      "ar": "إدارة البلدية أو المنطقة من قبل نفسها.",
+      "en": "The administration of a municipality or region by itself.",
+      "tr": "Bir belediyenin veya bölgenin kendi kendini yönetmesi.",
+      "uk": "Управління громадою або регіоном самостійно.",
+      "ru": "Управление муниципалитетом или регионом самостоятельно."
+    },
+    "example": {
+      "de": "Was bedeutet Selbstverwaltung?",
+      "ar": "ماذا تعني الإدارة الذاتية؟",
+      "en": "What does self-administration mean?",
+      "tr": "Özyönetim ne anlama gelir?",
+      "uk": "Що означає самоврядування?",
+      "ru": "Что означает самоуправление?"
+    },
+    "related_question_id": null,
+    "keywords": ["Kommunen", "Verwaltung", "Autonomie"],
+    "related_question_ids": []
+  },
+  {
+    "id": 103,
+    "term": "Mitbestimmung",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, an Entscheidungen teilzunehmen.",
+      "ar": "الحق في المشاركة في القرارات.",
+      "en": "The right to participate in decisions.",
+      "tr": "Kararlara katılma hakkı.",
+      "uk": "Право брати участь у рішеннях.",
+      "ru": "Право участвовать в решениях."
+    },
+    "example": {
+      "de": "Was bedeutet Mitbestimmung?",
+      "ar": "ماذا تعني المشاركة في القرارات؟",
+      "en": "What does co-determination mean?",
+      "tr": "Birlikte karar verme ne anlama gelir?",
+      "uk": "Що означає співучасть?",
+      "ru": "Что означает соучастие в принятии решений?"
+    },
+    "related_question_id": null,
+    "keywords": ["Entscheidung", "Teilhabe", "Demokratie"],
+    "related_question_ids": []
+  },
+  {
+    "id": 104,
+    "term": "Bürgerrecht",
+    "category": "Rights",
+    "definition": {
+      "de": "Rechte, die Bürger in einem Staat haben.",
+      "ar": "الحقوق التي يتمتع بها المواطنون في الدولة.",
+      "en": "Rights that citizens have in a state.",
+      "tr": "Vatandaşların bir devlette sahip olduğu haklar.",
+      "uk": "Права, які мають громадяни в державі.",
+      "ru": "Права, которые имеют граждане в государстве."
+    },
+    "example": {
+      "de": "Was sind Bürgerrechte?",
+      "ar": "ما هي حقوق المواطنين؟",
+      "en": "What are civil rights?",
+      "tr": "Vatandaşlık hakları nelerdir?",
+      "uk": "Що таке громадянські права?",
+      "ru": "Что такое гражданские права?"
+    },
+    "related_question_id": null,
+    "keywords": ["Rechte", "Bürger", "Staat"],
+    "related_question_ids": []
+  },
+  {
+    "id": 105,
+    "term": "Stimme",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, bei Wahlen zu wählen.",
+      "ar": "الحق في التصويت في الانتخابات.",
+      "en": "The right to vote in elections.",
+      "tr": "Seçimlerde oy verme hakkı.",
+      "uk": "Право голосувати на виборах.",
+      "ru": "Право голосовать на выборах."
+    },
+    "example": {
+      "de": "Was bedeutet eine Stimme abgeben?",
+      "ar": "ماذا يعني إعطاء صوت؟",
+      "en": "What does it mean to cast a vote?",
+      "tr": "Oy vermek ne anlama gelir?",
+      "uk": "Що означає віддати голос?",
+      "ru": "Что означает отдать голос?"
+    },
+    "related_question_id": 5,
+    "keywords": ["Wahl", "Wahlrecht", "Demokratie"],
+    "related_question_ids": [5]
+  },
+  {
+    "id": 106,
+    "term": "Abstimmung",
+    "category": "System",
+    "definition": {
+      "de": "Die Entscheidung durch Wählen oder Abstimmen.",
+      "ar": "القرار من خلال التصويت.",
+      "en": "The decision by voting or polling.",
+      "tr": "Oy verme veya oylama yoluyla karar.",
+      "uk": "Рішення шляхом голосування або опитування.",
+      "ru": "Решение путем голосования или опроса."
+    },
+    "example": {
+      "de": "Was ist eine Abstimmung?",
+      "ar": "ما هو التصويت؟",
+      "en": "What is a vote?",
+      "tr": "Oylama nedir?",
+      "uk": "Що таке голосування?",
+      "ru": "Что такое голосование?"
+    },
+    "related_question_id": null,
+    "keywords": ["Wahl", "Entscheidung", "Stimme"],
+    "related_question_ids": []
+  },
+  {
+    "id": 107,
+    "term": "Volk",
+    "category": "System",
+    "definition": {
+      "de": "Die Gesamtheit der Bürger eines Staates.",
+      "ar": "مجموع مواطني الدولة.",
+      "en": "The totality of citizens of a state.",
+      "tr": "Bir devletin vatandaşlarının toplamı.",
+      "uk": "Сукупність громадян держави.",
+      "ru": "Совокупность граждан государства."
+    },
+    "example": {
+      "de": "Alle Staatsgewalt geht vom Volke aus.",
+      "ar": "كل سلطة الدولة تنبع من الشعب.",
+      "en": "All state authority emanates from the people.",
+      "tr": "Tüm devlet yetkisi halktan kaynaklanır.",
+      "uk": "Уся державна влада походить від народу.",
+      "ru": "Вся государственная власть исходит от народа."
+    },
+    "related_question_id": 12,
+    "keywords": ["Bürger", "Staat", "Souveränität"],
+    "related_question_ids": [12, 13]
+  },
+  {
+    "id": 108,
+    "term": "Wahlen",
+    "category": "System",
+    "definition": {
+      "de": "Die demokratische Auswahl von Vertretern durch das Volk.",
+      "ar": "الاختيار الديمقراطي للممثلين من قبل الشعب.",
+      "en": "The democratic selection of representatives by the people.",
+      "tr": "Halk tarafından temsilcilerin demokratik seçimi.",
+      "uk": "Демократичний вибір представників народом.",
+      "ru": "Демократический выбор представителей народом."
+    },
+    "example": {
+      "de": "Wahlen in Deutschland sind frei. Was bedeutet das?",
+      "ar": "الانتخابات في ألمانيا حرة. ما المقصود بذلك؟",
+      "en": "Elections in Germany are free. What does that mean?",
+      "tr": "Almanya'da seçimler özgürdür. Bu ne anlama gelir?",
+      "uk": "Вибори в Німеччині вільні. Що це означає?",
+      "ru": "Выборы в Германии свободны. Что это значит?"
+    },
+    "related_question_id": 5,
+    "keywords": ["Demokratie", "Wahlrecht", "Volk"],
+    "related_question_ids": [5]
+  },
+  {
+    "id": 109,
+    "term": "Politik",
+    "category": "System",
+    "definition": {
+      "de": "Die Gestaltung des öffentlichen Lebens durch staatliche Maßnahmen.",
+      "ar": "تشكيل الحياة العامة من خلال الإجراءات الحكومية.",
+      "en": "The shaping of public life through government measures.",
+      "tr": "Devlet önlemleriyle kamu yaşamının şekillendirilmesi.",
+      "uk": "Формування суспільного життя через державні заходи.",
+      "ru": "Формирование общественной жизни через государственные меры."
+    },
+    "example": {
+      "de": "Was bedeutet Politik?",
+      "ar": "ماذا تعني السياسة؟",
+      "en": "What does politics mean?",
+      "tr": "Politika ne anlama gelir?",
+      "uk": "Що означає політика?",
+      "ru": "Что означает политика?"
+    },
+    "related_question_id": null,
+    "keywords": ["Staat", "Gesellschaft", "Entscheidung"],
+    "related_question_ids": []
+  },
+  {
+    "id": 110,
+    "term": "Programme",
+    "category": "System",
+    "definition": {
+      "de": "Die Ziele und Pläne einer Partei oder Organisation.",
+      "ar": "أهداف وخطط حزب أو منظمة.",
+      "en": "The goals and plans of a party or organization.",
+      "tr": "Bir parti veya organizasyonun hedefleri ve planları.",
+      "uk": "Цілі та плани партії або організації.",
+      "ru": "Цели и планы партии или организации."
+    },
+    "example": {
+      "de": "Was steht im Parteiprogramm?",
+      "ar": "ما الذي يوجد في برنامج الحزب؟",
+      "en": "What is in the party program?",
+      "tr": "Parti programında ne var?",
+      "uk": "Що є в програмі партії?",
+      "ru": "Что есть в программе партии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Partei", "Ziele", "Pläne"],
+    "related_question_ids": []
+  },
+  {
+    "id": 111,
+    "term": "Entscheidung",
+    "category": "System",
+    "definition": {
+      "de": "Eine Wahl oder Festlegung zwischen verschiedenen Möglichkeiten.",
+      "ar": "اختيار أو تحديد بين إمكانيات مختلفة.",
+      "en": "A choice or determination between different possibilities.",
+      "tr": "Farklı olasılıklar arasında bir seçim veya belirleme.",
+      "uk": "Вибір або визначення між різними можливостями.",
+      "ru": "Выбор или определение между различными возможностями."
+    },
+    "example": {
+      "de": "Wer trifft die Entscheidung?",
+      "ar": "من يتخذ القرار؟",
+      "en": "Who makes the decision?",
+      "tr": "Kararı kim verir?",
+      "uk": "Хто приймає рішення?",
+      "ru": "Кто принимает решение?"
+    },
+    "related_question_id": null,
+    "keywords": ["Wahl", "Bestimmung", "Politik"],
+    "related_question_ids": []
+  },
+  {
+    "id": 112,
+    "term": "Ethik",
+    "category": "Society",
+    "definition": {
+      "de": "Die Lehre vom moralisch richtigen Handeln.",
+      "ar": "علم السلوك الأخلاقي الصحيح.",
+      "en": "The study of morally correct behavior.",
+      "tr": "Ahlaki olarak doğru davranışın öğretisi.",
+      "uk": "Вчення про морально правильну поведінку.",
+      "ru": "Учение о морально правильном поведении."
+    },
+    "example": {
+      "de": "Was bedeutet Ethik?",
+      "ar": "ماذا تعني الأخلاق؟",
+      "en": "What does ethics mean?",
+      "tr": "Etik ne anlama gelir?",
+      "uk": "Що означає етика?",
+      "ru": "Что означает этика?"
+    },
+    "related_question_id": null,
+    "keywords": ["Moral", "Werte", "Gesellschaft"],
+    "related_question_ids": []
+  },
+  {
+    "id": 113,
+    "term": "Gesellschaft",
+    "category": "Society",
+    "definition": {
+      "de": "Die Gemeinschaft der Menschen in einem Staat.",
+      "ar": "مجتمع الناس في الدولة.",
+      "en": "The community of people in a state.",
+      "tr": "Bir devletteki insanların topluluğu.",
+      "uk": "Спільнота людей у державі.",
+      "ru": "Сообщество людей в государстве."
+    },
+    "example": {
+      "de": "Was ist die deutsche Gesellschaft?",
+      "ar": "ما هو المجتمع الألماني؟",
+      "en": "What is German society?",
+      "tr": "Alman toplumu nedir?",
+      "uk": "Що таке німецьке суспільство?",
+      "ru": "Что такое немецкое общество?"
+    },
+    "related_question_id": null,
+    "keywords": ["Gemeinschaft", "Menschen", "Staat"],
+    "related_question_ids": []
+  },
+  {
+    "id": 114,
+    "term": "Bundesversammlung",
+    "category": "System",
+    "definition": {
+      "de": "Das Gremium, das den Bundespräsidenten wählt.",
+      "ar": "الهيئة التي تنتخب رئيس الدولة.",
+      "en": "The body that elects the Federal President.",
+      "tr": "Federal Cumhurbaşkanını seçen organ.",
+      "uk": "Орган, який обирає Федерального президента.",
+      "ru": "Орган, избирающий Федерального президента."
+    },
+    "example": {
+      "de": "Wer wählt den Bundespräsidenten?",
+      "ar": "من ينتخب رئيس الدولة؟",
+      "en": "Who elects the Federal President?",
+      "tr": "Federal Cumhurbaşkanını kim seçer?",
+      "uk": "Хто обирає Федерального президента?",
+      "ru": "Кто избирает Федерального президента?"
+    },
+    "related_question_id": null,
+    "keywords": ["Bundespräsident", "Wahl", "Gremium"],
+    "related_question_ids": []
+  },
+  {
+    "id": 115,
+    "term": "Gesetzgebung",
+    "category": "System",
+    "definition": {
+      "de": "Der Prozess der Erstellung von Gesetzen.",
+      "ar": "عملية وضع القوانين.",
+      "en": "The process of creating laws.",
+      "tr": "Yasaların oluşturulma süreci.",
+      "uk": "Процес створення законів.",
+      "ru": "Процесс создания законов."
+    },
+    "example": {
+      "de": "Wer ist für die Gesetzgebung zuständig?",
+      "ar": "من المسؤول عن التشريع؟",
+      "en": "Who is responsible for legislation?",
+      "tr": "Yasamadan kim sorumludur?",
+      "uk": "Хто відповідає за законодавство?",
+      "ru": "Кто отвечает за законодательство?"
+    },
+    "related_question_id": 25,
+    "keywords": ["Gesetze", "Legislative", "Parlament"],
+    "related_question_ids": [25, 27]
+  },
+  {
+    "id": 116,
+    "term": "Justiz",
+    "category": "System",
+    "definition": {
+      "de": "Die Gesamtheit der Gerichte und Richter.",
+      "ar": "مجموع المحاكم والقضاة.",
+      "en": "The totality of courts and judges.",
+      "tr": "Mahkemeler ve hakimlerin toplamı.",
+      "uk": "Сукупність судів та суддів.",
+      "ru": "Совокупность судов и судей."
+    },
+    "example": {
+      "de": "Was ist die Justiz?",
+      "ar": "ما هي السلطة القضائية؟",
+      "en": "What is the judiciary?",
+      "tr": "Yargı nedir?",
+      "uk": "Що таке судова влада?",
+      "ru": "Что такое судебная власть?"
+    },
+    "related_question_id": 25,
+    "keywords": ["Gerichte", "Richter", "Judikative"],
+    "related_question_ids": [25, 27]
+  },
+  {
+    "id": 117,
+    "term": "Freiheit",
+    "category": "Rights",
+    "definition": {
+      "de": "Das Recht, selbstbestimmt zu handeln.",
+      "ar": "الحق في التصرف بحرية.",
+      "en": "The right to act self-determined.",
+      "tr": "Özgürce hareket etme hakkı.",
+      "uk": "Право діяти самостійно.",
+      "ru": "Право действовать самостоятельно."
+    },
+    "example": {
+      "de": "Was bedeutet Freiheit?",
+      "ar": "ماذا تعني الحرية؟",
+      "en": "What does freedom mean?",
+      "tr": "Özgürlük ne anlama gelir?",
+      "uk": "Що означає свобода?",
+      "ru": "Что означает свобода?"
+    },
+    "related_question_id": null,
+    "keywords": ["Recht", "Selbstbestimmung", "Grundrecht"],
+    "related_question_ids": []
+  },
+  {
+    "id": 118,
+    "term": "Menschenrechte",
+    "category": "Rights",
+    "definition": {
+      "de": "Rechte, die jedem Menschen zustehen, unabhängig von Herkunft oder Status.",
+      "ar": "حقوق يتمتع بها كل إنسان، بغض النظر عن الأصل أو الحالة.",
+      "en": "Rights that belong to every person, regardless of origin or status.",
+      "tr": "Köken veya statüden bağımsız olarak her insana ait haklar.",
+      "uk": "Права, які належать кожній людині, незалежно від походження чи статусу.",
+      "ru": "Права, принадлежащие каждому человеку, независимо от происхождения или статуса."
+    },
+    "example": {
+      "de": "Was sind Menschenrechte?",
+      "ar": "ما هي حقوق الإنسان؟",
+      "en": "What are human rights?",
+      "tr": "İnsan hakları nelerdir?",
+      "uk": "Що таке права людини?",
+      "ru": "Что такое права человека?"
+    },
+    "related_question_id": null,
+    "keywords": ["Rechte", "Menschen", "Grundrecht"],
+    "related_question_ids": []
+  },
+  {
+    "id": 119,
+    "term": "Schutz",
+    "category": "Rights",
+    "definition": {
+      "de": "Der Schutz vor Gefahren und Bedrohungen.",
+      "ar": "الحماية من الأخطار والتهديدات.",
+      "en": "Protection from dangers and threats.",
+      "tr": "Tehlikelerden ve tehditlerden korunma.",
+      "uk": "Захист від небезпек та загроз.",
+      "ru": "Защита от опасностей и угроз."
+    },
+    "example": {
+      "de": "Wer bietet Schutz in Deutschland?",
+      "ar": "من يوفر الحماية في ألمانيا؟",
+      "en": "Who provides protection in Germany?",
+      "tr": "Almanya'da kim koruma sağlar?",
+      "uk": "Хто забезпечує захист у Німеччині?",
+      "ru": "Кто обеспечивает защиту в Германии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Sicherheit", "Staat", "Grundrecht"],
+    "related_question_ids": []
+  },
+  {
+    "id": 120,
+    "term": "Gemeinschaft",
+    "category": "Society",
+    "definition": {
+      "de": "Eine Gruppe von Menschen mit gemeinsamen Interessen oder Zielen.",
+      "ar": "مجموعة من الناس لديهم مصالح أو أهداف مشتركة.",
+      "en": "A group of people with common interests or goals.",
+      "tr": "Ortak çıkarları veya hedefleri olan bir grup insan.",
+      "uk": "Група людей зі спільними інтересами або цілями.",
+      "ru": "Группа людей с общими интересами или целями."
+    },
+    "example": {
+      "de": "Was bedeutet Gemeinschaft?",
+      "ar": "ماذا تعني المجتمع؟",
+      "en": "What does community mean?",
+      "tr": "Topluluk ne anlama gelir?",
+      "uk": "Що означає спільнота?",
+      "ru": "Что означает сообщество?"
+    },
+    "related_question_id": null,
+    "keywords": ["Gruppe", "Zusammenarbeit", "Gesellschaft"],
+    "related_question_ids": []
+  },
+  {
+    "id": 121,
+    "term": "Hilfe",
+    "category": "Welfare",
+    "definition": {
+      "de": "Unterstützung für Menschen in Not.",
+      "ar": "الدعم للأشخاص المحتاجين.",
+      "en": "Support for people in need.",
+      "tr": "İhtiyaç sahiplerine destek.",
+      "uk": "Підтримка для людей, які потребують допомоги.",
+      "ru": "Поддержка для людей, нуждающихся в помощи."
+    },
+    "example": {
+      "de": "Wer bietet Hilfe in Deutschland?",
+      "ar": "من يوفر المساعدة في ألمانيا؟",
+      "en": "Who provides help in Germany?",
+      "tr": "Almanya'da kim yardım sağlar?",
+      "uk": "Хто забезпечує допомогу у Німеччині?",
+      "ru": "Кто обеспечивает помощь в Германии?"
+    },
+    "related_question_id": null,
+    "keywords": ["Unterstützung", "Sozialstaat", "Solidarität"],
+    "related_question_ids": []
+  },
+  {
+    "id": 122,
+    "term": "Lokalpolitik",
+    "category": "System",
+    "definition": {
+      "de": "Politik auf der Ebene der Gemeinden und Städte.",
+      "ar": "السياسة على مستوى البلديات والمدن.",
+      "en": "Politics at the level of municipalities and cities.",
+      "tr": "Belediyeler ve şehirler düzeyinde siyaset.",
+      "uk": "Політика на рівні громад та міст.",
+      "ru": "Политика на уровне муниципалитетов и городов."
+    },
+    "example": {
+      "de": "Was ist Lokalpolitik?",
+      "ar": "ما هي السياسة المحلية؟",
+      "en": "What is local politics?",
+      "tr": "Yerel siyaset nedir?",
+      "uk": "Що таке місцева політика?",
+      "ru": "Что такое местная политика?"
+    },
+    "related_question_id": null,
+    "keywords": ["Kommunen", "Gemeinde", "Politik"],
+    "related_question_ids": []
+  },
+  {
+    "id": 123,
+    "term": "Regionen",
+    "category": "System",
+    "definition": {
+      "de": "Geografische Gebiete innerhalb eines Staates.",
+      "ar": "المناطق الجغرافية داخل الدولة.",
+      "en": "Geographic areas within a state.",
+      "tr": "Bir devlet içindeki coğrafi alanlar.",
+      "uk": "Географічні території в межах держави.",
+      "ru": "Географические территории в пределах государства."
+    },
+    "example": {
+      "de": "Was sind Regionen?",
+      "ar": "ما هي المناطق؟",
+      "en": "What are regions?",
+      "tr": "Bölgeler nedir?",
+      "uk": "Що таке регіони?",
+      "ru": "Что такое регионы?"
+    },
+    "related_question_id": null,
+    "keywords": ["Gebiet", "Bundesländer", "Geografie"],
+    "related_question_ids": []
   }
 ]

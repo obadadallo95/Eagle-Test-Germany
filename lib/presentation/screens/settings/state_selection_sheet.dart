@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import '../../../core/storage/user_preferences_service.dart';
+import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../providers/locale_provider.dart';
 
 /// Modal Bottom Sheet لاختيار الولاية الفيدرالية
@@ -82,24 +84,47 @@ class _StateSelectionSheetState extends ConsumerState<StateSelectionSheet> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Flexible(
-                  child: Text(
-                    isArabic ? 'الولاية الفيدرالية' : 'Federal State',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
-                    overflow: TextOverflow.ellipsis,
+                  child: Builder(
+                    builder: (context) {
+                      final theme = Theme.of(context);
+                      final isDark = theme.brightness == Brightness.dark;
+                      return Text(
+                        isArabic ? 'الولاية الفيدرالية' : 'Federal State',
+                        style: AppTypography.h3.copyWith(
+                          color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                      );
+                    },
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.close, size: 24.sp, color: Colors.white),
-                  onPressed: () => Navigator.pop(context),
+                Builder(
+                  builder: (context) {
+                    final theme = Theme.of(context);
+                    final isDark = theme.brightness == Brightness.dark;
+                    return IconButton(
+                      icon: Icon(
+                        Icons.close, 
+                        size: AppSpacing.iconLg, 
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                      ),
+                      onPressed: () => Navigator.pop(context),
+                    );
+                  },
                 ),
               ],
             ),
           ),
-          Divider(height: 1, color: Colors.grey.shade800),
+          Builder(
+            builder: (context) {
+              final theme = Theme.of(context);
+              final isDark = theme.brightness == Brightness.dark;
+              return Divider(
+                height: 1, 
+                color: isDark ? AppColors.darkDivider : AppColors.lightDivider,
+              );
+            },
+          ),
           // States List
           Flexible(
             child: ListView.builder(
@@ -109,22 +134,34 @@ class _StateSelectionSheetState extends ConsumerState<StateSelectionSheet> {
                 final state = _germanStates[index];
                 final isSelected = _selectedState == state['code'];
                 
-                return ListTile(
-                  title: Text(
-                    isArabic
-                        ? '${state['nameAr']} (${state['name']})'
-                        : '${state['name']} (${state['nameAr']})',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      color: Colors.white,
-                      fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
-                    ),
-                  ),
-                  trailing: isSelected
-                      ? Icon(Icons.check_circle, color: Colors.green, size: 24.sp)
-                      : null,
-                  selected: isSelected,
-                  onTap: () => _selectState(state['code']),
+                return Builder(
+                  builder: (context) {
+                    final theme = Theme.of(context);
+                    final isDark = theme.brightness == Brightness.dark;
+                    final textColor = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+                    final successColor = isDark ? AppColors.successDark : AppColors.successLight;
+                    
+                    return ListTile(
+                      title: Text(
+                        isArabic
+                            ? '${state['nameAr']} (${state['name']})'
+                            : '${state['name']} (${state['nameAr']})',
+                        style: AppTypography.bodyL.copyWith(
+                          color: textColor,
+                          fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
+                        ),
+                      ),
+                      trailing: isSelected
+                          ? Icon(
+                              Icons.check_circle, 
+                              color: successColor, 
+                              size: AppSpacing.iconLg,
+                            )
+                          : null,
+                      selected: isSelected,
+                      onTap: () => _selectState(state['code']),
+                    );
+                  },
                 );
               },
             ),
@@ -134,4 +171,5 @@ class _StateSelectionSheetState extends ConsumerState<StateSelectionSheet> {
     );
   }
 }
+
 

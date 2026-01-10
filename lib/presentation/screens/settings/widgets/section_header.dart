@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_typography.dart';
+import '../../../../core/theme/app_spacing.dart';
 
 /// Consistent section header styling
 class SectionHeader extends StatelessWidget {
@@ -16,14 +17,13 @@ class SectionHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Padding(
-      padding: padding ?? EdgeInsets.all(16.w),
+      padding: padding ?? const EdgeInsets.all(AppSpacing.lg),
       child: Text(
         title,
-        style: GoogleFonts.poppins(
-          fontSize: 18.sp,
-          fontWeight: FontWeight.bold,
-          color: theme.colorScheme.onSurface,
+        style: AppTypography.h3.copyWith(
+          color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
         ),
       ),
     );

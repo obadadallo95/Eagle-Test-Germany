@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
@@ -17,6 +16,7 @@ import '../../widgets/core/adaptive_page_wrapper.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/storage/user_preferences_service.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../domain/entities/question.dart';
 import '../subscription/paywall_screen.dart';
 
@@ -205,8 +205,7 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
             appBar: AppBar(
               title: Text(
                 isArabic ? 'أسئلة الولاية' : 'State Questions',
-                style: GoogleFonts.poppins(
-                  fontWeight: FontWeight.bold,
+                style: AppTypography.h2.copyWith(
                   color: theme.colorScheme.onSurface,
                 ),
               ),
@@ -214,14 +213,22 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
               elevation: 0,
               bottom: PreferredSize(
                 preferredSize: const Size.fromHeight(4),
-                child: questionsAsync.when(
-                  data: (questions) => LinearProgressIndicator(
-                    value: questions.isEmpty ? 0 : (_currentIndex + 1) / questions.length,
-                    backgroundColor: AppColors.germanRed.withValues(alpha: 0.2),
-                    valueColor: const AlwaysStoppedAnimation(AppColors.eagleGold),
-                  ),
-                  loading: () => const SizedBox.shrink(),
-                  error: (_, __) => const SizedBox.shrink(),
+                child: Builder(
+                  builder: (context) {
+                    final theme = Theme.of(context);
+                    final isDark = theme.brightness == Brightness.dark;
+                    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                    
+                    return questionsAsync.when(
+                      data: (questions) => LinearProgressIndicator(
+                        value: questions.isEmpty ? 0 : (_currentIndex + 1) / questions.length,
+                        backgroundColor: AppColors.errorDark.withValues(alpha: 0.2),
+                        valueColor: AlwaysStoppedAnimation(primaryGold),
+                      ),
+                      loading: () => const SizedBox.shrink(),
+                      error: (_, __) => const SizedBox.shrink(),
+                    );
+                  },
                 ),
               ),
             ),
@@ -256,8 +263,15 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
                     },
                   );
                 },
-                loading: () => const Center(
-                  child: CircularProgressIndicator(color: AppColors.eagleGold),
+                loading: () => Builder(
+                  builder: (context) {
+                    final theme = Theme.of(context);
+                    final isDark = theme.brightness == Brightness.dark;
+                    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                    return Center(
+                      child: CircularProgressIndicator(color: primaryGold),
+                    );
+                  },
                 ),
                 error: (error, stack) => Center(
                   child: Column(
@@ -268,11 +282,11 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
                       Builder(
                         builder: (context) {
                           final theme = Theme.of(context);
+                          final isDark = theme.brightness == Brightness.dark;
                           return AutoSizeText(
                             isArabic ? 'خطأ في تحميل الأسئلة' : 'Error loading questions',
-                            style: GoogleFonts.poppins(
-                              fontSize: 16.sp,
-                              color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                            style: AppTypography.bodyL.copyWith(
+                              color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                             ),
                           );
                         },
@@ -295,23 +309,28 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.flag_outlined,
-              size: 120.sp,
-              color: Colors.grey[600],
+            Builder(
+              builder: (context) {
+                final theme = Theme.of(context);
+                final isDark = theme.brightness == Brightness.dark;
+                return Icon(
+                  Icons.flag_outlined,
+                  size: 120.sp,
+                  color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
+                );
+              },
             ),
             SizedBox(height: 24.h),
             Builder(
               builder: (context) {
                 final theme = Theme.of(context);
+                final isDark = theme.brightness == Brightness.dark;
                 return Column(
                   children: [
                     AutoSizeText(
                       isArabic ? 'لم يتم اختيار ولاية' : 'No State Selected',
-                      style: GoogleFonts.poppins(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface,
+                      style: AppTypography.h2.copyWith(
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       maxLines: 1,
                     ),
@@ -320,9 +339,8 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
                       isArabic
                           ? 'يرجى اختيار ولاية من الإعدادات لعرض أسئلة الولاية.'
                           : 'Please select a state from settings to view state questions.',
-                      style: GoogleFonts.poppins(
-                        fontSize: 16.sp,
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                      style: AppTypography.bodyL.copyWith(
+                        color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 3,
@@ -353,13 +371,12 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
             Builder(
               builder: (context) {
                 final theme = Theme.of(context);
+                final isDark = theme.brightness == Brightness.dark;
                 return Column(
                   children: [
                     AutoSizeText(
                       isArabic ? 'لا توجد أسئلة' : 'No Questions Available',
-                      style: GoogleFonts.poppins(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
+                      style: AppTypography.h2.copyWith(
                         color: theme.colorScheme.onSurface,
                       ),
                       maxLines: 1,
@@ -369,9 +386,8 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
                       isArabic
                           ? 'لا توجد أسئلة خاصة بالولاية المختارة حالياً.'
                           : 'No state-specific questions available for the selected state.',
-                      style: GoogleFonts.poppins(
-                        fontSize: 16.sp,
-                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                      style: AppTypography.bodyL.copyWith(
+                        color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 3,
@@ -397,45 +413,55 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
 
     return SingleChildScrollView(
       padding: EdgeInsets.all(16.w),
-      child: Column(
-        children: [
-          // Question Info
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Builder(
+        builder: (context) {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
+          return Column(
             children: [
-              AutoSizeText(
-                isArabic
-                    ? 'سؤال ${_currentIndex + 1}/${questions.length}'
-                    : 'Question ${_currentIndex + 1}/${questions.length}',
-                style: GoogleFonts.poppins(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
-                ),
+              // Question Info
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  AutoSizeText(
+                    isArabic
+                        ? 'سؤال ${_currentIndex + 1}/${questions.length}'
+                        : 'Question ${_currentIndex + 1}/${questions.length}',
+                    style: AppTypography.bodyL.copyWith(
+                      fontWeight: FontWeight.w600,
+                      color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                    ),
                 maxLines: 1,
               ),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
-                decoration: BoxDecoration(
-                  color: AppColors.germanRed.withValues(alpha: 0.2),
-                  borderRadius: BorderRadius.circular(20.r),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Icon(Icons.flag, size: 16.sp, color: AppColors.germanRed),
-                    SizedBox(width: 4.w),
-                    AutoSizeText(
-                      isArabic ? 'ولاية' : 'State',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                        color: AppColors.germanRed,
-                        fontWeight: FontWeight.w600,
-                      ),
-                      maxLines: 1,
+              Builder(
+                builder: (context) {
+                  final theme = Theme.of(context);
+                  final isDark = theme.brightness == Brightness.dark;
+                  final errorColor = isDark ? AppColors.errorDark : AppColors.errorLight;
+                  
+                  return Container(
+                    padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                    decoration: BoxDecoration(
+                      color: errorColor.withValues(alpha: 0.2),
+                      borderRadius: BorderRadius.circular(20.r),
                     ),
-                  ],
-                ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Icon(Icons.flag, size: 16.sp, color: errorColor),
+                        SizedBox(width: 4.w),
+                        AutoSizeText(
+                          isArabic ? 'ولاية' : 'State',
+                          style: AppTypography.bodyS.copyWith(
+                            color: errorColor,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          maxLines: 1,
+                        ),
+                      ],
+                    ),
+                  );
+                },
               ),
             ],
           ),
@@ -461,31 +487,39 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
 
           // Next Button (only show after answer is checked)
           if (_isAnswerChecked)
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: _nextQuestion,
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.eagleGold,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12.r),
+            Builder(
+              builder: (context) {
+                final theme = Theme.of(context);
+                final isDark = theme.brightness == Brightness.dark;
+                
+                return SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _nextQuestion,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                      padding: EdgeInsets.symmetric(vertical: 16.h),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                    ),
+                    child: AutoSizeText(
+                      _currentIndex < questions.length - 1
+                          ? (isArabic ? 'التالي' : 'Next')
+                          : (isArabic ? 'إنهاء' : 'Finish'),
+                      style: AppTypography.button.copyWith(
+                        fontSize: 16.sp,
+                      ),
+                      maxLines: 1,
+                    ),
                   ),
-                ),
-                child: AutoSizeText(
-                  _currentIndex < questions.length - 1
-                      ? (isArabic ? 'التالي' : 'Next')
-                      : (isArabic ? 'إنهاء' : 'Finish'),
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
-                  ),
-                  maxLines: 1,
-                ),
-              ),
+                );
+              },
             ),
-        ],
+            ],
+          );
+        },
       ),
     );
   }
@@ -518,14 +552,19 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
               ),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
+                  Builder(
+                    builder: (context) {
+                      final theme = Theme.of(context);
+                      final isDark = theme.brightness == Brightness.dark;
+                      final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                      return Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp);
+                    },
+                  ),
                   SizedBox(width: 12.w),
                   Expanded(
                     child: Text(
                       l10n?.upgradeToPro ?? 'Upgrade to Pro',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
+                      style: AppTypography.h3.copyWith(
                         color: theme.colorScheme.onSurface,
                       ),
                       maxLines: 1,
@@ -536,8 +575,7 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
               ),
               content: Text(
                 l10n?.aiTutorDailyLimitReached ?? 'You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
+                style: AppTypography.bodyM.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
@@ -546,7 +584,9 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n?.cancel ?? 'Cancel',
-                    style: GoogleFonts.poppins(color: theme.colorScheme.onSurface.withValues(alpha: 0.7)),
+                    style: AppTypography.bodyM.copyWith(
+                      color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                    ),
                   ),
                 ),
                 ElevatedButton(
@@ -560,12 +600,12 @@ class _StateQuestionsScreenState extends ConsumerState<StateQuestionsScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: theme.brightness == Brightness.dark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   ),
                   child: Text(
                     l10n?.upgrade ?? 'Upgrade',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -695,51 +735,67 @@ class _StateAiExplanationBottomSheetState extends State<_StateAiExplanationBotto
             padding: EdgeInsets.all(20.w),
             child: Row(
               children: [
-                Container(
-                  padding: EdgeInsets.all(12.w),
-                  decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.2),
-                    borderRadius: BorderRadius.circular(12.r),
-                  ),
-                  child: Icon(
-                    Icons.auto_awesome,
-                    color: AppColors.eagleGold,
-                    size: 24.sp,
-                  ),
+                Builder(
+                  builder: (context) {
+                    final theme = Theme.of(context);
+                    final isDark = theme.brightness == Brightness.dark;
+                    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                    
+                    return Container(
+                      padding: EdgeInsets.all(12.w),
+                      decoration: BoxDecoration(
+                        color: primaryGold.withValues(alpha: 0.2),
+                        borderRadius: BorderRadius.circular(12.r),
+                      ),
+                      child: Icon(
+                        Icons.auto_awesome,
+                        color: primaryGold,
+                        size: 24.sp,
+                      ),
+                    );
+                  },
                 ),
                 SizedBox(width: 16.w),
                 Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      AutoSizeText(
-                        widget.isArabic
-                            ? 'شرح من Eagle AI Tutor'
-                            : 'Explanation from Eagle AI Tutor',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSurface,
-                        ),
-                        maxLines: 1,
-                      ),
-                      SizedBox(height: 4.h),
-                      AutoSizeText(
-                        widget.isArabic
-                            ? 'شرح مفصل للسؤال والإجابة الصحيحة'
-                            : 'Detailed explanation of the question and correct answer',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                        ),
-                        maxLines: 1,
-                      ),
-                    ],
+                  child: Builder(
+                    builder: (context) {
+                      final theme = Theme.of(context);
+                      final isDark = theme.brightness == Brightness.dark;
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          AutoSizeText(
+                            widget.isArabic
+                                ? 'شرح من Eagle AI Tutor'
+                                : 'Explanation from Eagle AI Tutor',
+                            style: AppTypography.h3.copyWith(
+                              color: theme.colorScheme.onSurface,
+                            ),
+                            maxLines: 1,
+                          ),
+                          SizedBox(height: 4.h),
+                          AutoSizeText(
+                            widget.isArabic
+                                ? 'شرح مفصل للسؤال والإجابة الصحيحة'
+                                : 'Detailed explanation of the question and correct answer',
+                            style: AppTypography.bodyS.copyWith(
+                              color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                            ),
+                            maxLines: 1,
+                          ),
+                        ],
+                      );
+                    },
                   ),
                 ),
-                IconButton(
-                  icon: Icon(Icons.close, color: theme.colorScheme.onSurface),
-                  onPressed: () => Navigator.pop(context),
+                Builder(
+                  builder: (context) {
+                    final theme = Theme.of(context);
+                    return IconButton(
+                      icon: Icon(Icons.close, color: theme.colorScheme.onSurface),
+                      onPressed: () => Navigator.pop(context),
+                    );
+                  },
                 ),
               ],
             ),
@@ -755,11 +811,18 @@ class _StateAiExplanationBottomSheetState extends State<_StateAiExplanationBotto
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const CircularProgressIndicator(color: AppColors.eagleGold),
+                        Builder(
+                          builder: (context) {
+                            final theme = Theme.of(context);
+                            final isDark = theme.brightness == Brightness.dark;
+                            final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                            return CircularProgressIndicator(color: primaryGold);
+                          },
+                        ),
                         SizedBox(height: 16.h),
                         AutoSizeText(
                           widget.isArabic ? 'جاري تحميل الشرح...' : 'Loading explanation...',
-                          style: GoogleFonts.poppins(
+                          style: AppTypography.bodyM.copyWith(
                             color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                           ),
                         ),
@@ -780,8 +843,8 @@ class _StateAiExplanationBottomSheetState extends State<_StateAiExplanationBotto
                           widget.isArabic
                               ? 'حدث خطأ أثناء تحميل الشرح'
                               : 'Error loading explanation',
-                          style: GoogleFonts.poppins(
-                            color: Colors.red,
+                          style: AppTypography.bodyL.copyWith(
+                            color: AppColors.errorDark,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -796,8 +859,7 @@ class _StateAiExplanationBottomSheetState extends State<_StateAiExplanationBotto
                   padding: EdgeInsets.all(20.w),
                   child: AutoSizeText(
                     explanation,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
+                    style: AppTypography.bodyL.copyWith(
                       color: theme.colorScheme.onSurface,
                       height: 1.6,
                     ),
@@ -817,19 +879,28 @@ class _StateAiExplanationBottomSheetState extends State<_StateAiExplanationBotto
                         ? SizedBox(
                             width: 16.w,
                             height: 16.h,
-                            child: const CircularProgressIndicator(
-                              strokeWidth: 2,
-                              color: AppColors.eagleGold,
+                            child: Builder(
+                              builder: (context) {
+                                final theme = Theme.of(context);
+                                final isDark = theme.brightness == Brightness.dark;
+                                final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                                return CircularProgressIndicator(
+                                  strokeWidth: 2,
+                                  color: primaryGold,
+                                );
+                              },
                             ),
                           )
                         : Icon(Icons.refresh, size: 20.sp),
                     label: Text(
                       widget.isArabic ? 'تحديث' : 'Refresh',
-                      style: GoogleFonts.poppins(),
+                      style: AppTypography.button,
                     ),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: AppColors.eagleGold),
-                      foregroundColor: AppColors.eagleGold,
+                      side: BorderSide(
+                        color: theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
+                      ),
+                      foregroundColor: theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
                     ),
                   ),
                 ),
@@ -838,12 +909,12 @@ class _StateAiExplanationBottomSheetState extends State<_StateAiExplanationBotto
                   child: ElevatedButton(
                     onPressed: () => Navigator.pop(context),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: theme.brightness == Brightness.dark ? AppColors.darkBg : AppColors.lightTextPrimary,
                     ),
                     child: Text(
                       widget.isArabic ? 'إغلاق' : 'Close',
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                      style: AppTypography.button,
                     ),
                   ),
                 ),

@@ -527,6 +527,118 @@
   "cloudSync": "Cloud-Synchronisation",
   "@cloudSync": {
     "description": "Tooltip für Cloud-Synchronisationsindikator"
+  },
+  "themeTitle": "Design wählen",
+  "@themeTitle": {
+    "description": "Titel für das Design-Auswahldialog"
+  },
+  "close": "Schließen",
+  "@close": {
+    "description": "Schließen-Schaltflächentext"
+  },
+  "appearance": "Erscheinungsbild",
+  "@appearance": {
+    "description": "Abschnittsüberschrift für Erscheinungsbildeinstellungen"
+  },
+  "examReadinessReport": "Prüfungsbereitschaftsbericht",
+  "@examReadinessReport": {
+    "description": "Titel für Prüfungsbereitschaftsbericht-Dialog"
+  },
+  "overallScore": "Gesamtpunktzahl",
+  "@overallScore": {
+    "description": "Bezeichnung für Gesamtbereitschaftspunktzahl"
+  },
+  "componentScores": "Komponentenpunktzahlen",
+  "@componentScores": {
+    "description": "Bezeichnung für Komponentenpunktzahlen-Abschnitt"
+  },
+  "questionMastery": "Fragenbeherrschung",
+  "@questionMastery": {
+    "description": "Bezeichnung für Fragenbeherrschungspunktzahl"
+  },
+  "examPerformance": "Prüfungsleistung",
+  "@examPerformance": {
+    "description": "Bezeichnung für Prüfungsleistungspunktzahl"
+  },
+  "studyConsistency": "Lernkonsistenz",
+  "@studyConsistency": {
+    "description": "Bezeichnung für Lernkonsistenzpunktzahl"
+  },
+  "stateQuestions": "Länderfragen",
+  "@stateQuestions": {
+    "description": "Bezeichnung für länderspezifische Fragenpunktzahl"
+  },
+  "statistics": "Statistiken",
+  "@statistics": {
+    "description": "Bezeichnung für Statistiken-Abschnitt"
+  },
+  "questionsAnswered": "Beantwortete Fragen",
+  "@questionsAnswered": {
+    "description": "Bezeichnung für Gesamtzahl beantworteter Fragen"
+  },
+  "questionsMastered": "Beherrschte Fragen",
+  "@questionsMastered": {
+    "description": "Bezeichnung für Anzahl beherrschter Fragen"
+  },
+  "correctAnswers": "Richtige Antworten",
+  "@correctAnswers": {
+    "description": "Bezeichnung für Anzahl richtiger Antworten"
+  },
+  "examsCompleted": "Abgeschlossene Prüfungen",
+  "@examsCompleted": {
+    "description": "Bezeichnung für Anzahl abgeschlossener Prüfungen"
+  },
+  "currentStreak": "Aktuelle Serie",
+  "@currentStreak": {
+    "description": "Bezeichnung für aktuelle Lernserie"
+  },
+  "studySessionsLast7Days": "Lernsitzungen (letzte 7 Tage)",
+  "@studySessionsLast7Days": {
+    "description": "Bezeichnung für Lernsitzungen in den letzten 7 Tagen"
+  },
+  "totalStudyTime": "Gesamte Lernzeit",
+  "@totalStudyTime": {
+    "description": "Bezeichnung für gesamte Lernzeit"
+  },
+  "strengths": "Stärken",
+  "@strengths": {
+    "description": "Bezeichnung für Stärken-Abschnitt"
+  },
+  "weaknesses": "Schwächen",
+  "@weaknesses": {
+    "description": "Bezeichnung für Schwächen-Abschnitt"
+  },
+  "recommendations": "Empfehlungen",
+  "@recommendations": {
+    "description": "Bezeichnung für Empfehlungen-Abschnitt"
+  },
+  "tapToViewDetailedReport": "Tippen Sie, um den detaillierten Bericht anzuzeigen",
+  "@tapToViewDetailedReport": {
+    "description": "Hinweistext zum Antippen der Bereitschaftskarte, um den Bericht anzuzeigen"
+  },
+  "excellentFullyReady": "Ausgezeichnet - Vollständig bereit",
+  "@excellentFullyReady": {
+    "description": "Status-Text für ausgezeichnete Bereitschaft (>=85%)"
+  },
+  "readyForExam": "Bereit für Prüfung",
+  "@readyForExam": {
+    "description": "Status-Text für bereiten Status (>=70%)"
+  },
+  "almostReady": "Fast bereit",
+  "@almostReady": {
+    "description": "Status-Text für fast bereiten Status (>=50%)"
+  },
+  "needsMoreWork": "Benötigt mehr Arbeit",
+  "@needsMoreWork": {
+    "description": "Status-Text für benötigt mehr Arbeit Status (<50%)"
+  },
+  "days": "Tage",
+  "@days": {
+    "description": "Einheit für Tage in Serie"
+  },
+  "hours": "Stunden",
+  "@hours": {
+    "description": "Einheit für Stunden in Lernzeit"
   }
 }
 

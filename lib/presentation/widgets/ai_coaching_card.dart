@@ -13,6 +13,7 @@ import '../providers/subscription_provider.dart';
 import '../providers/question_provider.dart';
 import '../providers/locale_provider.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_typography.dart';
 import '../screens/subscription/paywall_screen.dart';
 import '../screens/learn/topic_selection_screen.dart';
 
@@ -106,9 +107,11 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
     final topicQuestions = allQuestions.where((q) => q.topic == firstWeakTopic || q.categoryId == firstWeakTopic).toList();
     
     if (topicQuestions.isEmpty) return;
+    if (!context.mounted) return;
     
+    final navigatorContext = context;
     Navigator.push(
-      context,
+      navigatorContext,
       MaterialPageRoute(
         builder: (_) => TopicQuestionsScreen(
           topic: firstWeakTopic,
@@ -124,6 +127,8 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
     final currentLocale = ref.watch(localeProvider);
     final isArabic = currentLocale.languageCode == 'ar';
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
     final subscriptionState = ref.watch(subscriptionProvider);
     final isPro = subscriptionState.isPro;
 
@@ -136,18 +141,18 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              AppColors.eagleGold.withValues(alpha: 0.15),
-              AppColors.eagleGold.withValues(alpha: 0.05),
+              primaryGold.withValues(alpha: 0.15),
+              primaryGold.withValues(alpha: 0.05),
             ],
           ),
           borderRadius: BorderRadius.circular(20.r),
           border: Border.all(
-            color: AppColors.eagleGold.withValues(alpha: 0.3),
+            color: primaryGold.withValues(alpha: 0.3),
             width: 2.w,
           ),
           boxShadow: [
             BoxShadow(
-              color: AppColors.eagleGold.withValues(alpha: 0.2),
+              color: primaryGold.withValues(alpha: 0.2),
               blurRadius: 15,
               spreadRadius: 2,
               offset: const Offset(0, 4),
@@ -165,6 +170,12 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
   }
 
   Widget _buildProContent(BuildContext context, AppLocalizations? l10n, bool isArabic, ThemeData theme) {
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Padding(
       padding: EdgeInsets.all(20.w),
       child: Column(
@@ -177,12 +188,12 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
               Container(
                 padding: EdgeInsets.all(12.w),
                 decoration: BoxDecoration(
-                  color: AppColors.eagleGold.withValues(alpha: 0.2),
+                  color: primaryGold.withValues(alpha: 0.2),
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: Icon(
                   Icons.auto_awesome,
-                  color: AppColors.eagleGold,
+                  color: primaryGold,
                   size: 24.sp,
                 ),
               ),
@@ -194,19 +205,16 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                   children: [
                     AutoSizeText(
                       l10n?.aiCoachTitle ?? '🎯 AI Study Coach',
-                      style: GoogleFonts.poppins(
-                        fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      style: AppTypography.h3.copyWith(
+                        color: textPrimary,
                       ),
                       maxLines: 1,
                     ),
                     SizedBox(height: 4.h),
                     AutoSizeText(
                       l10n?.aiCoachSubtitle ?? 'Your personalized study plan',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyS.copyWith(
+                        color: textSecondary,
                       ),
                       maxLines: 1,
                     ),
@@ -222,10 +230,9 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
           if (_weakestTopics.isNotEmpty) ...[
             AutoSizeText(
               l10n?.aiCoachWeakTopics ?? 'Weakest Topics:',
-              style: GoogleFonts.poppins(
-                fontSize: 14.sp,
+              style: AppTypography.bodyM.copyWith(
                 fontWeight: FontWeight.w600,
-                color: AppColors.eagleGold,
+                color: primaryGold,
               ),
               maxLines: 1,
             ),
@@ -261,11 +268,11 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
 
           // AI Advice
           if (_isLoading)
-            const Center(
+            Center(
               child: Padding(
-                padding: EdgeInsets.all(16.0),
+                padding: const EdgeInsets.all(16.0),
                 child: CircularProgressIndicator(
-                  color: AppColors.eagleGold,
+                  color: primaryGold,
                 ),
               ),
             )
@@ -273,19 +280,18 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
             Container(
               padding: EdgeInsets.all(12.w),
               decoration: BoxDecoration(
-                color: Colors.red.withValues(alpha: 0.1),
+                color: AppColors.errorDark.withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(12.r),
               ),
               child: Row(
                 children: [
-                  Icon(Icons.error_outline, color: Colors.red, size: 20.sp),
+                  Icon(Icons.error_outline, color: AppColors.errorDark, size: 20.sp),
                   SizedBox(width: 8.w),
                   Expanded(
                     child: AutoSizeText(
                       l10n?.aiCoachError ?? 'Failed to load coaching advice',
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
-                        color: Colors.red.shade300,
+                      style: AppTypography.bodyS.copyWith(
+                        color: AppColors.errorDark,
                       ),
                       maxLines: 2,
                     ),
@@ -297,14 +303,13 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
             Container(
               padding: EdgeInsets.all(16.w),
               decoration: BoxDecoration(
-                color: AppColors.darkSurface,
+                color: surfaceColor,
                 borderRadius: BorderRadius.circular(12.r),
               ),
               child: AutoSizeText(
                 _coachingAdvice!,
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: Colors.white,
+                style: AppTypography.bodyM.copyWith(
+                  color: textPrimary,
                   height: 1.5,
                 ),
                 maxLines: 5,
@@ -317,14 +322,13 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
             Container(
               padding: EdgeInsets.all(16.w),
               decoration: BoxDecoration(
-                color: AppColors.darkSurface,
+                color: surfaceColor,
                 borderRadius: BorderRadius.circular(12.r),
               ),
               child: AutoSizeText(
                 l10n?.aiCoachNoData ?? 'Start answering questions to get personalized study advice!',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: Colors.white70,
+                style: AppTypography.bodyM.copyWith(
+                  color: textSecondary,
                   height: 1.5,
                 ),
                 maxLines: 3,
@@ -345,15 +349,14 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                 icon: Icon(Icons.school, size: 20.sp),
                 label: AutoSizeText(
                   l10n?.startFocusedPractice ?? 'Start Focused Practice',
-                  style: GoogleFonts.poppins(
+                  style: AppTypography.button.copyWith(
                     fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
                   ),
                   maxLines: 1,
                 ),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.eagleGold,
-                  foregroundColor: Colors.black,
+                  backgroundColor: AppColors.gold,
+                  foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   padding: EdgeInsets.symmetric(vertical: 14.h),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12.r),
@@ -367,6 +370,12 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
   }
 
   Widget _buildFreeContent(BuildContext context, AppLocalizations? l10n, bool isArabic, ThemeData theme) {
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Stack(
       children: [
         // Blurred Content
@@ -381,12 +390,12 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                   Container(
                     padding: EdgeInsets.all(12.w),
                     decoration: BoxDecoration(
-                      color: AppColors.eagleGold.withValues(alpha: 0.2),
+                      color: primaryGold.withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(12.r),
                     ),
                     child: Icon(
                       Icons.auto_awesome,
-                      color: AppColors.eagleGold,
+                      color: primaryGold,
                       size: 24.sp,
                     ),
                   ),
@@ -398,19 +407,16 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                       children: [
                         AutoSizeText(
                           l10n?.aiCoachTitle ?? '🎯 AI Study Coach',
-                          style: GoogleFonts.poppins(
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                          style: AppTypography.h3.copyWith(
+                            color: textPrimary,
                           ),
                           maxLines: 1,
                         ),
                         SizedBox(height: 4.h),
                         AutoSizeText(
                           l10n?.aiCoachSubtitle ?? 'Your personalized study plan',
-                          style: GoogleFonts.poppins(
-                            fontSize: 12.sp,
-                            color: Colors.white70,
+                          style: AppTypography.bodyS.copyWith(
+                            color: textSecondary,
                           ),
                           maxLines: 1,
                         ),
@@ -423,14 +429,13 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
               Container(
                 padding: EdgeInsets.all(16.w),
                 decoration: BoxDecoration(
-                  color: AppColors.darkSurface,
+                  color: surfaceColor,
                   borderRadius: BorderRadius.circular(12.r),
                 ),
                 child: AutoSizeText(
                   'This is a sample coaching advice that would help you improve your weakest topics. Upgrade to Pro to unlock personalized AI coaching!',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    color: Colors.white,
+                  style: AppTypography.bodyM.copyWith(
+                    color: textPrimary,
                     height: 1.5,
                   ),
                   maxLines: 5,
@@ -447,7 +452,7 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
             child: BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
               child: Container(
-                color: Colors.black.withValues(alpha: 0.3),
+                color: isDark ? Colors.black.withValues(alpha: 0.3) : Colors.white.withValues(alpha: 0.3),
               ),
             ),
           ),
@@ -463,22 +468,20 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                 Container(
                   padding: EdgeInsets.all(16.w),
                   decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.2),
+                    color: primaryGold.withValues(alpha: 0.2),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(
                     Icons.lock,
-                    color: AppColors.eagleGold,
+                    color: primaryGold,
                     size: 48.sp,
                   ),
                 ),
                 SizedBox(height: 16.h),
                 AutoSizeText(
                   l10n?.unlockAiCoach ?? 'Unlock AI Coach',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  style: AppTypography.h3.copyWith(
+                    color: textPrimary,
                   ),
                   maxLines: 1,
                 ),
@@ -493,8 +496,8 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                     padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r),
@@ -502,9 +505,8 @@ class _AiCoachingCardState extends ConsumerState<AiCoachingCard> {
                   ),
                   child: AutoSizeText(
                     l10n?.upgrade ?? 'Upgrade to Pro',
-                    style: GoogleFonts.poppins(
+                    style: AppTypography.button.copyWith(
                       fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
                     ),
                     maxLines: 1,
                   ),

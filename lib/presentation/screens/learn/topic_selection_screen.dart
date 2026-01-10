@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../domain/entities/question.dart';
 import '../../providers/question_provider.dart';
 import '../../providers/locale_provider.dart';
@@ -34,38 +34,43 @@ class TopicSelectionScreen extends ConsumerStatefulWidget {
 
 class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
   // Topic configuration mapping
-  static const Map<String, Map<String, dynamic>> _topicConfig = {
-    'system': {
-      'icon': Icons.account_balance,
-      'titleKey': 'topicSystem',
-      'color': AppColors.eagleGold,
-    },
-    'rights': {
-      'icon': Icons.gavel,
-      'titleKey': 'topicRights',
-      'color': Colors.blue,
-    },
-    'history': {
-      'icon': Icons.history_edu,
-      'titleKey': 'topicHistory',
-      'color': Colors.orange,
-    },
-    'society': {
-      'icon': Icons.people,
-      'titleKey': 'topicSociety',
-      'color': Colors.green,
-    },
-    'europe': {
-      'icon': Icons.public,
-      'titleKey': 'topicEurope',
-      'color': Colors.purple,
-    },
-    'welfare': {
-      'icon': Icons.school,
-      'titleKey': 'topicWelfare',
-      'color': Colors.teal,
-    },
-  };
+  static Map<String, Map<String, dynamic>> _getTopicConfig(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    
+    return {
+      'system': {
+        'icon': Icons.account_balance,
+        'titleKey': 'topicSystem',
+        'color': primaryGold,
+      },
+      'rights': {
+        'icon': Icons.gavel,
+        'titleKey': 'topicRights',
+        'color': Colors.blue,
+      },
+      'history': {
+        'icon': Icons.history_edu,
+        'titleKey': 'topicHistory',
+        'color': Colors.orange,
+      },
+      'society': {
+        'icon': Icons.people,
+        'titleKey': 'topicSociety',
+        'color': Colors.green,
+      },
+      'europe': {
+        'icon': Icons.public,
+        'titleKey': 'topicEurope',
+        'color': Colors.purple,
+      },
+      'welfare': {
+        'icon': Icons.school,
+        'titleKey': 'topicWelfare',
+        'color': Colors.teal,
+      },
+    };
+  }
 
   @override
   void initState() {
@@ -105,8 +110,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
       appBar: AppBar(
         title: Text(
           l10n.chooseTopic,
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h3.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -116,8 +120,15 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
       body: questionsAsync.when(
         data: (allQuestions) =>
             _buildContent(context, allQuestions, l10n, theme),
-        loading: () => const Center(
-          child: CircularProgressIndicator(color: AppColors.eagleGold),
+        loading: () => Builder(
+          builder: (context) {
+            final theme = Theme.of(context);
+            final isDark = theme.brightness == Brightness.dark;
+            final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+            return Center(
+              child: CircularProgressIndicator(color: primaryGold),
+            );
+          },
         ),
         error: (error, stack) {
           AppLogger.error('Failed to load questions',
@@ -130,8 +141,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                 SizedBox(height: 16.h),
                 Text(
                   l10n.noQuestionsForTopic,
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
+                  style: AppTypography.bodyM.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                   ),
                 ),
@@ -174,7 +184,8 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
             delegate: SliverChildBuilderDelegate(
               (context, index) {
                 // Check if this is the state questions card (last card)
-                final isStateCard = index == _topicConfig.length;
+                final topicConfig = _getTopicConfig(context);
+                final isStateCard = index == topicConfig.length;
                 
                 if (isStateCard) {
                   // State-specific questions card
@@ -202,8 +213,8 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                 }
                 
                 // Regular topic card
-                final topic = _topicConfig.keys.elementAt(index);
-                final config = _topicConfig[topic]!;
+                final topic = topicConfig.keys.elementAt(index);
+                final config = topicConfig[topic]!;
                 final topicQuestions =
                     allQuestions.where((q) => q.topic == topic).toList();
 
@@ -220,7 +231,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                   ),
                 );
               },
-              childCount: _topicConfig.length + 1, // +1 for state card
+              childCount: _getTopicConfig(context).length + 1, // +1 for state card
             ),
           ),
         ),
@@ -231,6 +242,9 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
 
   Widget _buildStatisticsSection(BuildContext context,
       Map<String, dynamic> stats, AppLocalizations l10n, ThemeData theme) {
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    
     return Container(
       margin: EdgeInsets.all(16.w),
       padding: EdgeInsets.all(20.w),
@@ -238,7 +252,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
         color: theme.cardTheme.color,
         borderRadius: BorderRadius.circular(20.r),
         border: Border.all(
-          color: AppColors.eagleGold.withValues(alpha: 0.3),
+          color: primaryGold.withValues(alpha: 0.3),
           width: 1.w,
         ),
       ),
@@ -248,14 +262,19 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
         children: [
           Row(
             children: [
-              Icon(Icons.bar_chart, color: AppColors.eagleGold, size: 24.sp),
+              Builder(
+                builder: (context) {
+                  final theme = Theme.of(context);
+                  final isDark = theme.brightness == Brightness.dark;
+                  final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+                  return Icon(Icons.bar_chart, color: primaryGold, size: 24.sp);
+                },
+              ),
               SizedBox(width: 12.w),
               Flexible(
                 child: Text(
                   l10n.topicStatistics,
-                  style: GoogleFonts.poppins(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
+                  style: AppTypography.h2.copyWith(
                     color: theme.colorScheme.onSurface,
                   ),
                   maxLines: 1,
@@ -275,7 +294,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                   icon: Icons.quiz,
                   label: l10n.totalQuestions,
                   value: '${stats['totalQuestions']}',
-                  color: AppColors.eagleGold,
+                  color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                   theme: theme,
                 ),
               ),
@@ -316,7 +335,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                   value: () {
                     if (stats['mostStudied'] != null) {
                       final topicKey = stats['mostStudied'] as String;
-                      final config = _topicConfig[topicKey];
+                      final config = _getTopicConfig(context)[topicKey];
                       if (config != null) {
                         return _getTopicTitle(
                             config['titleKey'] as String, l10n);
@@ -324,7 +343,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                     }
                     if (stats['leastStudied'] != null) {
                       final topicKey = stats['leastStudied'] as String;
-                      final config = _topicConfig[topicKey];
+                      final config = _getTopicConfig(context)[topicKey];
                       if (config != null) {
                         return _getTopicTitle(
                             config['titleKey'] as String, l10n);
@@ -371,9 +390,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
           SizedBox(height: 8.h),
           Text(
             value,
-            style: GoogleFonts.poppins(
-              fontSize: 24.sp,
-              fontWeight: FontWeight.bold,
+            style: AppTypography.h1.copyWith(
               color: color,
             ),
           ),
@@ -381,8 +398,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
           Flexible(
             child: AutoSizeText(
               label,
-              style: GoogleFonts.poppins(
-                fontSize: 12.sp,
+              style: AppTypography.bodyS.copyWith(
                 color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
               ),
               maxLines: 2,
@@ -518,8 +534,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
               Flexible(
                 child: AutoSizeText(
                   title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
+                  style: AppTypography.bodyL.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme.colorScheme.onSurface,
                   ),
@@ -546,8 +561,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
               Flexible(
                 child: Text(
                   '$learnedCount/$totalCount ${l10n.learned}',
-                  style: GoogleFonts.poppins(
-                    fontSize: 10.sp,
+                  style: AppTypography.bodyS.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                   ),
                   maxLines: 1,
@@ -560,8 +574,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                 Flexible(
                   child: Text(
                     '$correctCount ${l10n.correct}',
-                    style: GoogleFonts.poppins(
-                      fontSize: 9.sp,
+                    style: AppTypography.bodyS.copyWith(
                       color: color.withValues(alpha: 0.8),
                     ),
                     maxLines: 1,
@@ -722,8 +735,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
               Flexible(
                 child: AutoSizeText(
                   title,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
+                  style: AppTypography.bodyL.copyWith(
                     fontWeight: FontWeight.bold,
                     color: theme.colorScheme.onSurface,
                   ),
@@ -750,8 +762,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
               Flexible(
                 child: Text(
                   '$learnedCount/$totalCount ${l10n.learned}',
-                  style: GoogleFonts.poppins(
-                    fontSize: 10.sp,
+                  style: AppTypography.bodyS.copyWith(
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                   ),
                   maxLines: 1,
@@ -764,8 +775,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                 Flexible(
                   child: Text(
                     '$correctCount ${l10n.correct}',
-                    style: GoogleFonts.poppins(
-                      fontSize: 9.sp,
+                    style: AppTypography.bodyS.copyWith(
                       color: color.withValues(alpha: 0.8),
                     ),
                     maxLines: 1,
@@ -779,8 +789,7 @@ class _TopicSelectionScreenState extends ConsumerState<TopicSelectionScreen> {
                 Flexible(
                   child: Text(
                     '($stateCode)',
-                    style: GoogleFonts.poppins(
-                      fontSize: 10.sp,
+                    style: AppTypography.bodyS.copyWith(
                       color: color.withValues(alpha: 0.6),
                       fontStyle: FontStyle.italic,
                     ),
@@ -893,8 +902,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
         appBar: AppBar(
           title: Text(
             l10n.topicQuestions,
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold,
+            style: AppTypography.h3.copyWith(
               color: theme.colorScheme.onSurface,
             ),
           ),
@@ -903,8 +911,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
         body: Center(
           child: Text(
             l10n.noQuestionsForTopic,
-            style: GoogleFonts.poppins(
-              fontSize: 16.sp,
+            style: AppTypography.bodyM.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
@@ -917,8 +924,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
       appBar: AppBar(
         title: Text(
           l10n.topicQuestions,
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h3.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -929,9 +935,9 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
           child: LinearProgressIndicator(
             value:
                 ((_currentIndex + 1) / widget.questions.length).clamp(0.0, 1.0),
-            backgroundColor: AppColors.germanRed.withValues(alpha: 0.2),
+            backgroundColor: (Theme.of(context).brightness == Brightness.dark ? AppColors.errorDark : AppColors.errorLight).withValues(alpha: 0.2),
             valueColor:
-                const AlwaysStoppedAnimation<Color>(AppColors.eagleGold),
+                AlwaysStoppedAnimation<Color>(Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
           ),
         ),
       ),
@@ -971,8 +977,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
           // Question number
           Text(
             l10n.questionLabel(_currentIndex + 1, widget.questions.length),
-            style: GoogleFonts.poppins(
-              fontSize: 14.sp,
+            style: AppTypography.bodyM.copyWith(
               color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
             ),
           ),
@@ -984,7 +989,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(16.r),
               side: BorderSide(
-                color: AppColors.eagleGold.withValues(alpha: 0.3),
+                color: (Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.3),
                 width: 1.w,
               ),
             ),
@@ -997,23 +1002,33 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Question (DE)",
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
-                        ),
+                      Builder(
+                        builder: (context) {
+                          final theme = Theme.of(context);
+                          final isDark = theme.brightness == Brightness.dark;
+                          return Text(
+                            "Question (DE)",
+                            style: AppTypography.badge.copyWith(
+                              color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                            ),
+                          );
+                        },
                       ),
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           // AI Tutor Button
                           IconButton(
-                            icon: Icon(
-                              Icons.auto_awesome,
-                              color: AppColors.eagleGold,
-                              size: 24.sp,
+                            icon: Builder(
+                              builder: (context) {
+                                final theme = Theme.of(context);
+                                final primaryGold = theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark;
+                                return Icon(
+                                  Icons.auto_awesome,
+                                  color: primaryGold,
+                                  size: 24.sp,
+                                );
+                              },
                             ),
                             onPressed: () =>
                                 _showAiExplanation(context, question),
@@ -1027,7 +1042,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                               _showTranslation
                                   ? Icons.visibility_off
                                   : Icons.visibility,
-                              color: AppColors.eagleGold,
+                              color: (Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                               size: 24.sp,
                             ),
                             onPressed: () {
@@ -1052,9 +1067,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                   // German Question Text
                   AutoSizeText(
                     question.getText('de'),
-                    style: GoogleFonts.poppins(
-                      fontSize: 18.sp,
-                      fontWeight: FontWeight.bold,
+                    style: AppTypography.h3.copyWith(
                       color: theme.colorScheme.onSurface,
                       height: 1.3,
                     ),
@@ -1067,12 +1080,11 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                   if (_showTranslation &&
                       currentLocale.languageCode != 'de') ...[
                     SizedBox(height: 16.h),
-                    Divider(color: AppColors.eagleGold.withValues(alpha: 0.3)),
+                    Divider(color: (Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.3)),
                     SizedBox(height: 8.h),
                     Text(
                       "Translation (${currentLocale.languageCode.toUpperCase()})",
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
+                      style: AppTypography.bodyS.copyWith(
                         fontWeight: FontWeight.bold,
                         color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                       ),
@@ -1084,8 +1096,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                           : TextDirection.ltr,
                       child: AutoSizeText(
                         question.getText(currentLocale.languageCode),
-                        style: GoogleFonts.poppins(
-                          fontSize: 16.sp,
+                        style: AppTypography.bodyM.copyWith(
                           color: theme.colorScheme.onSurface.withValues(alpha: 0.8),
                           height: 1.3,
                         ),
@@ -1139,18 +1150,17 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                               decoration: BoxDecoration(
                                 shape: BoxShape.circle,
                                 color: isSelected
-                                    ? (isCorrect ? Colors.green : Colors.red)
-                                    : AppColors.eagleGold.withValues(alpha: 0.2),
+                                    ? (isCorrect ? AppColors.successDark : AppColors.errorDark)
+                                    : (Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.2),
                               ),
                               child: Center(
                                 child: Text(
                                   answer.id,
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 16.sp,
+                                  style: AppTypography.bodyM.copyWith(
                                     fontWeight: FontWeight.bold,
                                     color: isSelected
                                         ? Colors.white
-                                        : AppColors.eagleGold,
+                                        : (Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                                   ),
                                 ),
                               ),
@@ -1159,8 +1169,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                             Expanded(
                               child: Text(
                                 answer.getText('de'),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16.sp,
+                                style: AppTypography.bodyM.copyWith(
                                   fontWeight: FontWeight.w600,
                                   color: theme.colorScheme.onSurface,
                                 ),
@@ -1185,8 +1194,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                                   : TextDirection.ltr,
                               child: Text(
                                 answer.getText(currentLocale.languageCode),
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14.sp,
+                                style: AppTypography.bodyM.copyWith(
                                   color: theme.colorScheme.onSurface
                                       .withValues(alpha: 0.7),
                                 ),
@@ -1214,7 +1222,8 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                 child: ElevatedButton(
                   onPressed: _nextQuestion,
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: Theme.of(context).brightness == Brightness.dark ? AppColors.darkBg : AppColors.lightTextPrimary,
                     padding: EdgeInsets.symmetric(vertical: 16.h),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12.r),
@@ -1226,9 +1235,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                         : (ref.read(localeProvider).languageCode == 'ar'
                             ? 'إنهاء'
                             : 'Finish'),
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.bold,
+                    style: AppTypography.button.copyWith(
                       color: Colors.white,
                     ),
                   ),
@@ -1269,15 +1276,18 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                   borderRadius: BorderRadius.circular(20.r)),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome,
-                      color: AppColors.eagleGold, size: 28.sp),
+                  Builder(
+                    builder: (context) {
+                      final theme = Theme.of(context);
+                      final primaryGold = theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark;
+                      return Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp);
+                    },
+                  ),
                   SizedBox(width: 12.w),
                   Expanded(
                     child: Text(
                       l10n.upgradeToPro,
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
+                      style: AppTypography.h2.copyWith(
                         color: theme.colorScheme.onSurface,
                       ),
                       maxLines: 1,
@@ -1288,8 +1298,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
               ),
               content: Text(
                 l10n.aiTutorDailyLimitReached,
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
+                style: AppTypography.bodyM.copyWith(
                   color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                 ),
               ),
@@ -1298,7 +1307,7 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n.cancel,
-                    style: GoogleFonts.poppins(
+                    style: AppTypography.bodyM.copyWith(
                         color: theme.colorScheme.onSurface.withValues(alpha: 0.7)),
                   ),
                 ),
@@ -1312,12 +1321,12 @@ class _TopicQuestionsScreenState extends ConsumerState<TopicQuestionsScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: AppColors.gold,
+                    foregroundColor: Theme.of(context).brightness == Brightness.dark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   ),
                   child: Text(
                     l10n.upgrade,
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -1437,11 +1446,16 @@ class _TopicAiExplanationBottomSheetState
                 Container(
                   padding: EdgeInsets.all(12.w),
                   decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.2),
+                    color: (Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
-                  child: Icon(Icons.auto_awesome,
-                      color: AppColors.eagleGold, size: 24.sp),
+                  child: Builder(
+                    builder: (context) {
+                      final theme = Theme.of(context);
+                      final primaryGold = theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark;
+                      return Icon(Icons.auto_awesome, color: primaryGold, size: 24.sp);
+                    },
+                  ),
                 ),
                 SizedBox(width: 16.w),
                 Expanded(
@@ -1452,11 +1466,9 @@ class _TopicAiExplanationBottomSheetState
                         widget.isArabic
                             ? 'شرح من Eagle AI Tutor'
                             : 'Explanation from Eagle AI Tutor',
-                        style: GoogleFonts.poppins(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSurface,
-                        ),
+                    style: AppTypography.h3.copyWith(
+                      color: theme.colorScheme.onSurface,
+                    ),
                         maxLines: 1,
                       ),
                       SizedBox(height: 4.h),
@@ -1464,8 +1476,7 @@ class _TopicAiExplanationBottomSheetState
                         widget.isArabic
                             ? 'شرح مفصل للسؤال والإجابة الصحيحة'
                             : 'Detailed explanation of the question and correct answer',
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
+                        style: AppTypography.bodyS.copyWith(
                           color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                         ),
                         maxLines: 1,
@@ -1491,13 +1502,19 @@ class _TopicAiExplanationBottomSheetState
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const CircularProgressIndicator(color: AppColors.eagleGold),
+                        Builder(
+                          builder: (context) {
+                            final theme = Theme.of(context);
+                            final primaryGold = theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark;
+                            return CircularProgressIndicator(color: primaryGold);
+                          },
+                        ),
                         SizedBox(height: 16.h),
                         AutoSizeText(
                           widget.isArabic
                               ? 'جاري تحميل الشرح...'
                               : 'Loading explanation...',
-                          style: GoogleFonts.poppins(
+                          style: AppTypography.bodyM.copyWith(
                               color:
                                   theme.colorScheme.onSurface.withValues(alpha: 0.7)),
                         ),
@@ -1511,14 +1528,27 @@ class _TopicAiExplanationBottomSheetState
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.error_outline,
-                            color: Colors.red, size: 48.sp),
+                        Builder(
+                          builder: (context) {
+                            final theme = Theme.of(context);
+                            final isDark = theme.brightness == Brightness.dark;
+                            return Icon(
+                              Icons.error_outline,
+                              color: isDark ? AppColors.errorDark : AppColors.errorLight,
+                              size: 48.sp,
+                            );
+                          },
+                        ),
                         SizedBox(height: 16.h),
                         AutoSizeText(
                           widget.isArabic
                               ? 'حدث خطأ أثناء تحميل الشرح'
                               : 'Error loading explanation',
-                          style: GoogleFonts.poppins(color: Colors.red),
+                          style: AppTypography.bodyM.copyWith(
+                            color: Theme.of(context).brightness == Brightness.dark 
+                                ? AppColors.errorDark 
+                                : AppColors.errorLight,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       ],
@@ -1529,8 +1559,7 @@ class _TopicAiExplanationBottomSheetState
                   padding: EdgeInsets.all(20.w),
                   child: AutoSizeText(
                     snapshot.data ?? '',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
+                    style: AppTypography.bodyM.copyWith(
                       color: theme.colorScheme.onSurface,
                       height: 1.6,
                     ),
@@ -1550,15 +1579,20 @@ class _TopicAiExplanationBottomSheetState
                         ? SizedBox(
                             width: 16.w,
                             height: 16.h,
-                            child: const CircularProgressIndicator(
-                                strokeWidth: 2, color: AppColors.eagleGold),
+                            child: Builder(
+                              builder: (context) {
+                                final theme = Theme.of(context);
+                                final primaryGold = theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark;
+                                return CircularProgressIndicator(strokeWidth: 2, color: primaryGold);
+                              },
+                            ),
                           )
                         : Icon(Icons.refresh, size: 20.sp),
                     label: Text(widget.isArabic ? 'تحديث' : 'Refresh',
-                        style: GoogleFonts.poppins()),
+                        style: AppTypography.button),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: AppColors.eagleGold),
-                      foregroundColor: AppColors.eagleGold,
+                      side: BorderSide(color: Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
+                      foregroundColor: Theme.of(context).brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
                     ),
                   ),
                 ),
@@ -1567,12 +1601,14 @@ class _TopicAiExplanationBottomSheetState
                   child: ElevatedButton(
                     onPressed: () => Navigator.pop(context),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: Theme.of(context).brightness == Brightness.dark 
+                          ? AppColors.darkBg 
+                          : AppColors.lightTextPrimary,
                     ),
                     child: Text(
                       widget.isArabic ? 'إغلاق' : 'Close',
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                      style: AppTypography.button,
                     ),
                   ),
                 ),

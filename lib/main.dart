@@ -277,12 +277,17 @@ class _AppInitializerState extends ConsumerState<AppInitializer> {
 
   @override
   Widget build(BuildContext context) {
+    // Use theme-aware colors
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    const goldColor = AppColors.gold;
+    
     if (_isLoading) {
-      return const Scaffold(
-        backgroundColor: AppColors.darkSurface,
-        body: Center(
+      return Scaffold(
+        backgroundColor: bgColor,
+        body: const Center(
           child: CircularProgressIndicator(
-            color: AppColors.eagleGold,
+            color: goldColor,
           ),
         ),
       );
@@ -296,11 +301,11 @@ class _AppInitializerState extends ConsumerState<AppInitializer> {
     // Show force update dialog if needed (handled in initState)
     if (_forceUpdateException != null) {
       // Return a blocking screen while dialog is shown
-      return const Scaffold(
-        backgroundColor: AppColors.darkSurface,
-        body: Center(
+      return Scaffold(
+        backgroundColor: bgColor,
+        body: const Center(
           child: CircularProgressIndicator(
-            color: AppColors.eagleGold,
+            color: goldColor,
           ),
         ),
       );
@@ -319,9 +324,12 @@ class MyApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // تهيئة الثيم بالقيمة المحملة مسبقاً (مرة واحدة فقط)
+    // استخدام Future.microtask لتأجيل التهيئة حتى بعد انتهاء البناء
     final themeNotifier = ref.read(themeProvider.notifier);
     if (!themeNotifier.isInitialized) {
-      themeNotifier.initializeWith(initialThemeMode);
+      Future.microtask(() {
+        themeNotifier.initializeWith(initialThemeMode);
+      });
     }
     
     final locale = ref.watch(localeProvider);

@@ -93,7 +93,9 @@ class LanguageSelectionSheet extends ConsumerWidget {
                       }
                     }
                     
-                    Navigator.pop(context);
+                    if (context.mounted) {
+                      Navigator.pop(context);
+                    }
                   },
                 );
               },

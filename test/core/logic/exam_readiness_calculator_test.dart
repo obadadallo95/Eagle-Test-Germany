@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter/foundation.dart';
 import 'package:politik_test/domain/usecases/exam_readiness_calculator.dart';
 import 'package:politik_test/core/storage/hive_service.dart';
 import 'package:politik_test/core/storage/srs_service.dart';
@@ -20,7 +21,7 @@ void main() {
         await Hive.openBox('srs_data');
       } catch (e) {
         // If initialization fails, tests will be skipped
-        print('Hive initialization failed: $e');
+        debugPrint('Hive initialization failed: $e');
       }
       
       // Clear SharedPreferences
@@ -50,7 +51,7 @@ void main() {
       } catch (e) {
         // If platform channels are not available, skip this test
         // This is expected in some test environments
-        print('Test skipped due to platform channel requirements: $e');
+        debugPrint('Test skipped due to platform channel requirements: $e');
       }
     });
 
@@ -145,7 +146,7 @@ void main() {
       expect(readiness.consistencyScore, inInclusiveRange(0.0, 100.0));
       expect(readiness.stateScore, inInclusiveRange(0.0, 100.0));
       } catch (e) {
-        print('Test skipped due to platform channel requirements: $e');
+        debugPrint('Test skipped due to platform channel requirements: $e');
       }
     });
 
@@ -199,7 +200,7 @@ void main() {
       expect(readiness.overallScore, lessThanOrEqualTo(70.0));
       expect(readiness.consistencyScore, 0.0); // Inactive penalty
       } catch (e) {
-        print('Test skipped due to platform channel requirements: $e');
+        debugPrint('Test skipped due to platform channel requirements: $e');
       }
     });
 
@@ -241,7 +242,7 @@ void main() {
       expect(readiness.overallScore, greaterThan(0.0));
       expect(readiness.overallScore, lessThan(100.0)); // Can't be perfect without exams
       } catch (e) {
-        print('Test skipped due to platform channel requirements: $e');
+        debugPrint('Test skipped due to platform channel requirements: $e');
       }
     });
 
@@ -283,7 +284,7 @@ void main() {
       expect(readiness1.consistencyScore, readiness2.consistencyScore);
       expect(readiness1.stateScore, readiness2.stateScore);
       } catch (e) {
-        print('Test skipped due to platform channel requirements: $e');
+        debugPrint('Test skipped due to platform channel requirements: $e');
       }
     });
   });

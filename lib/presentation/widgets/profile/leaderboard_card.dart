@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../core/services/leaderboard_service.dart';
 import '../../../l10n/app_localizations.dart';
 
@@ -45,16 +46,16 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
     }
   }
 
-  Color _getRankColor(int rank) {
+  Color _getRankColor(int rank, bool isDark) {
     switch (rank) {
       case 1:
-        return AppColors.eagleGold; // Gold
+        return isDark ? AppColors.gold : AppColors.goldDark; // Gold
       case 2:
         return Colors.grey.shade400; // Silver
       case 3:
         return Colors.brown.shade400; // Bronze
       default:
-        return Colors.white70;
+        return isDark ? Colors.white70 : Colors.grey.shade600;
     }
   }
 
@@ -74,6 +75,12 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
 
     return FadeInUp(
       duration: const Duration(milliseconds: 500),
@@ -82,10 +89,10 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
         margin: EdgeInsets.only(bottom: 16.h),
         padding: EdgeInsets.all(16.w),
         decoration: BoxDecoration(
-          color: AppColors.darkCharcoal,
+          color: surfaceColor,
           borderRadius: BorderRadius.circular(16.r),
           border: Border.all(
-            color: AppColors.eagleGold.withValues(alpha: 0.3),
+            color: primaryGold.withValues(alpha: 0.3),
             width: 1,
           ),
         ),
@@ -97,16 +104,14 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
               children: [
                 Icon(
                   Icons.emoji_events,
-                  color: AppColors.eagleGold,
+                  color: primaryGold,
                   size: 24.sp,
                 ),
                 SizedBox(width: 8.w),
                 AutoSizeText(
                   l10n?.topLearners ?? '🏆 Top Learners',
-                  style: GoogleFonts.poppins(
-                    fontSize: 18.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  style: AppTypography.h3.copyWith(
+                    color: textPrimary,
                   ),
                   maxLines: 1,
                   minFontSize: 16.sp,
@@ -121,8 +126,8 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
               Center(
                 child: Padding(
                   padding: EdgeInsets.all(24.h),
-                  child: const CircularProgressIndicator(
-                    color: AppColors.eagleGold,
+                  child: CircularProgressIndicator(
+                    color: primaryGold,
                   ),
                 ),
               )
@@ -174,7 +179,7 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                     padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
                     decoration: BoxDecoration(
                       color: isCurrentUser
-                          ? AppColors.eagleGold.withValues(alpha: 0.15)
+                          ? primaryGold.withValues(alpha: 0.15)
                           : Colors.transparent,
                       borderRadius: BorderRadius.circular(8.r),
                     ),
@@ -189,16 +194,15 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                             children: [
                               Icon(
                                 _getRankIcon(rank),
-                                color: _getRankColor(rank),
+                                color: _getRankColor(rank, isDark),
                                 size: rank <= 3 ? 24.sp : 20.sp,
                               ),
                               SizedBox(height: 4.h),
                               AutoSizeText(
                                 '#$rank',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 12.sp,
+                                style: AppTypography.bodyS.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  color: _getRankColor(rank),
+                                  color: _getRankColor(rank, isDark),
                                 ),
                                 maxLines: 1,
                                 minFontSize: 10.sp,
@@ -215,9 +219,9 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                           height: 40.w,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: AppColors.eagleGold.withValues(alpha: 0.2),
+                            color: primaryGold.withValues(alpha: 0.2),
                             border: Border.all(
-                              color: AppColors.eagleGold,
+                              color: primaryGold,
                               width: 1.5,
                             ),
                             image: avatarUrl != null && avatarUrl.isNotEmpty
@@ -234,7 +238,7 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                               ? Icon(
                                   Icons.person,
                                   size: 24.sp,
-                                  color: AppColors.eagleGold,
+                                  color: primaryGold,
                                 )
                               : null,
                         ),
@@ -248,14 +252,13 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                             children: [
                               AutoSizeText(
                                 name,
-                                style: GoogleFonts.poppins(
-                                  fontSize: 14.sp,
+                                style: AppTypography.bodyM.copyWith(
                                   fontWeight: isCurrentUser
                                       ? FontWeight.w600
                                       : FontWeight.normal,
                                   color: isCurrentUser
-                                      ? AppColors.eagleGold
-                                      : Colors.white,
+                                      ? primaryGold
+                                      : textPrimary,
                                 ),
                                 maxLines: 1,
                                 minFontSize: 12.sp,
@@ -267,9 +270,8 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                                   padding: EdgeInsets.only(top: 2.h),
                                   child: AutoSizeText(
                                     l10n?.you ?? 'You',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 10.sp,
-                                      color: AppColors.eagleGold.withValues(alpha: 0.8),
+                                    style: AppTypography.bodyS.copyWith(
+                                      color: primaryGold.withValues(alpha: 0.8),
                                     ),
                                     maxLines: 1,
                                     minFontSize: 8.sp,
@@ -287,10 +289,10 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                             vertical: 6.h,
                           ),
                           decoration: BoxDecoration(
-                            color: AppColors.eagleGold.withValues(alpha: 0.2),
+                            color: primaryGold.withValues(alpha: 0.2),
                             borderRadius: BorderRadius.circular(12.r),
                             border: Border.all(
-                              color: AppColors.eagleGold.withValues(alpha: 0.5),
+                              color: primaryGold.withValues(alpha: 0.5),
                               width: 1,
                             ),
                           ),
@@ -299,10 +301,9 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                             children: [
                               AutoSizeText(
                                 '$questionsLearned',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16.sp,
+                                style: AppTypography.h4.copyWith(
                                   fontWeight: FontWeight.bold,
-                                  color: AppColors.eagleGold,
+                                  color: primaryGold,
                                 ),
                                 maxLines: 1,
                                 minFontSize: 14.sp,
@@ -310,9 +311,8 @@ class _LeaderboardCardState extends State<LeaderboardCard> {
                               ),
                               AutoSizeText(
                                 l10n?.statsQuestions ?? 'Questions',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 8.sp,
-                                  color: Colors.white70,
+                                style: AppTypography.caption.copyWith(
+                                  color: textSecondary,
                                 ),
                                 maxLines: 1,
                                 minFontSize: 7.sp,

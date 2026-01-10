@@ -468,6 +468,118 @@
   "cloudSync": "Облачная синхронизация",
   "@cloudSync": {
     "description": "Подсказка для индикатора облачной синхронизации"
+  },
+  "themeTitle": "Выберите тему",
+  "@themeTitle": {
+    "description": "Заголовок диалога выбора темы"
+  },
+  "close": "Закрыть",
+  "@close": {
+    "description": "Текст кнопки закрытия"
+  },
+  "appearance": "Внешний вид",
+  "@appearance": {
+    "description": "Заголовок раздела настроек внешнего вида"
+  },
+  "examReadinessReport": "Отчет о готовности к экзамену",
+  "@examReadinessReport": {
+    "description": "Заголовок диалога отчета о готовности к экзамену"
+  },
+  "overallScore": "Общий балл",
+  "@overallScore": {
+    "description": "Метка общего балла готовности"
+  },
+  "componentScores": "Баллы компонентов",
+  "@componentScores": {
+    "description": "Метка раздела баллов компонентов"
+  },
+  "questionMastery": "Освоение вопросов",
+  "@questionMastery": {
+    "description": "Метка балла освоения вопросов"
+  },
+  "examPerformance": "Результаты экзамена",
+  "@examPerformance": {
+    "description": "Метка балла результатов экзамена"
+  },
+  "studyConsistency": "Последовательность обучения",
+  "@studyConsistency": {
+    "description": "Метка балла последовательности обучения"
+  },
+  "stateQuestions": "Вопросы земли",
+  "@stateQuestions": {
+    "description": "Метка балла вопросов конкретной земли"
+  },
+  "statistics": "Статистика",
+  "@statistics": {
+    "description": "Метка раздела статистики"
+  },
+  "questionsAnswered": "Ответы на вопросы",
+  "@questionsAnswered": {
+    "description": "Метка общего количества ответов на вопросы"
+  },
+  "questionsMastered": "Освоенные вопросы",
+  "@questionsMastered": {
+    "description": "Метка количества освоенных вопросов"
+  },
+  "correctAnswers": "Правильные ответы",
+  "@correctAnswers": {
+    "description": "Метка количества правильных ответов"
+  },
+  "examsCompleted": "Завершенные экзамены",
+  "@examsCompleted": {
+    "description": "Метка количества завершенных экзаменов"
+  },
+  "currentStreak": "Текущая серия",
+  "@currentStreak": {
+    "description": "Метка текущей серии обучения"
+  },
+  "studySessionsLast7Days": "Сессии обучения (последние 7 дней)",
+  "@studySessionsLast7Days": {
+    "description": "Метка сессий обучения за последние 7 дней"
+  },
+  "totalStudyTime": "Общее время обучения",
+  "@totalStudyTime": {
+    "description": "Метка общего времени обучения"
+  },
+  "strengths": "Сильные стороны",
+  "@strengths": {
+    "description": "Метка раздела сильных сторон"
+  },
+  "weaknesses": "Слабые стороны",
+  "@weaknesses": {
+    "description": "Метка раздела слабых сторон"
+  },
+  "recommendations": "Рекомендации",
+  "@recommendations": {
+    "description": "Метка раздела рекомендаций"
+  },
+  "tapToViewDetailedReport": "Нажмите, чтобы просмотреть подробный отчет",
+  "@tapToViewDetailedReport": {
+    "description": "Текст подсказки для нажатия на карточку готовности для просмотра отчета"
+  },
+  "excellentFullyReady": "Отлично - Полностью готов",
+  "@excellentFullyReady": {
+    "description": "Текст статуса отличной готовности (>=85%)"
+  },
+  "readyForExam": "Готов к экзамену",
+  "@readyForExam": {
+    "description": "Текст статуса готовности (>=70%)"
+  },
+  "almostReady": "Почти готов",
+  "@almostReady": {
+    "description": "Текст статуса почти готовности (>=50%)"
+  },
+  "needsMoreWork": "Требуется больше работы",
+  "@needsMoreWork": {
+    "description": "Текст статуса требуется больше работы (<50%)"
+  },
+  "days": "дней",
+  "@days": {
+    "description": "Единица дней в серии"
+  },
+  "hours": "часов",
+  "@hours": {
+    "description": "Единица часов во времени обучения"
   }
 }
 

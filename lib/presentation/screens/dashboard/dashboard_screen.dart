@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:confetti/confetti.dart';
@@ -12,8 +11,12 @@ import '../../../core/storage/user_preferences_service.dart';
 import '../../../core/services/notification_service.dart';
 import '../../../core/debug/app_logger.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../providers/locale_provider.dart';
 import '../../providers/exam_readiness_provider.dart';
+import '../../../domain/usecases/exam_readiness_report_generator.dart';
+import 'exam_readiness_report_dialog.dart';
 import '../../providers/daily_plan_provider.dart';
 import '../../providers/progress_story_provider.dart';
 import '../../widgets/app_logo.dart';
@@ -197,8 +200,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     final l10n = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
     final isArabic = currentLocale.languageCode == 'ar';
-
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    
+    // Theme-aware colors
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
 
     return CelebrationOverlay(
       confettiController: _confettiController,
@@ -211,12 +218,11 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 width: 32.w,
                 height: 32.h,
               ),
-              SizedBox(width: 12.w),
+              const SizedBox(width: AppSpacing.md),
               Expanded(
                 child: Text(
                   l10n?.appTitle ?? 'Eagle Test: Germany',
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
+                  style: AppTypography.h3.copyWith(
                     color: theme.colorScheme.onSurface,
                   ),
                 ),
@@ -228,7 +234,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         ),
         body: RefreshIndicator(
         onRefresh: _loadDashboardData,
-        color: AppColors.eagleGold,
+        color: primaryGold,
         child: AdaptivePageWrapper(
           padding: EdgeInsets.zero,
           child: Column(
@@ -242,26 +248,33 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     gradient: LinearGradient(
                       begin: Alignment.topLeft,
                       end: Alignment.bottomRight,
-                      colors: [
-                        AppColors.eagleGold.withValues(alpha: 0.15),
-                        AppColors.darkSurface.withValues(alpha: 0.9),
-                        AppColors.darkSurface,
-                      ],
+                      colors: isDark
+                          ? [
+                              AppColors.gold.withValues(alpha: 0.15),
+                              surfaceColor.withValues(alpha: 0.9),
+                              surfaceColor,
+                            ]
+                          : [
+                              AppColors.gold.withValues(alpha: 0.1),
+                              surfaceColor,
+                              surfaceColor,
+                            ],
                       stops: const [0.0, 0.5, 1.0],
                     ),
                     boxShadow: [
                       BoxShadow(
-                        color: AppColors.eagleGold.withValues(alpha: 0.3),
+                        color: primaryGold.withValues(alpha: isDark ? 0.3 : 0.15),
                         blurRadius: 20,
                         spreadRadius: 2,
                         offset: const Offset(0, 4),
                       ),
-                      BoxShadow(
-                        color: Colors.black.withValues(alpha: 0.5),
-                        blurRadius: 10,
-                        spreadRadius: 0,
-                        offset: const Offset(0, 2),
-                      ),
+                      if (isDark)
+                        BoxShadow(
+                          color: AppColors.darkBg.withValues(alpha: 0.5),
+                          blurRadius: 10,
+                          spreadRadius: 0,
+                          offset: const Offset(0, 2),
+                        ),
                     ],
                   ),
                   child: Card(
@@ -269,13 +282,13 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(24.r),
                       side: BorderSide(
-                        color: AppColors.eagleGold.withValues(alpha: 0.4),
+                        color: primaryGold.withValues(alpha: isDark ? 0.4 : 0.3),
                         width: 2.w,
                       ),
                     ),
                     elevation: 0,
                     child: Padding(
-                      padding: EdgeInsets.all(24.w),
+                      padding: const EdgeInsets.all(AppSpacing.xxl),
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -310,10 +323,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                     child: AutoSizeText(
                                       key: ValueKey(_totalLearned),
                                       '$_totalLearned',
-                                      style: GoogleFonts.poppins(
+                                      style: AppTypography.h1.copyWith(
                                         fontSize: 36.sp,
-                                        fontWeight: FontWeight.bold,
-                                        color: AppColors.eagleGold,
+                                        color: primaryGold,
                                       ),
                                       maxLines: 1,
                                       minFontSize: 20.0,
@@ -322,10 +334,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                   ),
                                   AutoSizeText(
                                     '/ 310',
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 18.sp,
-                                      color: theme.colorScheme.onSurface
-                                          .withValues(alpha: 0.6),
+                                    style: AppTypography.bodyL.copyWith(
+                                      color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                                     ),
                                     maxLines: 1,
                                     minFontSize: 10.0,
@@ -333,25 +343,23 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                   ),
                                 ],
                               ),
-                              progressColor: AppColors.eagleGold,
-                              backgroundColor: theme.brightness == Brightness.dark
-                                  ? Colors.grey.shade800
-                                  : Colors.grey.shade300,
+                              progressColor: primaryGold,
+                              backgroundColor: isDark
+                                  ? AppColors.darkSurfaceVariant
+                                  : AppColors.lightSurfaceVariant,
                               circularStrokeCap: CircularStrokeCap.round,
                             ),
                           ),
-                          SizedBox(height: 24.h),
+                          const SizedBox(height: AppSpacing.xxl),
                           AutoSizeText(
                             l10n?.totalLearned ??
                                 (isArabic ? 'إجمالي المتعلم' : 'Total Learned'),
-                            style: GoogleFonts.poppins(
-                              fontSize: 20.sp,
-                              fontWeight: FontWeight.bold,
+                            style: AppTypography.h3.copyWith(
                               color: theme.colorScheme.onSurface,
                             ),
                             maxLines: 1,
                           ),
-                          SizedBox(height: 8.h),
+                          const SizedBox(height: AppSpacing.sm),
                           AnimatedSwitcher(
                             duration: const Duration(milliseconds: 400),
                             transitionBuilder: (child, animation) {
@@ -363,8 +371,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             child: AutoSizeText(
                               key: ValueKey(_overallProgress),
                               '${(_overallProgress * 100).toStringAsFixed(1)}% ${isArabic ? 'مكتمل' : 'Complete'}',
-                              style: GoogleFonts.poppins(
-                                fontSize: 16.sp,
+                              style: AppTypography.bodyM.copyWith(
                                 color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
                               ),
                               maxLines: 1,
@@ -377,21 +384,21 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
               ),
 
-              SizedBox(height: 24.h),
+              const SizedBox(height: AppSpacing.xxl),
 
               // AI Coaching Card (Pro Feature)
               const AiCoachingCard(),
 
-              SizedBox(height: 24.h),
+              const SizedBox(height: AppSpacing.xxl),
 
               // Exam Countdown Card
               SlideInRight(
                 delay: const Duration(milliseconds: 150),
                 duration: const Duration(milliseconds: 500),
-                child: _buildCountdownCard(context, l10n, isArabic),
+                child: _buildCountdownCard(context, l10n, isArabic, isDark, primaryGold, surfaceColor),
               ),
 
-              SizedBox(height: 24.h),
+              const SizedBox(height: AppSpacing.xxl),
 
               // Streak Card
               if (_currentStreak > 0)
@@ -401,15 +408,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   child: _buildStatCard(
                     context,
                     icon: Icons.local_fire_department,
-                    iconColor: Colors.orange,
+                    iconColor: AppColors.warningDark,
                     title: l10n?.streak ?? 'Streak',
                     value: '$_currentStreak',
                     subtitle: isArabic ? 'أيام متتالية' : 'Days in a row',
-                    index: 0,
+                    isDark: isDark,
+                    surfaceColor: surfaceColor,
                   ),
                 ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Study Time Today Card
               SlideInRight(
@@ -418,15 +426,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 child: _buildStatCard(
                   context,
                   icon: Icons.timer,
-                  iconColor: Colors.blue,
+                  iconColor: AppColors.infoDark,
                   title: isArabic ? 'وقت الدراسة اليوم' : 'Study Time Today',
                   value: '$_studyTimeToday',
                   subtitle: isArabic ? 'دقيقة' : 'minutes',
-                  index: 1,
+                  isDark: isDark,
+                  surfaceColor: surfaceColor,
                 ),
               ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Last Exam Score Card
               if (_lastExamScore != null)
@@ -436,15 +445,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   child: _buildStatCard(
                     context,
                     icon: Icons.assignment,
-                    iconColor: AppColors.eagleGold,
+                    iconColor: primaryGold,
                     title: isArabic ? 'آخر نتيجة' : 'Last Exam',
                     value: '$_lastExamScore%',
                     subtitle: isArabic ? 'آخر امتحان' : 'Last attempt',
-                    index: 2,
+                    isDark: isDark,
+                    surfaceColor: surfaceColor,
                   ),
                 ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Remaining Questions Card
               SlideInRight(
@@ -457,11 +467,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   title: isArabic ? 'الأسئلة المتبقية' : 'Remaining Questions',
                   value: '$_remainingQuestions',
                   subtitle: isArabic ? 'من 310 سؤال' : 'of 310 questions',
-                  index: 3,
+                  isDark: isDark,
+                  surfaceColor: surfaceColor,
                 ),
               ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Total Study Time Card
               SlideInRight(
@@ -474,11 +485,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   title: isArabic ? 'إجمالي وقت الدراسة' : 'Total Study Time',
                   value: '$_totalStudyTime',
                   subtitle: isArabic ? 'دقيقة' : 'minutes',
-                  index: 4,
+                  isDark: isDark,
+                  surfaceColor: surfaceColor,
                 ),
               ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Passed Exams Count Card
               if (examHistory.isNotEmpty)
@@ -488,18 +500,19 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   child: _buildStatCard(
                     context,
                     icon: Icons.check_circle,
-                    iconColor: Colors.green,
+                    iconColor: AppColors.successDark,
                     title: isArabic ? 'امتحانات ناجحة' : 'Passed Exams',
                     value:
                         '${examHistory.where((e) => e['isPassed'] == true).length}',
                     subtitle: isArabic
                         ? 'من ${examHistory.length} امتحان'
                         : 'of ${examHistory.length} exams',
-                    index: 5,
+                    isDark: isDark,
+                    surfaceColor: surfaceColor,
                   ),
                 ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Exam Readiness Card
               ref.watch(examReadinessProvider).when(
@@ -513,126 +526,187 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         });
                       }
                       
+                      final isReady = readiness.overallScore >= 70;
+                      final accentColor = isReady ? AppColors.successDark : primaryGold;
+                      
                       return ZoomIn(
                         delay: const Duration(milliseconds: 550),
                         duration: const Duration(milliseconds: 500),
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16.r),
-                            gradient: LinearGradient(
-                              begin: Alignment.topLeft,
-                              end: Alignment.bottomRight,
-                              colors: readiness.overallScore >= 70
-                                  ? [
-                                      Colors.green.withValues(alpha: 0.2),
-                                      AppColors.darkSurface.withValues(alpha: 0.9),
-                                      AppColors.darkSurface,
-                                    ]
-                                  : [
-                                      AppColors.eagleGold.withValues(alpha: 0.15),
-                                      AppColors.darkSurface.withValues(alpha: 0.9),
-                                      AppColors.darkSurface,
-                                    ],
-                              stops: const [0.0, 0.5, 1.0],
-                            ),
-                            boxShadow: [
-                              BoxShadow(
-                                color: (readiness.overallScore >= 70 ? Colors.green : AppColors.eagleGold)
-                                    .withValues(alpha: 0.3),
-                                blurRadius: 20,
-                                spreadRadius: 2,
-                                offset: const Offset(0, 4),
+                        child: InkWell(
+                          onTap: () async {
+                            // Show loading indicator
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (context) => Center(
+                                child: CircularProgressIndicator(
+                                  valueColor: AlwaysStoppedAnimation<Color>(primaryGold),
+                                ),
                               ),
-                              BoxShadow(
-                                color: Colors.black.withValues(alpha: 0.5),
-                                blurRadius: 10,
-                                spreadRadius: 0,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          child: Card(
-                            color: Colors.transparent,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(16.r),
-                              side: BorderSide(
-                                color: readiness.overallScore >= 70
-                                    ? Colors.green.withValues(alpha: 0.6)
-                                    : AppColors.eagleGold.withValues(alpha: 0.4),
-                                width: 2,
-                              ),
-                            ),
-                            elevation: 0,
-                            child: Padding(
-                              padding: EdgeInsets.all(20.w),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Row(
-                                    children: [
-                                      Icon(
-                                        readiness.overallScore >= 70
-                                            ? Icons.check_circle
-                                            : Icons.school,
-                                        color: readiness.overallScore >= 70
-                                            ? Colors.green
-                                            : AppColors.eagleGold,
-                                        size: 28.sp,
-                                      ),
-                                      SizedBox(width: 12.w),
-                                      Expanded(
-                                        child: AutoSizeText(
-                                          isArabic
-                                              ? 'جاهزية الامتحان'
-                                              : 'Exam Readiness',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 18.sp,
-                                            fontWeight: FontWeight.bold,
-                                            color: theme.colorScheme.onSurface,
-                                          ),
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                      AnimatedSwitcher(
-                                        duration: const Duration(milliseconds: 500),
-                                        transitionBuilder: (child, animation) {
-                                          return ScaleTransition(
-                                            scale: animation,
-                                            child: child,
-                                          );
-                                        },
-                                        child: AutoSizeText(
-                                          key: ValueKey(readiness.overallScore),
-                                          '${readiness.overallScore.toStringAsFixed(0)}%',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 24.sp,
-                                            fontWeight: FontWeight.bold,
-                                            color: readiness.overallScore >= 70
-                                                ? Colors.green
-                                                : AppColors.eagleGold,
-                                          ),
-                                          maxLines: 1,
-                                        ),
-                                      ),
-                                    ],
+                            );
+                            
+                            // Generate report
+                            try {
+                              final currentLocale = ref.read(localeProvider);
+                              final report = await ExamReadinessReportGenerator.generate(
+                                languageCode: currentLocale.languageCode,
+                              );
+                              
+                              // Close loading dialog
+                              if (context.mounted) {
+                                Navigator.of(context).pop();
+                                
+                                // Show report dialog
+                                showDialog(
+                                  context: context,
+                                  builder: (context) => ExamReadinessReportDialog(
+                                    report: report,
                                   ),
-                                  SizedBox(height: 8.h),
-                                  AutoSizeText(
-                                    readiness.overallScore >= 70
-                                        ? (isArabic
-                                            ? 'أنت جاهز للامتحان!'
-                                            : 'You are ready for the exam!')
-                                        : (isArabic
-                                            ? 'استمر في الدراسة للوصول إلى 70%'
-                                            : 'Keep studying to reach 70%'),
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 12.sp,
-                                      color: theme.colorScheme.onSurface
-                                          .withValues(alpha: 0.6),
+                                );
+                              }
+                            } catch (e) {
+                              // Close loading dialog
+                              if (context.mounted) {
+                                Navigator.of(context).pop();
+                                
+                                // Show error
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(
+                                    content: Text(
+                                      isArabic
+                                          ? 'حدث خطأ أثناء إنشاء التقرير'
+                                          : 'Error generating report',
                                     ),
-                                    maxLines: 2,
+                                    backgroundColor: AppColors.errorDark,
                                   ),
-                                ],
+                                );
+                              }
+                            }
+                          },
+                          borderRadius: BorderRadius.circular(16.r),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16.r),
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: isDark
+                                    ? [
+                                        accentColor.withValues(alpha: 0.2),
+                                        surfaceColor.withValues(alpha: 0.9),
+                                        surfaceColor,
+                                      ]
+                                    : [
+                                        accentColor.withValues(alpha: 0.1),
+                                        surfaceColor,
+                                        surfaceColor,
+                                      ],
+                                stops: const [0.0, 0.5, 1.0],
+                              ),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: accentColor.withValues(alpha: isDark ? 0.3 : 0.15),
+                                  blurRadius: 20,
+                                  spreadRadius: 2,
+                                  offset: const Offset(0, 4),
+                                ),
+                                if (isDark)
+                                  BoxShadow(
+                                    color: AppColors.darkBg.withValues(alpha: 0.5),
+                                    blurRadius: 10,
+                                    spreadRadius: 0,
+                                    offset: const Offset(0, 2),
+                                  ),
+                              ],
+                            ),
+                            child: Card(
+                              color: Colors.transparent,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(16.r),
+                                side: BorderSide(
+                                  color: accentColor.withValues(alpha: isDark ? 0.6 : 0.4),
+                                  width: 2,
+                                ),
+                              ),
+                              elevation: 0,
+                              child: Padding(
+                                padding: const EdgeInsets.all(AppSpacing.xl),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          isReady ? Icons.check_circle : Icons.school,
+                                          color: accentColor,
+                                          size: 28.sp,
+                                        ),
+                                        const SizedBox(width: AppSpacing.md),
+                                        Expanded(
+                                          child: AutoSizeText(
+                                            isArabic
+                                                ? 'جاهزية الامتحان'
+                                                : 'Exam Readiness',
+                                            style: AppTypography.h3.copyWith(
+                                              color: theme.colorScheme.onSurface,
+                                            ),
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                        AnimatedSwitcher(
+                                          duration: const Duration(milliseconds: 500),
+                                          transitionBuilder: (child, animation) {
+                                            return ScaleTransition(
+                                              scale: animation,
+                                              child: child,
+                                            );
+                                          },
+                                          child: AutoSizeText(
+                                            key: ValueKey(readiness.overallScore),
+                                            '${readiness.overallScore.toStringAsFixed(0)}%',
+                                            style: AppTypography.h2.copyWith(
+                                              color: accentColor,
+                                            ),
+                                            maxLines: 1,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    const SizedBox(height: AppSpacing.sm),
+                                    AutoSizeText(
+                                      isReady
+                                          ? (isArabic
+                                              ? 'أنت جاهز للامتحان!'
+                                              : 'You are ready for the exam!')
+                                          : (isArabic
+                                              ? 'استمر في الدراسة للوصول إلى 70%'
+                                              : 'Keep studying to reach 70%'),
+                                      style: AppTypography.bodyS.copyWith(
+                                        color: theme.colorScheme.onSurface.withValues(alpha: 0.6),
+                                      ),
+                                      maxLines: 2,
+                                    ),
+                                    const SizedBox(height: AppSpacing.xs),
+                                    Row(
+                                      children: [
+                                        Icon(
+                                          Icons.analytics,
+                                          size: 14.sp,
+                                          color: primaryGold.withValues(alpha: 0.7),
+                                        ),
+                                        SizedBox(width: 4.w),
+                                        AutoSizeText(
+                                          l10n?.tapToViewDetailedReport ?? 'Tap to view detailed report',
+                                          style: AppTypography.bodyS.copyWith(
+                                            color: primaryGold.withValues(alpha: 0.7),
+                                            fontStyle: FontStyle.italic,
+                                          ),
+                                          maxLines: 1,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),
@@ -643,7 +717,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     error: (_, __) => const SizedBox.shrink(),
                   ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Smart Daily Plan Card
               ref.watch(smartDailyPlanProvider).when(
@@ -652,16 +726,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             delay: const Duration(milliseconds: 600),
                             duration: const Duration(milliseconds: 500),
                             child: Card(
-                              color: theme.cardTheme.color,
+                              color: isDark ? surfaceColor : theme.cardColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16.r),
                                 side: BorderSide(
-                                  color: AppColors.eagleGold.withValues(alpha: 0.3),
+                                  color: primaryGold.withValues(alpha: 0.3),
                                   width: 1,
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(20.w),
+                                padding: const EdgeInsets.all(AppSpacing.xl),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -669,42 +743,35 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       children: [
                                         Icon(
                                           Icons.today,
-                                          color: AppColors.eagleGold,
+                                          color: primaryGold,
                                           size: 28.sp,
                                         ),
-                                        SizedBox(width: 12.w),
+                                        const SizedBox(width: AppSpacing.md),
                                         Expanded(
                                           child: AutoSizeText(
                                             isArabic
                                                 ? 'خطة اليوم'
                                                 : 'Today\'s Plan',
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold,
-                                              color:
-                                                  theme.colorScheme.onSurface,
+                                            style: AppTypography.h3.copyWith(
+                                              color: theme.colorScheme.onSurface,
                                             ),
                                             maxLines: 1,
                                           ),
                                         ),
                                         AutoSizeText(
                                           '${plan.questionIds.length}',
-                                          style: GoogleFonts.poppins(
-                                            fontSize: 24.sp,
-                                            fontWeight: FontWeight.bold,
-                                            color: AppColors.eagleGold,
+                                          style: AppTypography.h2.copyWith(
+                                            color: primaryGold,
                                           ),
                                           maxLines: 1,
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 8.h),
+                                    const SizedBox(height: AppSpacing.sm),
                                     AutoSizeText(
                                       plan.explanation,
-                                      style: GoogleFonts.poppins(
-                                        fontSize: 12.sp,
-                                        color: theme.colorScheme.onSurface
-                                            .withValues(alpha: 0.7),
+                                      style: AppTypography.bodyS.copyWith(
+                                        color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                                       ),
                                       maxLines: 3,
                                     ),
@@ -718,7 +785,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     error: (_, __) => const SizedBox.shrink(),
                   ),
 
-              SizedBox(height: 16.h),
+              const SizedBox(height: AppSpacing.lg),
 
               // Progress Story Card
               ref.watch(weeklyProgressStoryProvider).when(
@@ -727,16 +794,16 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                             delay: const Duration(milliseconds: 650),
                             duration: const Duration(milliseconds: 500),
                             child: Card(
-                              color: theme.cardTheme.color,
+                              color: isDark ? surfaceColor : theme.cardColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(16.r),
                                 side: BorderSide(
-                                  color: Colors.blue.withValues(alpha: 0.3),
+                                  color: AppColors.infoDark.withValues(alpha: 0.3),
                                   width: 1,
                                 ),
                               ),
                               child: Padding(
-                                padding: EdgeInsets.all(20.w),
+                                padding: const EdgeInsets.all(AppSpacing.xl),
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
@@ -744,28 +811,25 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                       children: [
                                         Icon(
                                           Icons.auto_stories,
-                                          color: Colors.blue,
+                                          color: AppColors.infoDark,
                                           size: 28.sp,
                                         ),
-                                        SizedBox(width: 12.w),
+                                        const SizedBox(width: AppSpacing.md),
                                         Expanded(
                                           child: AutoSizeText(
                                             story.title,
-                                            style: GoogleFonts.poppins(
-                                              fontSize: 18.sp,
-                                              fontWeight: FontWeight.bold,
-                                              color:
-                                                  theme.colorScheme.onSurface,
+                                            style: AppTypography.h3.copyWith(
+                                              color: theme.colorScheme.onSurface,
                                             ),
                                             maxLines: 1,
                                           ),
                                         ),
                                       ],
                                     ),
-                                    SizedBox(height: 12.h),
+                                    const SizedBox(height: AppSpacing.md),
                                     ...story.bulletPoints.take(3).map((point) =>
                                         Padding(
-                                          padding: EdgeInsets.only(bottom: 8.h),
+                                          padding: const EdgeInsets.only(bottom: AppSpacing.sm),
                                           child: Row(
                                             crossAxisAlignment:
                                                 CrossAxisAlignment.start,
@@ -773,17 +837,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                                               Icon(
                                                 Icons.check_circle_outline,
                                                 size: 16.sp,
-                                                color: Colors.blue,
+                                                color: AppColors.infoDark,
                                               ),
-                                              SizedBox(width: 8.w),
+                                              const SizedBox(width: AppSpacing.sm),
                                               Expanded(
                                                 child: AutoSizeText(
                                                   point,
-                                                  style: GoogleFonts.poppins(
-                                                    fontSize: 12.sp,
-                                                    color: theme
-                                                        .colorScheme.onSurface
-                                                        .withValues(alpha: 0.7),
+                                                  style: AppTypography.bodyS.copyWith(
+                                                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                                                   ),
                                                   maxLines: 2,
                                                 ),
@@ -812,6 +873,9 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     BuildContext context,
     AppLocalizations? l10n,
     bool isArabic,
+    bool isDark,
+    Color primaryGold,
+    Color surfaceColor,
   ) {
     final theme = Theme.of(context);
     final currentLocale = ref.read(localeProvider);
@@ -830,19 +894,19 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
       countdownText = isArabic ? 'انتهى' : 'Passed';
       subtitleText =
           isArabic ? 'تاريخ الامتحان قد مضى' : 'Exam date has passed';
-      textColor = Colors.red;
+      textColor = AppColors.errorDark;
     } else if (_daysUntilExam == 0) {
       countdownText = isArabic ? 'اليوم!' : 'Today!';
       subtitleText = isArabic
           ? '🍀 اليوم هو اليوم! حظاً موفقاً!'
           : '🍀 Today is the Day! Good Luck!';
-      textColor = AppColors.eagleGold;
+      textColor = primaryGold;
     } else {
       countdownText = '$_daysUntilExam';
       subtitleText = isArabic
           ? '${_daysUntilExam == 1 ? 'يوم' : 'أيام'} متبقية'
           : '${_daysUntilExam == 1 ? 'Day' : 'Days'} Left';
-      textColor = AppColors.eagleGold;
+      textColor = primaryGold;
     }
 
     return Container(
@@ -851,27 +915,35 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            AppColors.eagleGold.withValues(alpha: 0.15),
-            AppColors.germanRed.withValues(alpha: 0.1),
-            AppColors.darkSurface.withValues(alpha: 0.9),
-            AppColors.darkSurface,
-          ],
+          colors: isDark
+              ? [
+                  AppColors.gold.withValues(alpha: 0.15),
+                  AppColors.errorDark.withValues(alpha: 0.1),
+                  surfaceColor.withValues(alpha: 0.9),
+                  surfaceColor,
+                ]
+              : [
+                  AppColors.gold.withValues(alpha: 0.1),
+                  AppColors.errorDark.withValues(alpha: 0.05),
+                  surfaceColor,
+                  surfaceColor,
+                ],
           stops: const [0.0, 0.3, 0.7, 1.0],
         ),
         boxShadow: [
           BoxShadow(
-            color: AppColors.eagleGold.withValues(alpha: 0.3),
+            color: primaryGold.withValues(alpha: isDark ? 0.3 : 0.15),
             blurRadius: 20,
             spreadRadius: 2,
             offset: const Offset(0, 4),
           ),
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.5),
-            blurRadius: 10,
-            spreadRadius: 0,
-            offset: const Offset(0, 2),
-          ),
+          if (isDark)
+            BoxShadow(
+              color: AppColors.darkBg.withValues(alpha: 0.5),
+              blurRadius: 10,
+              spreadRadius: 0,
+              offset: const Offset(0, 2),
+            ),
         ],
       ),
       child: Card(
@@ -879,7 +951,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
           side: BorderSide(
-            color: AppColors.eagleGold.withValues(alpha: 0.5),
+            color: primaryGold.withValues(alpha: isDark ? 0.5 : 0.3),
             width: 2.w,
           ),
         ),
@@ -911,14 +983,14 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
           },
           borderRadius: BorderRadius.circular(20.r),
           child: Padding(
-            padding: EdgeInsets.all(20.w),
+            padding: const EdgeInsets.all(AppSpacing.xl),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Container(
-                  padding: EdgeInsets.all(12.w),
+                  padding: const EdgeInsets.all(AppSpacing.md),
                   decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.2),
+                    color: primaryGold.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Icon(
@@ -926,10 +998,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         ? Icons.celebration
                         : Icons.calendar_today,
                     size: 36.sp,
-                    color: AppColors.eagleGold,
+                    color: primaryGold,
                   ),
                 ),
-                SizedBox(width: 16.w),
+                const SizedBox(width: AppSpacing.lg),
                 Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -950,9 +1022,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                         child: AutoSizeText(
                           key: ValueKey(countdownText),
                           countdownText,
-                          style: GoogleFonts.poppins(
-                            fontSize: 36.sp,
-                            fontWeight: FontWeight.bold,
+                          style: AppTypography.h1.copyWith(
                             color: textColor,
                           ),
                           maxLines: 1,
@@ -960,12 +1030,10 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                           stepGranularity: 1.0,
                         ),
                       ),
-                      SizedBox(height: 4.h),
+                      const SizedBox(height: AppSpacing.xs),
                       AutoSizeText(
                         subtitleText,
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          fontWeight: FontWeight.w500,
+                        style: AppTypography.bodyM.copyWith(
                           color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                         ),
                         maxLines: 2,
@@ -995,7 +1063,8 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
     required String title,
     required String value,
     required String subtitle,
-    int index = 0,
+    required bool isDark,
+    required Color surfaceColor,
   }) {
     final theme = Theme.of(context);
     return Container(
@@ -1004,26 +1073,33 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            iconColor.withValues(alpha: 0.1),
-            AppColors.darkSurface.withValues(alpha: 0.8),
-            AppColors.darkSurface,
-          ],
+          colors: isDark
+              ? [
+                  iconColor.withValues(alpha: 0.1),
+                  surfaceColor.withValues(alpha: 0.8),
+                  surfaceColor,
+                ]
+              : [
+                  iconColor.withValues(alpha: 0.08),
+                  surfaceColor,
+                  surfaceColor,
+                ],
           stops: const [0.0, 0.5, 1.0],
         ),
         boxShadow: [
           BoxShadow(
-            color: iconColor.withValues(alpha: 0.2),
+            color: iconColor.withValues(alpha: isDark ? 0.2 : 0.1),
             blurRadius: 15,
             spreadRadius: 1,
             offset: const Offset(0, 3),
           ),
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.3),
-            blurRadius: 8,
-            spreadRadius: 0,
-            offset: const Offset(0, 2),
-          ),
+          if (isDark)
+            BoxShadow(
+              color: AppColors.darkBg.withValues(alpha: 0.3),
+              blurRadius: 8,
+              spreadRadius: 0,
+              offset: const Offset(0, 2),
+            ),
         ],
       ),
       child: Card(
@@ -1031,17 +1107,17 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16.r),
           side: BorderSide(
-            color: iconColor.withValues(alpha: 0.3),
+            color: iconColor.withValues(alpha: isDark ? 0.3 : 0.2),
             width: 1.5,
           ),
         ),
         elevation: 0,
         child: Padding(
-          padding: EdgeInsets.all(20.w),
+          padding: const EdgeInsets.all(AppSpacing.xl),
           child: Row(
             children: [
               Container(
-                padding: EdgeInsets.all(12.w),
+                padding: const EdgeInsets.all(AppSpacing.md),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
                     begin: Alignment.topLeft,
@@ -1063,7 +1139,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                 ),
                 child: Icon(icon, color: iconColor, size: 32.sp),
               ),
-              SizedBox(width: 16.w),
+              const SizedBox(width: AppSpacing.lg),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -1071,13 +1147,12 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                   children: [
                     AutoSizeText(
                       title,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
+                      style: AppTypography.bodyM.copyWith(
                         color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
                       ),
                       maxLines: 1,
                     ),
-                    SizedBox(height: 4.h),
+                    const SizedBox(height: AppSpacing.xs),
                     AnimatedSwitcher(
                       duration: const Duration(milliseconds: 400),
                       transitionBuilder: (child, animation) {
@@ -1092,9 +1167,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                       child: AutoSizeText(
                         key: ValueKey(value),
                         value,
-                        style: GoogleFonts.poppins(
-                          fontSize: 24.sp,
-                          fontWeight: FontWeight.bold,
+                        style: AppTypography.h2.copyWith(
                           color: theme.colorScheme.onSurface,
                         ),
                         maxLines: 1,
@@ -1103,8 +1176,7 @@ class _DashboardScreenState extends ConsumerState<DashboardScreen> {
                     SizedBox(height: 2.h),
                     AutoSizeText(
                       subtitle,
-                      style: GoogleFonts.poppins(
-                        fontSize: 12.sp,
+                      style: AppTypography.bodyS.copyWith(
                         color: theme.colorScheme.onSurface.withValues(alpha: 0.5),
                       ),
                       maxLines: 1,

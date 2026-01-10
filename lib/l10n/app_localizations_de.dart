@@ -1079,4 +1079,86 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get cloudSync => 'Cloud-Synchronisation';
+
+  @override
+  String get themeTitle => 'Design wählen';
+
+  @override
+  String get close => 'Schließen';
+
+  @override
+  String get appearance => 'Erscheinungsbild';
+
+  @override
+  String get examReadinessReport => 'Prüfungsbereitschaftsbericht';
+
+  @override
+  String get overallScore => 'Gesamtpunktzahl';
+
+  @override
+  String get componentScores => 'Komponentenpunktzahlen';
+
+  @override
+  String get questionMastery => 'Fragenbeherrschung';
+
+  @override
+  String get examPerformance => 'Prüfungsleistung';
+
+  @override
+  String get studyConsistency => 'Lernkonsistenz';
+
+  @override
+  String get stateQuestions => 'Länderfragen';
+
+  @override
+  String get statistics => 'Statistiken';
+
+  @override
+  String get questionsMastered => 'Beherrschte Fragen';
+
+  @override
+  String get correctAnswers => 'Richtige Antworten';
+
+  @override
+  String get examsCompleted => 'Abgeschlossene Prüfungen';
+
+  @override
+  String get currentStreak => 'Aktuelle Serie';
+
+  @override
+  String get studySessionsLast7Days => 'Lernsitzungen (letzte 7 Tage)';
+
+  @override
+  String get totalStudyTime => 'Gesamte Lernzeit';
+
+  @override
+  String get strengths => 'Stärken';
+
+  @override
+  String get weaknesses => 'Schwächen';
+
+  @override
+  String get recommendations => 'Empfehlungen';
+
+  @override
+  String get tapToViewDetailedReport =>
+      'Tippen Sie, um den detaillierten Bericht anzuzeigen';
+
+  @override
+  String get excellentFullyReady => 'Ausgezeichnet - Vollständig bereit';
+
+  @override
+  String get readyForExam => 'Bereit für Prüfung';
+
+  @override
+  String get almostReady => 'Fast bereit';
+
+  @override
+  String get needsMoreWork => 'Benötigt mehr Arbeit';
+
+  @override
+  String get days => 'Tage';
+
+  @override
+  String get hours => 'Stunden';
 }

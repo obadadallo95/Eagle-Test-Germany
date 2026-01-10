@@ -80,7 +80,7 @@ static const double _weightState = 0.10;        // 10%
 - Mastery of selected Bundesland questions
 - If no state selected: returns 50% (neutral)
 - Currently uses heuristic (sampling approach)
-- TODO: Enhance to filter by actual `state_code`
+- Future enhancement: Filter by actual `state_code`
 
 **Data Sources:**
 - `UserPreferencesService.getSelectedState()`

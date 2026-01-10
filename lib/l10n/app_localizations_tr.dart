@@ -1073,4 +1073,86 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get cloudSync => 'Bulut senkronizasyonu';
+
+  @override
+  String get themeTitle => 'Tema Seçin';
+
+  @override
+  String get close => 'Kapat';
+
+  @override
+  String get appearance => 'Görünüm';
+
+  @override
+  String get examReadinessReport => 'Sınav Hazırlık Raporu';
+
+  @override
+  String get overallScore => 'Genel Puan';
+
+  @override
+  String get componentScores => 'Bileşen Puanları';
+
+  @override
+  String get questionMastery => 'Soru Ustalığı';
+
+  @override
+  String get examPerformance => 'Sınav Performansı';
+
+  @override
+  String get studyConsistency => 'Çalışma Tutarlılığı';
+
+  @override
+  String get stateQuestions => 'Eyalet Soruları';
+
+  @override
+  String get statistics => 'İstatistikler';
+
+  @override
+  String get questionsMastered => 'Ustalaşılan Sorular';
+
+  @override
+  String get correctAnswers => 'Doğru Cevaplar';
+
+  @override
+  String get examsCompleted => 'Tamamlanan Sınavlar';
+
+  @override
+  String get currentStreak => 'Mevcut Seri';
+
+  @override
+  String get studySessionsLast7Days => 'Çalışma Oturumları (Son 7 Gün)';
+
+  @override
+  String get totalStudyTime => 'Toplam Çalışma Süresi';
+
+  @override
+  String get strengths => 'Güçlü Yönler';
+
+  @override
+  String get weaknesses => 'Zayıf Yönler';
+
+  @override
+  String get recommendations => 'Öneriler';
+
+  @override
+  String get tapToViewDetailedReport =>
+      'Detaylı raporu görüntülemek için dokunun';
+
+  @override
+  String get excellentFullyReady => 'Mükemmel - Tamamen Hazır';
+
+  @override
+  String get readyForExam => 'Sınava Hazır';
+
+  @override
+  String get almostReady => 'Neredeyse Hazır';
+
+  @override
+  String get needsMoreWork => 'Daha Fazla Çalışma Gerekiyor';
+
+  @override
+  String get days => 'gün';
+
+  @override
+  String get hours => 'saat';
 }

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../widgets/app_logo.dart';
 import '../exam/paper_exam_config_screen.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
@@ -51,10 +51,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
       await launchUrl(uri, mode: LaunchMode.externalApplication);
     } else {
       if (mounted) {
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('Could not open $url'),
-            backgroundColor: Colors.red,
+            backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
           ),
         );
       }
@@ -67,14 +69,17 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
     final version = _packageInfo?.version ?? '1.0.0';
 
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
     
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           l10n.about,
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h2.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -97,10 +102,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                   SizedBox(height: 16.h),
                   AutoSizeText(
                     'Eagle Test: Germany',
-                    style: GoogleFonts.poppins(
-                      fontSize: 28.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    style: AppTypography.h1.copyWith(
+                      color: textPrimary,
                     ),
                     maxLines: 1,
                   ),
@@ -109,10 +112,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                     _isLoadingVersion
                         ? l10n.aboutLoadingVersion
                         : 'v$version (Hybrid Edition)',
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      color: AppColors.eagleGold,
-                      fontWeight: FontWeight.w600,
+                    style: AppTypography.h4.copyWith(
+                      color: primaryGold,
                     ),
                     maxLines: 1,
                   ),
@@ -152,9 +153,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                     SizedBox(height: 12.h),
                     AutoSizeText(
                       l10n.aboutMultiLanguageDescription,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyM.copyWith(
+                        color: textSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -181,9 +181,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                     SizedBox(height: 12.h),
                     AutoSizeText(
                       l10n.aboutTranslationDescription,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyM.copyWith(
+                        color: textSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 3,
@@ -211,9 +210,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                     SizedBox(height: 12.h),
                     AutoSizeText(
                       l10n.aboutAiTutorDescription,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyM.copyWith(
+                        color: textSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 3,
@@ -241,9 +239,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                     SizedBox(height: 12.h),
                     AutoSizeText(
                       l10n.aboutDailyChallengeDescription,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyM.copyWith(
+                        color: textSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 3,
@@ -304,9 +301,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 children: [
                   AutoSizeText(
                     l10n.aboutDevelopedWith,
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      color: Colors.white54,
+                    style: AppTypography.bodyM.copyWith(
+                      color: textSecondary,
                     ),
                     maxLines: 1,
                   ),
@@ -319,7 +315,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                         icon: Icons.star,
                         label: l10n.aboutRateUs,
                         onTap: () {
-                          // TODO: Replace with actual app store URL
+                          // Note: Replace with actual app store URL when available
                           ScaffoldMessenger.of(context).showSnackBar(
                             SnackBar(
                               content: Text(
@@ -368,6 +364,11 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
     required Widget child,
     bool isHighlighted = false,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -377,23 +378,25 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
           end: Alignment.bottomRight,
           colors: isHighlighted
               ? [
-                  AppColors.eagleGold.withValues(alpha: 0.15),
-                  AppColors.darkSurface.withValues(alpha: 0.8),
+                  primaryGold.withValues(alpha: 0.15),
+                  surfaceColor.withValues(alpha: 0.8),
                 ]
               : [
-                  AppColors.darkSurface.withValues(alpha: 0.8),
-                  AppColors.darkSurface.withValues(alpha: 0.6),
+                  surfaceColor.withValues(alpha: 0.8),
+                  surfaceColor.withValues(alpha: 0.6),
                 ],
         ),
         border: Border.all(
           color: isHighlighted
-              ? AppColors.eagleGold.withValues(alpha: 0.6)
-              : AppColors.eagleGold.withValues(alpha: 0.2),
+              ? primaryGold.withValues(alpha: 0.6)
+              : primaryGold.withValues(alpha: 0.2),
           width: isHighlighted ? 2.5 : 2,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.3),
+            color: isDark 
+                ? AppColors.darkBg.withValues(alpha: 0.3)
+                : AppColors.lightBg.withValues(alpha: 0.1),
             blurRadius: 15,
             spreadRadius: 0,
           ),
@@ -411,10 +414,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
             SizedBox(height: 12.h),
             AutoSizeText(
               title,
-              style: GoogleFonts.poppins(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+              style: AppTypography.h3.copyWith(
+                color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
               ),
               maxLines: 1,
               textAlign: TextAlign.center,
@@ -422,9 +423,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
             SizedBox(height: 4.h),
             AutoSizeText(
               subtitle,
-              style: GoogleFonts.poppins(
-                fontSize: 14.sp,
-                color: AppColors.eagleGold,
+              style: AppTypography.bodyM.copyWith(
+                color: primaryGold,
                 fontWeight: FontWeight.w600,
               ),
               maxLines: 1,
@@ -438,6 +438,13 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
   }
 
   Widget _buildPaperExamCard(BuildContext context, AppLocalizations l10n) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -445,24 +452,40 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
         gradient: LinearGradient(
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
-          colors: [
-            Colors.white.withValues(alpha: 0.12),
-            Colors.white.withValues(alpha: 0.05),
-            AppColors.darkSurface.withValues(alpha: 0.8),
-          ],
+          colors: isDark
+              ? [
+                  isDark 
+                      ? AppColors.darkTextPrimary.withValues(alpha: 0.12)
+                      : AppColors.lightTextPrimary.withValues(alpha: 0.12),
+                  isDark 
+                      ? AppColors.darkTextPrimary.withValues(alpha: 0.05)
+                      : AppColors.lightTextPrimary.withValues(alpha: 0.05),
+                  surfaceColor.withValues(alpha: 0.8),
+                ]
+              : [
+                  primaryGold.withValues(alpha: 0.08),
+                  primaryGold.withValues(alpha: 0.03),
+                  surfaceColor,
+                ],
         ),
         border: Border.all(
-          color: Colors.white.withValues(alpha: 0.3),
+          color: isDark 
+              ? AppColors.darkBorder 
+              : primaryGold.withValues(alpha: 0.3),
           width: 2.5,
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.3),
+            color: isDark 
+                ? AppColors.darkBg.withValues(alpha: 0.3)
+                : AppColors.lightBg.withValues(alpha: 0.1),
             blurRadius: 15,
             spreadRadius: 0,
           ),
           BoxShadow(
-            color: Colors.white.withValues(alpha: 0.1),
+            color: isDark 
+                ? AppColors.darkTextPrimary.withValues(alpha: 0.1)
+                : AppColors.lightTextPrimary.withValues(alpha: 0.1),
             blurRadius: 10,
             spreadRadius: 0,
           ),
@@ -479,10 +502,10 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 Container(
                   padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
                   decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.2),
+                    color: primaryGold.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(20.r),
                     border: Border.all(
-                      color: AppColors.eagleGold,
+                      color: primaryGold,
                       width: 1.5,
                     ),
                   ),
@@ -492,15 +515,14 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                       Icon(
                         Icons.star_rounded,
                         size: 14.sp,
-                        color: AppColors.eagleGold,
+                        color: primaryGold,
                       ),
                       SizedBox(width: 4.w),
                       Text(
                         'Exclusive',
-                        style: GoogleFonts.poppins(
-                          fontSize: 11.sp,
+                        style: AppTypography.badge.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: AppColors.eagleGold,
+                          color: primaryGold,
                         ),
                       ),
                     ],
@@ -511,16 +533,14 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 Icon(
                   Icons.print_rounded,
                   size: 48.sp,
-                  color: Colors.white,
+                  color: textPrimary,
                 ),
                 SizedBox(height: 12.h),
                 // Title
                 AutoSizeText(
                   l10n.aboutPaperExamTitle,
-                  style: GoogleFonts.poppins(
-                    fontSize: 20.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  style: AppTypography.h3.copyWith(
+                    color: textPrimary,
                   ),
                   maxLines: 1,
                   textAlign: TextAlign.center,
@@ -529,9 +549,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 // Subtitle
                 AutoSizeText(
                   l10n.aboutPaperExamSubtitle,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    color: Colors.white.withValues(alpha: 0.8),
+                  style: AppTypography.bodyM.copyWith(
+                    color: textSecondary,
                     fontWeight: FontWeight.w600,
                   ),
                   maxLines: 1,
@@ -541,9 +560,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 // Description
                 AutoSizeText(
                   l10n.aboutPaperExamDescription,
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    color: Colors.white70,
+                  style: AppTypography.bodyM.copyWith(
+                    color: textSecondary,
                   ),
                   textAlign: TextAlign.center,
                   maxLines: 2,
@@ -557,13 +575,17 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
   }
 
   Widget _buildLanguageBadge(String flag, String code) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 6.w, vertical: 4.h),
       decoration: BoxDecoration(
-        color: AppColors.eagleGold.withValues(alpha: 0.2),
+        color: primaryGold.withValues(alpha: 0.2),
         borderRadius: BorderRadius.circular(8.r),
         border: Border.all(
-          color: AppColors.eagleGold.withValues(alpha: 0.4),
+          color: primaryGold.withValues(alpha: 0.4),
           width: 1,
         ),
       ),
@@ -574,10 +596,9 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
           SizedBox(width: 3.w),
           Text(
             code,
-            style: GoogleFonts.poppins(
-              fontSize: 11.sp,
+            style: AppTypography.badge.copyWith(
               fontWeight: FontWeight.bold,
-              color: AppColors.eagleGold,
+              color: primaryGold,
             ),
           ),
         ],
@@ -591,6 +612,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
     required String label,
     required VoidCallback onTap,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Expanded(
       child: InkWell(
         onTap: onTap,
@@ -598,10 +625,10 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
         child: Container(
           padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 8.w),
           decoration: BoxDecoration(
-            color: AppColors.darkSurface,
+            color: surfaceColor,
             borderRadius: BorderRadius.circular(12.r),
             border: Border.all(
-              color: AppColors.eagleGold.withValues(alpha: 0.3),
+              color: primaryGold.withValues(alpha: 0.3),
               width: 1,
             ),
           ),
@@ -610,15 +637,14 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
             children: [
               Icon(
                 icon,
-                color: AppColors.eagleGold,
+                color: primaryGold,
                 size: 24.sp,
               ),
               SizedBox(height: 4.h),
               AutoSizeText(
                 label,
-                style: GoogleFonts.poppins(
-                  fontSize: 12.sp,
-                  color: Colors.white70,
+                style: AppTypography.bodyS.copyWith(
+                  color: textSecondary,
                 ),
                 maxLines: 1,
                 textAlign: TextAlign.center,
@@ -631,6 +657,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
   }
 
   Widget _buildRoadmapSection(BuildContext context, AppLocalizations l10n) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -639,12 +671,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.darkSurface.withValues(alpha: 0.6),
-            AppColors.darkSurface.withValues(alpha: 0.4),
+            surfaceColor.withValues(alpha: 0.6),
+            surfaceColor.withValues(alpha: 0.4),
           ],
         ),
         border: Border.all(
-          color: AppColors.eagleGold.withValues(alpha: 0.15),
+          color: primaryGold.withValues(alpha: 0.15),
           width: 1.5,
         ),
         boxShadow: [
@@ -670,10 +702,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 SizedBox(width: 8.w),
                 AutoSizeText(
                   l10n.aboutRoadmapTitle,
-                  style: GoogleFonts.poppins(
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  style: AppTypography.h2.copyWith(
+                    color: textPrimary,
                   ),
                   maxLines: 1,
                 ),
@@ -715,6 +745,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
     required String description,
     required bool isLast,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Column(
       children: [
         Row(
@@ -727,9 +763,9 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
               margin: EdgeInsets.only(top: 6.h),
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.eagleGold.withValues(alpha: 0.5),
+                color: primaryGold.withValues(alpha: 0.5),
                 border: Border.all(
-                  color: AppColors.eagleGold.withValues(alpha: 0.3),
+                  color: primaryGold.withValues(alpha: 0.3),
                   width: 2,
                 ),
               ),
@@ -748,19 +784,16 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 children: [
                   AutoSizeText(
                     title,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.white.withValues(alpha: 0.7), // Dimmed for future
+                    style: AppTypography.h4.copyWith(
+                      color: textPrimary.withValues(alpha: 0.7), // Dimmed for future
                     ),
                     maxLines: 1,
                   ),
                   SizedBox(height: 4.h),
                   AutoSizeText(
                     description,
-                    style: GoogleFonts.poppins(
-                      fontSize: 13.sp,
-                      color: Colors.white54.withValues(alpha: 0.7), // More dimmed
+                    style: AppTypography.bodyS.copyWith(
+                      color: textSecondary.withValues(alpha: 0.7), // More dimmed
                     ),
                     maxLines: 1,
                   ),
@@ -778,7 +811,7 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
               Container(
                 width: 2,
                 height: 24.h,
-                color: AppColors.eagleGold.withValues(alpha: 0.2),
+                color: primaryGold.withValues(alpha: 0.2),
               ),
             ],
           ),
@@ -789,6 +822,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
   }
 
   Widget _buildTechStackSection(BuildContext context, AppLocalizations l10n) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    
     return Container(
       width: double.infinity,
       decoration: BoxDecoration(
@@ -797,12 +836,12 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            AppColors.darkSurface.withValues(alpha: 0.6),
-            AppColors.darkSurface.withValues(alpha: 0.4),
+            surfaceColor.withValues(alpha: 0.6),
+            surfaceColor.withValues(alpha: 0.4),
           ],
         ),
         border: Border.all(
-          color: AppColors.eagleGold.withValues(alpha: 0.15),
+          color: primaryGold.withValues(alpha: 0.15),
           width: 1.5,
         ),
       ),
@@ -821,10 +860,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
                 SizedBox(width: 8.w),
                 AutoSizeText(
                   'Tech Stack',
-                  style: GoogleFonts.poppins(
-                    fontSize: 22.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  style: AppTypography.h2.copyWith(
+                    color: textPrimary,
                   ),
                   maxLines: 1,
                 ),
@@ -860,6 +897,10 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
     required String icon,
     required String text,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Row(
       children: [
         Text(
@@ -870,9 +911,8 @@ class _AboutScreenState extends ConsumerState<AboutScreen> {
         Expanded(
           child: AutoSizeText(
             text,
-            style: GoogleFonts.poppins(
-              fontSize: 14.sp,
-              color: Colors.white70,
+            style: AppTypography.bodyM.copyWith(
+              color: textSecondary,
             ),
             maxLines: 2,
           ),

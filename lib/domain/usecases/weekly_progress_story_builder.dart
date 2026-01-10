@@ -120,7 +120,13 @@ class WeeklyProgressStoryBuilder {
     }
 
     // Count study sessions and minutes
-    final dailyStudy = progress['daily_study_seconds'] as Map<String, dynamic>?;
+    final dailyStudyRaw = progress['daily_study_seconds'];
+    Map<String, dynamic>? dailyStudy;
+    if (dailyStudyRaw is Map) {
+      dailyStudy = Map<String, dynamic>.from(
+        dailyStudyRaw.map((key, value) => MapEntry(key.toString(), value)),
+      );
+    }
     if (dailyStudy != null) {
       for (int i = 0; i < 7; i++) {
         final date = weekEnd.subtract(Duration(days: i));

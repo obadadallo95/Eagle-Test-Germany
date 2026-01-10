@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../widgets/time_tracker.dart';
 import '../glossary/glossary_screen.dart';
 import '../review/review_screen.dart';
@@ -36,8 +37,9 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     final l10n = AppLocalizations.of(context);
     final currentLocale = ref.watch(localeProvider);
     final isArabic = currentLocale.languageCode == 'ar';
-
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
     
     return TimeTracker(
       child: Scaffold(
@@ -45,8 +47,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         appBar: AppBar(
           title: Text(
             isArabic ? 'التعلم' : 'Learn',
-            style: GoogleFonts.poppins(
-              fontWeight: FontWeight.bold,
+            style: AppTypography.h2.copyWith(
               color: theme.colorScheme.onSurface,
             ),
           ),
@@ -54,17 +55,17 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
           elevation: 0,
         ),
         body: AdaptivePageWrapper(
-          padding: EdgeInsets.all(16.w),
+          padding: const EdgeInsets.all(AppSpacing.lg),
           enableScroll: false, // GridView يمرر نفسه
           child: GridView.count(
           crossAxisCount: 2,
-          crossAxisSpacing: 16.w,
-          mainAxisSpacing: 16.h,
+          crossAxisSpacing: AppSpacing.lg,
+          mainAxisSpacing: AppSpacing.lg,
           children: [
             // Daily Challenge Card - Special Design
             FadeInUp(
               delay: const Duration(milliseconds: 50),
-              child: _buildDailyChallengeCard(context, isArabic, l10n),
+              child: _buildDailyChallengeCard(context, isArabic, l10n, isDark, primaryGold),
             ),
             FadeInUp(
               delay: const Duration(milliseconds: 100),
@@ -72,7 +73,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 context,
                 title: isArabic ? 'المواضيع' : 'Topics',
                 icon: Icons.category,
-                color: AppColors.eagleGold,
+                color: primaryGold,
+                isDark: isDark,
                 onTap: () {
                   // Navigate to topic selection
                   Navigator.push(
@@ -90,7 +92,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 context,
                 title: l10n?.fullExam ?? 'All Questions',
                 icon: Icons.quiz,
-                color: Colors.blue,
+                color: AppColors.infoDark,
+                isDark: isDark,
                 onTap: () {
                   // Navigate to all questions view
                   Navigator.push(
@@ -108,7 +111,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 context,
                 title: isArabic ? 'أسئلة الولاية' : 'State Questions',
                 icon: Icons.flag,
-                color: AppColors.germanRed,
+                color: AppColors.errorDark,
+                isDark: isDark,
                 onTap: () {
                   // Navigate to state questions
                   Navigator.push(
@@ -126,7 +130,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 context,
                 title: l10n?.glossary ?? 'Glossary',
                 icon: Icons.book,
-                color: Colors.blue,
+                color: AppColors.infoDark,
+                isDark: isDark,
                 onTap: () {
                   Navigator.push(
                     context,
@@ -144,6 +149,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 title: isArabic ? 'المفضلة' : 'Favorites',
                 icon: Icons.favorite,
                 color: Colors.pink,
+                isDark: isDark,
                 onTap: () {
                   Navigator.push(
                     context,
@@ -160,7 +166,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 context,
                 title: l10n?.reviewDue ?? 'Review Due',
                 icon: Icons.refresh,
-                color: Colors.orange,
+                color: AppColors.warningDark,
+                isDark: isDark,
                 onTap: () {
                   Navigator.push(
                     context,
@@ -177,7 +184,8 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                 context,
                 title: l10n?.stats ?? 'Statistics',
                 icon: Icons.bar_chart,
-                color: Colors.green,
+                color: AppColors.successDark,
+                isDark: isDark,
                 onTap: () {
                   Navigator.push(
                     context,
@@ -199,19 +207,23 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     BuildContext context,
     bool isArabic,
     AppLocalizations? l10n,
+    bool isDark,
+    Color primaryGold,
   ) {
     final result = ref.watch(dailyChallengeResultProvider);
     final hasCompletedToday = result != null &&
         DateTime.now().year == result.date.year &&
         DateTime.now().month == result.date.month &&
         DateTime.now().day == result.date.day;
+    
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
 
     return Card(
-      color: AppColors.darkSurface,
+      color: surfaceColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
         side: BorderSide(
-          color: AppColors.eagleGold.withValues(alpha: 0.5),
+          color: primaryGold.withValues(alpha: isDark ? 0.5 : 0.3),
           width: 2.w,
         ),
       ),
@@ -232,13 +244,13 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                AppColors.eagleGold.withValues(alpha: 0.1),
-                AppColors.eagleGold.withValues(alpha: 0.05),
+                primaryGold.withValues(alpha: isDark ? 0.1 : 0.08),
+                primaryGold.withValues(alpha: isDark ? 0.05 : 0.03),
               ],
             ),
           ),
           child: Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: const EdgeInsets.all(AppSpacing.lg),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               mainAxisSize: MainAxisSize.min,
@@ -247,13 +259,13 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                   alignment: Alignment.center,
                   children: [
                     Container(
-                      padding: EdgeInsets.all(12.w),
+                      padding: const EdgeInsets.all(AppSpacing.md),
                       decoration: BoxDecoration(
-                        color: AppColors.eagleGold.withValues(alpha: 0.2),
+                        color: primaryGold.withValues(alpha: 0.2),
                         borderRadius: BorderRadius.circular(16.r),
                         boxShadow: [
                           BoxShadow(
-                            color: AppColors.eagleGold.withValues(alpha: 0.3),
+                            color: primaryGold.withValues(alpha: isDark ? 0.3 : 0.15),
                             blurRadius: 10,
                             spreadRadius: 2,
                           ),
@@ -262,7 +274,7 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                       child: Icon(
                         Icons.local_fire_department,
                         size: 32.sp,
-                        color: AppColors.eagleGold,
+                        color: primaryGold,
                       ),
                     ),
                     if (hasCompletedToday)
@@ -272,10 +284,10 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                         child: Container(
                           padding: EdgeInsets.all(4.w),
                           decoration: BoxDecoration(
-                            color: Colors.green,
+                            color: AppColors.successDark,
                             shape: BoxShape.circle,
                             border: Border.all(
-                              color: AppColors.darkSurface,
+                              color: surfaceColor,
                               width: 2.w,
                             ),
                           ),
@@ -288,14 +300,12 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                       ),
                   ],
                 ),
-                SizedBox(height: 12.h),
+                const SizedBox(height: AppSpacing.md),
                 Flexible(
                   child: AutoSizeText(
                     l10n?.dailyChallenge ?? '🔥 Daily Challenge',
-                    style: GoogleFonts.poppins(
-                      fontSize: 14.sp,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.eagleGold,
+                    style: AppTypography.h4.copyWith(
+                      color: primaryGold,
                     ),
                     textAlign: TextAlign.center,
                     maxLines: 2,
@@ -304,13 +314,11 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
                   ),
                 ),
                 if (hasCompletedToday) ...[
-                  SizedBox(height: 4.h),
+                  const SizedBox(height: AppSpacing.xs),
                   Text(
                     l10n?.completedToday ?? 'Completed!',
-                    style: GoogleFonts.poppins(
-                      fontSize: 10.sp,
-                      color: Colors.green,
-                      fontWeight: FontWeight.w600,
+                    style: AppTypography.badge.copyWith(
+                      color: AppColors.successDark,
                     ),
                   ),
                 ],
@@ -327,14 +335,18 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     required String title,
     required IconData icon,
     required Color color,
+    required bool isDark,
     required VoidCallback onTap,
   }) {
+    final theme = Theme.of(context);
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Card(
-      color: AppColors.darkSurface,
+      color: surfaceColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(20.r),
         side: BorderSide(
-          color: color.withValues(alpha: 0.3),
+          color: color.withValues(alpha: isDark ? 0.3 : 0.2),
           width: 1.w,
         ),
       ),
@@ -342,37 +354,30 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
         onTap: onTap,
         borderRadius: BorderRadius.circular(20.r),
         child: Padding(
-          padding: EdgeInsets.all(16.w),
+          padding: const EdgeInsets.all(AppSpacing.lg),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                padding: EdgeInsets.all(12.w),
+                padding: const EdgeInsets.all(AppSpacing.md),
                 decoration: BoxDecoration(
-                  color: color.withValues(alpha: 0.2),
+                  color: color.withValues(alpha: isDark ? 0.2 : 0.1),
                   borderRadius: BorderRadius.circular(16.r),
                 ),
                 child: Icon(icon, size: 32.sp, color: color),
               ),
-              SizedBox(height: 12.h),
+              const SizedBox(height: AppSpacing.md),
               Flexible(
-                child: Builder(
-                  builder: (context) {
-                    final theme = Theme.of(context);
-                    return AutoSizeText(
-                      title,
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w600,
-                        color: theme.colorScheme.onSurface,
-                      ),
-                      textAlign: TextAlign.center,
-                      maxLines: 2,
-                      minFontSize: 10.0,
-                      stepGranularity: 1.0,
-                    );
-                  },
+                child: AutoSizeText(
+                  title,
+                  style: AppTypography.h4.copyWith(
+                    color: theme.colorScheme.onSurface,
+                  ),
+                  textAlign: TextAlign.center,
+                  maxLines: 2,
+                  minFontSize: 10.0,
+                  stepGranularity: 1.0,
                 ),
               ),
             ],
@@ -382,4 +387,3 @@ class _StudyScreenState extends ConsumerState<StudyScreen> {
     );
   }
 }
-

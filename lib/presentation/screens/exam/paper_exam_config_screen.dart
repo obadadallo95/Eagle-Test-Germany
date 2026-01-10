@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
 import '../../../core/services/pdf_exam_service.dart';
 import '../../../core/storage/user_preferences_service.dart';
 import '../../widgets/paywall_guard.dart';
@@ -91,9 +91,14 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
       
       final l10n = AppLocalizations.of(context);
       
+      final theme = Theme.of(context);
+      final isDark = theme.brightness == Brightness.dark;
+      final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+      final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+      
       showModalBottomSheet(
         context: context,
-        backgroundColor: AppColors.darkSurface,
+        backgroundColor: surfaceColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(top: Radius.circular(20.r)),
         ),
@@ -104,10 +109,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
             children: [
               Text(
                 l10n?.paperExamPdfGenerated ?? 'PDF Generated Successfully!',
-                style: GoogleFonts.poppins(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                style: AppTypography.h3.copyWith(
+                  color: textPrimary,
                 ),
               ),
               SizedBox(height: 24.h),
@@ -122,8 +125,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                     icon: Icon(Icons.print, size: 24.sp),
                     label: Text(l10n?.paperExamPrint ?? 'Print'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
                     ),
                   ),
@@ -136,8 +139,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                     icon: Icon(Icons.share, size: 24.sp),
                     label: Text(l10n?.paperExamShare ?? 'Share'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                       padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
                     ),
                   ),
@@ -158,8 +161,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                 icon: Icon(Icons.qr_code_scanner, size: 24.sp),
                 label: Text(l10n?.paperExamScan ?? 'Scan to Correct'),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.darkSurface,
-                  foregroundColor: Colors.white,
+                  backgroundColor: surfaceColor,
+                  foregroundColor: textPrimary,
                   padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
                 ),
               ),
@@ -169,10 +172,12 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
       );
     } catch (e) {
       if (!mounted) return;
+      final theme = Theme.of(context);
+      final isDark = theme.brightness == Brightness.dark;
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Error generating PDF: $e'),
-          backgroundColor: Colors.red,
+          backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
         ),
       );
     } finally {
@@ -188,14 +193,18 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
     final isArabic = Localizations.localeOf(context).languageCode == 'ar';
 
     final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
     
     return Scaffold(
       backgroundColor: theme.scaffoldBackgroundColor,
       appBar: AppBar(
         title: Text(
           l10n?.paperExam ?? (isArabic ? 'امتحان ورقي' : 'Paper Exam'),
-          style: GoogleFonts.poppins(
-            fontWeight: FontWeight.bold,
+          style: AppTypography.h2.copyWith(
             color: theme.colorScheme.onSurface,
           ),
         ),
@@ -216,13 +225,13 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
-                      AppColors.eagleGold.withValues(alpha: 0.2),
-                      AppColors.eagleGold.withValues(alpha: 0.05),
+                      primaryGold.withValues(alpha: 0.2),
+                      primaryGold.withValues(alpha: 0.05),
                     ],
                   ),
                   borderRadius: BorderRadius.circular(20.r),
                   border: Border.all(
-                    color: AppColors.eagleGold.withValues(alpha: 0.3),
+                    color: primaryGold.withValues(alpha: 0.3),
                     width: 1.w,
                   ),
                 ),
@@ -231,15 +240,13 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                     Icon(
                       Icons.description,
                       size: 48.sp,
-                      color: AppColors.eagleGold,
+                      color: primaryGold,
                     ),
                     SizedBox(height: 12.h),
                     AutoSizeText(
                       l10n?.paperExamSimulation ?? (isArabic ? 'محاكاة امتحان ورقي' : 'Paper Exam Simulation'),
-                      style: GoogleFonts.poppins(
-                        fontSize: 24.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      style: AppTypography.h1.copyWith(
+                        color: textPrimary,
                       ),
                       maxLines: 1,
                     ),
@@ -248,9 +255,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                       l10n?.paperExamDescription ?? (isArabic
                           ? 'قم بإنشاء امتحان PDF واقعي للطباعة'
                           : 'Generate a realistic PDF exam for printing'),
-                      style: GoogleFonts.poppins(
-                        fontSize: 14.sp,
-                        color: Colors.white70,
+                      style: AppTypography.bodyM.copyWith(
+                        color: textSecondary,
                       ),
                       textAlign: TextAlign.center,
                       maxLines: 2,
@@ -265,7 +271,7 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
             FadeInUp(
               delay: const Duration(milliseconds: 100),
               child: Card(
-                color: AppColors.darkSurface,
+                color: surfaceColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16.r),
                 ),
@@ -276,10 +282,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                     children: [
                       Text(
                         l10n?.paperExamConfiguration ?? (isArabic ? 'الإعدادات' : 'Configuration'),
-                        style: GoogleFonts.poppins(
-                          fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
+                        style: AppTypography.h3.copyWith(
+                          color: textPrimary,
                         ),
                       ),
                       SizedBox(height: 20.h),
@@ -287,9 +291,8 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                       // State Selection
                       Text(
                         l10n?.paperExamState ?? (isArabic ? 'الولاية / Bundesland' : 'State / Bundesland'),
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
-                          color: Colors.white70,
+                        style: AppTypography.bodyM.copyWith(
+                          color: textSecondary,
                         ),
                       ),
                       SizedBox(height: 8.h),
@@ -297,22 +300,22 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                         initialValue: _selectedState,
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: AppColors.darkCharcoal,
+                          fillColor: isDark ? AppColors.darkBg : AppColors.lightBg,
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide: BorderSide(color: AppColors.eagleGold.withValues(alpha: 0.3)),
+                            borderSide: BorderSide(color: primaryGold.withValues(alpha: 0.3)),
                           ),
                           enabledBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide: BorderSide(color: AppColors.eagleGold.withValues(alpha: 0.3)),
+                            borderSide: BorderSide(color: primaryGold.withValues(alpha: 0.3)),
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(12.r),
-                            borderSide: const BorderSide(color: AppColors.eagleGold),
+                            borderSide: BorderSide(color: primaryGold),
                           ),
                         ),
-                        dropdownColor: AppColors.darkSurface,
-                        style: GoogleFonts.poppins(color: Colors.white, fontSize: 14.sp),
+                        dropdownColor: surfaceColor,
+                        style: AppTypography.bodyM.copyWith(color: textPrimary),
                         items: [
                           DropdownMenuItem<String>(
                             value: null,
@@ -342,17 +345,15 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                               children: [
                                 Text(
                                   l10n?.paperExamIncludeSolutions ?? (isArabic ? 'تضمين الحلول' : 'Include Answer Key'),
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 14.sp,
-                                    color: Colors.white,
+                                  style: AppTypography.bodyM.copyWith(
+                                    color: textPrimary,
                                   ),
                                 ),
                                 SizedBox(height: 4.h),
                                 Text(
                                   l10n?.paperExamIncludeSolutionsDesc ?? 'Lösungsschlüssel beifügen',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12.sp,
-                                    color: Colors.white54,
+                                  style: AppTypography.bodyS.copyWith(
+                                    color: textSecondary,
                                   ),
                                 ),
                               ],
@@ -363,7 +364,7 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                             onChanged: (value) {
                               setState(() => _includeSolutions = value);
                             },
-                            activeThumbColor: AppColors.eagleGold,
+                            activeThumbColor: primaryGold,
                           ),
                         ],
                       ),
@@ -379,17 +380,15 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                               children: [
                                 Text(
                                   l10n?.paperExamShuffle ?? (isArabic ? 'خلط الأسئلة' : 'Shuffle Questions'),
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 14.sp,
-                                    color: Colors.white,
+                                  style: AppTypography.bodyM.copyWith(
+                                    color: textPrimary,
                                   ),
                                 ),
                                 SizedBox(height: 4.h),
                                 Text(
                                   l10n?.paperExamShuffleDesc ?? 'Fragen mischen',
-                                  style: GoogleFonts.poppins(
-                                    fontSize: 12.sp,
-                                    color: Colors.white54,
+                                  style: AppTypography.bodyS.copyWith(
+                                    color: textSecondary,
                                   ),
                                 ),
                               ],
@@ -400,7 +399,7 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                             onChanged: (value) {
                               setState(() => _shuffleQuestions = value);
                             },
-                            activeThumbColor: AppColors.eagleGold,
+                            activeThumbColor: primaryGold,
                           ),
                         ],
                       ),
@@ -424,9 +423,11 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                         ? SizedBox(
                             width: 20.sp,
                             height: 20.sp,
-                            child: const CircularProgressIndicator(
+                            child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.black),
+                              valueColor: AlwaysStoppedAnimation<Color>(
+                                primaryGold,
+                              ),
                             ),
                           )
                         : Icon(Icons.description, size: 24.sp),
@@ -434,14 +435,13 @@ class _PaperExamConfigScreenState extends ConsumerState<PaperExamConfigScreen> {
                       _isGenerating
                           ? (l10n?.paperExamGenerating ?? (isArabic ? 'جاري الإنشاء...' : 'Generating...'))
                           : (l10n?.paperExamGenerate ?? (isArabic ? 'إنشاء PDF 📄' : 'Generate PDF 📄')),
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.button.copyWith(
                         fontSize: 18.sp,
-                        fontWeight: FontWeight.bold,
                       ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: AppColors.gold,
+                      foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16.r),
                       ),

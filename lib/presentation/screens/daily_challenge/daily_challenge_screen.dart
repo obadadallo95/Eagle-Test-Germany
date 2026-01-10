@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:confetti/confetti.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
@@ -14,6 +13,8 @@ import '../../widgets/gamification/celebration_overlay.dart';
 import '../../widgets/gamification/animated_question_card.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/services/ai_tutor_service.dart';
 import '../../providers/exam_readiness_provider.dart';
@@ -101,24 +102,27 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
       if (!canUse) {
         // تم تجاوز الحد اليومي (3 مرات)
         if (mounted) {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
+          final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+          final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+          
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              backgroundColor: AppColors.darkSurface,
+              backgroundColor: surfaceColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.r),
               ),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
-                  SizedBox(width: 12.w),
+                  Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp),
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: Text(
                       l10n?.upgradeToPro ?? 'Upgrade to Pro',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      style: AppTypography.h3.copyWith(
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -128,9 +132,8 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
               ),
               content: Text(
                 l10n?.aiTutorDailyLimitReached ?? 'You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: Colors.white70,
+                style: AppTypography.bodyM.copyWith(
+                  color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                 ),
               ),
               actions: [
@@ -138,7 +141,9 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n?.cancel ?? 'Cancel',
-                    style: GoogleFonts.poppins(color: Colors.white54),
+                    style: AppTypography.button.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                    ),
                   ),
                 ),
                 ElevatedButton(
@@ -152,12 +157,12 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: primaryGold,
+                    foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   ),
                   child: Text(
                     l10n?.upgrade ?? 'Upgrade',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -177,11 +182,18 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
         context: context,
         isScrollControlled: true,
         backgroundColor: Colors.transparent,
-        builder: (context) => _AiExplanationBottomSheet(
-          question: question,
-          userLanguage: userLanguage,
-          l10n: l10n,
-        ),
+        builder: (context) {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
+          final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+          return _AiExplanationBottomSheet(
+            question: question,
+            userLanguage: userLanguage,
+            l10n: l10n,
+            isDark: isDark,
+            primaryGold: primaryGold,
+          );
+        },
       );
     }
   }
@@ -336,6 +348,11 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
     final isArabic = currentLocale.languageCode == 'ar';
     final questionsAsync = ref.watch(dailyChallengeProvider);
 
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return CelebrationOverlay(
       confettiController: _confettiController,
       child: Container(
@@ -343,12 +360,19 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              AppColors.darkCharcoal,
-              AppColors.darkCharcoal.withValues(alpha: 0.95),
-              AppColors.darkSurface.withValues(alpha: 0.9),
-              AppColors.darkSurface,
-            ],
+            colors: isDark
+                ? [
+                    bgColor,
+                    bgColor.withValues(alpha: 0.95),
+                    surfaceColor.withValues(alpha: 0.9),
+                    surfaceColor,
+                  ]
+                : [
+                    bgColor,
+                    bgColor,
+                    surfaceColor.withValues(alpha: 0.5),
+                    surfaceColor,
+                  ],
             stops: const [0.0, 0.3, 0.7, 1.0],
           ),
         ),
@@ -358,22 +382,35 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
-              icon: const Icon(Icons.close, color: Colors.white),
+              icon: Icon(
+                Icons.close, 
+                color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+              ),
               onPressed: () {
                 if (_isFinished) {
                   Navigator.pop(context);
                 } else {
-                  _showExitConfirmation();
+                  _showExitConfirmation(isDark);
                 }
               },
             ),
-            title: Text(
-              '🔥 ${l10n?.dailyChallenge ?? 'Daily Challenge'}',
-              style: GoogleFonts.poppins(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
+            title: Builder(
+              builder: (context) {
+                if (_questions == null || _questions!.isEmpty) {
+                  return Text(
+                    '🔥 ${l10n?.dailyChallenge ?? 'Daily Challenge'}',
+                    style: AppTypography.h2.copyWith(
+                      color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                    ),
+                  );
+                }
+                return _buildAppBarHeader(
+                  currentIndex: _currentIndex,
+                  totalQuestions: _questions!.length,
+                  score: _calculateCurrentScore(),
+                  isArabic: isArabic,
+                );
+              },
             ),
             centerTitle: true,
           ),
@@ -386,7 +423,9 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                   return Center(
                   child: Text(
                     l10n?.noQuestionsAvailable ?? 'No questions available',
-                    style: GoogleFonts.poppins(color: Colors.white70),
+                    style: AppTypography.bodyL.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                    ),
                   ),
                 );
               }
@@ -413,14 +452,6 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Progress Bar & Score
-                  _buildHeader(
-                    currentIndex: _currentIndex,
-                    totalQuestions: _questions!.length,
-                    score: _calculateCurrentScore(),
-                    isArabic: isArabic,
-                  ),
-
                   // Question Card with Slide Animation
                   Expanded(
                     child: AnimatedQuestionView(
@@ -451,39 +482,44 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                     l10n: l10n,
                   ),
 
-                  SizedBox(height: 16.h),
+                  const SizedBox(height: AppSpacing.lg),
                 ],
               );
             },
-            loading: () => const Center(
-              child: CircularProgressIndicator(color: AppColors.eagleGold),
+            loading: () => Center(
+              child: CircularProgressIndicator(color: isDark ? AppColors.gold : AppColors.goldDark),
             ),
-            error: (error, stack) => Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.error_outline, color: Colors.red, size: 64.sp),
-                  SizedBox(height: 16.h),
-                  Text(
-                    l10n?.errorLoadingQuestions ?? 'Error loading questions',
-                    style: GoogleFonts.poppins(color: Colors.white),
-                  ),
-                  SizedBox(height: 16.h),
-                  ElevatedButton(
-                    onPressed: () {
-                      ref.invalidate(dailyChallengeProvider);
-                    },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
+            error: (error, stack) {
+              final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+              return Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(Icons.error_outline, color: AppColors.errorDark, size: 64.sp),
+                    const SizedBox(height: AppSpacing.lg),
+                    Text(
+                      l10n?.errorLoadingQuestions ?? 'Error loading questions',
+                      style: AppTypography.bodyL.copyWith(
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                      ),
                     ),
-                    child: Text(
-                      l10n?.retry ?? 'Retry',
-                      style: GoogleFonts.poppins(color: Colors.black),
+                    const SizedBox(height: AppSpacing.lg),
+                    ElevatedButton(
+                      onPressed: () {
+                        ref.invalidate(dailyChallengeProvider);
+                      },
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: primaryGold,
+                      ),
+                      child: Text(
+                        l10n?.retry ?? 'Retry',
+                        style: AppTypography.button,
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            ),
+                  ],
+                ),
+              );
+            },
           ),
         ),
         ),
@@ -491,127 +527,70 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
     );
   }
 
-  Widget _buildHeader({
+  Widget _buildAppBarHeader({
     required int currentIndex,
     required int totalQuestions,
     required int score,
     required bool isArabic,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
     final progress = (currentIndex + 1) / totalQuestions;
 
-    return Container(
-      margin: EdgeInsets.all(16.w),
-      padding: EdgeInsets.all(20.w),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [
-            AppColors.darkSurface,
-            AppColors.darkSurface.withValues(alpha: 0.8),
-          ],
-        ),
-        borderRadius: BorderRadius.circular(20.r),
-        boxShadow: [
-          BoxShadow(
-            color: AppColors.eagleGold.withValues(alpha: 0.4),
-            blurRadius: 15,
-            spreadRadius: 2,
-            offset: const Offset(0, 4),
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        // Progress indicator
+        Container(
+          width: 40.w,
+          height: 40.w,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: primaryGold,
+              width: 3.w,
+            ),
           ),
-          BoxShadow(
-            color: Colors.black.withValues(alpha: 0.3),
-            blurRadius: 10,
-            spreadRadius: 0,
-            offset: const Offset(0, 2),
-          ),
-        ],
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          // Progress Bar
-          Row(
+          child: Stack(
             children: [
-              Expanded(
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10.r),
-                  child: LinearProgressIndicator(
-                    value: progress,
-                    minHeight: 10.h,
-                    backgroundColor: Colors.grey[800],
-                    valueColor: const AlwaysStoppedAnimation<Color>(AppColors.eagleGold),
-                  ),
+              SizedBox.expand(
+                child: CircularProgressIndicator(
+                  value: progress,
+                  strokeWidth: 3.w,
+                  backgroundColor: isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant,
+                  valueColor: AlwaysStoppedAnimation<Color>(primaryGold),
                 ),
               ),
-              SizedBox(width: 12.w),
-              Container(
-                padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 8.h),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.eagleGold.withValues(alpha: 0.3),
-                      AppColors.eagleGold.withValues(alpha: 0.2),
-                    ],
-                  ),
-                  borderRadius: BorderRadius.circular(20.r),
-                  border: Border.all(
-                    color: AppColors.eagleGold,
-                    width: 2.w,
-                  ),
-                ),
+              Center(
                 child: Text(
                   '${currentIndex + 1}/$totalQuestions',
-                  style: GoogleFonts.poppins(
-                    color: AppColors.eagleGold,
+                  style: AppTypography.bodyS.copyWith(
+                    color: primaryGold,
                     fontWeight: FontWeight.bold,
-                    fontSize: 16.sp,
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 16.h),
-          // Score Display
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                padding: EdgeInsets.all(8.w),
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.eagleGold.withValues(alpha: 0.3),
-                      AppColors.eagleGold.withValues(alpha: 0.2),
-                    ],
-                  ),
-                  shape: BoxShape.circle,
-                ),
-                child: Icon(Icons.stars, color: AppColors.eagleGold, size: 28.sp),
+        ),
+        SizedBox(width: 12.w),
+        // Score
+        Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Icon(Icons.stars, color: primaryGold, size: 20.sp),
+            SizedBox(width: 4.w),
+            Text(
+              '$score',
+              style: AppTypography.h4.copyWith(
+                color: primaryGold,
+                fontWeight: FontWeight.bold,
               ),
-              SizedBox(width: 12.w),
-              Text(
-                '$score',
-                style: GoogleFonts.poppins(
-                  fontSize: 32.sp,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.eagleGold,
-                  letterSpacing: 1,
-                ),
-              ),
-              SizedBox(width: 6.w),
-              Text(
-                'points',
-                style: GoogleFonts.poppins(
-                  fontSize: 18.sp,
-                  color: Colors.white70,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
+            ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -622,17 +601,27 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
     required bool isArabic,
     AppLocalizations? l10n,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 16.w),
-      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 16.h),
+      margin: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+      padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg, vertical: AppSpacing.lg),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          colors: [
-            AppColors.darkSurface.withValues(alpha: 0.95),
-            AppColors.darkSurface,
-          ],
+          colors: isDark
+              ? [
+                  surfaceColor.withValues(alpha: 0.95),
+                  surfaceColor,
+                ]
+              : [
+                  surfaceColor,
+                  surfaceColor.withValues(alpha: 0.9),
+                ],
         ),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24.r),
@@ -640,7 +629,9 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
         ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.4),
+            color: isDark 
+                ? AppColors.darkBg.withValues(alpha: 0.4)
+                : AppColors.lightBg.withValues(alpha: 0.2),
             blurRadius: 15,
             offset: const Offset(0, -4),
           ),
@@ -659,18 +650,17 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                 ),
                 label: Text(
                   l10n?.previous ?? 'Previous',
-                  style: GoogleFonts.poppins(
-                    fontSize: 14.sp,
-                    color: Colors.white70,
+                  style: AppTypography.button.copyWith(
+                    color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                   ),
                 ),
                 style: OutlinedButton.styleFrom(
-                  foregroundColor: Colors.white70,
+                  foregroundColor: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                   side: BorderSide(
-                    color: Colors.white30,
+                    color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
                     width: 1.5.w,
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 14.h),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.md),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.r),
                   ),
@@ -687,17 +677,17 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                 gradient: hasAnswered
                     ? (isCorrect
                         ? LinearGradient(
-                            colors: [Colors.green.shade400, Colors.green.shade600],
+                            colors: [AppColors.successDark, AppColors.successDark.withValues(alpha: 0.8)],
                           )
                         : LinearGradient(
-                            colors: [AppColors.eagleGold, AppColors.eagleGold.withValues(alpha: 0.8)],
+                            colors: [primaryGold, primaryGold.withValues(alpha: 0.8)],
                           ))
                     : null,
                 borderRadius: BorderRadius.circular(16.r),
                 boxShadow: hasAnswered
                     ? [
                         BoxShadow(
-                          color: (isCorrect ? Colors.green : AppColors.eagleGold).withValues(alpha: 0.4),
+                          color: (isCorrect ? AppColors.successDark : primaryGold).withValues(alpha: isDark ? 0.4 : 0.25),
                           blurRadius: 10,
                           spreadRadius: 2,
                           offset: const Offset(0, 4),
@@ -717,18 +707,16 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
                   isLastQuestion
                       ? (l10n?.finish ?? 'Finish')
                       : (l10n?.next ?? 'Next'),
-                  style: GoogleFonts.poppins(
-                    fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                  style: AppTypography.button,
                 ),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: hasAnswered
                       ? Colors.transparent
-                      : Colors.grey[700],
-                  foregroundColor: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 16.h),
+                      : (isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant),
+                  foregroundColor: hasAnswered 
+                      ? (isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary)
+                      : (isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary),
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16.r),
                   ),
@@ -755,32 +743,38 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
     return score;
   }
 
-  void _showExitConfirmation() {
+  void _showExitConfirmation(bool isDark) {
+    final l10n = AppLocalizations.of(context);
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     showDialog(
       context: context,
       builder: (context) => AlertDialog(
-        backgroundColor: AppColors.darkSurface,
+        backgroundColor: surfaceColor,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20.r),
         ),
         title: Text(
-          AppLocalizations.of(context)?.exitChallenge ?? 'Exit Challenge?',
-          style: GoogleFonts.poppins(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
+          l10n?.exitChallenge ?? 'Exit Challenge?',
+          style: AppTypography.h3.copyWith(
+            color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
           ),
         ),
         content: Text(
-          AppLocalizations.of(context)?.exitChallengeMessage ??
+          l10n?.exitChallengeMessage ??
               'Are you sure you want to exit? Your progress will be lost.',
-          style: GoogleFonts.poppins(color: Colors.white70),
+          style: AppTypography.bodyM.copyWith(
+            color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+          ),
         ),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(context),
             child: Text(
-              AppLocalizations.of(context)?.cancel ?? 'Cancel',
-              style: GoogleFonts.poppins(color: Colors.white70),
+              l10n?.cancel ?? 'Cancel',
+              style: AppTypography.button.copyWith(
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+              ),
             ),
           ),
           ElevatedButton(
@@ -789,12 +783,12 @@ class _DailyChallengeScreenState extends ConsumerState<DailyChallengeScreen> {
               Navigator.pop(context); // Exit challenge
             },
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red,
-              foregroundColor: Colors.white,
+              backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
+              foregroundColor: Colors.white, // Error buttons always use white text
             ),
             child: Text(
-              AppLocalizations.of(context)?.exit ?? 'Exit',
-              style: GoogleFonts.poppins(),
+              l10n?.exit ?? 'Exit',
+              style: AppTypography.button,
             ),
           ),
         ],
@@ -808,11 +802,15 @@ class _AiExplanationBottomSheet extends StatefulWidget {
   final Question question;
   final String userLanguage;
   final AppLocalizations? l10n;
+  final bool isDark;
+  final Color primaryGold;
 
   const _AiExplanationBottomSheet({
     required this.question,
     required this.userLanguage,
     required this.l10n,
+    required this.isDark,
+    required this.primaryGold,
   });
 
   @override
@@ -869,10 +867,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final surfaceColor = widget.isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
       decoration: BoxDecoration(
-        color: AppColors.darkSurface,
+        color: surfaceColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24.r),
           topRight: Radius.circular(24.r),
@@ -882,29 +882,30 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
         children: [
           // Header
           Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: const EdgeInsets.all(AppSpacing.lg),
             child: Row(
               children: [
-                Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 24.sp),
-                SizedBox(width: 12.w),
+                Icon(Icons.auto_awesome, color: widget.primaryGold, size: 24.sp),
+                const SizedBox(width: AppSpacing.md),
                 Expanded(
                   child: Text(
                     widget.l10n?.explainWithAi ?? 'Question Explanation',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    style: AppTypography.h3.copyWith(
+                      color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                     ),
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white70),
+                  icon: Icon(
+                    Icons.close, 
+                    color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                  ),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],
             ),
           ),
-          Divider(color: Colors.white.withValues(alpha: 0.1)),
+          Divider(color: widget.isDark ? AppColors.darkDivider : AppColors.lightDivider),
           // Content
           Expanded(
             child: FutureBuilder<String>(
@@ -915,13 +916,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CircularProgressIndicator(color: AppColors.eagleGold),
-                        SizedBox(height: 24.h),
+                        CircularProgressIndicator(color: widget.primaryGold),
+                        const SizedBox(height: AppSpacing.xxl),
                         Text(
                           widget.l10n?.aiThinking ?? 'AI is thinking...',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white70,
-                            fontSize: 14.sp,
+                          style: AppTypography.bodyM.copyWith(
+                            color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                           ),
                         ),
                       ],
@@ -931,33 +931,31 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
                 if (snapshot.hasError) {
                   return Padding(
-                    padding: EdgeInsets.all(24.w),
+                    padding: const EdgeInsets.all(AppSpacing.xxl),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.error_outline, color: Colors.red, size: 48.sp),
-                        SizedBox(height: 16.h),
+                        Icon(Icons.error_outline, color: AppColors.errorDark, size: 48.sp),
+                        const SizedBox(height: AppSpacing.lg),
                         Text(
                           widget.l10n?.errorLoadingExplanation ?? 'Error loading explanation',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
+                          style: AppTypography.h4.copyWith(
+                            color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                           ),
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: 24.h),
+                        const SizedBox(height: AppSpacing.xxl),
                         ElevatedButton.icon(
                           onPressed: _refreshExplanation,
                           icon: Icon(Icons.refresh, size: 20.sp),
                           label: Text(
                             widget.l10n?.retry ?? 'Retry',
-                            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                            style: AppTypography.button,
                           ),
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.eagleGold,
-                            foregroundColor: Colors.black,
-                          ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: widget.primaryGold,
+                              foregroundColor: widget.isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                            ),
                         ),
                       ],
                     ),
@@ -966,13 +964,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
                 final explanation = snapshot.data ?? '';
                 return SingleChildScrollView(
-                  padding: EdgeInsets.all(24.w),
+                  padding: const EdgeInsets.all(AppSpacing.xxl),
                   child: Text(
                     explanation,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      color: Colors.white,
+                    style: AppTypography.bodyL.copyWith(
                       height: 1.6,
+                      color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                     ),
                   ),
                 );

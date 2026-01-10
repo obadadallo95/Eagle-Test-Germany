@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 /// -----------------------------------------------------------------
@@ -103,15 +104,15 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
     }
   }
 
-  Color _getScoreColor(int percentage) {
+  Color _getScoreColor(int percentage, bool isDark) {
     if (percentage >= 90) {
-      return Colors.amber;
+      return isDark ? AppColors.gold : AppColors.goldDark;
     } else if (percentage >= 70) {
-      return Colors.green;
+      return isDark ? AppColors.successDark : AppColors.successLight;
     } else if (percentage >= 50) {
-      return Colors.blue;
+      return isDark ? AppColors.infoDark : AppColors.infoLight;
     } else {
-      return Colors.orange;
+      return isDark ? AppColors.warningDark : AppColors.warningLight;
     }
   }
 
@@ -126,27 +127,39 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    
     final l10n = AppLocalizations.of(context);
     final percentage = (widget.correctCount / widget.totalQuestions * 100).round();
     final encouragingMessage = _getEncouragingMessage(percentage, l10n);
     final emoji = _getEmoji(percentage);
-    final scoreColor = _getScoreColor(percentage);
+    final scoreColor = _getScoreColor(percentage, isDark);
 
     return Dialog(
       backgroundColor: Colors.transparent,
-      insetPadding: EdgeInsets.all(20.w),
+      insetPadding: const EdgeInsets.all(AppSpacing.xl),
       child: FadeInUp(
         duration: const Duration(milliseconds: 500),
         child: Container(
           decoration: BoxDecoration(
-            gradient: const LinearGradient(
+            gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
-              colors: [
-                AppColors.darkSurface,
-                AppColors.darkCharcoal,
-                AppColors.darkSurface,
-              ],
+              colors: isDark
+                  ? [
+                      surfaceColor,
+                      bgColor,
+                      surfaceColor,
+                    ]
+                  : [
+                      surfaceColor,
+                      surfaceColor.withValues(alpha: 0.95),
+                      surfaceColor,
+                    ],
             ),
             borderRadius: BorderRadius.circular(28.r),
             border: Border.all(
@@ -155,21 +168,22 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
             ),
             boxShadow: [
               BoxShadow(
-                color: scoreColor.withValues(alpha: 0.4),
+                color: scoreColor.withValues(alpha: isDark ? 0.4 : 0.25),
                 blurRadius: 30,
                 spreadRadius: 5,
                 offset: const Offset(0, 8),
               ),
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.5),
-                blurRadius: 20,
-                spreadRadius: 0,
-                offset: const Offset(0, 4),
-              ),
+              if (isDark)
+                BoxShadow(
+                  color: AppColors.darkBg.withValues(alpha: 0.5),
+                  blurRadius: 20,
+                  spreadRadius: 0,
+                  offset: const Offset(0, 4),
+                ),
             ],
           ),
           child: Padding(
-            padding: EdgeInsets.all(28.w),
+            padding: const EdgeInsets.all(AppSpacing.xxxl),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -213,40 +227,38 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                     },
                   ),
                 ),
-                SizedBox(height: 20.h),
+                const SizedBox(height: AppSpacing.xl),
                 FadeInDown(
                   duration: const Duration(milliseconds: 700),
                   child: Text(
                     l10n?.challengeCompleted ?? 'Challenge Completed!',
-                    style: GoogleFonts.poppins(
+                    style: AppTypography.h1.copyWith(
                       fontSize: 26.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                      color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       letterSpacing: 0.5,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(height: 10.h),
+                const SizedBox(height: AppSpacing.sm),
                 FadeInDown(
                   duration: const Duration(milliseconds: 800),
                   child: Text(
                     encouragingMessage,
-                    style: GoogleFonts.poppins(
+                    style: AppTypography.bodyL.copyWith(
                       fontSize: 17.sp,
-                      color: Colors.white70,
-                      fontWeight: FontWeight.w500,
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                     ),
                     textAlign: TextAlign.center,
                   ),
                 ),
-                SizedBox(height: 28.h),
+                const SizedBox(height: AppSpacing.xxxl),
 
                 // Score Card
                 FadeInUp(
                   duration: const Duration(milliseconds: 900),
                   child: Container(
-                    padding: EdgeInsets.all(24.w),
+                    padding: const EdgeInsets.all(AppSpacing.xxl),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topLeft,
@@ -263,7 +275,7 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                       ),
                       boxShadow: [
                         BoxShadow(
-                          color: scoreColor.withValues(alpha: 0.3),
+                          color: scoreColor.withValues(alpha: isDark ? 0.3 : 0.2),
                           blurRadius: 15,
                           spreadRadius: 2,
                           offset: const Offset(0, 4),
@@ -294,41 +306,41 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                                 size: 36.sp,
                               ),
                             ),
-                            SizedBox(width: 12.w),
+                            const SizedBox(width: AppSpacing.md),
                             Text(
                               '${widget.score}',
-                              style: GoogleFonts.poppins(
+                              style: AppTypography.h1.copyWith(
                                 fontSize: 42.sp,
-                                fontWeight: FontWeight.bold,
                                 color: scoreColor,
                                 letterSpacing: 1,
                               ),
                             ),
-                            SizedBox(width: 6.w),
+                            const SizedBox(width: AppSpacing.sm),
                             Text(
                               ' ${l10n?.points ?? 'points'}',
-                              style: GoogleFonts.poppins(
+                              style: AppTypography.bodyL.copyWith(
                                 fontSize: 20.sp,
-                                color: Colors.white70,
-                                fontWeight: FontWeight.w500,
+                                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                               ),
                             ),
                           ],
                         ),
-                        SizedBox(height: 20.h),
+                        const SizedBox(height: AppSpacing.xl),
                         Container(
                           height: 1.h,
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             gradient: LinearGradient(
                               colors: [
                                 Colors.transparent,
-                                Colors.white24,
+                                isDark 
+                                    ? AppColors.darkTextPrimary.withValues(alpha: 0.24)
+                                    : AppColors.lightTextTertiary,
                                 Colors.transparent,
                               ],
                             ),
                           ),
                         ),
-                        SizedBox(height: 20.h),
+                        const SizedBox(height: AppSpacing.xl),
                         // Stats
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -337,19 +349,22 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                               icon: Icons.check_circle,
                               value: '${widget.correctCount}/${widget.totalQuestions}',
                               label: l10n?.correct ?? 'Correct',
-                              color: Colors.green,
+                              color: AppColors.successDark,
+                              isDark: isDark,
                             ),
                             _buildStatItem(
                               icon: Icons.percent,
                               value: '$percentage%',
                               label: l10n?.accuracy ?? 'Accuracy',
                               color: scoreColor,
+                              isDark: isDark,
                             ),
                             _buildStatItem(
                               icon: Icons.timer,
                               value: _formatTime(widget.timeSeconds),
                               label: l10n?.time ?? 'Time',
-                              color: Colors.blue,
+                              color: AppColors.infoDark,
+                              isDark: isDark,
                             ),
                           ],
                         ),
@@ -357,7 +372,7 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                     ),
                   ),
                 ),
-                SizedBox(height: 28.h),
+                const SizedBox(height: AppSpacing.xxxl),
 
                 // Action Button
                 FadeInUp(
@@ -367,14 +382,14 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: [
-                          AppColors.eagleGold,
-                          AppColors.eagleGold.withValues(alpha: 0.8),
+                          primaryGold,
+                          primaryGold.withValues(alpha: 0.8),
                         ],
                       ),
                       borderRadius: BorderRadius.circular(16.r),
                       boxShadow: [
                         BoxShadow(
-                          color: AppColors.eagleGold.withValues(alpha: 0.4),
+                          color: primaryGold.withValues(alpha: isDark ? 0.4 : 0.25),
                           blurRadius: 15,
                           spreadRadius: 2,
                           offset: const Offset(0, 6),
@@ -388,8 +403,8 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                       },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.transparent,
-                        foregroundColor: Colors.black,
-                        padding: EdgeInsets.symmetric(vertical: 18.h),
+                        foregroundColor: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                        padding: const EdgeInsets.symmetric(vertical: AppSpacing.xl),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16.r),
                         ),
@@ -397,10 +412,9 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
                       ),
                       child: Text(
                         l10n?.done ?? 'Done',
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.h2.copyWith(
                           fontSize: 20.sp,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.black,
+                          color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                           letterSpacing: 0.5,
                         ),
                       ),
@@ -420,11 +434,12 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
     required String value,
     required String label,
     required Color color,
+    required bool isDark,
   }) {
     return Column(
       children: [
         Container(
-          padding: EdgeInsets.all(10.w),
+          padding: const EdgeInsets.all(AppSpacing.sm),
           decoration: BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -436,22 +451,20 @@ class _DailyChallengeResultDialogState extends ConsumerState<DailyChallengeResul
           ),
           child: Icon(icon, color: color, size: 28.sp),
         ),
-        SizedBox(height: 10.h),
+        const SizedBox(height: AppSpacing.sm),
         Text(
           value,
-          style: GoogleFonts.poppins(
+          style: AppTypography.h2.copyWith(
             fontSize: 20.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+            color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
           ),
         ),
-        SizedBox(height: 6.h),
+        const SizedBox(height: AppSpacing.sm),
         Text(
           label,
-          style: GoogleFonts.poppins(
+          style: AppTypography.bodyS.copyWith(
             fontSize: 13.sp,
-            color: Colors.white60,
-            fontWeight: FontWeight.w500,
+            color: isDark ? AppColors.darkTextTertiary : AppColors.lightTextTertiary,
           ),
         ),
       ],

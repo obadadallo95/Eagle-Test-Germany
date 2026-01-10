@@ -12,7 +12,7 @@ void main() {
   List<Map<String, dynamic>> allQuestions = [];
 
   for (var file in files) {
-    print("Processing $file...");
+    stdout.writeln("Processing $file...");
     final content = File(file).readAsStringSync();
     allQuestions.addAll(parseContent(content));
   }
@@ -20,7 +20,7 @@ void main() {
   // Save to JSON
   final jsonContent = json.encode(allQuestions);
   File('assets/data/questions.json').writeAsStringSync(jsonContent);
-  print('Successfully saved ${allQuestions.length} questions to assets/data/questions.json');
+  stdout.writeln('Successfully saved ${allQuestions.length} questions to assets/data/questions.json');
 }
 
 List<Map<String, dynamic>> parseContent(String content) {

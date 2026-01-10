@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../core/theme/app_colors.dart';
+import '../../../../core/theme/app_typography.dart';
+import '../../../../core/theme/app_spacing.dart';
 
 /// Special red-themed card for destructive actions
 class DangerZoneCard extends StatelessWidget {
@@ -14,28 +16,47 @@ class DangerZoneCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final errorColor = isDark ? AppColors.errorDark : AppColors.errorLight;
+    
     return Card(
-      color: Colors.red.shade900.withValues(alpha: 0.2),
+      color: isDark 
+          ? AppColors.errorBgDark 
+          : AppColors.errorBgLight,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
+        side: BorderSide(
+          color: errorColor.withValues(alpha: 0.3),
+          width: 1,
+        ),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: const EdgeInsets.all(AppSpacing.lg),
             child: Row(
               children: [
-                Icon(Icons.warning, color: Colors.red, size: 28.sp),
-                SizedBox(width: 8.w),
+                Icon(
+                  Icons.warning, 
+                  color: errorColor, 
+                  size: AppSpacing.iconLg,
+                ),
+                const SizedBox(width: AppSpacing.sm),
                 Text(
                   title,
-                  style: Theme.of(context).textTheme.titleLarge?.copyWith(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red,
-                      ),
+                  style: AppTypography.h3.copyWith(
+                    color: errorColor,
+                  ),
                 ),
               ],
             ),
           ),
-          Divider(height: 1.h, color: Colors.red),
+          Divider(
+            height: 1,
+            color: errorColor.withValues(alpha: 0.3),
+          ),
           ...children,
         ],
       ),

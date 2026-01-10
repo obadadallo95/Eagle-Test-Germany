@@ -1528,7 +1528,7 @@ abstract class AppLocalizations {
   /// **'Total Questions'**
   String get totalQuestions;
 
-  /// Questions answered label
+  /// Label for total questions answered
   ///
   /// In en, this message translates to:
   /// **'Questions Answered'**
@@ -2157,6 +2157,168 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Cloud sync'**
   String get cloudSync;
+
+  /// Title for theme selection dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Choose Theme'**
+  String get themeTitle;
+
+  /// Close button text
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// Section header for appearance settings
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get appearance;
+
+  /// Title for exam readiness report dialog
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Readiness Report'**
+  String get examReadinessReport;
+
+  /// Label for overall readiness score
+  ///
+  /// In en, this message translates to:
+  /// **'Overall Score'**
+  String get overallScore;
+
+  /// Label for component scores section
+  ///
+  /// In en, this message translates to:
+  /// **'Component Scores'**
+  String get componentScores;
+
+  /// Label for question mastery score
+  ///
+  /// In en, this message translates to:
+  /// **'Question Mastery'**
+  String get questionMastery;
+
+  /// Label for exam performance score
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Performance'**
+  String get examPerformance;
+
+  /// Label for study consistency score
+  ///
+  /// In en, this message translates to:
+  /// **'Study Consistency'**
+  String get studyConsistency;
+
+  /// Label for state-specific questions score
+  ///
+  /// In en, this message translates to:
+  /// **'State Questions'**
+  String get stateQuestions;
+
+  /// Label for statistics section
+  ///
+  /// In en, this message translates to:
+  /// **'Statistics'**
+  String get statistics;
+
+  /// Label for questions mastered count
+  ///
+  /// In en, this message translates to:
+  /// **'Questions Mastered'**
+  String get questionsMastered;
+
+  /// Label for correct answers count
+  ///
+  /// In en, this message translates to:
+  /// **'Correct Answers'**
+  String get correctAnswers;
+
+  /// Label for exams completed count
+  ///
+  /// In en, this message translates to:
+  /// **'Exams Completed'**
+  String get examsCompleted;
+
+  /// Label for current study streak
+  ///
+  /// In en, this message translates to:
+  /// **'Current Streak'**
+  String get currentStreak;
+
+  /// Label for study sessions in last 7 days
+  ///
+  /// In en, this message translates to:
+  /// **'Study Sessions (Last 7 Days)'**
+  String get studySessionsLast7Days;
+
+  /// Label for total study time
+  ///
+  /// In en, this message translates to:
+  /// **'Total Study Time'**
+  String get totalStudyTime;
+
+  /// Label for strengths section
+  ///
+  /// In en, this message translates to:
+  /// **'Strengths'**
+  String get strengths;
+
+  /// Label for weaknesses section
+  ///
+  /// In en, this message translates to:
+  /// **'Weaknesses'**
+  String get weaknesses;
+
+  /// Label for recommendations section
+  ///
+  /// In en, this message translates to:
+  /// **'Recommendations'**
+  String get recommendations;
+
+  /// Hint text for tapping readiness card to view report
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to view detailed report'**
+  String get tapToViewDetailedReport;
+
+  /// Status text for excellent readiness (>=85%)
+  ///
+  /// In en, this message translates to:
+  /// **'Excellent - Fully Ready'**
+  String get excellentFullyReady;
+
+  /// Status text for ready status (>=70%)
+  ///
+  /// In en, this message translates to:
+  /// **'Ready for Exam'**
+  String get readyForExam;
+
+  /// Status text for almost ready status (>=50%)
+  ///
+  /// In en, this message translates to:
+  /// **'Almost Ready'**
+  String get almostReady;
+
+  /// Status text for needs work status (<50%)
+  ///
+  /// In en, this message translates to:
+  /// **'Needs More Work'**
+  String get needsMoreWork;
+
+  /// Unit for days in streak
+  ///
+  /// In en, this message translates to:
+  /// **'days'**
+  String get days;
+
+  /// Unit for hours in study time
+  ///
+  /// In en, this message translates to:
+  /// **'hours'**
+  String get hours;
 }
 
 class _AppLocalizationsDelegate

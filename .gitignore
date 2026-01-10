@@ -58,3 +58,4 @@ upload-keystore.jks
 # API Keys - NEVER commit these!
 lib/core/config/api_config.dart.dart_tool 2/
 lib/core/config/api_config.dart
+.dart_tool 2/

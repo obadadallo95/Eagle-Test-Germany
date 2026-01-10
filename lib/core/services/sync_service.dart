@@ -306,11 +306,28 @@ class SyncService {
     final result = Map<String, dynamic>.from(localProgress);
 
     // Update answers from merged progress
-    final mergedAnswers = mergedProgress['answers'] as Map<String, dynamic>? ?? {};
+    // Convert Hive's _Map<dynamic, dynamic> to Map<String, dynamic>
+    final answersRaw = mergedProgress['answers'];
+    Map<String, dynamic> mergedAnswers = {};
+    if (answersRaw != null && answersRaw is Map) {
+      mergedAnswers = Map<String, dynamic>.from(
+        answersRaw.map((key, value) => MapEntry(key.toString(), value)),
+      );
+    }
     result['answers'] = mergedAnswers;
 
     // Update exam history from merged progress
-    final mergedExamHistory = mergedProgress['exam_history'] as List<Map<String, dynamic>>? ?? [];
+    // Convert Hive's List<dynamic> to List<Map<String, dynamic>>
+    final examHistoryRaw = mergedProgress['exam_history'];
+    List<Map<String, dynamic>> mergedExamHistory = [];
+    if (examHistoryRaw != null && examHistoryRaw is List) {
+      mergedExamHistory = examHistoryRaw
+          .whereType<Map>()
+          .map((item) => Map<String, dynamic>.from(
+                item.map((key, value) => MapEntry(key.toString(), value)),
+              ))
+          .toList();
+    }
     result['exam_history'] = mergedExamHistory;
 
     // Update sync timestamp
@@ -483,7 +500,15 @@ class SyncService {
       final mergedSupabaseFormat = _convertHiveToSupabaseFormat(mergedProgress);
       
       // Calculate counts from merged data
-      final mergedAnswers = mergedProgress['answers'] as Map<String, dynamic>? ?? {};
+      // Safely convert answers from Hive format
+      final answersRaw = mergedProgress['answers'];
+      Map<String, dynamic> mergedAnswers = {};
+      if (answersRaw != null && answersRaw is Map) {
+        mergedAnswers = Map<String, dynamic>.from(
+          answersRaw.map((key, value) => MapEntry(key.toString(), value)),
+        );
+      }
+      
       final mergedQuestionsLearned = mergedAnswers.values
           .where((v) {
             if (v is Map) {
@@ -493,7 +518,17 @@ class SyncService {
           })
           .length;
       
-      final mergedExamHistory = mergedProgress['exam_history'] as List<dynamic>? ?? [];
+      // Safely convert exam history from Hive format
+      final examHistoryRaw = mergedProgress['exam_history'];
+      List<Map<String, dynamic>> mergedExamHistory = [];
+      if (examHistoryRaw != null && examHistoryRaw is List) {
+        mergedExamHistory = examHistoryRaw
+            .whereType<Map>()
+            .map((item) => Map<String, dynamic>.from(
+                  item.map((key, value) => MapEntry(key.toString(), value)),
+                ))
+            .toList();
+      }
       final mergedExamsPassed = mergedExamHistory.length;
 
       // Step 9: Prepare sync data for Supabase
@@ -520,25 +555,29 @@ class SyncService {
       AppLogger.info('Merged: questions=$mergedQuestionsLearned, exams=$mergedExamsPassed', source: 'SyncService');
 
       // Step 10: Upsert to Supabase (only Pro users reach here)
-      if (revenuecatCustomerId != null && revenuecatCustomerId.isNotEmpty) {
-        // Pro user with revenuecat_customer_id: Update all devices with same revenuecat_customer_id (shared progress)
-        await supabase
-            .from('user_progress')
-            .update({
-              ...syncData,
-              'last_active_at': now, // Update activity for all devices
-            })
-            .eq('revenuecat_customer_id', revenuecatCustomerId);
-
-        // Also ensure current device's record exists
+      // Note: RLS policies only allow users to update their own records (auth.uid() = user_id)
+      // For shared progress across devices, we only upsert the current device's record
+      // Other devices will sync when they connect and fetch the latest progress
+      try {
         await supabase
             .from('user_progress')
             .upsert(syncData, onConflict: 'user_id');
-      } else {
-        // Pro user without revenuecat_customer_id: Update device-specific progress only
-        await supabase
-            .from('user_progress')
-            .upsert(syncData, onConflict: 'user_id');
+        
+        AppLogger.info('Progress upserted successfully to Supabase', source: 'SyncService');
+      } catch (e) {
+        // Check if it's an RLS policy error
+        if (e.toString().contains('row-level security') || 
+            e.toString().contains('42501') ||
+            e.toString().contains('violates row-level security policy')) {
+          AppLogger.error(
+            'RLS Policy Error: User may not be authenticated or RLS policies are not configured correctly. '
+            'Please ensure: 1) User is authenticated, 2) RLS policies are set up for user_progress table.',
+            source: 'SyncService',
+            error: e,
+          );
+        } else {
+          rethrow; // Re-throw if it's a different error
+        }
       }
 
       AppLogger.event(

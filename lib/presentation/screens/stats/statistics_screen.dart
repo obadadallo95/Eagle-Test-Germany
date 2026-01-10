@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:animate_do/animate_do.dart';
 import 'package:confetti/confetti.dart';
@@ -11,6 +10,8 @@ import '../../../core/storage/user_preferences_service.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/storage/srs_service.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../providers/locale_provider.dart';
 import '../../providers/question_provider.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
@@ -195,7 +196,13 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
         final dateStr = '${date.year}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
         
         // Get study time for this date
-        final dailyStudySeconds = progress?['daily_study_seconds'] as Map<String, dynamic>?;
+        final dailyStudySecondsRaw = progress?['daily_study_seconds'];
+        Map<String, dynamic>? dailyStudySeconds;
+        if (dailyStudySecondsRaw is Map) {
+          dailyStudySeconds = Map<String, dynamic>.from(
+            dailyStudySecondsRaw.map((key, value) => MapEntry(key.toString(), value)),
+          );
+        }
         final minutes = dailyStudySeconds != null && dailyStudySeconds[dateStr] != null
             ? ((dailyStudySeconds[dateStr] as int) / 60).round()
             : 0;
@@ -220,7 +227,13 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
       // Calculate daily activity (most active days)
       final dailyActivity = <String, int>{};
       if (progress != null) {
-        final dailyStudySeconds = progress['daily_study_seconds'] as Map<String, dynamic>?;
+        final dailyStudySecondsRaw = progress['daily_study_seconds'];
+        Map<String, dynamic>? dailyStudySeconds;
+        if (dailyStudySecondsRaw is Map) {
+          dailyStudySeconds = Map<String, dynamic>.from(
+            dailyStudySecondsRaw.map((key, value) => MapEntry(key.toString(), value)),
+          );
+        }
         if (dailyStudySeconds != null) {
           dailyStudySeconds.forEach((dateStr, seconds) {
             try {
@@ -391,7 +404,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
         appBar: AppBar(
           title: Text(
             l10n?.stats ?? 'Statistics',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontWeight: FontWeight.bold,
               color: theme.colorScheme.onSurface,
             ),
@@ -411,12 +424,14 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           ],
         ),
         body: _isLoading
-            ? const Center(
-                child: CircularProgressIndicator(color: AppColors.eagleGold),
+            ? Center(
+                child: CircularProgressIndicator(
+                  color: theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
+                ),
               )
             : RefreshIndicator(
                 onRefresh: _loadStatistics,
-                color: AppColors.eagleGold,
+                color: theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark,
                 child: AdaptivePageWrapper(
                   padding: EdgeInsets.zero,
                   child: Column(
@@ -425,76 +440,76 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                     children: [
                       // Points Section (New)
                       Padding(
-                        padding: EdgeInsets.all(16.w),
+                        padding: const EdgeInsets.all(AppSpacing.lg),
                         child: _buildPointsSection(l10n, isArabic, theme),
                       ),
-                      SizedBox(height: 8.h),
+                      const SizedBox(height: AppSpacing.sm),
 
                       // Daily Challenge Stats Section (New)
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
                         child: _buildDailyChallengeStatsSection(l10n, isArabic, theme),
                       ),
-                      SizedBox(height: 24.h),
+                      const SizedBox(height: AppSpacing.xxl),
 
                       // Overview Cards (4 cards in 2x2 grid)
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: _buildOverviewSection(l10n, isArabic),
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                        child: _buildOverviewSection(l10n, isArabic, theme),
                       ),
-                      SizedBox(height: 24.h),
+                      const SizedBox(height: AppSpacing.xxl),
 
                       // Progress Charts Section
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: _buildProgressChartsSection(l10n, isArabic),
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                        child: _buildProgressChartsSection(context, l10n, isArabic),
                       ),
-                      SizedBox(height: 24.h),
+                      const SizedBox(height: AppSpacing.xxl),
 
                       // Category Mastery Section
                       if (_categoryStats.isNotEmpty) ...[
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.w),
-                          child: _buildCategoryMasterySection(l10n, isArabic),
+                          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                          child: _buildCategoryMasterySection(context, l10n, isArabic),
                         ),
-                        SizedBox(height: 24.h),
+                        const SizedBox(height: AppSpacing.xxl),
                       ],
 
                       // SRS Insights Section
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: _buildSrsInsightsSection(l10n, isArabic),
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                        child: _buildSrsInsightsSection(context, l10n, isArabic),
                       ),
-                      SizedBox(height: 24.h),
+                      const SizedBox(height: AppSpacing.xxl),
 
                       // Exam Performance Section
                       if (_recentExams.isNotEmpty) ...[
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.w),
-                          child: _buildExamPerformanceSection(l10n, isArabic),
+                          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                          child: _buildExamPerformanceSection(context, l10n, isArabic),
                         ),
-                        SizedBox(height: 24.h),
+                        const SizedBox(height: AppSpacing.xxl),
                       ],
 
                       // Study Habits Section
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: _buildStudyHabitsSection(l10n, isArabic),
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                        child: _buildStudyHabitsSection(context, l10n, isArabic),
                       ),
-                      SizedBox(height: 24.h),
+                      const SizedBox(height: AppSpacing.xxl),
 
                       // Smart Insights Section
                       Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 16.w),
-                        child: _buildSmartInsightsSection(l10n, isArabic),
+                        padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                        child: _buildSmartInsightsSection(context, l10n, isArabic),
                       ),
-                      SizedBox(height: 24.h),
+                      const SizedBox(height: AppSpacing.xxl),
 
                       // Recent Exams List
                       if (_recentExams.isNotEmpty) ...[
                         Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16.w),
-                          child: _buildRecentExamsSection(l10n, isArabic),
+                          padding: const EdgeInsets.symmetric(horizontal: AppSpacing.lg),
+                          child: _buildRecentExamsSection(context, l10n, isArabic),
                         ),
                       ],
                       SizedBox(height: 24.h),
@@ -516,18 +531,18 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
             colors: [
-              AppColors.eagleGold.withValues(alpha: 0.2),
-              AppColors.eagleGold.withValues(alpha: 0.1),
+              (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.2),
+              (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.1),
             ],
           ),
           borderRadius: BorderRadius.circular(24.r),
           border: Border.all(
-            color: AppColors.eagleGold.withValues(alpha: 0.4),
+            color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.4),
             width: 2.w,
           ),
           boxShadow: [
             BoxShadow(
-              color: AppColors.eagleGold.withValues(alpha: 0.3),
+              color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.3),
               blurRadius: 20,
               spreadRadius: 2,
               offset: const Offset(0, 4),
@@ -551,12 +566,12 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   Container(
                     padding: EdgeInsets.all(12.w),
                     decoration: BoxDecoration(
-                      color: AppColors.eagleGold.withValues(alpha: 0.2),
+                      color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.2),
                       borderRadius: BorderRadius.circular(16.r),
                     ),
                     child: Icon(
                       Icons.stars_rounded,
-                      color: AppColors.eagleGold,
+                      color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                       size: 32.sp,
                     ),
                   ),
@@ -568,7 +583,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                       children: [
                         AutoSizeText(
                           l10n?.points ?? 'Total Points',
-                          style: GoogleFonts.poppins(
+                          style: AppTypography.bodyL.copyWith(
                             fontSize: 14.sp,
                             color: Colors.white70,
                             fontWeight: FontWeight.w500,
@@ -589,10 +604,10 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                           child: AutoSizeText(
                             key: ValueKey(_totalPoints),
                             _formatPoints(_totalPoints),
-                            style: GoogleFonts.poppins(
+                            style: AppTypography.bodyL.copyWith(
                               fontSize: 36.sp,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.eagleGold,
+                              color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                               letterSpacing: 1,
                             ),
                             maxLines: 1,
@@ -664,7 +679,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           SizedBox(height: 6.h),
           AutoSizeText(
             title,
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 9.sp,
               color: Colors.white70,
             ),
@@ -674,7 +689,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           SizedBox(height: 4.h),
           AutoSizeText(
             _formatPoints(points),
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.bold,
               color: iconColor,
@@ -748,7 +763,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   Expanded(
                     child: AutoSizeText(
                       l10n?.dailyChallenge ?? 'Daily Challenge',
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.bodyL.copyWith(
                         fontSize: 18.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -772,7 +787,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   Expanded(
                     child: _buildChallengeStatCard(
                       icon: Icons.emoji_events,
-                      iconColor: AppColors.eagleGold,
+                      iconColor: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                       title: l10n?.statsBestScore ?? 'Best Score',
                       value: '$_dailyChallengeBestScore',
                     ),
@@ -831,7 +846,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           SizedBox(height: 6.h),
           AutoSizeText(
             title,
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 10.sp,
               color: Colors.white70,
             ),
@@ -841,7 +856,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           SizedBox(height: 4.h),
           AutoSizeText(
             value,
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 18.sp,
               fontWeight: FontWeight.bold,
               color: iconColor,
@@ -853,7 +868,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildOverviewSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildOverviewSection(AppLocalizations? l10n, bool isArabic, ThemeData theme) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -862,7 +877,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsOverview ?? 'Overview',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -896,11 +911,11 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
               duration: const Duration(milliseconds: 500),
               child: _buildOverviewCard(
                 icon: Icons.check_circle,
-                iconColor: AppColors.eagleGold,
+                iconColor: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                 title: l10n?.statsProgress ?? 'Progress',
                 value: '${(_overallProgress * 100).toStringAsFixed(0)}%',
                 subtitle: '$_totalLearned / 310',
-                gradient: [AppColors.eagleGold.withValues(alpha: 0.2), AppColors.eagleGold.withValues(alpha: 0.05)],
+                gradient: [(theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.2), (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark).withValues(alpha: 0.05)],
               ),
             ),
             SlideInRight(
@@ -992,7 +1007,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   Flexible(
                     child: AutoSizeText(
                       title,
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.bodyL.copyWith(
                         fontSize: 9.sp,
                         color: Colors.white70,
                       ),
@@ -1017,7 +1032,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                       child: AutoSizeText(
                         key: ValueKey(value),
                         value,
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.bodyL.copyWith(
                           fontSize: 16.sp,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
@@ -1032,7 +1047,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   Flexible(
                     child: AutoSizeText(
                       subtitle,
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.bodyL.copyWith(
                         fontSize: 7.sp,
                         color: Colors.white54,
                       ),
@@ -1050,7 +1065,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildProgressChartsSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildProgressChartsSection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       mainAxisSize: MainAxisSize.min,
@@ -1059,7 +1074,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsProgressCharts ?? 'Progress Charts',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1100,7 +1115,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           children: [
             AutoSizeText(
               l10n?.statsWeeklyStudyTime ?? 'Weekly Study Time',
-              style: GoogleFonts.poppins(
+              style: AppTypography.bodyL.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -1159,12 +1174,13 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   barGroups: _weeklyStudyData.asMap().entries.map((entry) {
                     final index = entry.key;
                     final data = entry.value;
+                    final isDark = Theme.of(context).brightness == Brightness.dark;
                     return BarChartGroupData(
                       x: index,
                       barRods: [
                         BarChartRodData(
                           toY: data.minutes.toDouble(),
-                          color: AppColors.eagleGold,
+                          color: isDark ? AppColors.gold : AppColors.goldDark,
                           width: 20.w,
                           borderRadius: BorderRadius.vertical(top: Radius.circular(4.r)),
                         ),
@@ -1194,7 +1210,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           children: [
             AutoSizeText(
               l10n?.statsExamScoresOverTime ?? 'Exam Scores Over Time',
-              style: GoogleFonts.poppins(
+              style: AppTypography.bodyL.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -1256,7 +1272,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildCategoryMasterySection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildCategoryMasterySection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
     final sortedCategories = _categoryStats.values.toList()
       ..sort((a, b) => (b.correct / b.total).compareTo(a.correct / a.total));
 
@@ -1267,7 +1283,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsCategoryMastery ?? 'Category Mastery',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1294,7 +1310,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                           Expanded(
                             child: AutoSizeText(
                               cat.category.toUpperCase(),
-                              style: GoogleFonts.poppins(
+                              style: AppTypography.bodyL.copyWith(
                                 fontSize: 14.sp,
                                 fontWeight: FontWeight.w600,
                                 color: Colors.white,
@@ -1303,7 +1319,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                           ),
                           AutoSizeText(
                             '${cat.correct}/${cat.total} (${(mastery * 100).toStringAsFixed(0)}%)',
-                            style: GoogleFonts.poppins(
+                            style: AppTypography.bodyL.copyWith(
                               fontSize: 12.sp,
                               color: Colors.white70,
                             ),
@@ -1333,7 +1349,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildSrsInsightsSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildSrsInsightsSection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
     final total = _srsDistribution.values.fold(0, (a, b) => a + b);
     final newCount = _srsDistribution[0] ?? 0;
     final hardCount = _srsDistribution[1] ?? 0;
@@ -1347,7 +1363,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsSrsInsights ?? 'SRS Insights',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1440,12 +1456,12 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             SizedBox(height: 8.h),
             AutoSizeText(
               title,
-              style: GoogleFonts.poppins(fontSize: 12.sp, color: Colors.white70),
+              style: AppTypography.bodyL.copyWith(fontSize: 12.sp, color: Colors.white70),
             ),
             SizedBox(height: 4.h),
             AutoSizeText(
               value,
-              style: GoogleFonts.poppins(
+              style: AppTypography.bodyL.copyWith(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
@@ -1453,7 +1469,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             ),
             AutoSizeText(
               subtitle,
-              style: GoogleFonts.poppins(fontSize: 10.sp, color: Colors.white54),
+              style: AppTypography.bodyL.copyWith(fontSize: 10.sp, color: Colors.white54),
             ),
           ],
         ),
@@ -1465,7 +1481,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     final percentage = total > 0 ? (count / total) : 0.0;
     return Row(
       children: [
-        SizedBox(width: 80.w, child: Text(label, style: GoogleFonts.poppins(color: Colors.white70, fontSize: 12.sp))),
+        SizedBox(width: 80.w, child: Text(label, style: AppTypography.bodyL.copyWith(color: Colors.white70, fontSize: 12.sp))),
         Expanded(
           child: ClipRRect(
             borderRadius: BorderRadius.circular(4.r),
@@ -1480,13 +1496,14 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
         SizedBox(width: 8.w),
         Text(
           '$count (${(percentage * 100).toStringAsFixed(0)}%)',
-          style: GoogleFonts.poppins(color: Colors.white70, fontSize: 12.sp),
+          style: AppTypography.bodyL.copyWith(color: Colors.white70, fontSize: 12.sp),
         ),
       ],
     );
   }
 
-  Widget _buildExamPerformanceSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildExamPerformanceSection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
+    final theme = Theme.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1494,7 +1511,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsExamPerformance ?? 'Exam Performance',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1506,7 +1523,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             Expanded(
               child: _buildPerformanceCard(
                 icon: Icons.assessment,
-                iconColor: AppColors.eagleGold,
+                iconColor: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark),
                 title: l10n?.statsAverageScore ?? 'Average Score',
                 value: '${_averageScore.toStringAsFixed(0)}%',
               ),
@@ -1544,13 +1561,13 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
             SizedBox(height: 12.h),
             AutoSizeText(
               title,
-              style: GoogleFonts.poppins(fontSize: 12.sp, color: Colors.white70),
+              style: AppTypography.bodyL.copyWith(fontSize: 12.sp, color: Colors.white70),
               textAlign: TextAlign.center,
             ),
             SizedBox(height: 8.h),
             AutoSizeText(
               value,
-              style: GoogleFonts.poppins(
+              style: AppTypography.bodyL.copyWith(
                 fontSize: 28.sp,
                 fontWeight: FontWeight.bold,
                 color: iconColor,
@@ -1562,7 +1579,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildStudyHabitsSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildStudyHabitsSection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1570,7 +1587,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsStudyHabits ?? 'Study Habits',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1589,12 +1606,14 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     _buildHabitStat(
+                      context: context,
                       icon: Icons.access_time,
                       label: l10n?.statsAvgSession ?? 'Avg Session',
                       value: '$_averageSessionTime',
                       unit: l10n?.statsMin ?? 'min',
                     ),
                     _buildHabitStat(
+                      context: context,
                       icon: Icons.calendar_today,
                       label: l10n?.statsActiveDays ?? 'Active Days',
                       value: '${_dailyActivity.length}',
@@ -1611,24 +1630,27 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
   }
 
   Widget _buildHabitStat({
+    required BuildContext context,
     required IconData icon,
     required String label,
     required String value,
     required String unit,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [
-        Icon(icon, size: 32.sp, color: AppColors.eagleGold),
+        Icon(icon, size: 32.sp, color: isDark ? AppColors.gold : AppColors.goldDark),
         SizedBox(height: 8.h),
         AutoSizeText(
           label,
-          style: GoogleFonts.poppins(fontSize: 12.sp, color: Colors.white70),
+          style: AppTypography.bodyL.copyWith(fontSize: 12.sp, color: Colors.white70),
         ),
         SizedBox(height: 4.h),
         AutoSizeText(
           '$value $unit',
-          style: GoogleFonts.poppins(
+          style: AppTypography.bodyL.copyWith(
             fontSize: 20.sp,
             fontWeight: FontWeight.bold,
             color: Colors.white,
@@ -1638,7 +1660,8 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildSmartInsightsSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildSmartInsightsSection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
+    final theme = Theme.of(context);
     final insights = <String>[];
     
     if (_dueQuestionsCount > 0) {
@@ -1669,7 +1692,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsSmartInsights ?? 'Smart Insights',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1687,11 +1710,11 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
               children: [
                 Row(
                   children: [
-                    Icon(Icons.lightbulb, color: AppColors.eagleGold, size: 24.sp),
+                    Icon(Icons.lightbulb, color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark), size: 24.sp),
                     SizedBox(width: 8.w),
                     AutoSizeText(
                       l10n?.statsRecommendations ?? 'Recommendations',
-                      style: GoogleFonts.poppins(
+                      style: AppTypography.bodyL.copyWith(
                         fontSize: 16.sp,
                         fontWeight: FontWeight.bold,
                         color: Colors.white,
@@ -1705,12 +1728,12 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
                       child: Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Icon(Icons.arrow_forward, size: 16.sp, color: AppColors.eagleGold),
+                          Icon(Icons.arrow_forward, size: 16.sp, color: (theme.brightness == Brightness.dark ? AppColors.gold : AppColors.goldDark)),
                           SizedBox(width: 8.w),
                           Expanded(
                             child: AutoSizeText(
                               insight,
-                              style: GoogleFonts.poppins(
+                              style: AppTypography.bodyL.copyWith(
                                 fontSize: 14.sp,
                                 color: Colors.white70,
                               ),
@@ -1727,7 +1750,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     );
   }
 
-  Widget _buildRecentExamsSection(AppLocalizations? l10n, bool isArabic) {
+  Widget _buildRecentExamsSection(BuildContext context, AppLocalizations? l10n, bool isArabic) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -1735,7 +1758,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
           padding: EdgeInsets.only(bottom: 16.h),
           child: Text(
             l10n?.statsRecentExams ?? 'Recent Exams',
-            style: GoogleFonts.poppins(
+            style: AppTypography.bodyL.copyWith(
               fontSize: 20.sp,
               fontWeight: FontWeight.bold,
               color: Colors.white,
@@ -1755,6 +1778,8 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
   }
 
   Widget _buildExamResultTile(Map<String, dynamic> exam, AppLocalizations? l10n, bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final dateStr = exam['date'] as String?;
     final date = dateStr != null ? DateTime.tryParse(dateStr) : null;
     final formattedDate = date != null
@@ -1766,7 +1791,7 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
     return Container(
       margin: EdgeInsets.only(bottom: 8.h),
       decoration: BoxDecoration(
-        color: AppColors.darkCharcoal,
+        color: isDark ? AppColors.darkSurface : AppColors.lightSurface,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(
           color: passed ? Colors.green.withValues(alpha: 0.3) : Colors.red.withValues(alpha: 0.3),
@@ -1783,21 +1808,21 @@ class _StatisticsScreenState extends ConsumerState<StatisticsScreen> {
         ),
         title: AutoSizeText(
           '${l10n?.fullExam ?? "Exam"} - $formattedDate',
-          style: GoogleFonts.poppins(
+          style: AppTypography.bodyL.copyWith(
             color: Colors.white,
             fontWeight: FontWeight.w600,
           ),
         ),
         subtitle: AutoSizeText(
           '${l10n?.statsScore ?? "Score"}: ${exam['score'] ?? 0}/${exam['total'] ?? 0} • ${mode == 'full' ? (l10n?.fullExam ?? "Full") : (l10n?.quickPractice ?? "Quick")}',
-          style: GoogleFonts.poppins(
+          style: AppTypography.bodyL.copyWith(
             color: Colors.white70,
             fontSize: 12.sp,
           ),
         ),
         trailing: AutoSizeText(
           '${exam['percentage'] ?? 0}%',
-          style: GoogleFonts.poppins(
+          style: AppTypography.bodyL.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.bold,
             color: passed ? Colors.green : Colors.red,

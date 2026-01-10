@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/storage/user_preferences_service.dart';
+import '../../core/services/theme_service.dart';
 
 /// Provider لإدارة الوضع الفاتح/الداكن
 class ThemeNotifier extends StateNotifier<ThemeMode> {
   static const String _keyThemeMode = 'theme_mode';
   bool _isInitialized = false;
+  AppThemeMode _appThemeMode = AppThemeMode.system;
   
   /// للتحقق من حالة التهيئة
   bool get isInitialized => _isInitialized;
+  
+  /// Get current AppThemeMode
+  AppThemeMode get appThemeMode => _appThemeMode;
 
   ThemeNotifier() : super(ThemeMode.system) {
     // لا نحمل الثيم هنا لأننا نحملها في main() قبل runApp()
@@ -38,12 +43,45 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
       return ThemeMode.system;
     }
   }
+  
+  /// Load AppThemeMode
+  static Future<AppThemeMode> loadAppThemeMode() async {
+    try {
+      final prefs = await UserPreferencesService.getSharedPreferences();
+      final savedTheme = prefs.getString(_keyThemeMode);
+      
+      if (savedTheme != null && savedTheme.isNotEmpty) {
+        switch (savedTheme.toLowerCase()) {
+          case 'light':
+            return AppThemeMode.light;
+          case 'dark':
+            return AppThemeMode.dark;
+          case 'system':
+          default:
+            return AppThemeMode.system;
+        }
+      }
+      return AppThemeMode.system;
+    } catch (e) {
+      return AppThemeMode.system;
+    }
+  }
 
   /// تهيئة الثيم بقيمة محملة مسبقاً
   /// يتم استدعاؤها من MyApp.build() بعد تحميل الثيم في main()
   void initializeWith(ThemeMode mode) {
     if (!_isInitialized) {
       state = mode;
+      _appThemeMode = _themeToAppTheme(mode);
+      _isInitialized = true;
+    }
+  }
+  
+  /// Initialize with AppThemeMode
+  void initializeWithAppTheme(AppThemeMode mode) {
+    if (!_isInitialized) {
+      _appThemeMode = mode;
+      state = ThemeService.toFlutterThemeMode(mode);
       _isInitialized = true;
     }
   }
@@ -53,6 +91,7 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
     try {
       // تحديث الحالة أولاً
       state = mode;
+      _appThemeMode = _themeToAppTheme(mode);
       
       // حفظ الوضع المختار على الجهاز بشكل دائم
       final prefs = await UserPreferencesService.getSharedPreferences();
@@ -85,7 +124,16 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
     } catch (e) {
       // في حالة الخطأ، على الأقل قم بتحديث الحالة
       state = mode;
+      _appThemeMode = _themeToAppTheme(mode);
     }
+  }
+  
+  /// Set theme using AppThemeMode
+  Future<void> setAppThemeMode(AppThemeMode mode) async {
+    _appThemeMode = mode;
+    await setThemeMode(ThemeService.toFlutterThemeMode(mode));
+    // Also save to ThemeService (Hive)
+    await ThemeService.setThemeMode(mode);
   }
 
   /// التبديل بين الفاتح والداكن
@@ -94,6 +142,33 @@ class ThemeNotifier extends StateNotifier<ThemeMode> {
       await setThemeMode(ThemeMode.dark);
     } else {
       await setThemeMode(ThemeMode.light);
+    }
+  }
+  
+  /// Cycle through themes: Light -> Dark -> System -> Light
+  Future<void> cycleTheme() async {
+    switch (_appThemeMode) {
+      case AppThemeMode.light:
+        await setAppThemeMode(AppThemeMode.dark);
+        break;
+      case AppThemeMode.dark:
+        await setAppThemeMode(AppThemeMode.system);
+        break;
+      case AppThemeMode.system:
+        await setAppThemeMode(AppThemeMode.light);
+        break;
+    }
+  }
+  
+  /// Convert ThemeMode to AppThemeMode
+  AppThemeMode _themeToAppTheme(ThemeMode mode) {
+    switch (mode) {
+      case ThemeMode.light:
+        return AppThemeMode.light;
+      case ThemeMode.dark:
+        return AppThemeMode.dark;
+      case ThemeMode.system:
+        return AppThemeMode.system;
     }
   }
 }
@@ -107,3 +182,8 @@ final initialThemeProvider = FutureProvider<ThemeMode>((ref) async {
   return await ThemeNotifier.loadThemeMode();
 });
 
+/// Provider for AppThemeMode (easier to use with UI)
+final appThemeModeProvider = Provider<AppThemeMode>((ref) {
+  final themeNotifier = ref.watch(themeProvider.notifier);
+  return themeNotifier.appThemeMode;
+});

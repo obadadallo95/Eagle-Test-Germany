@@ -74,8 +74,10 @@ class _CelebrationOverlayState extends State<CelebrationOverlay> {
             confettiController: _confettiController,
             blastDirectionality: BlastDirectionality.explosive,
             shouldLoop: false,
-            colors: widget.colors ?? const [
-              AppColors.eagleGold,
+            colors: widget.colors ?? [
+              Theme.of(context).brightness == Brightness.dark 
+                  ? AppColors.gold 
+                  : AppColors.goldDark,
               Colors.orange,
               Colors.red,
               Colors.pink,

@@ -3,7 +3,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:politik_test/l10n/app_localizations.dart';
 import '../../../core/services/notification_service.dart';
@@ -18,6 +17,8 @@ import '../../../core/storage/srs_service.dart';
 import '../../widgets/core/adaptive_page_wrapper.dart';
 import '../../../core/storage/hive_service.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../domain/entities/question.dart';
 import '../main_screen.dart';
 import '../subscription/paywall_screen.dart';
@@ -122,10 +123,12 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
     } else {
       // All questions reviewed
       Navigator.pop(context);
+      final theme = Theme.of(context);
+      final isDark = theme.brightness == Brightness.dark;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Great job! All questions reviewed. 🎉'),
-          backgroundColor: Colors.green,
+        SnackBar(
+          content: const Text('Great job! All questions reviewed. 🎉'),
+          backgroundColor: isDark ? AppColors.successDark : AppColors.successLight,
         ),
       );
     }
@@ -159,21 +162,22 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
             context: context,
             builder: (context) {
               final theme = Theme.of(context);
+              final isDark = theme.brightness == Brightness.dark;
+              final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+              final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+              
               return AlertDialog(
-                backgroundColor: theme.cardTheme.color,
+                backgroundColor: surfaceColor,
                 title: Text(
                   l10n?.quitExam ?? 'Quit Review?',
-                  style: TextStyle(
-                    color: theme.colorScheme.onSurface,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.sp,
+                  style: AppTypography.h3.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                   ),
                 ),
                 content: Text(
                   l10n?.quitExamMessage ?? 'Your progress will be lost.',
-                  style: TextStyle(
-                    color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
-                    fontSize: 14.sp,
+                  style: AppTypography.bodyM.copyWith(
+                    color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                   ),
                 ),
               actions: [
@@ -181,20 +185,20 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                   onPressed: () => Navigator.pop(context, false),
                   child: Text(
                     l10n?.stay ?? 'Stay',
-                    style: const TextStyle(color: AppColors.eagleGold),
+                    style: AppTypography.button.copyWith(
+                      color: primaryGold,
+                    ),
                   ),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context, true),
                   style: TextButton.styleFrom(
-                    foregroundColor: AppColors.germanRed,
+                    foregroundColor: AppColors.errorDark,
                   ),
                   child: Text(
                     l10n?.quit ?? 'Quit',
-                    style: TextStyle(
-                      color: AppColors.germanRed,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14.sp,
+                    style: AppTypography.button.copyWith(
+                      color: AppColors.errorDark,
                     ),
                   ),
                 ),
@@ -213,22 +217,33 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
           }
         }
       },
-      child: Scaffold(
-        appBar: AppBar(
-        title: Text(l10n?.reviewMistakes ?? 'Review Due'),
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(4),
-          child: questionsAsync.when(
-            data: (questions) => LinearProgressIndicator(
-              value: questions.isEmpty ? 0 : (_currentIndex + 1) / questions.length,
-              backgroundColor: AppColors.primaryRed.withValues(alpha: 0.2),
-              valueColor: const AlwaysStoppedAnimation(AppColors.primaryGold),
+      child: Builder(
+        builder: (context) {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
+          final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+          
+          return Scaffold(
+            appBar: AppBar(
+              title: Text(
+                l10n?.reviewMistakes ?? 'Review Due',
+                style: AppTypography.h2.copyWith(
+                  color: theme.colorScheme.onSurface,
+                ),
+              ),
+              bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(4),
+                child: questionsAsync.when(
+                  data: (questions) => LinearProgressIndicator(
+                    value: questions.isEmpty ? 0 : (_currentIndex + 1) / questions.length,
+                    backgroundColor: AppColors.errorDark.withValues(alpha: 0.2),
+                    valueColor: AlwaysStoppedAnimation(primaryGold),
+                  ),
+                  loading: () => const SizedBox.shrink(),
+                  error: (_, __) => const SizedBox.shrink(),
+                ),
+              ),
             ),
-            loading: () => const SizedBox.shrink(),
-            error: (_, __) => const SizedBox.shrink(),
-          ),
-        ),
-      ),
       body: AdaptivePageWrapper(
         padding: EdgeInsets.zero,
         enableScroll: false, // PageView يملأ الشاشة
@@ -255,52 +270,68 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
             },
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(Icons.error_outline, size: 64.sp, color: Colors.red),
-              SizedBox(height: 16.h),
-              Text('Error: $error'),
-            ],
+        loading: () => Center(
+          child: CircularProgressIndicator(
+            color: isDark ? AppColors.gold : AppColors.goldDark,
           ),
         ),
+        error: (error, stack) {
+          return Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.error_outline, size: 64.sp, color: AppColors.errorDark),
+                const SizedBox(height: AppSpacing.lg),
+                Text(
+                  'Error: $error',
+                  style: AppTypography.bodyL.copyWith(
+                    color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
+                ),
+              ],
+            ),
+          );
+        },
         ),
         ),
+          );
+        },
       ),
     );
   }
 
   Widget _buildEmptyState(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    
     return Center(
       child: Padding(
-        padding: EdgeInsets.all(32.w),
+        padding: const EdgeInsets.all(AppSpacing.xxxl),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
               Icons.check_circle_outline,
               size: 120.sp,
-              color: Colors.green[300],
+              color: AppColors.successDark,
             ),
-            SizedBox(height: 24.h),
+            const SizedBox(height: AppSpacing.xxl),
             Text(
               'All Caught Up! 🎉',
-              style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                fontWeight: FontWeight.bold,
-                color: Colors.green,
+              style: AppTypography.h1.copyWith(
+                color: AppColors.successDark,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: AppSpacing.lg),
             Text(
               'You have no questions due for review.\nKeep up the great work!',
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                color: Colors.grey[600],
+              style: AppTypography.bodyL.copyWith(
+                color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
               ),
             ),
-            const SizedBox(height: 32),
+            const SizedBox(height: AppSpacing.xxxl),
             ElevatedButton.icon(
               onPressed: () {
                 // العودة مباشرة للصفحة الرئيسية
@@ -311,7 +342,14 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                 );
               },
               icon: const Icon(Icons.home),
-              label: const Text('Back to Home'),
+              label: Text(
+                'Back to Home',
+                style: AppTypography.button,
+              ),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: primaryGold,
+                foregroundColor: Colors.black,
+              ),
             ),
           ],
         ),
@@ -320,9 +358,12 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
   }
 
   Widget _buildQuestionView(BuildContext context, Question question, AppLocalizations? l10n) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
     final currentLocale = ref.watch(localeProvider);
+    
     return SingleChildScrollView(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(AppSpacing.lg),
       child: Column(
         children: [
           // Question Info
@@ -332,16 +373,21 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
               Text(
                 l10n?.questionLabel(_currentIndex + 1, _getQuestions().length) ?? 
                 'Question ${_currentIndex + 1}/${_getQuestions().length}',
-                style: Theme.of(context).textTheme.titleMedium,
+                style: AppTypography.h4.copyWith(
+                  color: theme.colorScheme.onSurface,
+                ),
               ),
               Chip(
                 avatar: const Icon(Icons.refresh, size: 16),
-                label: const Text('Review Mode'),
-                backgroundColor: Colors.orange[100],
+                label: Text(
+                  'Review Mode',
+                  style: AppTypography.bodyS,
+                ),
+                backgroundColor: AppColors.warningDark.withValues(alpha: isDark ? 0.2 : 0.1),
               ),
             ],
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: AppSpacing.lg),
 
           // Question Card
           QuestionCard(
@@ -359,7 +405,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
             onShowAiExplanation: () => _showAiExplanation(context, question),
           ),
 
-          const SizedBox(height: 32),
+          const SizedBox(height: AppSpacing.xxxl),
 
           // Next Button (only show after answer is checked)
           if (_isAnswerChecked)
@@ -372,9 +418,12 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                   _currentIndex < _getQuestions().length - 1
                       ? l10n?.nextQuestion ?? 'Next Question'
                       : l10n?.finishExam ?? 'Finish Review',
+                  style: AppTypography.button,
                 ),
                 style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  backgroundColor: isDark ? AppColors.gold : AppColors.goldDark,
+                  foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                  padding: const EdgeInsets.symmetric(vertical: AppSpacing.lg),
                 ),
               ),
             ),
@@ -404,22 +453,24 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
           context: context,
           builder: (context) {
             final theme = Theme.of(context);
+            final isDark = theme.brightness == Brightness.dark;
+            final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+            final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+            
             return AlertDialog(
-              backgroundColor: theme.cardTheme.color,
+              backgroundColor: surfaceColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.r),
               ),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
-                  SizedBox(width: 12.w),
+                  Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp),
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: Text(
                       l10n?.upgradeToPro ?? 'Upgrade to Pro',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: theme.colorScheme.onSurface,
+                      style: AppTypography.h3.copyWith(
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -429,9 +480,8 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
               ),
               content: Text(
                 l10n?.aiTutorDailyLimitReached ?? 'You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                style: AppTypography.bodyM.copyWith(
+                  color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                 ),
               ),
               actions: [
@@ -439,7 +489,9 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n?.cancel ?? 'Cancel',
-                    style: GoogleFonts.poppins(color: theme.colorScheme.onSurface.withValues(alpha: 0.7)),
+                    style: AppTypography.button.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                    ),
                   ),
                 ),
                 ElevatedButton(
@@ -453,12 +505,12 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
-                    foregroundColor: Colors.black,
+                    backgroundColor: primaryGold,
+                    foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   ),
                   child: Text(
                     l10n?.upgrade ?? 'Upgrade',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -479,12 +531,19 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => _AiExplanationBottomSheet(
-        question: question,
-        userLanguage: userLanguage,
-        isArabic: isArabic,
-        l10n: l10n,
-      ),
+      builder: (context) {
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
+        final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+        return _AiExplanationBottomSheet(
+          question: question,
+          userLanguage: userLanguage,
+          isArabic: isArabic,
+          l10n: l10n,
+          isDark: isDark,
+          primaryGold: primaryGold,
+        );
+      },
     );
   }
 }
@@ -495,12 +554,16 @@ class _AiExplanationBottomSheet extends StatefulWidget {
   final String userLanguage;
   final bool isArabic;
   final AppLocalizations? l10n;
+  final bool isDark;
+  final Color primaryGold;
 
   const _AiExplanationBottomSheet({
     required this.question,
     required this.userLanguage,
     required this.isArabic,
     required this.l10n,
+    required this.isDark,
+    required this.primaryGold,
   });
 
   @override
@@ -560,13 +623,14 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final surfaceColor = widget.isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Container(
       constraints: BoxConstraints(
         maxHeight: MediaQuery.of(context).size.height * 0.85,
       ),
       decoration: BoxDecoration(
-        color: theme.cardTheme.color,
+        color: surfaceColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24.r),
           topRight: Radius.circular(24.r),
@@ -577,33 +641,33 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
         children: [
           // Handle bar
           Container(
-            margin: EdgeInsets.only(top: 12.h),
+            margin: const EdgeInsets.only(top: AppSpacing.md),
             width: 40.w,
             height: 4.h,
             decoration: BoxDecoration(
-              color: Colors.grey.shade600,
+              color: widget.isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant,
               borderRadius: BorderRadius.circular(2.r),
             ),
           ),
           
           // Header
           Padding(
-            padding: EdgeInsets.all(20.w),
+            padding: const EdgeInsets.all(AppSpacing.xl),
             child: Row(
               children: [
                 Container(
-                  padding: EdgeInsets.all(12.w),
+                  padding: const EdgeInsets.all(AppSpacing.md),
                   decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.2),
+                    color: widget.primaryGold.withValues(alpha: 0.2),
                     borderRadius: BorderRadius.circular(12.r),
                   ),
                   child: Icon(
                     Icons.auto_awesome,
-                    color: AppColors.eagleGold,
+                    color: widget.primaryGold,
                     size: 24.sp,
                   ),
                 ),
-                SizedBox(width: 16.w),
+                const SizedBox(width: AppSpacing.lg),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -612,21 +676,20 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                         widget.isArabic
                             ? 'شرح من Eagle AI Tutor'
                             : 'Explanation from Eagle AI Tutor',
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.h3.copyWith(
                           fontSize: 18.sp,
-                          fontWeight: FontWeight.bold,
-                          color: theme.colorScheme.onSurface,
+                          color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                         ),
                         maxLines: 1,
                       ),
-                      SizedBox(height: 4.h),
+                      const SizedBox(height: AppSpacing.xs),
                       AutoSizeText(
                         widget.isArabic
                             ? 'شرح مفصل للسؤال والإجابة الصحيحة'
                             : 'Detailed explanation of the question and correct answer',
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.bodyS.copyWith(
                           fontSize: 12.sp,
-                          color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                          color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                         ),
                         maxLines: 1,
                       ),
@@ -634,14 +697,17 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                   ),
                 ),
                 IconButton(
-                  icon: Icon(Icons.close, color: theme.colorScheme.onSurface),
+                  icon: Icon(
+                    Icons.close, 
+                    color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
+                  ),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],
             ),
           ),
           
-          Divider(height: 1.h),
+          Divider(height: 1.h, color: widget.isDark ? AppColors.darkDivider : AppColors.lightDivider),
           
           // Content
           Flexible(
@@ -650,16 +716,16 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return Padding(
-                    padding: EdgeInsets.all(40.w),
+                    padding: const EdgeInsets.all(AppSpacing.xxxxl),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const CircularProgressIndicator(color: AppColors.eagleGold),
-                        SizedBox(height: 16.h),
+                        CircularProgressIndicator(color: widget.primaryGold),
+                        const SizedBox(height: AppSpacing.lg),
                         AutoSizeText(
                           widget.isArabic ? 'جاري تحميل الشرح...' : 'Loading explanation...',
-                          style: GoogleFonts.poppins(
-                            color: theme.colorScheme.onSurface.withValues(alpha: 0.7),
+                          style: AppTypography.bodyM.copyWith(
+                            color: widget.isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                           ),
                         ),
                       ],
@@ -669,18 +735,18 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                 
                 if (snapshot.hasError) {
                   return Padding(
-                    padding: EdgeInsets.all(40.w),
+                    padding: const EdgeInsets.all(AppSpacing.xxxxl),
                     child: Column(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Icon(Icons.error_outline, color: Colors.red, size: 48.sp),
-                        SizedBox(height: 16.h),
+                        Icon(Icons.error_outline, color: AppColors.errorDark, size: 48.sp),
+                        const SizedBox(height: AppSpacing.lg),
                         AutoSizeText(
                           widget.isArabic
                               ? 'حدث خطأ أثناء تحميل الشرح'
                               : 'Error loading explanation',
-                          style: GoogleFonts.poppins(
-                            color: Colors.red,
+                          style: AppTypography.bodyL.copyWith(
+                            color: AppColors.errorDark,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -692,17 +758,17 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                 final explanation = snapshot.data ?? '';
                 
                 return SingleChildScrollView(
-                  padding: EdgeInsets.all(20.w),
+                  padding: const EdgeInsets.all(AppSpacing.xl),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       // Explanation text (Markdown support can be added here)
                       AutoSizeText(
                         explanation,
-                        style: GoogleFonts.poppins(
+                        style: AppTypography.bodyL.copyWith(
                           fontSize: 16.sp,
-                          color: theme.colorScheme.onSurface,
                           height: 1.6,
+                          color: widget.isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                         ),
                       ),
                     ],
@@ -714,7 +780,7 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
           
           // Actions
           Padding(
-            padding: EdgeInsets.all(20.w),
+            padding: const EdgeInsets.all(AppSpacing.xl),
             child: Row(
               children: [
                 Expanded(
@@ -724,33 +790,33 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                         ? SizedBox(
                             width: 16.w,
                             height: 16.h,
-                            child: const CircularProgressIndicator(
+                            child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              color: AppColors.eagleGold,
+                              color: widget.primaryGold,
                             ),
                           )
                         : Icon(Icons.refresh, size: 20.sp),
                     label: Text(
                       widget.isArabic ? 'تحديث' : 'Refresh',
-                      style: GoogleFonts.poppins(),
+                      style: AppTypography.button,
                     ),
                     style: OutlinedButton.styleFrom(
-                      side: const BorderSide(color: AppColors.eagleGold),
-                      foregroundColor: AppColors.eagleGold,
+                      side: BorderSide(color: widget.primaryGold),
+                      foregroundColor: widget.primaryGold,
                     ),
                   ),
                 ),
-                SizedBox(width: 12.w),
+                const SizedBox(width: AppSpacing.md),
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () => Navigator.pop(context),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: AppColors.eagleGold,
-                      foregroundColor: Colors.black,
+                      backgroundColor: widget.primaryGold,
+                      foregroundColor: widget.isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                     ),
                     child: Text(
                       widget.isArabic ? 'إغلاق' : 'Close',
-                      style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                      style: AppTypography.button,
                     ),
                   ),
                 ),

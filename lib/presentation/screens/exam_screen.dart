@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:confetti/confetti.dart';
@@ -19,6 +18,8 @@ import '../widgets/gamification/celebration_overlay.dart';
 import '../widgets/gamification/animated_question_card.dart';
 import '../widgets/core/adaptive_page_wrapper.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_typography.dart';
+import '../../core/theme/app_spacing.dart';
 import '../../core/debug/app_logger.dart';
 import '../../core/services/ai_tutor_service.dart';
 import '../../core/storage/hive_service.dart';
@@ -159,6 +160,9 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
     final l10n = AppLocalizations.of(context);
     final currentLocale = ref.read(localeProvider);
     final userLanguage = currentLocale.languageCode;
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
 
     // Check if user is Pro
     final subscriptionState = ref.read(subscriptionProvider);
@@ -174,21 +178,19 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
           showDialog(
             context: context,
             builder: (context) => AlertDialog(
-              backgroundColor: AppColors.darkSurface,
+              backgroundColor: surfaceColor,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.r),
               ),
               title: Row(
                 children: [
-                  Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 28.sp),
-                  SizedBox(width: 12.w),
+                  Icon(Icons.auto_awesome, color: primaryGold, size: 28.sp),
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: Text(
                       l10n?.upgradeToPro ?? 'Upgrade to Pro',
-                      style: GoogleFonts.poppins(
-                        fontSize: 20.sp,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
+                      style: AppTypography.h3.copyWith(
+                        color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       ),
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -198,9 +200,8 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
               ),
               content: Text(
                 l10n?.aiTutorDailyLimitReached ?? 'You have used AI Tutor 3 times today. Subscribe to Pro for unlimited usage.',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: Colors.white70,
+                style: AppTypography.bodyM.copyWith(
+                  color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                 ),
               ),
               actions: [
@@ -208,7 +209,9 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                   onPressed: () => Navigator.pop(context),
                   child: Text(
                     l10n?.cancel ?? 'Cancel',
-                    style: GoogleFonts.poppins(color: Colors.white54),
+                    style: AppTypography.button.copyWith(
+                      color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                    ),
                   ),
                 ),
                 ElevatedButton(
@@ -222,12 +225,12 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.eagleGold,
+                    backgroundColor: primaryGold,
                     foregroundColor: Colors.black,
                   ),
                   child: Text(
                     l10n?.upgrade ?? 'Upgrade',
-                    style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                    style: AppTypography.button,
                   ),
                 ),
               ],
@@ -289,6 +292,12 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
     final modeTitle = widget.mode == ExamMode.quick
         ? (l10n?.quickPractice ?? 'Quick Practice')
         : (l10n?.examMode ?? 'Exam Mode');
+    
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
 
     return PopScope(
       canPop: false,
@@ -304,36 +313,36 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
           final shouldQuit = await showDialog<bool>(
             context: context,
             builder: (context) => AlertDialog(
-              backgroundColor: AppColors.darkSurface,
+              backgroundColor: surfaceColor,
               title: Text(
                 l10n?.quitExam ?? 'Quit Exam?',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
+                style: AppTypography.h3.copyWith(
+                  color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                 ),
               ),
               content: Text(
                 l10n?.quitExamMessage ?? 'Your progress will be lost.',
-                style: const TextStyle(color: Colors.white70),
+                style: AppTypography.bodyM.copyWith(
+                  color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                ),
               ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context, false),
                   child: Text(
                     l10n?.stay ?? 'Stay',
-                    style: const TextStyle(color: AppColors.eagleGold),
+                    style: AppTypography.button.copyWith(color: primaryGold),
                   ),
                 ),
                 TextButton(
                   onPressed: () => Navigator.pop(context, true),
                   style: TextButton.styleFrom(
-                    foregroundColor: AppColors.germanRed,
+                    foregroundColor: AppColors.errorDark,
                   ),
                   child: Text(
                     l10n?.quit ?? 'Quit',
-                    style: const TextStyle(
-                      color: AppColors.germanRed,
-                      fontWeight: FontWeight.bold,
+                    style: AppTypography.button.copyWith(
+                      color: AppColors.errorDark,
                     ),
                   ),
                 ),
@@ -359,12 +368,19 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
               gradient: LinearGradient(
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
-                colors: [
-                  AppColors.darkCharcoal,
-                  AppColors.darkCharcoal.withValues(alpha: 0.95),
-                  AppColors.darkSurface.withValues(alpha: 0.9),
-                  AppColors.darkSurface,
-                ],
+                colors: isDark
+                    ? [
+                        bgColor,
+                        bgColor.withValues(alpha: 0.95),
+                        surfaceColor.withValues(alpha: 0.9),
+                        surfaceColor,
+                      ]
+                    : [
+                        bgColor,
+                        bgColor,
+                        surfaceColor.withValues(alpha: 0.5),
+                        surfaceColor,
+                      ],
                 stops: const [0.0, 0.3, 0.7, 1.0],
               ),
             ),
@@ -373,20 +389,22 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
               appBar: AppBar(
                 title: Text(
                   modeTitle,
-                  style: GoogleFonts.poppins(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                  style: AppTypography.h2.copyWith(
+                    color: theme.colorScheme.onSurface,
                   ),
                 ),
                 backgroundColor: Colors.transparent,
                 elevation: 0,
+                iconTheme: IconThemeData(
+                  color: theme.colorScheme.onSurface,
+                ),
                 bottom: PreferredSize(
                   preferredSize: const Size.fromHeight(4),
                   child: questionsAsync.when(
                     data: (q) => LinearProgressIndicator(
                       value: (q.isEmpty) ? 0 : (_currentIndex + 1) / q.length,
-                      backgroundColor: AppColors.germanRed.withValues(alpha: 0.2),
-                      valueColor: const AlwaysStoppedAnimation(AppColors.eagleGold),
+                      backgroundColor: AppColors.errorDark.withValues(alpha: 0.2),
+                      valueColor: AlwaysStoppedAnimation(primaryGold),
                     ),
                     loading: () => const LinearProgressIndicator(value: 0),
                     error: (_, __) => const LinearProgressIndicator(value: 0),
@@ -406,13 +424,16 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Icon(Icons.quiz_outlined, size: 64.sp, color: Colors.grey.shade600),
-                          SizedBox(height: 16.h),
+                          Icon(
+                            Icons.quiz_outlined, 
+                            size: 64.sp, 
+                            color: isDark ? Colors.grey.shade600 : Colors.grey.shade400,
+                          ),
+                          const SizedBox(height: AppSpacing.lg),
                           AutoSizeText(
                             l10n?.noQuestions ?? 'No questions loaded.',
-                            style: GoogleFonts.poppins(
-                              fontSize: 16.sp,
-                              color: Colors.white70,
+                            style: AppTypography.bodyL.copyWith(
+                              color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                             ),
                             textAlign: TextAlign.center,
                             maxLines: 2,
@@ -426,19 +447,24 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     children: [
                       // Top Timer and Info
                       Container(
-                        padding: EdgeInsets.all(16.w),
+                        padding: const EdgeInsets.all(AppSpacing.lg),
                         decoration: BoxDecoration(
                           gradient: LinearGradient(
                             begin: Alignment.topLeft,
                             end: Alignment.bottomRight,
-                            colors: [
-                              AppColors.darkSurface.withValues(alpha: 0.8),
-                              AppColors.darkSurface.withValues(alpha: 0.6),
-                            ],
+                            colors: isDark
+                                ? [
+                                    surfaceColor.withValues(alpha: 0.8),
+                                    surfaceColor.withValues(alpha: 0.6),
+                                  ]
+                                : [
+                                    surfaceColor,
+                                    surfaceColor.withValues(alpha: 0.8),
+                                  ],
                           ),
                           boxShadow: [
                             BoxShadow(
-                              color: Colors.black.withValues(alpha: 0.3),
+                              color: Colors.black.withValues(alpha: isDark ? 0.3 : 0.1),
                               blurRadius: 10,
                               offset: const Offset(0, 2),
                             ),
@@ -451,40 +477,42 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                               child: AutoSizeText(
                                 l10n?.questionLabel(_currentIndex + 1, questions.length) ?? 
                                 'Question ${_currentIndex + 1}/${questions.length}',
-                                style: GoogleFonts.poppins(
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w600,
-                                  color: Colors.white,
+                                style: AppTypography.h4.copyWith(
+                                  color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                                 ),
                                 maxLines: 1,
                               ),
                             ),
-                            SizedBox(width: 8.w),
+                            const SizedBox(width: AppSpacing.sm),
                             Container(
-                              padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 6.h),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: AppSpacing.md, 
+                                vertical: AppSpacing.sm,
+                              ),
                               decoration: BoxDecoration(
                                 gradient: LinearGradient(
                                   colors: [
-                                    AppColors.eagleGold.withValues(alpha: 0.3),
-                                    AppColors.eagleGold.withValues(alpha: 0.2),
+                                    primaryGold.withValues(alpha: 0.3),
+                                    primaryGold.withValues(alpha: 0.2),
                                   ],
                                 ),
                                 borderRadius: BorderRadius.circular(20.r),
                                 border: Border.all(
-                                  color: AppColors.eagleGold.withValues(alpha: 0.5),
+                                  color: primaryGold.withValues(alpha: 0.5),
                                   width: 1.5.w,
                                 ),
                               ),
                               child: Row(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
-                                  Icon(Icons.timer, size: 16.sp, color: AppColors.eagleGold),
-                                  SizedBox(width: 4.w),
+                                  Icon(Icons.timer, size: 16.sp, color: primaryGold),
+                                  const SizedBox(width: AppSpacing.xs),
                                   Text(
                                     _formatTime(_remainingSeconds),
-                                    style: GoogleFonts.poppins(
-                                      fontSize: 14.sp,
-                                      color: _remainingSeconds < 300 ? Colors.red : Colors.white,
+                                    style: AppTypography.bodyM.copyWith(
+                                      color: _remainingSeconds < 300 
+                                          ? AppColors.errorDark 
+                                          : (isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary),
                                       fontWeight: _remainingSeconds < 300 ? FontWeight.bold : FontWeight.normal,
                                     ),
                                   ),
@@ -527,7 +555,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
 
                       // Next Button
                       Container(
-                        margin: EdgeInsets.all(16.w),
+                        margin: const EdgeInsets.all(AppSpacing.lg),
                         child: SizedBox(
                           width: double.infinity,
                           child: Container(
@@ -535,8 +563,8 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                               gradient: _selectedAnswerId != null
                                   ? LinearGradient(
                                       colors: [
-                                        AppColors.eagleGold,
-                                        AppColors.eagleGold.withValues(alpha: 0.8),
+                                        primaryGold,
+                                        primaryGold.withValues(alpha: 0.8),
                                       ],
                                     )
                                   : null,
@@ -544,7 +572,7 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                               boxShadow: _selectedAnswerId != null
                                   ? [
                                       BoxShadow(
-                                        color: AppColors.eagleGold.withValues(alpha: 0.4),
+                                        color: primaryGold.withValues(alpha: isDark ? 0.4 : 0.25),
                                         blurRadius: 15,
                                         spreadRadius: 2,
                                         offset: const Offset(0, 6),
@@ -558,10 +586,10 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                                 : _nextQuestion,
                               style: ElevatedButton.styleFrom(
                                 backgroundColor: _selectedAnswerId == null 
-                                    ? Colors.grey.shade700 
+                                    ? (isDark ? Colors.grey.shade700 : Colors.grey.shade300)
                                     : Colors.transparent,
                                 foregroundColor: _selectedAnswerId == null 
-                                    ? Colors.grey.shade400 
+                                    ? (isDark ? Colors.grey.shade400 : Colors.grey.shade600)
                                     : Colors.black,
                                 padding: EdgeInsets.symmetric(vertical: 18.h),
                                 shape: RoundedRectangleBorder(
@@ -573,9 +601,8 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                                 _currentIndex < questions.length - 1
                                     ? (l10n?.nextQuestion ?? 'Next Question')
                                     : (l10n?.finishExam ?? 'Finish Exam'),
-                                style: GoogleFonts.poppins(
+                                style: AppTypography.button.copyWith(
                                   fontSize: 18.sp,
-                                  fontWeight: FontWeight.bold,
                                 ),
                                 maxLines: 1,
                               ),
@@ -586,38 +613,37 @@ class _ExamScreenState extends ConsumerState<ExamScreen> {
                     ],
                   );
                 },
-                loading: () => const Center(
+                loading: () => Center(
                   child: CircularProgressIndicator(
-                    color: AppColors.eagleGold,
+                    color: primaryGold,
                   ),
                 ),
                     error: (e, s) {
                       AppLogger.error('Exam Error', source: 'ExamScreen', error: e, stackTrace: s);
                       return Center(
                         child: Padding(
-                      padding: EdgeInsets.all(24.w),
+                      padding: const EdgeInsets.all(AppSpacing.xxl),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Icon(Icons.error_outline, size: 64.sp, color: Colors.red),
-                          SizedBox(height: 16.h),
+                          Icon(Icons.error_outline, size: 64.sp, color: AppColors.errorDark),
+                          const SizedBox(height: AppSpacing.lg),
                           AutoSizeText(
                             "${l10n?.errorLoadingExam ?? 'Error loading exam'}: $e",
-                            style: GoogleFonts.poppins(
-                              fontSize: 16.sp,
-                              color: Colors.white,
+                            style: AppTypography.bodyL.copyWith(
+                              color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                             ),
                             textAlign: TextAlign.center,
                             maxLines: 5,
                           ),
-                          SizedBox(height: 24.h),
+                          const SizedBox(height: AppSpacing.xxl),
                           ElevatedButton(
                             onPressed: () {
                               Navigator.pop(context);
                             },
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: AppColors.eagleGold,
+                              backgroundColor: primaryGold,
                               foregroundColor: Colors.black,
                             ),
                             child: Text(l10n?.goBack ?? 'Go Back'),
@@ -703,10 +729,15 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Container(
       height: MediaQuery.of(context).size.height * 0.6,
       decoration: BoxDecoration(
-        color: AppColors.darkSurface,
+        color: surfaceColor,
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(24.r),
           topRight: Radius.circular(24.r),
@@ -716,29 +747,34 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
         children: [
           // Header
           Padding(
-            padding: EdgeInsets.all(16.w),
+            padding: const EdgeInsets.all(AppSpacing.lg),
             child: Row(
               children: [
-                Icon(Icons.auto_awesome, color: AppColors.eagleGold, size: 24.sp),
-                SizedBox(width: 12.w),
+                Icon(Icons.auto_awesome, color: primaryGold, size: 24.sp),
+                const SizedBox(width: AppSpacing.md),
                 Expanded(
                   child: Text(
                     widget.l10n?.explainWithAi ?? 'Question Explanation',
-                    style: GoogleFonts.poppins(
-                      fontSize: 20.sp,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                    style: AppTypography.h3.copyWith(
+                      color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                     ),
                   ),
                 ),
                 IconButton(
-                  icon: const Icon(Icons.close, color: Colors.white70),
+                  icon: Icon(
+                    Icons.close, 
+                    color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
+                  ),
                   onPressed: () => Navigator.pop(context),
                 ),
               ],
             ),
           ),
-          Divider(color: Colors.white.withValues(alpha: 0.1)),
+          Divider(
+            color: isDark 
+                ? Colors.white.withValues(alpha: 0.1) 
+                : Colors.black.withValues(alpha: 0.1),
+          ),
           // Content
           Expanded(
             child: FutureBuilder<String>(
@@ -749,13 +785,12 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const CircularProgressIndicator(color: AppColors.eagleGold),
-                        SizedBox(height: 24.h),
+                        CircularProgressIndicator(color: primaryGold),
+                        const SizedBox(height: AppSpacing.xxl),
                         Text(
                           widget.l10n?.aiThinking ?? 'AI is thinking...',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white70,
-                            fontSize: 14.sp,
+                          style: AppTypography.bodyM.copyWith(
+                            color: isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary,
                           ),
                         ),
                       ],
@@ -765,31 +800,29 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
                 if (snapshot.hasError) {
                   return Padding(
-                    padding: EdgeInsets.all(24.w),
+                    padding: const EdgeInsets.all(AppSpacing.xxl),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(Icons.error_outline, color: Colors.red, size: 48.sp),
-                        SizedBox(height: 16.h),
+                        Icon(Icons.error_outline, color: AppColors.errorDark, size: 48.sp),
+                        const SizedBox(height: AppSpacing.lg),
                         Text(
                           widget.l10n?.errorLoadingExplanation ?? 'Error loading explanation',
-                          style: GoogleFonts.poppins(
-                            color: Colors.white,
-                            fontSize: 16.sp,
-                            fontWeight: FontWeight.bold,
+                          style: AppTypography.h4.copyWith(
+                            color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                           ),
                           textAlign: TextAlign.center,
                         ),
-                        SizedBox(height: 24.h),
+                        const SizedBox(height: AppSpacing.xxl),
                         ElevatedButton.icon(
                           onPressed: _refreshExplanation,
                           icon: Icon(Icons.refresh, size: 20.sp),
                           label: Text(
                             widget.l10n?.retry ?? 'Retry',
-                            style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                            style: AppTypography.button,
                           ),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: AppColors.eagleGold,
+                            backgroundColor: primaryGold,
                             foregroundColor: Colors.black,
                           ),
                         ),
@@ -800,12 +833,11 @@ class _AiExplanationBottomSheetState extends State<_AiExplanationBottomSheet> {
 
                 final explanation = snapshot.data ?? '';
                 return SingleChildScrollView(
-                  padding: EdgeInsets.all(24.w),
+                  padding: const EdgeInsets.all(AppSpacing.xxl),
                   child: Text(
                     explanation,
-                    style: GoogleFonts.poppins(
-                      fontSize: 16.sp,
-                      color: Colors.white,
+                    style: AppTypography.bodyL.copyWith(
+                      color: isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary,
                       height: 1.6,
                     ),
                   ),

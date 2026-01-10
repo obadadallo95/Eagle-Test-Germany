@@ -27,6 +27,11 @@ class AnimatedQuestionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     return Padding(
       padding: padding ?? EdgeInsets.all(16.w),
       child: SlideInRight(
@@ -35,11 +40,11 @@ class AnimatedQuestionCard extends StatelessWidget {
         child: Container(
           decoration: decoration ??
               BoxDecoration(
-                color: AppColors.darkSurface,
+                color: surfaceColor,
                 borderRadius: BorderRadius.circular(24.r),
                 boxShadow: [
                   BoxShadow(
-                    color: AppColors.eagleGold.withValues(alpha: 0.3),
+                    color: primaryGold.withValues(alpha: 0.3),
                     blurRadius: 20,
                     spreadRadius: 2,
                     offset: const Offset(0, 4),

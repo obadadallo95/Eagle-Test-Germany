@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:purchases_flutter/purchases_flutter.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../../core/theme/app_typography.dart';
+import '../../../core/theme/app_spacing.dart';
 import '../../../l10n/app_localizations.dart';
 import '../../providers/subscription_provider.dart';
 import '../../../core/debug/app_logger.dart';
@@ -67,12 +68,16 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
     final subscriptionState = ref.watch(subscriptionProvider);
     final subscriptionNotifier = ref.read(subscriptionProvider.notifier);
     final isPro = subscriptionState.isPro;
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
 
     return Scaffold(
-      backgroundColor: const Color(0xFF0D0D12),
+      backgroundColor: bgColor,
       body: subscriptionState.isLoading
-          ? const Center(
-              child: CircularProgressIndicator(color: AppColors.eagleGold),
+          ? Center(
+              child: CircularProgressIndicator(color: primaryGold),
             )
           : Stack(
               children: [
@@ -152,15 +157,20 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   }
 
   Widget _buildBackground() {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    
     return Container(
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            AppColors.eagleGold.withValues(alpha: 0.08),
-            const Color(0xFF0D0D12),
-            const Color(0xFF0D0D12),
+            primaryGold.withValues(alpha: 0.08),
+            bgColor,
+            bgColor,
           ],
           stops: const [0.0, 0.35, 1.0],
         ),
@@ -169,6 +179,10 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   }
 
   Widget _buildHeader(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
       child: Row(
@@ -179,12 +193,12 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 6.h),
             decoration: BoxDecoration(
               gradient: LinearGradient(
-                colors: [AppColors.eagleGold, AppColors.eagleGold.withValues(alpha: 0.7)],
+                colors: [AppColors.gold, AppColors.gold.withValues(alpha: 0.7)],
               ),
               borderRadius: BorderRadius.circular(20.r),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.eagleGold.withValues(alpha: 0.3),
+                  color: AppColors.gold.withValues(alpha: 0.3),
                   blurRadius: 8,
                   offset: const Offset(0, 2),
                 ),
@@ -193,14 +207,13 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             child: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Icon(Icons.workspace_premium, size: 16.sp, color: Colors.white),
+                Icon(Icons.workspace_premium, size: 16.sp, color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary),
                 SizedBox(width: 6.w),
                 Text(
                   'PRO',
-                  style: GoogleFonts.poppins(
-                    fontSize: 13.sp,
+                  style: AppTypography.badge.copyWith(
                     fontWeight: FontWeight.bold,
-                    color: Colors.white,
+                    color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                     letterSpacing: 1,
                   ),
                 ),
@@ -213,10 +226,12 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             child: Container(
               padding: EdgeInsets.all(8.w),
               decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.1),
+                color: isDark 
+                    ? AppColors.darkSurface.withValues(alpha: 0.5)
+                    : AppColors.lightSurfaceVariant,
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.close, size: 22.sp, color: Colors.white70),
+              child: Icon(Icons.close, size: 22.sp, color: textSecondary),
             ),
           ),
         ],
@@ -225,6 +240,12 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   }
 
   Widget _buildHeroSection(bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Column(
       children: [
         // App Logo
@@ -235,7 +256,7 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             borderRadius: BorderRadius.circular(20.r),
             boxShadow: [
               BoxShadow(
-                color: AppColors.eagleGold.withValues(alpha: 0.4),
+                color: primaryGold.withValues(alpha: 0.4),
                 blurRadius: 20,
                 spreadRadius: 2,
               ),
@@ -257,10 +278,8 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
         // Title
         Text(
           isArabic ? 'اشتراك Pro' : 'Go Pro',
-          style: GoogleFonts.poppins(
-            fontSize: 28.sp,
-            fontWeight: FontWeight.bold,
-            color: Colors.white,
+          style: AppTypography.h1.copyWith(
+            color: textPrimary,
           ),
         ),
         
@@ -271,9 +290,8 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
           isArabic 
             ? 'افتح جميع الميزات المتقدمة'
             : 'Unlock all premium features',
-          style: GoogleFonts.poppins(
-            fontSize: 14.sp,
-            color: Colors.white60,
+          style: AppTypography.bodyM.copyWith(
+            color: textSecondary,
           ),
         ),
       ],
@@ -283,6 +301,11 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   /// TOP 3 KEY FEATURES - Always visible, prominent
   Widget _buildTopFeatures(bool isArabic) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
     
     final topFeatures = [
       {
@@ -313,14 +336,12 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
           padding: EdgeInsets.only(bottom: 12.h),
           child: Row(
             children: [
-              Icon(Icons.star, size: 18.sp, color: AppColors.eagleGold),
+              Icon(Icons.star, size: 18.sp, color: primaryGold),
               SizedBox(width: 8.w),
               Text(
                 isArabic ? 'أهم المميزات' : 'Top Features',
-                style: GoogleFonts.poppins(
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white,
+                style: AppTypography.h4.copyWith(
+                  color: textPrimary,
                 ),
               ),
             ],
@@ -363,18 +384,16 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                     children: [
                       Text(
                         feature['title'] as String,
-                        style: GoogleFonts.poppins(
-                          fontSize: 14.sp,
+                        style: AppTypography.bodyM.copyWith(
                           fontWeight: FontWeight.w600,
-                          color: Colors.white,
+                          color: textPrimary,
                         ),
                       ),
                       SizedBox(height: 2.h),
                       Text(
                         feature['subtitle'] as String,
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
-                          color: Colors.white54,
+                        style: AppTypography.bodyS.copyWith(
+                          color: textSecondary,
                         ),
                       ),
                     ],
@@ -400,6 +419,13 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
     bool isArabic, {
     bool isPro = false,
   }) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
+    
     final packages = offerings?.current?.availablePackages ?? [];
     
     List<Package> availablePackages = [];
@@ -449,10 +475,8 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
           padding: EdgeInsets.only(bottom: 12.h),
           child: Text(
             isArabic ? 'اختر خطتك' : 'Choose Your Plan',
-            style: GoogleFonts.poppins(
-              fontSize: 16.sp,
-              fontWeight: FontWeight.w600,
-              color: Colors.white,
+            style: AppTypography.h4.copyWith(
+              color: textPrimary,
             ),
           ),
         ),
@@ -473,17 +497,17 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                 gradient: isSelected
                     ? LinearGradient(
                         colors: [
-                          AppColors.eagleGold.withValues(alpha: 0.15),
-                          AppColors.eagleGold.withValues(alpha: 0.05),
+                          primaryGold.withValues(alpha: 0.15),
+                          primaryGold.withValues(alpha: 0.05),
                         ],
                       )
                     : null,
-                color: isSelected ? null : const Color(0xFF1A1A24),
+                color: isSelected ? null : surfaceColor,
                 borderRadius: BorderRadius.circular(14.r),
                 border: Border.all(
                   color: isSelected 
-                      ? AppColors.eagleGold 
-                      : Colors.white.withValues(alpha: 0.08),
+                      ? primaryGold 
+                      : (isDark ? AppColors.darkBorder : AppColors.lightBorder),
                   width: isSelected ? 2 : 1,
                 ),
               ),
@@ -496,13 +520,17 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: isSelected ? AppColors.eagleGold : Colors.white30,
+                        color: isSelected ? primaryGold : (isDark ? AppColors.darkBorder : AppColors.lightTextTertiary),
                         width: 2,
                       ),
-                      color: isSelected ? AppColors.eagleGold : Colors.transparent,
+                      color: isSelected ? primaryGold : Colors.transparent,
                     ),
                     child: isSelected
-                        ? Icon(Icons.check, size: 14.sp, color: Colors.white)
+                        ? Icon(
+                            Icons.check, 
+                            size: AppSpacing.iconSm, 
+                            color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                          )
                         : null,
                   ),
                   
@@ -514,10 +542,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                       children: [
                         Text(
                           _getPackageTitle(package, isArabic),
-                          style: GoogleFonts.poppins(
-                            fontSize: 15.sp,
+                          style: AppTypography.bodyM.copyWith(
                             fontWeight: FontWeight.w600,
-                            color: Colors.white,
+                            color: textPrimary,
                           ),
                         ),
                         if (isYearly) ...[
@@ -526,14 +553,16 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                             padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [Colors.green, Colors.green.shade700],
+                                colors: [
+                                  isDark ? AppColors.successDark : AppColors.successLight,
+                                  isDark ? AppColors.successLight : AppColors.successDark,
+                                ],
                               ),
                               borderRadius: BorderRadius.circular(6.r),
                             ),
                             child: Text(
                               isArabic ? 'الأفضل' : 'BEST',
-                              style: GoogleFonts.poppins(
-                                fontSize: 9.sp,
+                              style: AppTypography.badge.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
@@ -546,14 +575,13 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                             padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 3.h),
                             decoration: BoxDecoration(
                               gradient: LinearGradient(
-                                colors: [AppColors.eagleGold, AppColors.eagleGold.withValues(alpha: 0.7)],
+                                colors: [AppColors.gold, AppColors.gold.withValues(alpha: 0.7)],
                               ),
                               borderRadius: BorderRadius.circular(6.r),
                             ),
                             child: Text(
                               '∞',
-                              style: GoogleFonts.poppins(
-                                fontSize: 11.sp,
+                              style: AppTypography.badge.copyWith(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
                               ),
@@ -570,18 +598,16 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                     children: [
                       Text(
                         package.storeProduct.priceString,
-                        style: GoogleFonts.poppins(
-                          fontSize: 16.sp,
+                        style: AppTypography.h4.copyWith(
                           fontWeight: FontWeight.bold,
-                          color: isSelected ? AppColors.eagleGold : Colors.white,
+                          color: isSelected ? primaryGold : textPrimary,
                         ),
                       ),
                       if (!isLifetime)
                         Text(
                           _getPricePeriod(package, isArabic),
-                          style: GoogleFonts.poppins(
-                            fontSize: 11.sp,
-                            color: Colors.white54,
+                          style: AppTypography.bodyS.copyWith(
+                            color: textSecondary,
                           ),
                         ),
                     ],
@@ -598,6 +624,11 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   /// MORE FEATURES - Expandable section
   Widget _buildMoreFeatures(bool isArabic) {
     final l10n = AppLocalizations.of(context);
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final surfaceColor = isDark ? AppColors.darkSurface : AppColors.lightSurface;
     
     final moreFeatures = [
       {'icon': Icons.cloud_upload, 'name': l10n?.cloudBackupSync ?? 'Cloud Backup'},
@@ -617,16 +648,18 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
           child: Container(
             padding: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
             decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.05),
-              borderRadius: BorderRadius.circular(12.r),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.1)),
+              color: isDark ? AppColors.darkSurfaceVariant : AppColors.lightSurfaceVariant,
+              borderRadius: BorderRadius.circular(AppSpacing.radiusMd),
+              border: Border.all(
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
                   _showAllFeatures ? Icons.expand_less : Icons.expand_more,
-                  color: AppColors.eagleGold,
+                  color: primaryGold,
                   size: 20.sp,
                 ),
                 SizedBox(width: 8.w),
@@ -634,10 +667,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                   _showAllFeatures
                       ? (isArabic ? 'إخفاء المزيد' : 'Show Less')
                       : (isArabic ? '+${moreFeatures.length} ميزة أخرى' : '+${moreFeatures.length} More Features'),
-                  style: GoogleFonts.poppins(
-                    fontSize: 13.sp,
+                  style: AppTypography.bodyM.copyWith(
                     fontWeight: FontWeight.w500,
-                    color: AppColors.eagleGold,
+                    color: primaryGold,
                   ),
                 ),
               ],
@@ -652,9 +684,11 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             margin: EdgeInsets.only(top: 12.h),
             padding: EdgeInsets.all(14.w),
             decoration: BoxDecoration(
-              color: const Color(0xFF1A1A24),
+              color: surfaceColor,
               borderRadius: BorderRadius.circular(14.r),
-              border: Border.all(color: Colors.white.withValues(alpha: 0.08)),
+              border: Border.all(
+                color: isDark ? AppColors.darkBorder : AppColors.lightBorder,
+              ),
             ),
             child: Wrap(
               spacing: 10.w,
@@ -663,7 +697,7 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                 return Container(
                   padding: EdgeInsets.symmetric(horizontal: 12.w, vertical: 8.h),
                   decoration: BoxDecoration(
-                    color: AppColors.eagleGold.withValues(alpha: 0.1),
+                    color: primaryGold.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(20.r),
                   ),
                   child: Row(
@@ -672,14 +706,13 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                       Icon(
                         feature['icon'] as IconData,
                         size: 16.sp,
-                        color: AppColors.eagleGold,
+                        color: primaryGold,
                       ),
                       SizedBox(width: 6.w),
                       Text(
                         (feature['name'] as String).replaceAll(RegExp(r'[🎯☁️📊🏢👤🔄]'), '').trim(),
-                        style: GoogleFonts.poppins(
-                          fontSize: 12.sp,
-                          color: Colors.white,
+                        style: AppTypography.bodyS.copyWith(
+                          color: textPrimary,
                         ),
                       ),
                     ],
@@ -698,33 +731,37 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   }
 
   Widget _buildLifetimeCard(bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return Container(
       margin: EdgeInsets.symmetric(vertical: 20.h),
       padding: EdgeInsets.all(24.w),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [
-            AppColors.eagleGold.withValues(alpha: 0.2),
-            AppColors.eagleGold.withValues(alpha: 0.05),
+            primaryGold.withValues(alpha: 0.2),
+            primaryGold.withValues(alpha: 0.05),
           ],
         ),
         borderRadius: BorderRadius.circular(20.r),
-        border: Border.all(color: AppColors.eagleGold, width: 2),
+        border: Border.all(color: primaryGold, width: 2),
       ),
       child: Column(
         children: [
           Icon(
             Icons.workspace_premium,
             size: 56.sp,
-            color: AppColors.eagleGold,
+            color: primaryGold,
           ),
           SizedBox(height: 16.h),
           Text(
             '🎉 ${isArabic ? 'عضو مدى الحياة!' : 'Lifetime Member!'}',
-            style: GoogleFonts.poppins(
-              fontSize: 22.sp,
+            style: AppTypography.h2.copyWith(
               fontWeight: FontWeight.bold,
-              color: AppColors.eagleGold,
+              color: primaryGold,
             ),
             textAlign: TextAlign.center,
           ),
@@ -733,9 +770,8 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             isArabic
                 ? 'أنت تملك أفضل باقة. استمتع بجميع الميزات إلى الأبد!'
                 : 'You have the best plan. Enjoy all features forever!',
-            style: GoogleFonts.poppins(
-              fontSize: 14.sp,
-              color: Colors.white70,
+            style: AppTypography.bodyM.copyWith(
+              color: textSecondary,
               height: 1.5,
             ),
             textAlign: TextAlign.center,
@@ -746,15 +782,18 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
   }
 
   Widget _buildRestoreButton(SubscriptionNotifier notifier, bool isArabic) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return TextButton(
       onPressed: _isProcessing 
           ? null 
           : () => _handleRestorePurchases(notifier, isArabic),
       child: Text(
         isArabic ? 'استعادة المشتريات' : 'Restore purchases',
-        style: GoogleFonts.poppins(
-          fontSize: 13.sp,
-          color: Colors.white54,
+        style: AppTypography.bodyS.copyWith(
+          color: textSecondary,
           decoration: TextDecoration.underline,
         ),
       ),
@@ -763,6 +802,11 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
 
   Widget _buildStickyCTA(SubscriptionNotifier notifier, bool isArabic) {
     if (_selectedPackage == null) return const SizedBox.shrink();
+    
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final bgColor = isDark ? AppColors.darkBg : AppColors.lightBg;
+    const primaryGold = AppColors.gold; // Always use gold for buttons
 
     return Container(
       padding: EdgeInsets.fromLTRB(20.w, 12.h, 20.w, 24.h),
@@ -771,9 +815,9 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
           colors: [
-            const Color(0xFF0D0D12).withValues(alpha: 0),
-            const Color(0xFF0D0D12),
-            const Color(0xFF0D0D12),
+            bgColor.withValues(alpha: 0),
+            bgColor,
+            bgColor,
           ],
           stops: const [0.0, 0.3, 1.0],
         ),
@@ -789,14 +833,14 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             decoration: BoxDecoration(
               gradient: LinearGradient(
                 colors: [
-                  AppColors.eagleGold,
-                  AppColors.eagleGold.withValues(alpha: 0.85),
+                  primaryGold,
+                  primaryGold.withValues(alpha: 0.85),
                 ],
               ),
               borderRadius: BorderRadius.circular(16.r),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.eagleGold.withValues(alpha: 0.4),
+                  color: primaryGold.withValues(alpha: 0.4),
                   blurRadius: 16,
                   offset: const Offset(0, 6),
                 ),
@@ -807,9 +851,11 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                   ? SizedBox(
                       width: 24.w,
                       height: 24.h,
-                      child: const CircularProgressIndicator(
+                      child: CircularProgressIndicator(
                         strokeWidth: 2.5,
-                        valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
+                        ),
                       ),
                     )
                   : Row(
@@ -817,16 +863,16 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
                       children: [
                         Text(
                           isArabic ? 'اشترك الآن' : 'Subscribe Now',
-                          style: GoogleFonts.poppins(
+                          style: AppTypography.button.copyWith(
                             fontSize: 17.sp,
                             fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                            color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                           ),
                         ),
                         SizedBox(width: 8.w),
                         Icon(
                           isArabic ? Icons.arrow_back_rounded : Icons.arrow_forward_rounded,
-                          color: Colors.white,
+                          color: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                           size: 20.sp,
                         ),
                       ],
@@ -904,26 +950,31 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
             AppLogger.warn('Failed to sync progress after purchase: $e', source: 'PaywallScreen');
           });
           
+          if (!mounted) return;
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
                 isArabic ? 'تم الاشتراك بنجاح! 🎉' : 'Subscription successful! 🎉',
-                style: GoogleFonts.poppins(),
+                style: AppTypography.bodyM,
               ),
-              backgroundColor: Colors.green,
+              backgroundColor: isDark ? AppColors.successDark : AppColors.successLight,
             ),
           );
 
           await Future.delayed(const Duration(milliseconds: 500));
           if (mounted) Navigator.pop(context, true);
         } else {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
                 isArabic ? 'تم إلغاء الشراء' : 'Purchase cancelled',
-                style: GoogleFonts.poppins(),
+                style: AppTypography.bodyM,
               ),
-              backgroundColor: Colors.orange,
+              backgroundColor: isDark ? AppColors.warningDark : AppColors.warningLight,
             ),
           );
         }
@@ -931,13 +982,15 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
     } catch (e) {
       AppLogger.error('Purchase error', source: 'PaywallScreen', error: e, stackTrace: StackTrace.current);
       if (mounted) {
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
               isArabic ? 'حدث خطأ أثناء الشراء' : 'An error occurred',
-              style: GoogleFonts.poppins(),
+              style: AppTypography.bodyM,
             ),
-            backgroundColor: Colors.red,
+            backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
           ),
         );
       }
@@ -959,26 +1012,31 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
         if (success) {
           await _loadCurrentSubscription();
           
+          if (!mounted) return;
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
                 isArabic ? 'تم استعادة المشتريات! ✓' : 'Purchases restored! ✓',
-                style: GoogleFonts.poppins(),
+                style: AppTypography.bodyM,
               ),
-              backgroundColor: Colors.green,
+              backgroundColor: isDark ? AppColors.successDark : AppColors.successLight,
             ),
           );
 
           await Future.delayed(const Duration(milliseconds: 500));
           if (mounted) Navigator.pop(context, true);
         } else {
+          final theme = Theme.of(context);
+          final isDark = theme.brightness == Brightness.dark;
           ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(
               content: Text(
                 isArabic ? 'لم يتم العثور على مشتريات' : 'No purchases found',
-                style: GoogleFonts.poppins(),
+                style: AppTypography.bodyM,
               ),
-              backgroundColor: Colors.orange,
+              backgroundColor: isDark ? AppColors.warningDark : AppColors.warningLight,
             ),
           );
         }
@@ -986,13 +1044,15 @@ class _PaywallScreenState extends ConsumerState<PaywallScreen>
     } catch (e) {
       AppLogger.error('Restore error', source: 'PaywallScreen', error: e, stackTrace: StackTrace.current);
       if (mounted) {
+        final theme = Theme.of(context);
+        final isDark = theme.brightness == Brightness.dark;
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
               isArabic ? 'حدث خطأ أثناء الاستعادة' : 'An error occurred',
-              style: GoogleFonts.poppins(),
+              style: AppTypography.bodyM,
             ),
-            backgroundColor: Colors.red,
+            backgroundColor: isDark ? AppColors.errorDark : AppColors.errorLight,
           ),
         );
       }

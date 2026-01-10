@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import '../../core/theme/app_colors.dart';
+import '../../core/theme/app_typography.dart';
 import '../../l10n/app_localizations.dart';
 import '../providers/subscription_provider.dart';
 import '../screens/subscription/paywall_screen.dart';
@@ -24,11 +24,14 @@ class PaywallGuard extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final subscriptionState = ref.watch(subscriptionProvider);
     final isPro = subscriptionState.isPro;
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
 
     if (subscriptionState.isLoading) {
-      return const Center(
+      return Center(
         child: CircularProgressIndicator(
-          color: AppColors.eagleGold,
+          color: primaryGold,
         ),
       );
     }
@@ -42,11 +45,17 @@ class PaywallGuard extends ConsumerWidget {
   }
 
   Widget _buildPaywallOverlay(BuildContext context) {
+    final theme = Theme.of(context);
+    final isDark = theme.brightness == Brightness.dark;
+    final primaryGold = isDark ? AppColors.gold : AppColors.goldDark;
+    final textPrimary = isDark ? AppColors.darkTextPrimary : AppColors.lightTextPrimary;
+    final textSecondary = isDark ? AppColors.darkTextSecondary : AppColors.lightTextSecondary;
+    
     return GestureDetector(
       onTap: () => _navigateToPaywall(context),
       child: Container(
         decoration: BoxDecoration(
-          color: AppColors.darkCharcoal.withValues(alpha: 0.8),
+          color: isDark ? AppColors.darkBg.withValues(alpha: 0.8) : AppColors.lightBg.withValues(alpha: 0.8),
           borderRadius: BorderRadius.circular(16.r),
         ),
         child: Center(
@@ -56,24 +65,21 @@ class PaywallGuard extends ConsumerWidget {
               Icon(
                 Icons.auto_awesome,
                 size: 64.sp,
-                color: AppColors.eagleGold,
+                color: primaryGold,
               ),
               SizedBox(height: 16.h),
               AutoSizeText(
                 AppLocalizations.of(context)?.upgradeToPro ?? 'Upgrade to Pro',
-                style: GoogleFonts.poppins(
-                  fontSize: 20.sp,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                style: AppTypography.h3.copyWith(
+                  color: textPrimary,
                 ),
                 maxLines: 1,
               ),
               SizedBox(height: 8.h),
               AutoSizeText(
                 AppLocalizations.of(context)?.unlockAiTutor ?? 'Unlock AI Tutor',
-                style: GoogleFonts.poppins(
-                  fontSize: 14.sp,
-                  color: Colors.white70,
+                style: AppTypography.bodyM.copyWith(
+                  color: textSecondary,
                 ),
                 maxLines: 2,
                 textAlign: TextAlign.center,
@@ -82,8 +88,8 @@ class PaywallGuard extends ConsumerWidget {
               ElevatedButton(
                 onPressed: () => _navigateToPaywall(context),
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: AppColors.eagleGold,
-                  foregroundColor: Colors.black,
+                  backgroundColor: AppColors.gold,
+                  foregroundColor: isDark ? AppColors.darkBg : AppColors.lightTextPrimary,
                   padding: EdgeInsets.symmetric(
                     horizontal: 32.w,
                     vertical: 12.h,
@@ -94,9 +100,8 @@ class PaywallGuard extends ConsumerWidget {
                 ),
                 child: AutoSizeText(
                   AppLocalizations.of(context)?.upgrade ?? 'Upgrade',
-                  style: GoogleFonts.poppins(
+                  style: AppTypography.button.copyWith(
                     fontSize: 16.sp,
-                    fontWeight: FontWeight.bold,
                   ),
                   maxLines: 1,
                 ),

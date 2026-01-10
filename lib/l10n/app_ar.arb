@@ -467,6 +467,118 @@
   "cloudSync": "مزامنة السحابة",
   "@cloudSync": {
     "description": "نص توضيحي لمؤشر مزامنة السحابة"
+  },
+  "themeTitle": "اختر المظهر",
+  "@themeTitle": {
+    "description": "عنوان نافذة اختيار المظهر"
+  },
+  "close": "إغلاق",
+  "@close": {
+    "description": "نص زر الإغلاق"
+  },
+  "appearance": "المظهر",
+  "@appearance": {
+    "description": "عنوان قسم إعدادات المظهر"
+  },
+  "examReadinessReport": "تقرير الجاهزية للامتحان",
+  "@examReadinessReport": {
+    "description": "عنوان نافذة تقرير الجاهزية للامتحان"
+  },
+  "overallScore": "النتيجة الإجمالية",
+  "@overallScore": {
+    "description": "تسمية النتيجة الإجمالية للجاهزية"
+  },
+  "componentScores": "تفاصيل النتائج",
+  "@componentScores": {
+    "description": "تسمية قسم تفاصيل النتائج"
+  },
+  "questionMastery": "إتقان الأسئلة",
+  "@questionMastery": {
+    "description": "تسمية نتيجة إتقان الأسئلة"
+  },
+  "examPerformance": "أداء الامتحانات",
+  "@examPerformance": {
+    "description": "تسمية نتيجة أداء الامتحانات"
+  },
+  "studyConsistency": "الانتظام في الدراسة",
+  "@studyConsistency": {
+    "description": "تسمية نتيجة الانتظام في الدراسة"
+  },
+  "stateQuestions": "أسئلة الولاية",
+  "@stateQuestions": {
+    "description": "تسمية نتيجة أسئلة الولاية"
+  },
+  "statistics": "الإحصائيات",
+  "@statistics": {
+    "description": "تسمية قسم الإحصائيات"
+  },
+  "questionsAnswered": "الأسئلة المجابة",
+  "@questionsAnswered": {
+    "description": "تسمية إجمالي الأسئلة المجابة"
+  },
+  "questionsMastered": "الأسئلة المتقنة",
+  "@questionsMastered": {
+    "description": "تسمية عدد الأسئلة المتقنة"
+  },
+  "correctAnswers": "الإجابات الصحيحة",
+  "@correctAnswers": {
+    "description": "تسمية عدد الإجابات الصحيحة"
+  },
+  "examsCompleted": "الامتحانات المكتملة",
+  "@examsCompleted": {
+    "description": "تسمية عدد الامتحانات المكتملة"
+  },
+  "currentStreak": "سلسلة الأيام",
+  "@currentStreak": {
+    "description": "تسمية سلسلة الدراسة الحالية"
+  },
+  "studySessionsLast7Days": "جلسات الدراسة (آخر 7 أيام)",
+  "@studySessionsLast7Days": {
+    "description": "تسمية جلسات الدراسة في آخر 7 أيام"
+  },
+  "totalStudyTime": "إجمالي وقت الدراسة",
+  "@totalStudyTime": {
+    "description": "تسمية إجمالي وقت الدراسة"
+  },
+  "strengths": "نقاط القوة",
+  "@strengths": {
+    "description": "تسمية قسم نقاط القوة"
+  },
+  "weaknesses": "نقاط الضعف",
+  "@weaknesses": {
+    "description": "تسمية قسم نقاط الضعف"
+  },
+  "recommendations": "التوصيات",
+  "@recommendations": {
+    "description": "تسمية قسم التوصيات"
+  },
+  "tapToViewDetailedReport": "اضغط لعرض التقرير التفصيلي",
+  "@tapToViewDetailedReport": {
+    "description": "نص تلميح للضغط على بطاقة الجاهزية لعرض التقرير"
+  },
+  "excellentFullyReady": "ممتاز - جاهز تماماً",
+  "@excellentFullyReady": {
+    "description": "نص الحالة للجاهزية الممتازة (>=85%)"
+  },
+  "readyForExam": "جاهز للامتحان",
+  "@readyForExam": {
+    "description": "نص الحالة للجاهزية (>=70%)"
+  },
+  "almostReady": "قريب من الجاهزية",
+  "@almostReady": {
+    "description": "نص الحالة للجاهزية القريبة (>=50%)"
+  },
+  "needsMoreWork": "يحتاج إلى مزيد من العمل",
+  "@needsMoreWork": {
+    "description": "نص الحالة للحاجة إلى العمل (<50%)"
+  },
+  "days": "يوم",
+  "@days": {
+    "description": "وحدة الأيام في السلسلة"
+  },
+  "hours": "ساعة",
+  "@hours": {
+    "description": "وحدة الساعات في وقت الدراسة"
   }
 }
 

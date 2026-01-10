@@ -40,6 +40,14 @@ class UserPreferencesService {
     return prefs.getString(_keySelectedState);
   }
 
+  /// جلب الولاية المحفوظة (synchronous - للاستخدام في use cases)
+  static String? getSelectedStateSync() {
+    // Note: This is a workaround. In production, consider using a sync storage solution
+    // For now, we'll return null and handle it in the use case
+    // This method exists to avoid async calls in report generation
+    return null; // Will be handled by async version in report generator
+  }
+
   /// حفظ تاريخ الامتحان
   static Future<void> saveExamDate(DateTime examDate) async {
     final prefs = await SharedPreferences.getInstance();

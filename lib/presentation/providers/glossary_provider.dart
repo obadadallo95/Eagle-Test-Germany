@@ -40,3 +40,20 @@ final glossarySearchProvider = FutureProvider.family<List<Term>, String>((ref, q
   }).toList();
 });
 
+/// Provider للفلترة حسب القسم
+final glossaryCategoryProvider = FutureProvider.family<List<Term>, String?>((ref, category) async {
+  final glossaryAsync = await ref.watch(glossaryProvider.future);
+  
+  if (category == null || category.isEmpty) return glossaryAsync;
+  
+  return glossaryAsync.where((term) => term.category == category).toList();
+});
+
+/// Provider للحصول على جميع الأقسام المتاحة
+final glossaryCategoriesProvider = FutureProvider<List<String>>((ref) async {
+  final glossaryAsync = await ref.watch(glossaryProvider.future);
+  final categories = glossaryAsync.map((term) => term.category ?? 'Other').toSet().toList();
+  categories.sort();
+  return categories;
+});
+
